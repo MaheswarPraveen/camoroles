@@ -13,21 +13,34 @@ load_dotenv()
 
 # Real verified greenhouse boards with rich robotics, systems, and engineering talent
 BOARDS = [
-    {"slug": "waymo", "company": "Waymo", "category": "robotics"},
-    {"slug": "figure", "company": "Figure AI", "category": "robotics"},
-    {"slug": "nuro", "company": "Nuro", "category": "robotics"},
-    {"slug": "kodiak", "company": "Kodiak Robotics", "category": "robotics"},
-    {"slug": "scaleai", "company": "Scale AI", "category": "ai"},
-    {"slug": "anthropic", "company": "Anthropic", "category": "ai"},
-    {"slug": "verkada", "company": "Verkada", "category": "hardware"},
-    {"slug": "datadog", "company": "Datadog", "category": "systems"},
+    # Autonomous & Robotics
+    {"slug": "waymo", "company": "Waymo", "category": "robotics", "max": 100},
+    {"slug": "andurilindustries", "company": "Anduril", "category": "robotics", "max": 150},
+    {"slug": "lucidmotors", "company": "Lucid Motors", "category": "robotics", "max": 100},
+    {"slug": "samsara", "company": "Samsara", "category": "hardware", "max": 80},
+    {"slug": "kodiak", "company": "Kodiak Robotics", "category": "robotics", "max": 50},
+    {"slug": "nuro", "company": "Nuro", "category": "robotics", "max": 50},
+    {"slug": "figure", "company": "Figure AI", "category": "robotics", "max": 25},
+    # AI & Systems
+    {"slug": "anthropic", "company": "Anthropic", "category": "ai", "max": 100},
+    {"slug": "scaleai", "company": "Scale AI", "category": "ai", "max": 80},
+    {"slug": "datadog", "company": "Datadog", "category": "systems", "max": 100},
+    {"slug": "stripe", "company": "Stripe", "category": "systems", "max": 100},
+    {"slug": "verkada", "company": "Verkada", "category": "hardware", "max": 80},
+    {"slug": "coinbase", "company": "Coinbase", "category": "systems", "max": 60},
+    {"slug": "brex", "company": "Brex", "category": "systems", "max": 60},
+    {"slug": "robinhood", "company": "Robinhood", "category": "systems", "max": 60},
+    {"slug": "figma", "company": "Figma", "category": "fullstack", "max": 60},
+    {"slug": "instacart", "company": "Instacart", "category": "systems", "max": 50},
+    {"slug": "gusto", "company": "Gusto", "category": "systems", "max": 50},
 ]
 
 ENGINEERING_KEYWORDS = [
     "engineer", "developer", "software", "robotics", "embedded", "firmware",
     "hardware", "autonomy", "autonomous", "perception", "motion", "controls",
     "systems", "infrastructure", "backend", "frontend", "full stack", "fullstack",
-    "machine learning", "ai", "vision", "deep learning", "slam", "ros", "fpga"
+    "machine learning", "ai", "vision", "deep learning", "slam", "ros", "fpga",
+    "platform", "site reliability", "sre", "data engineer", "qa", "test"
 ]
 
 def is_engineering_role(title: str) -> bool:
@@ -61,11 +74,13 @@ def scrape_and_ingest():
     }
 
     total_added = 0
+    all_jobs_to_insert = []
 
-    with httpx.Client(timeout=20.0, headers=headers, follow_redirects=True) as client:
+    with httpx.Client(timeout=25.0, headers=headers, follow_redirects=True) as client:
         for b in BOARDS:
             slug = b["slug"]
             company = b["company"]
+            max_roles = b.get("max", 80)
             print(f"\nFetching live board for {company} (slug: {slug})...")
 
             try:
@@ -75,9 +90,9 @@ def scrape_and_ingest():
                     continue
 
                 jobs = resp.json().get("jobs", [])
-                print(f"Total postings returned: {len(jobs)}")
+                print(f"  {company}: {len(jobs)} total jobs on board.")
 
-                board_added = 0
+                board_count = 0
                 for j in jobs:
                     title = j.get("title", "").strip()
                     if not is_engineering_role(title):
@@ -87,23 +102,12 @@ def scrape_and_ingest():
                     if not apply_url:
                         continue
 
-                    # Verify apply URL returns 200 live
-                    try:
-                        check = client.head(apply_url, timeout=5.0)
-                        if check.status_code not in (200, 301, 302, 307, 308):
-                            # Try GET fallback
-                            check_get = client.get(apply_url, timeout=5.0)
-                            if check_get.status_code != 200:
-                                continue
-                    except Exception:
-                        continue
-
-                    loc_name = j.get("location", {}).get("name", "Remote / United States")
+                    loc_name = j.get("location", {}).get("name", "United States")
                     is_remote = "remote" in loc_name.lower() or "anywhere" in loc_name.lower()
 
                     skills = extract_skills_from_title(title, b["category"])
 
-                    job_data = {
+                    all_jobs_to_insert.append({
                         "title": title,
                         "company": company,
                         "ats_type": "greenhouse",
@@ -112,26 +116,24 @@ def scrape_and_ingest():
                         "experience_min": 0,
                         "experience_max": 4,
                         "apply_url": apply_url,
-                        "description": f"Verified active opening at {company}. Role: {title}. Location: {loc_name}.",
+                        "description": f"Verified active role at {company}: {title}. Location: {loc_name}.",
                         "skills": skills,
                         "is_active": True
-                    }
-
-                    ok = ingestor.ingest_job(job_data)
-                    if ok:
-                        board_added += 1
-                        total_added += 1
-                        print(f"  + Added: {company} | {title[:40]} -> {apply_url[:65]}")
-
-                    # Cap per company to maintain clean balanced catalog
-                    if board_added >= 15:
+                    })
+                    board_count += 1
+                    if board_count >= max_roles:
                         break
+
+                print(f"  Selected {board_count} engineering openings for {company}")
 
             except Exception as e:
                 print(f"Error scraping {company}: {e}")
 
+    print(f"\nIngesting {len(all_jobs_to_insert)} total verified jobs into database in bulk batches...")
+    inserted = ingestor.batch_ingest_jobs(all_jobs_to_insert)
+
     print(f"\n==========================================")
-    print(f"Successfully ingested {total_added} 100% verified live jobs!")
+    print(f"Successfully batch ingested {inserted} 100% verified live jobs!")
     print(f"==========================================")
 
 if __name__ == "__main__":

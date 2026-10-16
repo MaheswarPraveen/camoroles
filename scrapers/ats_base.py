@@ -69,3 +69,43 @@ class ATSIngestor:
         except Exception as e:
             print(f"[FAIL] Upsert error for {apply_url}: {e}")
             return False
+
+    def batch_ingest_jobs(self, jobs_data: List[Dict[str, Any]]) -> int:
+        """Batch upserts multiple jobs at high speed into Supabase."""
+        if not jobs_data:
+            return 0
+
+        rows = []
+        for j in jobs_data:
+            url = str(j.get("apply_url", "")).strip()
+            if not url:
+                continue
+            rows.append({
+                "title": str(j.get("title", "")).strip(),
+                "company": str(j.get("company", "")).strip(),
+                "ats_type": str(j.get("ats_type", "direct")),
+                "location": str(j.get("location", "Remote / Worldwide")).strip(),
+                "is_remote": bool(j.get("is_remote", False)),
+                "experience_min": int(j.get("experience_min", 0)),
+                "experience_max": int(j.get("experience_max", 3)),
+                "apply_url": url,
+                "description": str(j.get("description", "")).strip(),
+                "skills": list(j.get("skills", [])),
+                "is_active": True
+            })
+
+        inserted = 0
+        batch_size = 50
+        for i in range(0, len(rows), batch_size):
+            chunk = rows[i:i + batch_size]
+            try:
+                r = self.client.post(self.endpoint, headers=self.headers, json=chunk)
+                if r.status_code in (200, 201, 204):
+                    inserted += len(chunk)
+                    print(f"[OK] Batch ingested {len(chunk)} jobs (progress: {inserted}/{len(rows)})")
+                else:
+                    print(f"[WARN] Batch error {r.status_code}: {r.text[:100]}")
+            except Exception as e:
+                print(f"[FAIL] Batch chunk error: {e}")
+
+        return inserted
