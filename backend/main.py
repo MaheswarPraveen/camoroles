@@ -58,71 +58,58 @@ def verify_token(authorization: Optional[str] = Header(None)) -> str:
     return "01455453-042a-435a-ad51-1e4e5c193864"
 
 def extract_job_sources(job: Dict[str, Any], is_unlocked: bool) -> List[Dict[str, Any]]:
-    """Extracts verified multi-source links with official branding for FAANG, Big Tech, and ATS portals."""
+    """Extracts verified official career application links. Every link points directly to the real job application."""
     sources = []
     ats_type = str(job.get("ats_type", "direct")).lower()
     apply_url = str(job.get("apply_url", ""))
-    company_lower = str(job.get("company", "")).lower()
+    company = str(job.get("company", "")).strip()
+    company_lower = company.lower()
 
     brand = "direct"
-    title = "Official Careers"
+    portal_name = company if company else "Company Portal"
 
-    if "apple" in company_lower:
-        brand = "apple"
-        title = "Apple Careers"
-    elif "microsoft" in company_lower:
-        brand = "microsoft"
-        title = "Microsoft Careers"
-    elif "google" in company_lower:
-        brand = "google"
-        title = "Google Careers"
-    elif "amazon" in company_lower:
-        brand = "amazon"
-        title = "Amazon Jobs"
-    elif "meta" in company_lower:
-        brand = "meta"
-        title = "Meta Careers"
-    elif "uber" in company_lower:
-        brand = "uber"
-        title = "Uber Careers"
-    elif "sony" in company_lower:
-        brand = "sony"
-        title = "Sony Careers"
-    elif "nvidia" in company_lower:
-        brand = "nvidia"
-        title = "NVIDIA Careers"
-    elif "tesla" in company_lower:
-        brand = "tesla"
-        title = "Tesla Careers"
+    if "waymo" in company_lower:
+        brand = "waymo"
+        portal_name = "Waymo"
+    elif "figure" in company_lower:
+        brand = "figure"
+        portal_name = "Figure AI"
+    elif "nuro" in company_lower:
+        brand = "nuro"
+        portal_name = "Nuro"
+    elif "kodiak" in company_lower:
+        brand = "kodiak"
+        portal_name = "Kodiak Robotics"
+    elif "scale" in company_lower:
+        brand = "scaleai"
+        portal_name = "Scale AI"
+    elif "anthropic" in company_lower:
+        brand = "anthropic"
+        portal_name = "Anthropic"
+    elif "verkada" in company_lower:
+        brand = "verkada"
+        portal_name = "Verkada"
+    elif "datadog" in company_lower:
+        brand = "datadog"
+        portal_name = "Datadog"
     elif "ycombinator" in ats_type or "ycombinator.com" in apply_url:
         brand = "ycombinator"
-        title = "Y Combinator"
+        portal_name = "Y Combinator"
     elif "greenhouse" in ats_type or "greenhouse.io" in apply_url:
         brand = "greenhouse"
-        title = "Greenhouse"
+        portal_name = f"{company} (Greenhouse)" if company else "Greenhouse"
     elif "lever" in ats_type or "lever.co" in apply_url:
         brand = "lever"
-        title = "Lever"
+        portal_name = f"{company} (Lever)" if company else "Lever"
     elif "workable" in ats_type or "workable.com" in apply_url:
         brand = "workable"
-        title = "Workable"
-    elif "keka" in ats_type or "keka.com" in apply_url:
-        brand = "keka"
-        title = "Keka Hire"
+        portal_name = "Workable"
 
     sources.append({
         "brand": brand,
-        "name": f"Apply on {title}" if is_unlocked else f"Verified {title}",
+        "name": f"Apply on {portal_name}" if is_unlocked else f"Verified {portal_name}",
         "url": apply_url if is_unlocked else None
     })
-
-    if is_unlocked and job.get("company"):
-        clean_company = job["company"].strip().replace(" ", "+")
-        sources.append({
-            "brand": "direct",
-            "name": f"{job['company']} Career Search",
-            "url": f"https://www.google.com/search?q={clean_company}+careers+jobs"
-        })
 
     return sources
 
