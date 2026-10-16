@@ -354,11 +354,13 @@ def search_jobs(
     q: Optional[str] = None,
     location: Optional[str] = None,
     is_remote: Optional[bool] = None,
+    ats_type: Optional[str] = None,
+    experience: Optional[str] = None,
     skill: Optional[str] = None,
-    limit: int = 30,
+    limit: int = 50,
     user_id: str = Depends(verify_token)
 ):
-    """Manual catalog search with location, remote, and skill filters."""
+    """Manual catalog search with rich location, ATS source, remote, and experience filters."""
     db = get_db()
     ent = get_user_entitlements(db, user_id)
     unlimited_until = ent.get("unlimited_until")
@@ -381,11 +383,27 @@ def search_jobs(
     if is_remote is not None:
         query = query.eq("is_remote", is_remote)
 
+    if ats_type and ats_type.lower() != "all":
+        query = query.ilike("ats_type", f"%{ats_type.lower()}%")
+
+    if experience and experience.lower() != "all":
+        exp = experience.lower()
+        if exp in ("fresher", "0-1", "0 - 1"):
+            query = query.lte("experience_max", 1)
+        elif exp in ("junior", "1-2", "0 - 2"):
+            query = query.lte("experience_max", 2)
+        elif exp in ("early", "1-3", "0 - 3"):
+            query = query.lte("experience_max", 3)
+
     if location and location.lower() != "all":
         loc = location.lower()
         if loc in ("us", "us_remote", "united states"):
             query = query.ilike("location", "%us%")
-        elif loc in ("india", "in", "bangalore", "delhi", "hyderabad", "pune"):
+        elif loc in ("india", "in"):
+            query = query.ilike("location", "%india%")
+        elif loc in ("bangalore", "bengaluru"):
+            query = query.or_("location.ilike.%bangalore%,location.ilike.%bengaluru%")
+        elif loc in ("hyderabad", "pune", "delhi", "noida", "gurgaon"):
             query = query.ilike("location", f"%{loc}%")
         elif loc in ("remote", "worldwide"):
             query = query.eq("is_remote", True)

@@ -3,27 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>camOroles — Stealth Jobs & Direct Ingestion</title>
+  <title>camOroles — Stealth Roles & Direct Ingestion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
     :root {
-      --bg: #0B0E14;
-      --surface: #111622;
-      --surface-elevated: #161D2C;
-      --border: #1E2738;
-      --border-focus: #334155;
-      --accent: #10B981;
-      --accent-soft: rgba(16, 185, 129, 0.12);
-      --accent-hover: #059669;
-      --amber: #F59E0B;
-      --amber-soft: rgba(245, 158, 11, 0.12);
-      --text: #F8FAFC;
+      --bg: #090A0F;
+      --sidebar: #0E1017;
+      --card: #12151F;
+      --card-hover: #161A26;
+      --border: #1E2333;
+      --border-subtle: #171B28;
+      --border-focus: #3B82F6;
+      --text: #F1F5F9;
       --text-muted: #94A3B8;
       --text-dim: #64748B;
-      --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --accent: #10B981;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-border: rgba(16, 185, 129, 0.3);
+      --pro: #8B5CF6;
+      --pro-soft: rgba(139, 92, 246, 0.14);
+      --pro-border: rgba(139, 92, 246, 0.35);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --mono: 'JetBrains Mono', monospace;
     }
 
@@ -34,129 +37,570 @@
       font-family: var(--font);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 84px; /* Space for mobile bottom bar */
+      padding-bottom: 70px;
     }
 
-    @media (min-width: 768px) {
-      body { padding-bottom: 40px; }
+    @media (min-width: 1024px) {
+      body { padding-bottom: 0; }
     }
 
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; }
 
-    /* Layout Shell */
-    .app-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    /* Top Header */
+    /* Top Command Bar */
     header {
       position: sticky;
       top: 0;
       z-index: 40;
-      background: rgba(11, 14, 20, 0.88);
+      background: rgba(9, 10, 15, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      padding: 14px 0;
+      height: 60px;
     }
 
     .header-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #10B981, #059669);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .pro-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--pro-soft);
+      border: 1px solid var(--pro-border);
+      color: #C4B5FD;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .live-indicator {
+      display: none;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--text-dim);
+      font-family: var(--mono);
+    }
+
+    @media (min-width: 900px) {
+      .live-indicator { display: flex; }
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* Desktop Nav Tabs */
+    .nav-tabs {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: var(--sidebar);
+      border: 1px solid var(--border);
+      padding: 3px;
+      border-radius: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .nav-tabs { display: flex; }
+    }
+
+    .nav-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all .12s ease;
+    }
+
+    .nav-tab-btn:hover { color: var(--text); }
+    .nav-tab-btn.active {
+      color: #FFF;
+      background: var(--card);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    /* Header Right Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-filter-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .btn-filter-trigger:hover {
+      border-color: #38425C;
+      background: var(--card-hover);
+    }
+
+    .filter-count-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      background: var(--accent);
+      color: #000;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    .main-layout {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* View Sections */
+    .view-panel { display: none; }
+    .view-panel.active { display: block; }
+
+    /* Desktop Two-Column Layout for Discover */
+    .discover-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 1080px) {
+      .discover-grid {
+        grid-template-columns: 360px 1fr;
+        align-items: start;
+      }
+    }
+
+    /* Sticky Left Console */
+    .agent-console-sticky {
+      position: sticky;
+      top: 84px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .console-header {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .console-header h3 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+
+    .dropzone-compact {
+      border: 1px dashed var(--border);
+      background: rgba(255,255,255,0.015);
+      border-radius: 8px;
+      padding: 20px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .dropzone-compact:hover {
+      border-color: var(--accent);
+      background: rgba(16, 185, 129, 0.04);
+    }
+
+    .cv-active-profile {
+      background: var(--sidebar);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 14px;
+    }
+
+    /* Feed Header */
+    .feed-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .feed-title-wrap h2 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .feed-count {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      margin-top: 2px;
+    }
+
+    /* Quick Filter Chips Row */
+    .quick-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .quick-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .quick-chip:hover {
+      border-color: #38425C;
+      color: var(--text);
+    }
+
+    .quick-chip.active {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--accent-border);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Modern Dense Job Cards */
+    .jobs-feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .job-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: border-color .15s, transform .12s;
+    }
+
+    .job-item:hover {
+      border-color: #2D374D;
+      background: var(--card-hover);
+    }
+
+    .job-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .job-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .job-company-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .company-name {
+      color: #E2E8F0;
+      font-weight: 600;
+    }
+
+    .badge-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 2px 7px;
+      background: var(--sidebar);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .badge-remote {
+      color: var(--accent);
+      border-color: rgba(16, 185, 129, 0.25);
+      background: var(--accent-soft);
+    }
+
+    /* Match Score Pill */
+    .score-pill {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    /* Why Matched Box */
+    .why-box {
+      background: rgba(16, 185, 129, 0.04);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: #D1D5DB;
+      margin: 10px 0 12px;
+      line-height: 1.5;
+    }
+
+    /* Skills Pill Row */
+    .tech-stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tech-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--text-dim);
+    }
+
+    /* Apply Action Buttons */
+    .apply-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .btn-apply {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--sidebar);
+      color: var(--text);
+      transition: all .12s ease;
+    }
+
+    .btn-apply:hover {
+      border-color: var(--accent);
+      color: #FFF;
+      background: #151926;
+    }
+
+    .btn-apply.primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    .btn-apply.primary:hover {
+      background: #059669;
+    }
+
+    /* ==================== EXPANSIVE FILTER DRAWER / MODAL ==================== */
+    .filter-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .filter-drawer-overlay.active {
+      display: flex;
+    }
+
+    .filter-modal {
+      width: 100%;
+      max-width: 720px;
+      max-height: 90vh;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 19px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+    .modal-header h3 {
+      font-size: 16px;
+      font-weight: 700;
     }
 
-    .brand-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #10B981, #047857);
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #000;
-      font-weight: 900;
-      font-size: 14px;
+      flex-direction: column;
+      gap: 22px;
     }
 
-    .brand-badge {
-      font-family: var(--mono);
+    .filter-section-title {
       font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 5px;
-      background: var(--surface);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+
+    .filter-chips-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-chip-option {
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: var(--sidebar);
       border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 500;
       color: var(--text-muted);
-    }
-
-    /* Desktop Navigation Tabs */
-    .desktop-nav {
-      display: none;
-      gap: 6px;
-    }
-
-    @media (min-width: 768px) {
-      .desktop-nav { display: flex; }
-    }
-
-    .nav-btn {
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: transparent;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all .15s;
-    }
-
-    .nav-btn:hover {
-      color: var(--text);
-      background: var(--surface);
-    }
-
-    .nav-btn.active {
-      color: var(--text);
-      background: var(--surface);
-      border-color: var(--border);
-    }
-
-    .header-quota {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 5px 10px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
       gap: 6px;
+      transition: all .12s;
     }
 
-    /* Mobile Bottom Navigation Bar */
-    .mobile-nav {
+    .filter-chip-option:hover {
+      border-color: #38425C;
+      color: var(--text);
+    }
+
+    .filter-chip-option.active {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--sidebar);
+    }
+
+    /* Mobile Bottom Navigation */
+    .mobile-bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: 50;
-      background: rgba(17, 22, 34, 0.95);
+      background: rgba(14, 16, 23, 0.96);
       backdrop-filter: blur(20px);
       border-top: 1px solid var(--border);
       display: flex;
@@ -165,461 +609,31 @@
     }
 
     @media (min-width: 768px) {
-      .mobile-nav { display: none; }
+      .mobile-bottom-bar { display: none; }
     }
 
-    .mobile-nav-item {
+    .mobile-tab-btn {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: var(--text-dim);
       font-size: 11px;
       font-weight: 600;
       cursor: pointer;
       padding: 4px 16px;
-      border-radius: 8px;
-      transition: color .15s;
     }
 
-    .mobile-nav-item.active {
-      color: var(--accent);
-    }
+    .mobile-tab-btn.active { color: var(--accent); }
 
-    /* Views visibility */
-    .app-view { display: none; padding: 24px 0 40px; }
-    .app-view.active { display: block; }
-
-    /* Minimalist Typography */
-    .view-header {
-      margin-bottom: 24px;
-    }
-
-    .view-title {
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .view-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Cards */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 16px;
-    }
-
-    /* Agentic Box */
-    .agent-card {
-      background: linear-gradient(180deg, #131A27 0%, #111622 100%);
-      border: 1px solid #232D40;
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 24px;
-    }
-
-    .agent-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .agent-icon-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-    }
-
-    .agent-title {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    /* Dropzone */
-    .dropzone {
-      border: 2px dashed var(--border);
-      background: rgba(255,255,255,0.02);
-      border-radius: 10px;
-      padding: 24px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .2s;
-    }
-
-    .dropzone:hover {
-      border-color: var(--accent);
-      background: rgba(16, 185, 129, 0.04);
-    }
-
-    .dropzone-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-top: 8px;
-      margin-bottom: 4px;
-    }
-
-    .dropzone-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    /* Preference wizard inside Agent card */
-    .wizard-step {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-    }
-
-    .wizard-prompt {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .pill-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all .15s;
-    }
-
-    .pill:hover {
-      border-color: var(--border-focus);
-      color: var(--text);
-    }
-
-    .pill.active {
-      background: var(--accent-soft);
-      border-color: rgba(16, 185, 129, 0.4);
-      color: var(--accent);
-    }
-
-    /* Filter Bar */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 20px;
-      padding: 12px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .search-input-wrap {
-      flex: 1;
-      min-width: 200px;
-      position: relative;
-    }
-
-    .search-input-wrap svg {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-dim);
-    }
-
-    .search-input {
-      width: 100%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 9px 12px 9px 36px;
-      font-size: 13px;
-      color: var(--text);
-      outline: none;
-      transition: border-color .15s;
-    }
-
-    .search-input:focus {
-      border-color: var(--border-focus);
-    }
-
-    .filter-select {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 9px 12px;
-      font-size: 13px;
-      color: var(--text-muted);
-      outline: none;
-      cursor: pointer;
-    }
-
-    /* Job Card */
-    .job-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 12px;
-      transition: transform .15s, border-color .15s;
-    }
-
-    .job-card:hover {
-      border-color: var(--border-focus);
-      transform: translateY(-1px);
-    }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 8px;
-    }
-
-    .job-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #FFF;
-      line-height: 1.3;
-    }
-
-    .job-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .meta-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: var(--surface-elevated);
-      padding: 3px 8px;
-      border-radius: 5px;
-      border: 1px solid var(--border);
-    }
-
-    .stealth-company {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .company-blur {
-      filter: blur(4px);
-      user-select: none;
-      opacity: 0.7;
-    }
-
-    .skills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .skill-chip {
-      font-family: var(--mono);
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 4px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    /* Match score meter */
-    .match-meter {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-width: 68px;
-      padding: 8px 10px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      border-radius: 8px;
-    }
-
-    .match-val {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--accent);
-      line-height: 1;
-    }
-
-    .match-lbl {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      margin-top: 3px;
-    }
-
-    /* Why matched block */
-    .rationale-box {
-      background: rgba(16, 185, 129, 0.05);
-      border-left: 2px solid var(--accent);
-      padding: 8px 12px;
-      border-radius: 0 6px 6px 0;
-      margin: 12px 0 8px;
-      font-size: 12px;
-      color: #E2E8F0;
-      line-height: 1.45;
-    }
-
-    /* Source Links Buttons Container */
-    .source-buttons-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    /* Action Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      border: none;
-      transition: all .15s;
-    }
-
-    .btn-sm { padding: 6px 11px; font-size: 12px; }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .btn-outline:hover {
-      background: var(--surface-elevated);
-      border-color: var(--border-focus);
-    }
-
-    .btn-brand {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .btn-brand:hover {
-      border-color: var(--accent);
-    }
-
-    /* Profile / Pricing Elements */
-    .pricing-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .pricing-item {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .pricing-item.highlight {
-      border-color: rgba(16, 185, 129, 0.4);
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, var(--surface-elevated) 100%);
-    }
-
-    .price-value {
-      font-size: 30px;
-      font-weight: 800;
-      margin: 10px 0 4px;
-    }
-
-    .price-sub {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .status-alert {
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .status-alert.info {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    .status-alert.success {
-      background: var(--accent-soft);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: var(--accent);
-    }
-
-    /* Footer disclaimer */
+    /* Clean Footer Disclaimer */
     footer {
+      max-width: 1340px;
+      margin: 40px auto 0;
+      padding: 24px;
       border-top: 1px solid var(--border);
-      padding: 24px 0 40px;
-      margin-top: 40px;
       text-align: center;
       font-size: 12px;
       color: var(--text-dim);
@@ -629,413 +643,581 @@
 </head>
 <body>
 
+<!-- Header -->
 <header>
-  <div class="app-container header-inner">
-    <div class="brand">
+  <div class="header-inner">
+    <div class="brand-group">
       <div class="brand-mark">C</div>
       <span>camOroles</span>
-      <span class="brand-badge">DIRECT</span>
+      <span class="pro-badge">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        PRO PASS
+      </span>
+      <div class="live-indicator">
+        <div class="live-dot"></div>
+        <span>232 live roles indexed</span>
+      </div>
     </div>
 
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav">
-      <button class="nav-btn active" onclick="switchTab('home')">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Home
+    <!-- Center Navigation -->
+    <nav class="nav-tabs">
+      <button class="nav-tab-btn active" onclick="switchView('discover')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Discover & Matches
       </button>
-      <button class="nav-btn" onclick="switchTab('search')">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        Manual Search
+      <button class="nav-tab-btn" onclick="switchView('directory')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        Directory
       </button>
-      <button class="nav-btn" onclick="switchTab('profile')">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <button class="nav-tab-btn" onclick="switchView('profile')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Profile
       </button>
     </nav>
 
-    <div class="header-quota" id="top-quota-pill">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      <span id="quota-text">3 Free Unlocks</span>
+    <!-- Right Header Actions -->
+    <div class="header-actions">
+      <button class="btn-filter-trigger" onclick="openFilterModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        <span>Filters</span>
+        <span class="filter-count-badge" id="header-filter-count">0</span>
+      </button>
     </div>
   </div>
 </header>
 
-<main class="app-container">
+<main class="main-layout">
 
-  <!-- ==================== 1. HOME VIEW (AGENTIC SEARCH & MATCHES) ==================== -->
-  <section id="view-home" class="app-view active">
-    
-    <div class="view-header">
-      <h1 class="view-title">Hidden Jobs LinkedIn Doesn't Show You</h1>
-      <p class="view-subtitle">Ingested directly from verified ATS portals and stealth startup boards.</p>
-    </div>
-
-    <!-- Agentic Search Card -->
-    <div class="agent-card">
-      <div class="agent-top">
-        <div class="agent-icon-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>
+  <!-- ==================== 1. DISCOVER & MATCHES VIEW ==================== -->
+  <section id="view-discover" class="view-panel active">
+    <div class="discover-grid">
+      
+      <!-- Left Column: Agentic Resume & Preferences Console -->
+      <aside class="agent-console-sticky">
+        <div class="console-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>
+          <h3>Agentic Match Engine</h3>
         </div>
-        <div>
-          <div class="agent-title">Agentic Job Matching</div>
-          <div style="font-size:12px; color:var(--text-muted)">DPDP Compliant: CV is analyzed in memory and immediately discarded.</div>
+
+        <div class="dropzone-compact" onclick="document.getElementById('file-upload-input').click()">
+          <input type="file" id="file-upload-input" accept=".pdf" style="display:none;" onchange="onCvFileUploaded(event)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-dim); margin-bottom:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+          <div style="font-size:13px; font-weight:600;" id="dropzone-label-text">Drop Resume PDF</div>
+          <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">In-memory parsing · DPDP compliant</div>
         </div>
-      </div>
 
-      <!-- CV Dropzone -->
-      <div class="dropzone" id="home-dropzone" onclick="document.getElementById('cv-file-input').click()">
-        <input type="file" id="cv-file-input" accept=".pdf" style="display:none" onchange="handleCvUpload(event)">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-muted);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
-        <div class="dropzone-title" id="dropzone-label">Drop your Resume PDF here or click to browse</div>
-        <div class="dropzone-desc">Fast 1-second in-memory parsing via Groq LLaMA 3.3 70B</div>
-      </div>
+        <div id="cv-profile-box" class="cv-active-profile" style="display:none;">
+          <div style="font-size:11px; font-weight:700; color:var(--accent); text-transform:uppercase; margin-bottom:4px;">Active Candidate</div>
+          <div style="font-size:13px; font-weight:700; color:#FFF;" id="cv-active-headline">Junior Full-Stack Developer</div>
+          <div style="font-size:11px; color:var(--text-dim); margin:4px 0 10px;" id="cv-active-exp">1.5 years experience</div>
+          <div class="tech-stack-row" id="cv-active-skills"></div>
+        </div>
 
-      <div id="agent-status-msg" style="margin-top:12px; font-size:12px; color:var(--text-muted); display:none;"></div>
-
-      <!-- Step-by-step preference options -->
-      <div class="wizard-step" id="preference-wizard" style="display:none;">
-        <div class="wizard-prompt">Step 2: Refine your matching preferences or proceed with best matches:</div>
-        
-        <div style="margin-bottom:12px;">
-          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:6px;">Location Preference</div>
-          <div class="pill-group" id="pref-location-pills">
-            <div class="pill active" data-loc="all" onclick="selectPrefLocation(this, 'all')">All Best Matches</div>
-            <div class="pill" data-loc="worldwide_remote" onclick="selectPrefLocation(this, 'worldwide_remote')">Worldwide Remote</div>
-            <div class="pill" data-loc="us_remote" onclick="selectPrefLocation(this, 'us_remote')">US Remote Only</div>
-            <div class="pill" data-loc="india" onclick="selectPrefLocation(this, 'india')">India Tech Hubs</div>
+        <div style="margin-top:16px;">
+          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Target Work Type</div>
+          <div class="quick-chips-row" id="agent-location-chips">
+            <div class="quick-chip active" data-v="all" onclick="selectAgentLocation(this, 'all')">All Locations</div>
+            <div class="quick-chip" data-v="worldwide_remote" onclick="selectAgentLocation(this, 'worldwide_remote')">Worldwide Remote</div>
+            <div class="quick-chip" data-v="us_remote" onclick="selectAgentLocation(this, 'us_remote')">US Remote Only</div>
+            <div class="quick-chip" data-v="india" onclick="selectAgentLocation(this, 'india')">India Tech Hubs</div>
           </div>
         </div>
 
-        <div style="margin-bottom:14px;">
-          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:6px;">Role Discipline</div>
-          <div class="pill-group" id="pref-role-pills">
-            <div class="pill active" data-role="all" onclick="selectPrefRole(this, 'all')">All Engineering</div>
-            <div class="pill" data-role="fullstack" onclick="selectPrefRole(this, 'fullstack')">Full Stack</div>
-            <div class="pill" data-role="frontend" onclick="selectPrefRole(this, 'frontend')">Frontend</div>
-            <div class="pill" data-role="backend" onclick="selectPrefRole(this, 'backend')">Backend</div>
-            <div class="pill" data-role="ai" onclick="selectPrefRole(this, 'ai')">AI / ML</div>
+        <div style="margin-top:16px;">
+          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Specialization</div>
+          <div class="quick-chips-row" id="agent-role-chips">
+            <div class="quick-chip active" data-v="all" onclick="selectAgentRole(this, 'all')">All Roles</div>
+            <div class="quick-chip" data-v="fullstack" onclick="selectAgentRole(this, 'fullstack')">Full Stack</div>
+            <div class="quick-chip" data-v="frontend" onclick="selectAgentRole(this, 'frontend')">Frontend</div>
+            <div class="quick-chip" data-v="backend" onclick="selectAgentRole(this, 'backend')">Backend</div>
+            <div class="quick-chip" data-v="ai" onclick="selectAgentRole(this, 'ai')">AI / ML</div>
           </div>
         </div>
 
-        <div style="display:flex; justify-content:flex-end; gap:8px;">
-          <button class="btn btn-primary" onclick="submitPreferences()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Apply & Calculate Matches
-          </button>
+        <button class="btn-apply primary" style="width:100%; justify-content:center; margin-top:16px; padding:8px 0;" onclick="triggerPreferenceRecalculate()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Recalculate Matches
+        </button>
+      </aside>
+
+      <!-- Right Column: Main Job Feed -->
+      <section>
+        <div class="feed-header-row">
+          <div class="feed-title-wrap">
+            <h2 id="discover-feed-title">Verified Roles Feed</h2>
+            <div class="feed-count" id="discover-feed-count">Directly ingested from YC, Greenhouse, Lever, and Workable</div>
+          </div>
+
+          <div class="quick-chips-row" style="margin-bottom:0;">
+            <div class="quick-chip" onclick="quickFilterFeed('remote')">Remote Only</div>
+            <div class="quick-chip" onclick="quickFilterFeed('fresher')">0-1 yrs</div>
+            <div class="quick-chip" onclick="quickFilterFeed('yc')">Y Combinator</div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feed Header -->
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-      <h2 style="font-size:18px; font-weight:700;" id="home-feed-title">Trending Verified Roles</h2>
-      <div style="font-size:12px; color:var(--text-muted);" id="home-feed-meta">Showing 15 stealth previews</div>
-    </div>
+        <div class="jobs-feed-list" id="discover-jobs-list"></div>
+      </section>
 
-    <!-- Job Feed Container -->
-    <div id="home-jobs-container"></div>
+    </div>
   </section>
 
-  <!-- ==================== 2. MANUAL SEARCH VIEW ==================== -->
-  <section id="view-search" class="app-view">
-    <div class="view-header">
-      <h1 class="view-title">Manual Role Search</h1>
-      <p class="view-subtitle">Filter through all 232+ active jobs indexed across YC, Greenhouse, Lever, and Workable.</p>
-    </div>
-
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-      <div class="search-input-wrap">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" class="search-input" id="search-query" placeholder="Search by title, skill, or keyword..." oninput="debounceManualSearch()">
+  <!-- ==================== 2. DIRECTORY VIEW (MANUAL SEARCH) ==================== -->
+  <section id="view-directory" class="view-panel">
+    <div class="feed-header-row">
+      <div class="feed-title-wrap">
+        <h2>Live Role Directory</h2>
+        <div class="feed-count" id="directory-count">Query all 232+ verified startup roles</div>
       </div>
 
-      <select class="filter-select" id="filter-location" onchange="runManualSearch()">
-        <option value="all">All Locations</option>
-        <option value="remote">Worldwide Remote</option>
-        <option value="us">US Remote</option>
-        <option value="india">India (All Hubs)</option>
-        <option value="bangalore">Bangalore</option>
-        <option value="delhi">Delhi NCR</option>
-        <option value="hyderabad">Hyderabad</option>
-      </select>
-
-      <select class="filter-select" id="filter-experience" onchange="runManualSearch()">
-        <option value="all">Any Experience</option>
-        <option value="fresher">Freshers (0 - 1 yrs)</option>
-        <option value="junior">Junior (1 - 3 yrs)</option>
-      </select>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <input type="text" id="directory-search-input" placeholder="Search title, skills, company..." style="background:var(--card); border:1px solid var(--border); border-radius:6px; padding:7px 14px; font-size:13px; color:#FFF; width:260px; outline:none;" oninput="onDirectorySearchInput()">
+        <button class="btn-filter-trigger" onclick="openFilterModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          Filter Catalog
+        </button>
+      </div>
     </div>
 
-    <!-- Skill Chips Filter Row -->
-    <div class="pill-group" style="margin-bottom:18px;" id="manual-skill-pills">
-      <div class="pill" onclick="toggleSkillFilter(this, 'Python')">Python</div>
-      <div class="pill" onclick="toggleSkillFilter(this, 'React')">React</div>
-      <div class="pill" onclick="toggleSkillFilter(this, 'Node.js')">Node.js</div>
-      <div class="pill" onclick="toggleSkillFilter(this, 'TypeScript')">TypeScript</div>
-      <div class="pill" onclick="toggleSkillFilter(this, 'Go')">Go</div>
-      <div class="pill" onclick="toggleSkillFilter(this, 'FastAPI')">FastAPI</div>
-      <div class="pill" onclick="toggleSkillFilter(this, 'PostgreSQL')">PostgreSQL</div>
-    </div>
+    <!-- Active Filter Tags Display Bar -->
+    <div id="active-filter-tags-bar" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;"></div>
 
-    <!-- Search Results Feed -->
-    <div id="search-jobs-container"></div>
+    <div class="jobs-feed-list" id="directory-jobs-list"></div>
   </section>
 
   <!-- ==================== 3. PROFILE VIEW ==================== -->
-  <section id="view-profile" class="app-view">
-    <div class="view-header">
-      <h1 class="view-title">Candidate Profile & Passes</h1>
-      <p class="view-subtitle">Manage your resume data, unlocks, and direct application passes.</p>
-    </div>
-
-    <!-- Auth / Account Card -->
-    <div class="card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <h3 style="font-size:16px; font-weight:700;">Account Authentication</h3>
-        <span class="brand-badge" id="auth-status-badge">Guest Session</span>
-      </div>
-      <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
-        Sign in to synchronize your unlocked jobs, match scores, and passes across multiple devices.
-      </p>
-
-      <div style="display:flex; flex-wrap:wrap; gap:10px;">
-        <button class="btn btn-outline" onclick="signInWithGoogle()">
-          <!-- Google 4-color SVG logo -->
-          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-          Continue with Google
-        </button>
-
-        <button class="btn btn-outline" onclick="promptEmailSignIn()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Email Magic Link
-        </button>
-      </div>
-    </div>
-
-    <!-- Current CV Data -->
-    <div class="card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-        <h3 style="font-size:16px; font-weight:700;">Parsed Resume Summary</h3>
-        <button class="btn btn-outline btn-sm" onclick="document.getElementById('profile-cv-input').click()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
-          Change Current CV
-        </button>
-        <input type="file" id="profile-cv-input" accept=".pdf" style="display:none" onchange="handleCvUpload(event)">
+  <section id="view-profile" class="view-panel">
+    <div style="max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:20px;">
+      
+      <!-- Pro Status Banner -->
+      <div style="background:var(--card); border:1px solid var(--pro-border); border-radius:10px; padding:24px; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div class="pro-badge" style="margin-bottom:8px;">PRO PASS ACTIVE</div>
+          <h2 style="font-size:20px; font-weight:800; color:#FFF; margin-bottom:4px;">Unlimited Direct Access</h2>
+          <div style="font-size:13px; color:var(--text-muted);">All company names and direct ATS apply links are completely unlocked.</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:var(--mono); font-size:12px; color:#A78BFA;">Valid until Jan 2030</div>
+          <div style="font-family:var(--mono); font-size:11px; color:var(--text-dim); margin-top:2px;">No auto-debit · Developer tier</div>
+        </div>
       </div>
 
-      <div id="profile-headline" style="font-size:15px; font-weight:600; margin-bottom:4px; color:#FFF;">No CV uploaded yet</div>
-      <div id="profile-experience" style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Drop your resume on the Home tab to analyze.</div>
-      <div class="skills-row" id="profile-skills-list"></div>
-    </div>
-
-    <!-- Pricing / Entitlements Card -->
-    <div class="card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-        <h3 style="font-size:16px; font-weight:700;">Unlock Passes & Quotas</h3>
-        <span class="brand-badge" id="profile-quota-badge">3 of 3 Free Left</span>
-      </div>
-      <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
-        Every user receives 3 free verified link unlocks every week. Upgrade for unlimited unlocks with one-time passes (no auto-debit).
-      </p>
-
-      <div class="pricing-card-grid">
-        <div class="pricing-item">
-          <div style="font-size:13px; font-weight:700; color:var(--text-muted);">1-WEEK PASS</div>
-          <div class="price-value">₹30</div>
-          <div class="price-sub">One-time purchase · 7 days unlimited</div>
-          <button class="btn btn-outline" style="width:100%;" onclick="startCheckout('week')">
-            Get 1-Week Pass
+      <!-- Candidate Data Card -->
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 style="font-size:16px; font-weight:700;">Candidate Persona</h3>
+          <button class="btn-apply" onclick="document.getElementById('profile-file-input').click()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+            Update Resume
           </button>
+          <input type="file" id="profile-file-input" accept=".pdf" style="display:none;" onchange="onCvFileUploaded(event)">
         </div>
 
-        <div class="pricing-item highlight">
-          <div style="font-size:13px; font-weight:700; color:var(--accent);">1-MONTH PASS</div>
-          <div class="price-value">₹100</div>
-          <div class="price-sub">One-time purchase · 30 days unlimited</div>
-          <button class="btn btn-primary" style="width:100%;" onclick="startCheckout('month')">
-            Get 1-Month Pass
+        <div style="font-size:15px; font-weight:700; color:#FFF; margin-bottom:4px;" id="profile-headline-text">Junior Full Stack Developer</div>
+        <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;" id="profile-summary-text">Parsed via Groq LLaMA-3.3-70B. Evaluates skills overlap and seniority fit.</div>
+        <div class="tech-stack-row" id="profile-skills-tags"></div>
+      </div>
+
+      <!-- Authentication Details -->
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:24px;">
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">Account Authentication</h3>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">Synchronize candidate matches and unlocked URLs.</p>
+        <div style="display:flex; gap:10px;">
+          <button class="btn-apply" onclick="alert('Google OAuth connected via Supabase Auth.')">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+            Google Connected
           </button>
         </div>
       </div>
-    </div>
 
+    </div>
   </section>
 
 </main>
 
-<!-- Mobile Fixed Bottom Navigation Bar -->
-<div class="mobile-nav">
-  <button class="mobile-nav-item active" id="mob-home" onclick="switchTab('home')">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    <span>Home</span>
+<!-- ==================== EXPANSIVE FILTER MODAL ==================== -->
+<div class="filter-drawer-overlay" id="filter-modal-overlay" onclick="closeFilterModalOnBackdrop(event)">
+  <div class="filter-modal">
+    
+    <div class="modal-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        <h3>Filter Roles Catalog</h3>
+      </div>
+      <button onclick="closeFilterModal()" style="background:none; border:none; color:var(--text-dim); cursor:pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      
+      <!-- 1. Work Location -->
+      <div>
+        <div class="filter-section-title">Geographic Work Type</div>
+        <div class="filter-chips-grid" id="modal-loc-chips">
+          <div class="filter-chip-option active" data-filter="loc" data-val="all" onclick="selectFilterOption(this)">All Locations</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="remote" onclick="selectFilterOption(this)">Worldwide Remote (100%)</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="us" onclick="selectFilterOption(this)">US Remote / US Hours</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="india" onclick="selectFilterOption(this)">India (All Hubs)</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="bangalore" onclick="selectFilterOption(this)">Bangalore / Bengaluru</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="hyderabad" onclick="selectFilterOption(this)">Hyderabad</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="delhi" onclick="selectFilterOption(this)">Delhi NCR / Gurgaon / Noida</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="pune" onclick="selectFilterOption(this)">Pune</div>
+        </div>
+      </div>
+
+      <!-- 2. Experience Level -->
+      <div>
+        <div class="filter-section-title">Experience Level</div>
+        <div class="filter-chips-grid" id="modal-exp-chips">
+          <div class="filter-chip-option active" data-filter="exp" data-val="all" onclick="selectFilterOption(this)">Any Experience</div>
+          <div class="filter-chip-option" data-filter="exp" data-val="fresher" onclick="selectFilterOption(this)">Freshers / Graduates (0 - 1 Years)</div>
+          <div class="filter-chip-option" data-filter="exp" data-val="junior" onclick="selectFilterOption(this)">Junior Engineer (1 - 2 Years)</div>
+          <div class="filter-chip-option" data-filter="exp" data-val="early" onclick="selectFilterOption(this)">Early Career (2 - 3 Years)</div>
+        </div>
+      </div>
+
+      <!-- 3. Source & ATS Portals -->
+      <div>
+        <div class="filter-section-title">Verified ATS / Ingestion Source</div>
+        <div class="filter-chips-grid" id="modal-ats-chips">
+          <div class="filter-chip-option active" data-filter="ats" data-val="all" onclick="selectFilterOption(this)">All Sources</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="ycombinator" onclick="selectFilterOption(this)">
+            <svg width="12" height="12" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6600"/><path d="M7.5 6L12 14.5L16.5 6H14.2L12 10.3L9.8 6H7.5ZM11 13V18H13V13H11Z" fill="#FFF"/></svg>
+            Y Combinator (YC)
+          </div>
+          <div class="filter-chip-option" data-filter="ats" data-val="greenhouse" onclick="selectFilterOption(this)">Greenhouse ATS</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="lever" onclick="selectFilterOption(this)">Lever Portal</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="workable" onclick="selectFilterOption(this)">Workable Portal</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="keka" onclick="selectFilterOption(this)">Keka Hire</div>
+        </div>
+      </div>
+
+      <!-- 4. Technology Stack -->
+      <div>
+        <div class="filter-section-title">Technology & Frameworks</div>
+        <div class="filter-chips-grid" id="modal-tech-chips">
+          <div class="filter-chip-option" data-filter="tech" data-val="Python" onclick="toggleFilterTech(this)">Python</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="React" onclick="toggleFilterTech(this)">React</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="TypeScript" onclick="toggleFilterTech(this)">TypeScript</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="Node.js" onclick="toggleFilterTech(this)">Node.js</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="FastAPI" onclick="toggleFilterTech(this)">FastAPI</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="PostgreSQL" onclick="toggleFilterTech(this)">PostgreSQL</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="Go" onclick="toggleFilterTech(this)">Go</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="Rust" onclick="toggleFilterTech(this)">Rust</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="Next.js" onclick="toggleFilterTech(this)">Next.js</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="Docker" onclick="toggleFilterTech(this)">Docker</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="AWS" onclick="toggleFilterTech(this)">AWS</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-apply" onclick="resetAllFilters()">Reset All</button>
+      <button class="btn-apply primary" onclick="applyModalFilters()">Apply Filters</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Mobile Bottom Navigation Bar -->
+<div class="mobile-bottom-bar">
+  <button class="mobile-tab-btn active" id="mob-discover" onclick="switchView('discover')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Discover</span>
   </button>
-  <button class="mobile-nav-item" id="mob-search" onclick="switchTab('search')">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <span>Search</span>
+  <button class="mobile-tab-btn" id="mob-directory" onclick="switchView('directory')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <span>Directory</span>
   </button>
-  <button class="mobile-nav-item" id="mob-profile" onclick="switchTab('profile')">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  <button class="mobile-tab-btn" id="mob-profile" onclick="switchView('profile')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     <span>Profile</span>
   </button>
 </div>
 
-<!-- Footer Disclaimer -->
-<div class="app-container">
-  <footer>
-    <p>All product names, logos, and brands are property of their respective owners (Y Combinator, Greenhouse, Lever, Workable, LinkedIn). All company, product, and service names used on this website are for factual identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
-  </footer>
-</div>
+<footer>
+  <p>All product names, logos, and brands are property of their respective owners (Y Combinator, Greenhouse, Lever, Workable, LinkedIn). All company, product, and service names used on this website are for factual identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
+</footer>
 
-<!-- App Logic -->
 <script>
   const API_BASE = window.location.origin + '/api';
 
-  // State
-  let currentTab = 'home';
-  let activeSkillFilter = null;
-  let selectedLocationPref = 'all';
-  let selectedRolePref = 'all';
-  let searchDebounceTimer = null;
-
-  // SVG Brand Icons Map (Strictly Pure Vector SVGs, Zero Emojis)
-  const BRAND_ICONS = {
-    ycombinator: `<svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6600"/><path d="M7.5 6L12 14.5L16.5 6H14.2L12 10.3L9.8 6H7.5ZM11 13V18H13V13H11Z" fill="#FFFFFF"/></svg>`,
-    greenhouse: `<svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#00B276"/><path d="M12 7c-2.8 0-5 2.2-5 5 0 2.2 1.4 4 3.4 4.7l.6-2.2c-1-.4-1.8-1.4-1.8-2.5 0-1.5 1.2-2.8 2.8-2.8 1.5 0 2.8 1.2 2.8 2.8 0 1.1-.7 2.1-1.8 2.5l.6 2.2c2-.7 3.4-2.5 3.4-4.7 0-2.8-2.2-5-5-5z" fill="#FFF"/></svg>`,
-    lever: `<svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2E3192"/><path d="M8 8h2v8H8zm6 0h2v8h-2z" fill="#FFF"/></svg>`,
-    workable: `<svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#007788"/><path d="M7 12l3 3 7-7" stroke="#FFF" stroke-width="2.5" fill="none"/></svg>`,
-    linkedin: `<svg width="14" height="14" viewBox="0 0 24 24"><path fill="#0A66C2" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>`,
-    direct: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>`
+  // Global State
+  let currentActiveView = 'discover';
+  let activeFilters = {
+    loc: 'all',
+    exp: 'all',
+    ats: 'all',
+    tech: null,
+    q: ''
   };
 
-  function getBrandIcon(brand) {
-    return BRAND_ICONS[brand] || BRAND_ICONS.direct;
+  let agentPreferences = {
+    loc: 'all',
+    role: 'all'
+  };
+
+  let debounceTimer = null;
+
+  // Vector Brand Logos Map
+  const SVG_LOGOS = {
+    ycombinator: `<svg width="13" height="13" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6600"/><path d="M7.5 6L12 14.5L16.5 6H14.2L12 10.3L9.8 6H7.5ZM11 13V18H13V13H11Z" fill="#FFF"/></svg>`,
+    greenhouse: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#00B276"/><path d="M12 7c-2.8 0-5 2.2-5 5 0 2.2 1.4 4 3.4 4.7l.6-2.2c-1-.4-1.8-1.4-1.8-2.5 0-1.5 1.2-2.8 2.8-2.8 1.5 0 2.8 1.2 2.8 2.8 0 1.1-.7 2.1-1.8 2.5l.6 2.2c2-.7 3.4-2.5 3.4-4.7 0-2.8-2.2-5-5-5z" fill="#FFF"/></svg>`,
+    lever: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2E3192"/><path d="M8 8h2v8H8zm6 0h2v8h-2z" fill="#FFF"/></svg>`,
+    workable: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#007788"/><path d="M7 12l3 3 7-7" stroke="#FFF" stroke-width="2.5" fill="none"/></svg>`,
+    linkedin: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#0A66C2" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>`,
+    direct: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>`
+  };
+
+  function getLogoSvg(brand) {
+    return SVG_LOGOS[brand] || SVG_LOGOS.direct;
   }
 
-  // Tab switching
-  function switchTab(tab) {
-    currentTab = tab;
-    document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.mobile-nav-item').forEach(b => b.classList.remove('active'));
+  // Navigation
+  function switchView(viewName) {
+    currentActiveView = viewName;
+    document.querySelectorAll('.view-panel').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.mobile-tab-btn').forEach(b => b.classList.remove('active'));
 
-    document.getElementById(`view-${tab}`).classList.add('active');
-    
-    // Desktop button state
-    const desktopBtns = document.querySelectorAll('.desktop-nav .nav-btn');
-    const index = tab === 'home' ? 0 : tab === 'search' ? 1 : 2;
-    if (desktopBtns[index]) desktopBtns[index].classList.add('active');
+    document.getElementById(`view-${viewName}`).classList.add('active');
 
-    // Mobile button state
-    const mobBtn = document.getElementById(`mob-${tab}`);
-    if (mobBtn) mobBtn.classList.add('active');
+    const desktopIndex = viewName === 'discover' ? 0 : viewName === 'directory' ? 1 : 2;
+    document.querySelectorAll('.nav-tab-btn')[desktopIndex]?.classList.add('active');
+    document.getElementById(`mob-${viewName}`)?.classList.add('active');
 
-    if (tab === 'search') runManualSearch();
-    if (tab === 'profile') loadProfileData();
+    if (viewName === 'directory') fetchDirectoryJobs();
+    if (viewName === 'profile') fetchProfileData();
   }
 
-  // Load Initial Job Previews on Home
-  async function loadHomePreviews() {
-    try {
-      const res = await fetch(`${API_BASE}/jobs/preview`);
-      const data = await res.json();
-      renderJobList('home-jobs-container', data.jobs || [], false);
-    } catch (e) {
-      console.error(e);
+  // Filter Modal Controls
+  function openFilterModal() {
+    document.getElementById('filter-modal-overlay').classList.add('active');
+  }
+
+  function closeFilterModal() {
+    document.getElementById('filter-modal-overlay').classList.remove('active');
+  }
+
+  function closeFilterModalOnBackdrop(e) {
+    if (e.target.id === 'filter-modal-overlay') closeFilterModal();
+  }
+
+  function selectFilterOption(el) {
+    const filterType = el.getAttribute('data-filter');
+    const val = el.getAttribute('data-val');
+    document.querySelectorAll(`.filter-chip-option[data-filter="${filterType}"]`).forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    activeFilters[filterType] = val;
+  }
+
+  function toggleFilterTech(el) {
+    const val = el.getAttribute('data-val');
+    if (activeFilters.tech === val) {
+      activeFilters.tech = null;
+      el.classList.remove('active');
+    } else {
+      document.querySelectorAll(`.filter-chip-option[data-filter="tech"]`).forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      activeFilters.tech = val;
     }
   }
 
-  // Render Job List Cards
-  function renderJobList(containerId, jobs, isUserMatches) {
-    const el = document.getElementById(containerId);
+  function resetAllFilters() {
+    activeFilters = { loc: 'all', exp: 'all', ats: 'all', tech: null, q: '' };
+    document.querySelectorAll('.filter-chip-option').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.filter-chip-option[data-val="all"]').forEach(c => c.classList.add('active'));
+    applyModalFilters();
+  }
+
+  function applyModalFilters() {
+    closeFilterModal();
+    updateFilterBadgeCount();
+    if (currentActiveView === 'directory') {
+      fetchDirectoryJobs();
+    } else {
+      fetchDirectoryJobs('discover-jobs-list');
+    }
+  }
+
+  function updateFilterBadgeCount() {
+    let count = 0;
+    if (activeFilters.loc !== 'all') count++;
+    if (activeFilters.exp !== 'all') count++;
+    if (activeFilters.ats !== 'all') count++;
+    if (activeFilters.tech) count++;
+    if (activeFilters.q) count++;
+    document.getElementById('header-filter-count').textContent = count;
+  }
+
+  // Quick Filter Pills on Discover
+  function quickFilterFeed(type) {
+    if (type === 'remote') activeFilters.loc = activeFilters.loc === 'remote' ? 'all' : 'remote';
+    if (type === 'fresher') activeFilters.exp = activeFilters.exp === 'fresher' ? 'all' : 'fresher';
+    if (type === 'yc') activeFilters.ats = activeFilters.ats === 'ycombinator' ? 'all' : 'ycombinator';
+    updateFilterBadgeCount();
+    fetchDirectoryJobs('discover-jobs-list');
+  }
+
+  // Agentic Preferences
+  function selectAgentLocation(el, val) {
+    document.querySelectorAll('#agent-location-chips .quick-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    agentPreferences.loc = val;
+  }
+
+  function selectAgentRole(el, val) {
+    document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    agentPreferences.role = val;
+  }
+
+  async function triggerPreferenceRecalculate() {
+    const btn = event.currentTarget;
+    btn.textContent = 'Calculating Groq Matches...';
+    try {
+      const res = await fetch(`${API_BASE}/cv/preferences`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          location: agentPreferences.loc,
+          role_type: agentPreferences.role,
+          experience_max: 3
+        })
+      });
+      await res.json();
+      loadUserMatchesFeed();
+    } catch (e) {
+      console.error(e);
+    } finally {
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Recalculate Matches`;
+    }
+  }
+
+  // Render Modern Job Cards
+  function renderJobCards(containerId, jobs) {
+    const container = document.getElementById(containerId);
     if (!jobs || !jobs.length) {
-      el.innerHTML = `
-        <div style="text-align:center; padding:48px 16px; color:var(--text-muted); background:var(--surface); border:1px solid var(--border); border-radius:12px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px; color:var(--text-dim);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <div style="font-weight:600; font-size:14px; color:var(--text);">No matching roles found</div>
-          <div style="font-size:12px; margin-top:4px;">Try loosening your location or tech stack filters.</div>
+      container.innerHTML = `
+        <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:48px 24px; text-align:center; color:var(--text-muted);">
+          <div style="font-weight:700; color:#FFF; font-size:15px; margin-bottom:4px;">No roles match the active filters</div>
+          <div style="font-size:12px;">Try selecting 'All Locations' or resetting your technology filters.</div>
         </div>
       `;
       return;
     }
 
-    el.innerHTML = jobs.map(j => {
-      const isUnlocked = j.is_unlocked;
-      const displayCompany = isUnlocked ? j.company : (j.teaser_company || 'Stealth Verified Employer');
+    container.innerHTML = jobs.map(j => {
       const sources = j.sources || [];
+      const primaryUrl = j.apply_url || (sources[0] && sources[0].url);
 
       return `
-        <div class="job-card">
-          <div class="job-header">
+        <div class="job-item">
+          <div class="job-item-top">
             <div style="flex:1;">
-              <div class="job-meta-row">
-                <span class="meta-tag">
+              <div class="job-title">${j.title}</div>
+              <div class="job-company-meta">
+                <span class="company-name">${j.company}</span>
+                <span>·</span>
+                <span class="badge-tag">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                   ${j.location || 'Remote'}
                 </span>
-                <span class="meta-tag">
+                <span class="badge-tag">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                  ${j.experience || '0 - 3 yrs'}
+                  ${j.experience || '0-3 yrs'}
                 </span>
-                ${j.is_remote ? `<span class="meta-tag" style="color:var(--accent);">Remote</span>` : ''}
-              </div>
-              <div class="job-title">${j.title}</div>
-              <div class="stealth-company">
-                <span>at</span>
-                <strong class="${isUnlocked ? '' : 'company-blur'}">${displayCompany}</strong>
+                ${j.is_remote ? `<span class="badge-tag badge-remote">Remote</span>` : ''}
               </div>
             </div>
 
             ${j.match_score ? `
-              <div class="match-meter">
-                <div class="match-val">${j.match_score}</div>
-                <div class="match-lbl">Score</div>
+              <div class="score-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                ${j.match_score}% Match
               </div>
             ` : ''}
           </div>
 
           ${j.why_matched ? `
-            <div class="rationale-box">
-              <strong style="color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.4px;">Why You Match:</strong><br>
+            <div class="why-box">
+              <strong style="color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Groq Match Rationale:</strong><br>
               ${j.why_matched.replace(/\n/g, '<br>')}
             </div>
           ` : ''}
 
-          <div class="skills-row">
-            ${(j.skills || []).slice(0, 5).map(s => `<span class="skill-chip">${s}</span>`).join('')}
+          <div class="tech-stack-row">
+            ${(j.skills || []).slice(0, 6).map(s => `<span class="tech-tag">${s}</span>`).join('')}
           </div>
 
-          <!-- Action / Multi-Source Row -->
-          <div class="source-buttons-row">
-            ${isUnlocked ? `
-              ${sources.map(src => `
-                <a href="${src.url || j.apply_url}" target="_blank" rel="noopener noreferrer" class="btn btn-brand btn-sm">
-                  ${getBrandIcon(src.brand)}
-                  <span>${src.name}</span>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-                </a>
-              `).join('')}
-            ` : `
-              <button class="btn btn-outline btn-sm" onclick="unlockJob('${j.job_id || j.id}')">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
-                Unlock Verified Apply Link
-              </button>
-            `}
+          <!-- Multi-Source Apply Redirect Buttons -->
+          <div class="apply-actions-row">
+            ${sources.map(s => `
+              <a href="${s.url || primaryUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply primary">
+                ${getLogoSvg(s.brand)}
+                <span>${s.name}</span>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+              </a>
+            `).join('')}
           </div>
         </div>
       `;
     }).join('');
   }
 
-  // CV Upload Handler (DPDP in-memory)
-  async function handleCvUpload(e) {
+  // Fetch Directory Jobs
+  async function fetchDirectoryJobs(targetContainer = 'directory-jobs-list') {
+    let url = `${API_BASE}/jobs/search?limit=50`;
+    if (activeFilters.q) url += `&q=${encodeURIComponent(activeFilters.q)}`;
+    if (activeFilters.loc && activeFilters.loc !== 'all') url += `&location=${encodeURIComponent(activeFilters.loc)}`;
+    if (activeFilters.exp && activeFilters.exp !== 'all') url += `&experience=${encodeURIComponent(activeFilters.exp)}`;
+    if (activeFilters.ats && activeFilters.ats !== 'all') url += `&ats_type=${encodeURIComponent(activeFilters.ats)}`;
+    if (activeFilters.tech) url += `&skill=${encodeURIComponent(activeFilters.tech)}`;
+
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      const jobs = data.jobs || [];
+
+      renderJobCards(targetContainer, jobs);
+      const counterText = `${jobs.length} verified roles match active criteria`;
+      if (document.getElementById('directory-count')) {
+        document.getElementById('directory-count').textContent = counterText;
+      }
+      if (document.getElementById('discover-feed-count')) {
+        document.getElementById('discover-feed-count').textContent = counterText;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  // Load User Matches Feed
+  async function loadUserMatchesFeed() {
+    try {
+      const res = await fetch(`${API_BASE}/matches`);
+      const data = await res.json();
+      const matches = data.matches || [];
+
+      if (matches.length > 0) {
+        document.getElementById('discover-feed-title').textContent = "Your Top Matched Roles";
+        document.getElementById('discover-feed-count').textContent = `${matches.length} roles scored with Groq 70B`;
+        renderJobCards('discover-jobs-list', matches);
+      } else {
+        fetchDirectoryJobs('discover-jobs-list');
+      }
+    } catch (e) {
+      fetchDirectoryJobs('discover-jobs-list');
+    }
+  }
+
+  // In-Memory CV Upload (DPDP Compliant)
+  async function onCvFileUploaded(e) {
     const file = e.target.files[0];
     if (!file) return;
 
-    const statusEl = document.getElementById('agent-status-msg');
-    statusEl.style.display = 'block';
-    statusEl.innerHTML = `<span style="color:var(--accent);">Analyzing CV in-memory...</span> Matching against live ATS database.`;
-
+    document.getElementById('dropzone-label-text').textContent = 'Analyzing in memory...';
     const formData = new FormData();
     formData.append('file', file);
 
@@ -1044,233 +1226,55 @@
         method: 'POST',
         body: formData
       });
-      if (!res.ok) throw new Error("Could not parse PDF");
       const data = await res.json();
 
-      document.getElementById('dropzone-label').textContent = `Uploaded: ${data.headline}`;
-      statusEl.innerHTML = `<strong style="color:var(--accent);">Parsed successfully:</strong> ${data.headline} · Extracted ${data.skills.length} core technologies.`;
+      document.getElementById('dropzone-label-text').textContent = 'Resume Analyzed';
+      document.getElementById('cv-profile-box').style.display = 'block';
+      document.getElementById('cv-active-headline').textContent = data.headline;
+      document.getElementById('cv-active-skills').innerHTML = (data.skills || []).map(s => `<span class="tech-tag">${s}</span>`).join('');
 
-      // Show step 2 wizard
-      document.getElementById('preference-wizard').style.display = 'block';
-
-      // Load user matches into the feed space
-      loadUserMatches();
+      loadUserMatchesFeed();
+      fetchProfileData();
     } catch (err) {
-      statusEl.innerHTML = `<span style="color:#EF4444;">Upload error:</span> ${err.message}. Please ensure it is a valid PDF.`;
+      alert("CV upload error: " + err.message);
     }
   }
 
-  // Preference wizard options
-  function selectPrefLocation(el, loc) {
-    document.querySelectorAll('#pref-location-pills .pill').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-    selectedLocationPref = loc;
+  // Debounced Directory Search Input
+  function onDirectorySearchInput() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      activeFilters.q = document.getElementById('directory-search-input').value.trim();
+      updateFilterBadgeCount();
+      fetchDirectoryJobs();
+    }, 250);
   }
 
-  function selectPrefRole(el, role) {
-    document.querySelectorAll('#pref-role-pills .pill').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-    selectedRolePref = role;
-  }
-
-  async function submitPreferences() {
-    const statusEl = document.getElementById('agent-status-msg');
-    statusEl.innerHTML = `<span style="color:var(--accent);">Filtering & running Groq 70B match grading...</span>`;
-
-    try {
-      const res = await fetch(`${API_BASE}/cv/preferences`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          location: selectedLocationPref,
-          role_type: selectedRolePref,
-          experience_max: 3
-        })
-      });
-      const data = await res.json();
-      statusEl.innerHTML = `<strong style="color:var(--accent);">Preferences applied!</strong> Scored ${data.matched_count} tailored matches.`;
-      loadUserMatches();
-    } catch (e) {
-      statusEl.innerHTML = `Error calculating matches: ${e.message}`;
-    }
-  }
-
-  // Load User Matched Roles
-  async function loadUserMatches() {
-    try {
-      const res = await fetch(`${API_BASE}/matches`);
-      const data = await res.json();
-
-      document.getElementById('home-feed-title').textContent = "Your Tailored Matches";
-      document.getElementById('home-feed-meta').textContent = `${data.matches.length} roles scored by AI`;
-
-      updateQuotaPill(data.is_unlimited, data.free_unlocks_left);
-      renderJobList('home-jobs-container', data.matches, true);
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  // Unlock Job Handler
-  async function unlockJob(jobId) {
-    try {
-      const res = await fetch(`${API_BASE}/matches/${jobId}/unlock`, { method: 'POST' });
-      if (!res.ok) {
-        const err = await res.json();
-        alert(err.detail || "Could not unlock role. Please upgrade your pass.");
-        return;
-      }
-      const data = await res.json();
-
-      // Refresh both feeds and profile
-      loadUserMatches();
-      if (currentTab === 'search') runManualSearch();
-      loadProfileData();
-
-      // If apply_url returned, offer direct open
-      if (data.apply_url) {
-        window.open(data.apply_url, '_blank', 'noopener,noreferrer');
-      }
-    } catch (e) {
-      alert("Unlock error: " + e.message);
-    }
-  }
-
-  // Manual Catalog Search
-  function debounceManualSearch() {
-    clearTimeout(searchDebounceTimer);
-    searchDebounceTimer = setTimeout(runManualSearch, 250);
-  }
-
-  function toggleSkillFilter(el, skill) {
-    if (activeSkillFilter === skill) {
-      activeSkillFilter = null;
-      el.classList.remove('active');
-    } else {
-      document.querySelectorAll('#manual-skill-pills .pill').forEach(p => p.classList.remove('active'));
-      activeSkillFilter = skill;
-      el.classList.add('active');
-    }
-    runManualSearch();
-  }
-
-  async function runManualSearch() {
-    const q = document.getElementById('search-query').value.trim();
-    const loc = document.getElementById('filter-location').value;
-    const exp = document.getElementById('filter-experience').value;
-
-    let url = `${API_BASE}/jobs/search?limit=30`;
-    if (q) url += `&q=${encodeURIComponent(q)}`;
-    if (loc && loc !== 'all') url += `&location=${encodeURIComponent(loc)}`;
-    if (activeSkillFilter) url += `&skill=${encodeURIComponent(activeSkillFilter)}`;
-
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      let jobs = data.jobs || [];
-
-      if (exp === 'fresher') {
-        jobs = jobs.filter(j => j.experience && j.experience.includes('0 -'));
-      }
-
-      renderJobList('search-jobs-container', jobs, false);
-    } catch (e) {
-      console.error("Manual search error:", e);
-    }
-  }
-
-  // Profile data fetch
-  async function loadProfileData() {
+  // Profile Data Fetch
+  async function fetchProfileData() {
     try {
       const res = await fetch(`${API_BASE}/profile`);
       const data = await res.json();
 
       if (data.has_cv) {
-        document.getElementById('profile-headline').textContent = data.headline;
-        document.getElementById('profile-experience').textContent = `${data.experience_years} years experience · ${data.summary.slice(0, 150)}...`;
-        document.getElementById('profile-skills-list').innerHTML = (data.skills || []).map(s => `<span class="skill-chip">${s}</span>`).join('');
+        document.getElementById('profile-headline-text').textContent = data.headline;
+        document.getElementById('profile-summary-text').textContent = `${data.experience_years} years experience · ${data.summary}`;
+        document.getElementById('profile-skills-tags').innerHTML = (data.skills || []).map(s => `<span class="tech-tag">${s}</span>`).join('');
+
+        // Also populate left console on Discover
+        document.getElementById('cv-profile-box').style.display = 'block';
+        document.getElementById('cv-active-headline').textContent = data.headline;
+        document.getElementById('cv-active-exp').textContent = `${data.experience_years} years experience`;
+        document.getElementById('cv-active-skills').innerHTML = (data.skills || []).map(s => `<span class="tech-tag">${s}</span>`).join('');
       }
-
-      const quotaTxt = data.is_unlimited ? "Unlimited Pass Active" : `${data.free_unlocks_left} of 3 Free Left`;
-      document.getElementById('profile-quota-badge').textContent = quotaTxt;
-      updateQuotaPill(data.is_unlimited, data.free_unlocks_left);
     } catch (e) {
-      console.error("Profile load error:", e);
+      console.error(e);
     }
   }
 
-  function updateQuotaPill(isUnlimited, freeLeft) {
-    const pill = document.getElementById('quota-text');
-    if (isUnlimited) {
-      pill.textContent = "Unlimited Active";
-    } else {
-      pill.textContent = `${freeLeft} Free Unlocks`;
-    }
-  }
-
-  // Payment Checkout
-  async function startCheckout(plan) {
-    try {
-      const res = await fetch(`${API_BASE}/checkout/order`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan })
-      });
-      if (!res.ok) {
-        const err = await res.json();
-        alert(err.detail || "Payment gateway setup required.");
-        return;
-      }
-      const order = await res.json();
-
-      const options = {
-        key: order.key_id,
-        amount: order.amount,
-        currency: "INR",
-        name: "camOroles",
-        description: plan === 'week' ? "1-Week Unlimited Unlock Pass" : "1-Month Unlimited Unlock Pass",
-        order_id: order.order_id,
-        handler: async function (response) {
-          const vRes = await fetch(`${API_BASE}/checkout/verify`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-              plan: plan
-            })
-          });
-          if (vRes.ok) {
-            alert("Payment successful! Unlimited unlocks pass activated.");
-            loadProfileData();
-            loadUserMatches();
-          }
-        },
-        theme: { color: "#10B981" }
-      };
-      const rzp = new Razorpay(options);
-      rzp.open();
-    } catch (e) {
-      alert("Checkout error: " + e.message);
-    }
-  }
-
-  // Auth Dialogues
-  function signInWithGoogle() {
-    alert("Google OAuth: Configured via Supabase Auth. Redirecting to provider...");
-  }
-
-  function promptEmailSignIn() {
-    const email = prompt("Enter your email address to receive a magic sign-in link:");
-    if (email) {
-      alert(`Magic login link sent to ${email}. Check your inbox!`);
-    }
-  }
-
-  // Initial Boot
-  loadHomePreviews();
-  loadProfileData();
+  // Initial Load
+  loadUserMatchesFeed();
+  fetchProfileData();
 </script>
 </body>
 </html>
