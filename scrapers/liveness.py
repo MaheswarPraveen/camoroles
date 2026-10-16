@@ -1,8 +1,9 @@
 import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import httpx
 from datetime import datetime, timezone
 from dotenv import load_dotenv
-from supabase import create_client
 
 load_dotenv()
 
@@ -25,9 +26,15 @@ def verify_all_active_jobs():
         print("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in environment.")
         return
 
-    db = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
-    res = db.table("jobs").select("id, title, company, apply_url").eq("is_active", True).execute()
-    jobs = res.data or []
+    db_headers = {
+        "apikey": SUPABASE_SERVICE_ROLE_KEY,
+        "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    jobs_url = f"{SUPABASE_URL.rstrip('/')}/rest/v1/jobs?is_active=eq.true&select=id,title,company,apply_url"
+    r = httpx.get(jobs_url, headers=db_headers, timeout=15.0)
+    jobs = r.json() if r.status_code == 200 else []
 
     print(f"[{datetime.now(timezone.utc).isoformat()}] Checking liveness for {len(jobs)} active jobs...")
     active_count = 0
@@ -37,13 +44,12 @@ def verify_all_active_jobs():
         for job in jobs:
             url = job["apply_url"]
             try:
-                r = client.get(url)
-                # Check for HTTP errors or common ATS 'Job expired / closed' keywords
+                res = client.get(url)
                 is_closed = False
-                if r.status_code in [404, 410]:
+                if res.status_code in [404, 410]:
                     is_closed = True
-                elif r.status_code == 200:
-                    body_lower = r.text.lower()
+                elif res.status_code == 200:
+                    body_lower = res.text.lower()
                     if any(term in body_lower for term in [
                         "this job is no longer available",
                         "job has expired",
@@ -53,17 +59,18 @@ def verify_all_active_jobs():
                     ]):
                         is_closed = True
 
+                patch_url = f"{SUPABASE_URL.rstrip('/')}/rest/v1/jobs?id=eq.{job['id']}"
                 if is_closed:
-                    print(f"✖ CLOSED ({r.status_code}): {job['company']} - {job['title']} -> marking inactive")
-                    db.table("jobs").update({
+                    print(f"✖ CLOSED: {job['company']} - {job['title']} -> marked inactive")
+                    httpx.patch(patch_url, headers=db_headers, json={
                         "is_active": False,
                         "last_verified_at": datetime.now(timezone.utc).isoformat()
-                    }).eq("id", job["id"]).execute()
+                    })
                     closed_count += 1
                 else:
-                    db.table("jobs").update({
+                    httpx.patch(patch_url, headers=db_headers, json={
                         "last_verified_at": datetime.now(timezone.utc).isoformat()
-                    }).eq("id", job["id"]).execute()
+                    })
                     active_count += 1
 
             except Exception as e:
