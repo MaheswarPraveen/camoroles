@@ -1,0 +1,7037 @@
+[
+  {
+    "name": "Sarvam AI",
+    "domain": "sarvam.ai",
+    "category": "AI",
+    "ats": "keka",
+    "careers": "https://sarvamai.keka.com/careers"
+  },
+  {
+    "name": "Krutrim",
+    "domain": "olakrutrim.com",
+    "category": "AI",
+    "ats": "darwinbox",
+    "careers": "https://krutrim.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Wysa",
+    "domain": "wysa.io",
+    "category": "AI / Health",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/wysa"
+  },
+  {
+    "name": "Yellow.ai",
+    "domain": "yellow.ai",
+    "category": "AI / Conversational",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/yellowai"
+  },
+  {
+    "name": "Observe.ai",
+    "domain": "observe.ai",
+    "category": "AI / Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/observeai"
+  },
+  {
+    "name": "Skit.ai",
+    "domain": "skit.ai",
+    "category": "AI / Voice",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/skit"
+  },
+  {
+    "name": "Qure.ai",
+    "domain": "qure.ai",
+    "category": "AI / Healthcare",
+    "ats": "keka",
+    "careers": "https://qureai.keka.com/careers"
+  },
+  {
+    "name": "Gnani.ai",
+    "domain": "gnani.ai",
+    "category": "AI / Speech",
+    "ats": "keka",
+    "careers": "https://gnani.keka.com/careers"
+  },
+  {
+    "name": "Arya.ai",
+    "domain": "arya.ai",
+    "category": "AI / BFSI",
+    "ats": "zoho",
+    "careers": "https://aryaai.zohorecruit.com/jobs/Careers"
+  },
+  {
+    "name": "Entropik Tech",
+    "domain": "entropik.io",
+    "category": "AI / Emotion",
+    "ats": "keka",
+    "careers": "https://entropik.keka.com/careers"
+  },
+  {
+    "name": "Mad Street Den",
+    "domain": "madstreetden.com",
+    "category": "AI / Vision",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/madstreetden"
+  },
+  {
+    "name": "Sigmoid",
+    "domain": "sigmoid.com",
+    "category": "Data / AI",
+    "ats": "darwinbox",
+    "careers": "https://sigmoid.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Inkers",
+    "domain": "inkers.ai",
+    "category": "AI / Vision",
+    "ats": "keka",
+    "careers": "https://inkers.keka.com/careers"
+  },
+  {
+    "name": "CoRover.ai",
+    "domain": "corover.ai",
+    "category": "AI / Conversational",
+    "ats": "keka",
+    "careers": "https://corover.keka.com/careers"
+  },
+  {
+    "name": "Rezo.ai",
+    "domain": "rezo.ai",
+    "category": "AI / Automation",
+    "ats": "zoho",
+    "careers": "https://rezoai.zohorecruit.com/jobs/Careers"
+  },
+  {
+    "name": "Razorpay",
+    "domain": "razorpay.com",
+    "category": "Fintech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/razorpaysoftwareprivatelimited"
+  },
+  {
+    "name": "CRED",
+    "domain": "cred.club",
+    "category": "Fintech",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/cred"
+  },
+  {
+    "name": "Groww",
+    "domain": "groww.in",
+    "category": "WealthTech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/groww"
+  },
+  {
+    "name": "Zerodha",
+    "domain": "zerodha.com",
+    "category": "Fintech",
+    "ats": "direct",
+    "careers": "https://zerodha.com/careers"
+  },
+  {
+    "name": "Jupiter",
+    "domain": "jupiter.money",
+    "category": "Neobank",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/jupiter"
+  },
+  {
+    "name": "Fi Money",
+    "domain": "fi.money",
+    "category": "Neobank",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/fi"
+  },
+  {
+    "name": "Slice",
+    "domain": "sliceit.com",
+    "category": "Fintech",
+    "ats": "darwinbox",
+    "careers": "https://slice.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Cashfree Payments",
+    "domain": "cashfree.com",
+    "category": "Payments",
+    "ats": "darwinbox",
+    "careers": "https://cashfree.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Pine Labs",
+    "domain": "pinelabs.com",
+    "category": "PoS / Fintech",
+    "ats": "darwinbox",
+    "careers": "https://pinelabs.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "BharatPe",
+    "domain": "bharatpe.com",
+    "category": "Fintech",
+    "ats": "darwinbox",
+    "careers": "https://bharatpe.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Jar App",
+    "domain": "myjar.app",
+    "category": "Savings / Fintech",
+    "ats": "keka",
+    "careers": "https://changejar.keka.com/careers"
+  },
+  {
+    "name": "Khatabook",
+    "domain": "khatabook.com",
+    "category": "SME Fintech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/khatabook"
+  },
+  {
+    "name": "Open Financial",
+    "domain": "open.money",
+    "category": "Neobank",
+    "ats": "keka",
+    "careers": "https://openmoney.keka.com/careers"
+  },
+  {
+    "name": "INDmoney",
+    "domain": "indmoney.com",
+    "category": "WealthTech",
+    "ats": "darwinbox",
+    "careers": "https://indmoney.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Clear (ClearTax)",
+    "domain": "clear.in",
+    "category": "Tax / Fintech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/cleartax"
+  },
+  {
+    "name": "MobiKwik",
+    "domain": "mobikwik.com",
+    "category": "Fintech",
+    "ats": "darwinbox",
+    "careers": "https://mobikwik.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "KreditBee",
+    "domain": "kreditbee.in",
+    "category": "Lending",
+    "ats": "keka",
+    "careers": "https://kreditbee.keka.com/careers"
+  },
+  {
+    "name": "Money View",
+    "domain": "moneyview.in",
+    "category": "Lending",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/moneyview"
+  },
+  {
+    "name": "Lendingkart",
+    "domain": "lendingkart.com",
+    "category": "SME Lending",
+    "ats": "darwinbox",
+    "careers": "https://lendingkart.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Acko",
+    "domain": "acko.com",
+    "category": "InsurTech",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/acko"
+  },
+  {
+    "name": "Digit Insurance",
+    "domain": "godigit.com",
+    "category": "InsurTech",
+    "ats": "darwinbox",
+    "careers": "https://godigit.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Turtlemint",
+    "domain": "turtlemint.com",
+    "category": "InsurTech",
+    "ats": "keka",
+    "careers": "https://turtlemint.keka.com/careers"
+  },
+  {
+    "name": "Navi Technologies",
+    "domain": "navi.com",
+    "category": "Fintech / Lending",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/navi"
+  },
+  {
+    "name": "Mswipe",
+    "domain": "mswipe.com",
+    "category": "PoS / Fintech",
+    "ats": "keka",
+    "careers": "https://mswipe.keka.com/careers"
+  },
+  {
+    "name": "PayGlocal",
+    "domain": "payglocal.in",
+    "category": "Cross-border Payments",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/payglocal"
+  },
+  {
+    "name": "Decentro",
+    "domain": "decentro.tech",
+    "category": "Banking APIs",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/decentro"
+  },
+  {
+    "name": "Setu",
+    "domain": "setu.co",
+    "category": "Fintech APIs",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/setu"
+  },
+  {
+    "name": "OneCard (FPL)",
+    "domain": "getonecard.app",
+    "category": "Credit Cards",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/fpl"
+  },
+  {
+    "name": "Smallcase",
+    "domain": "smallcase.com",
+    "category": "WealthTech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/smallcase"
+  },
+  {
+    "name": "Uni Cards",
+    "domain": "uni.cards",
+    "category": "Fintech",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/uni"
+  },
+  {
+    "name": "Postman",
+    "domain": "postman.com",
+    "category": "DevTools / API",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/postman"
+  },
+  {
+    "name": "BrowserStack",
+    "domain": "browserstack.com",
+    "category": "DevTools / Testing",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/browserstack"
+  },
+  {
+    "name": "Hasura",
+    "domain": "hasura.io",
+    "category": "DevTools / GraphQL",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/hasura"
+  },
+  {
+    "name": "LambdaTest",
+    "domain": "lambdatest.com",
+    "category": "Cloud Testing",
+    "ats": "keka",
+    "careers": "https://lambdatest.keka.com/careers"
+  },
+  {
+    "name": "Zoho",
+    "domain": "zoho.com",
+    "category": "Enterprise SaaS",
+    "ats": "zoho",
+    "careers": "https://www.zoho.com/careers/"
+  },
+  {
+    "name": "Freshworks",
+    "domain": "freshworks.com",
+    "category": "Customer SaaS",
+    "ats": "smartrecruiters",
+    "careers": "https://careers.smartrecruiters.com/Freshworks"
+  },
+  {
+    "name": "Whatfix",
+    "domain": "whatfix.com",
+    "category": "Digital Adoption SaaS",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/whatfix"
+  },
+  {
+    "name": "Chargebee",
+    "domain": "chargebee.com",
+    "category": "Billing SaaS",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/chargebee"
+  },
+  {
+    "name": "Kissflow",
+    "domain": "kissflow.com",
+    "category": "Workplace SaaS",
+    "ats": "keka",
+    "careers": "https://kissflow.keka.com/careers"
+  },
+  {
+    "name": "Darwinbox",
+    "domain": "darwinbox.com",
+    "category": "HR Tech SaaS",
+    "ats": "darwinbox",
+    "careers": "https://darwinbox.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Keka HR",
+    "domain": "keka.com",
+    "category": "HR Tech SaaS",
+    "ats": "keka",
+    "careers": "https://keka.keka.com/careers"
+  },
+  {
+    "name": "LeadSquared",
+    "domain": "leadsquared.com",
+    "category": "CRM SaaS",
+    "ats": "darwinbox",
+    "careers": "https://leadsquared.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Innovaccer",
+    "domain": "innovaccer.com",
+    "category": "Health Cloud",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/innovaccer"
+  },
+  {
+    "name": "Icertis",
+    "domain": "icertis.com",
+    "category": "Contract SaaS",
+    "ats": "jobvite",
+    "careers": "https://jobs.jobvite.com/icertis"
+  },
+  {
+    "name": "Druva",
+    "domain": "druva.com",
+    "category": "Cloud Data Protection",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/druva"
+  },
+  {
+    "name": "Zenoti",
+    "domain": "zenoti.com",
+    "category": "Wellness SaaS",
+    "ats": "jobvite",
+    "careers": "https://jobs.jobvite.com/zenoti"
+  },
+  {
+    "name": "Sprinklr",
+    "domain": "sprinklr.com",
+    "category": "CX SaaS",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/sprinklr"
+  },
+  {
+    "name": "HighRadius",
+    "domain": "highradius.com",
+    "category": "Fintech SaaS",
+    "ats": "darwinbox",
+    "careers": "https://highradius.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Amagi",
+    "domain": "amagi.com",
+    "category": "Media Tech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/amagi"
+  },
+  {
+    "name": "Gupshup",
+    "domain": "gupshup.io",
+    "category": "Messaging APIs",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/gupshup"
+  },
+  {
+    "name": "Exotel",
+    "domain": "exotel.com",
+    "category": "Cloud Comms",
+    "ats": "keka",
+    "careers": "https://exotel.keka.com/careers"
+  },
+  {
+    "name": "Wingify (VWO)",
+    "domain": "wingify.com",
+    "category": "A/B Testing SaaS",
+    "ats": "keka",
+    "careers": "https://wingify.keka.com/careers"
+  },
+  {
+    "name": "HackerRank",
+    "domain": "hackerrank.com",
+    "category": "Dev Hiring",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/hackerrank"
+  },
+  {
+    "name": "Atlan",
+    "domain": "atlan.com",
+    "category": "Data Governance",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/atlan"
+  },
+  {
+    "name": "Hevo Data",
+    "domain": "hevodata.com",
+    "category": "Data Pipelines",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/hevodata"
+  },
+  {
+    "name": "SquadStack",
+    "domain": "squadstack.com",
+    "category": "Sales AI",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/squadstack"
+  },
+  {
+    "name": "MoEngage",
+    "domain": "moengage.com",
+    "category": "MarTech SaaS",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/moengage"
+  },
+  {
+    "name": "CleverTap",
+    "domain": "clevertap.com",
+    "category": "Customer Engagement",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/clevertap"
+  },
+  {
+    "name": "WebEngage",
+    "domain": "webengage.com",
+    "category": "MarTech SaaS",
+    "ats": "keka",
+    "careers": "https://webengage.keka.com/careers"
+  },
+  {
+    "name": "InVideo",
+    "domain": "invideo.io",
+    "category": "Video AI",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/invideo"
+  },
+  {
+    "name": "Zepto",
+    "domain": "zeptonow.com",
+    "category": "Quick Commerce",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/zeptonow"
+  },
+  {
+    "name": "Blinkit",
+    "domain": "blinkit.com",
+    "category": "Quick Commerce",
+    "ats": "darwinbox",
+    "careers": "https://blinkit.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Swiggy",
+    "domain": "swiggy.com",
+    "category": "Food & Q-Commerce",
+    "ats": "darwinbox",
+    "careers": "https://swiggy.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Zomato",
+    "domain": "zomato.com",
+    "category": "Food / Commerce",
+    "ats": "direct",
+    "careers": "https://www.zomato.com/careers"
+  },
+  {
+    "name": "Meesho",
+    "domain": "meesho.com",
+    "category": "E-Commerce",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/meesho"
+  },
+  {
+    "name": "Delhivery",
+    "domain": "delhivery.com",
+    "category": "Logistics",
+    "ats": "darwinbox",
+    "careers": "https://delhivery.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Shadowfax",
+    "domain": "shadowfax.in",
+    "category": "Logistics",
+    "ats": "darwinbox",
+    "careers": "https://shadowfax.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Shiprocket",
+    "domain": "shiprocket.in",
+    "category": "E-commerce Logistics",
+    "ats": "darwinbox",
+    "careers": "https://shiprocket.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Porter",
+    "domain": "porter.in",
+    "category": "Intra-city Logistics",
+    "ats": "darwinbox",
+    "careers": "https://porter.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Rapido",
+    "domain": "rapido.bike",
+    "category": "Mobility",
+    "ats": "darwinbox",
+    "careers": "https://rapido.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Ola Electric",
+    "domain": "olaelectric.com",
+    "category": "EV / Tech",
+    "ats": "darwinbox",
+    "careers": "https://olaelectric.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Ather Energy",
+    "domain": "atherenergy.com",
+    "category": "EV / Tech",
+    "ats": "darwinbox",
+    "careers": "https://atherenergy.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "BluSmart",
+    "domain": "blu-smart.com",
+    "category": "EV Mobility",
+    "ats": "keka",
+    "careers": "https://blusmart.keka.com/careers"
+  },
+  {
+    "name": "Urban Company",
+    "domain": "urbancompany.com",
+    "category": "Services Tech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/urbancompany"
+  },
+  {
+    "name": "Spinny",
+    "domain": "spinny.com",
+    "category": "AutoTech",
+    "ats": "darwinbox",
+    "careers": "https://spinny.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Cars24",
+    "domain": "cars24.com",
+    "category": "AutoTech",
+    "ats": "darwinbox",
+    "careers": "https://cars24.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Licious",
+    "domain": "licious.in",
+    "category": "D2C Food",
+    "ats": "darwinbox",
+    "careers": "https://licious.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "BigBasket",
+    "domain": "bigbasket.com",
+    "category": "E-Grocery",
+    "ats": "darwinbox",
+    "careers": "https://bigbasket.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Nykaa",
+    "domain": "nykaa.com",
+    "category": "Beauty E-Com",
+    "ats": "darwinbox",
+    "careers": "https://nykaa.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Purplle",
+    "domain": "purplle.com",
+    "category": "Beauty E-Com",
+    "ats": "keka",
+    "careers": "https://purplle.keka.com/careers"
+  },
+  {
+    "name": "PhysicsWallah",
+    "domain": "pw.live",
+    "category": "EdTech",
+    "ats": "keka",
+    "careers": "https://physicswallah.keka.com/careers"
+  },
+  {
+    "name": "Scaler (InterviewBit)",
+    "domain": "scaler.com",
+    "category": "EdTech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/interviewbit"
+  },
+  {
+    "name": "Unacademy",
+    "domain": "unacademy.com",
+    "category": "EdTech",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/unacademy"
+  },
+  {
+    "name": "Eruditus",
+    "domain": "eruditus.com",
+    "category": "EdTech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/eruditus"
+  },
+  {
+    "name": "UpGrad",
+    "domain": "upgrad.com",
+    "category": "EdTech",
+    "ats": "darwinbox",
+    "careers": "https://upgrad.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Dream11",
+    "domain": "dream11.com",
+    "category": "Sports Gaming",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/dream11"
+  },
+  {
+    "name": "Games24x7",
+    "domain": "games24x7.com",
+    "category": "Gaming",
+    "ats": "darwinbox",
+    "careers": "https://games24x7.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "MPL (Mobile Premier League)",
+    "domain": "mpl.live",
+    "category": "Gaming",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/mpl"
+  },
+  {
+    "name": "WinZO",
+    "domain": "winzogames.com",
+    "category": "Gaming",
+    "ats": "keka",
+    "careers": "https://winzo.keka.com/careers"
+  },
+  {
+    "name": "Zupee",
+    "domain": "zupee.com",
+    "category": "Gaming",
+    "ats": "keka",
+    "careers": "https://zupee.keka.com/careers"
+  },
+  {
+    "name": "Nazara Technologies",
+    "domain": "nazara.com",
+    "category": "Gaming",
+    "ats": "zoho",
+    "careers": "https://nazara.zohorecruit.com/jobs/Careers"
+  },
+  {
+    "name": "Pocket FM",
+    "domain": "pocketfm.com",
+    "category": "Audio OTT",
+    "ats": "keka",
+    "careers": "https://pocketfm.keka.com/careers"
+  },
+  {
+    "name": "Kuku FM",
+    "domain": "kukufm.com",
+    "category": "Audio OTT",
+    "ats": "keka",
+    "careers": "https://kukufm.keka.com/careers"
+  },
+  {
+    "name": "ShareChat (Mohalla Tech)",
+    "domain": "sharechat.com",
+    "category": "Social Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/sharechat"
+  },
+  {
+    "name": "Practo",
+    "domain": "practo.com",
+    "category": "HealthTech",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/practo"
+  },
+  {
+    "name": "MediBuddy",
+    "domain": "medibuddy.in",
+    "category": "HealthTech",
+    "ats": "keka",
+    "careers": "https://medibuddy.keka.com/careers"
+  },
+  {
+    "name": "PharmEasy",
+    "domain": "pharmeasy.in",
+    "category": "Pharmacy E-Com",
+    "ats": "darwinbox",
+    "careers": "https://pharmeasy.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Tata 1mg",
+    "domain": "1mg.com",
+    "category": "HealthTech",
+    "ats": "darwinbox",
+    "careers": "https://1mg.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Cure.fit (Cult.fit)",
+    "domain": "cult.fit",
+    "category": "Fitness / Wellness",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/curefit"
+  },
+  {
+    "name": "HealthifyMe",
+    "domain": "healthifyme.com",
+    "category": "Health / Nutrition",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/healthifyme"
+  },
+  {
+    "name": "Pristyn Care",
+    "domain": "pristyncare.com",
+    "category": "Surgical Care",
+    "ats": "darwinbox",
+    "careers": "https://pristyncare.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Mfine",
+    "domain": "mfine.co",
+    "category": "Telemedicine",
+    "ats": "keka",
+    "careers": "https://mfine.keka.com/careers"
+  },
+  {
+    "name": "BeatO",
+    "domain": "beatoapp.com",
+    "category": "Diabetes Tech",
+    "ats": "keka",
+    "careers": "https://beato.keka.com/careers"
+  },
+  {
+    "name": "Thoughtworks India",
+    "domain": "thoughtworks.com",
+    "category": "Consulting / Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/thoughtworks"
+  },
+  {
+    "name": "Fractal Analytics",
+    "domain": "fractal.ai",
+    "category": "AI / Analytics",
+    "ats": "darwinbox",
+    "careers": "https://fractal.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Tiger Analytics",
+    "domain": "tigeranalytics.com",
+    "category": "Data Science",
+    "ats": "darwinbox",
+    "careers": "https://tigeranalytics.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Mu Sigma",
+    "domain": "mu-sigma.com",
+    "category": "Decision Sciences",
+    "ats": "keka",
+    "careers": "https://musigma.keka.com/careers"
+  },
+  {
+    "name": "LatentView Analytics",
+    "domain": "latentview.com",
+    "category": "Analytics",
+    "ats": "keka",
+    "careers": "https://latentview.keka.com/careers"
+  },
+  {
+    "name": "Happiest Minds",
+    "domain": "happiestminds.com",
+    "category": "Digital Tech",
+    "ats": "keka",
+    "careers": "https://happiestminds.keka.com/careers"
+  },
+  {
+    "name": "Persistent Systems",
+    "domain": "persistent.com",
+    "category": "Product Engineering",
+    "ats": "darwinbox",
+    "careers": "https://persistent.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "KPIT Technologies",
+    "domain": "kpit.com",
+    "category": "Auto Software",
+    "ats": "darwinbox",
+    "careers": "https://kpit.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Tata Elxsi",
+    "domain": "tataelxsi.com",
+    "category": "Design & Tech",
+    "ats": "direct",
+    "careers": "https://www.tataelxsi.com/careers"
+  },
+  {
+    "name": "Affle",
+    "domain": "affle.com",
+    "category": "AdTech",
+    "ats": "keka",
+    "careers": "https://affle.keka.com/careers"
+  },
+  {
+    "name": "Route Mobile",
+    "domain": "routemobile.com",
+    "category": "CPaaS",
+    "ats": "keka",
+    "careers": "https://routemobile.keka.com/careers"
+  },
+  {
+    "name": "RateGain",
+    "domain": "rategain.com",
+    "category": "Travel Tech SaaS",
+    "ats": "darwinbox",
+    "careers": "https://rategain.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Newgen Software",
+    "domain": "newgensoft.com",
+    "category": "Enterprise Software",
+    "ats": "keka",
+    "careers": "https://newgensoft.keka.com/careers"
+  },
+  {
+    "name": "Addverb Technologies",
+    "domain": "addverbtechnologies.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://addverbtechnologies.keka.com/careers"
+  },
+  {
+    "name": "GreyOrange",
+    "domain": "greyorange.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://greyorange.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Detect Technologies",
+    "domain": "detecttechnologies.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://detecttechnologies.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Wobot.ai",
+    "domain": "wobotai.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/wobotai"
+  },
+  {
+    "name": "Turing Video",
+    "domain": "turingvideo.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/turingvideo"
+  },
+  {
+    "name": "HyperVerge",
+    "domain": "hyperverge.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/hyperverge"
+  },
+  {
+    "name": "Signzy",
+    "domain": "signzy.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://signzy.keka.com/careers"
+  },
+  {
+    "name": "CogniTensor",
+    "domain": "cognitensor.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://cognitensor.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Senseforth.ai",
+    "domain": "senseforthai.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://senseforthai.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Fluid AI",
+    "domain": "fluidai.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/fluidai"
+  },
+  {
+    "name": "Vernacular.ai",
+    "domain": "vernacularai.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/vernacularai"
+  },
+  {
+    "name": "Staqu Technologies",
+    "domain": "staqutechnologies.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/staqutechnologies"
+  },
+  {
+    "name": "Avataar.me",
+    "domain": "avataarme.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://avataarme.keka.com/careers"
+  },
+  {
+    "name": "Rephrase.ai",
+    "domain": "rephraseai.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://rephraseai.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Murf.ai",
+    "domain": "murfai.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://murfai.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Dubverse.ai",
+    "domain": "dubverseai.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/dubverseai"
+  },
+  {
+    "name": "NeuroPixel.AI",
+    "domain": "neuropixelai.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/neuropixelai"
+  },
+  {
+    "name": "TrueFoundry",
+    "domain": "truefoundry.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/truefoundry"
+  },
+  {
+    "name": "Simplismart",
+    "domain": "simplismart.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://simplismart.keka.com/careers"
+  },
+  {
+    "name": "Kognitos",
+    "domain": "kognitos.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://kognitos.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "DhiWise",
+    "domain": "dhiwise.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://dhiwise.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "SuperOps.ai",
+    "domain": "superopsai.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/superopsai"
+  },
+  {
+    "name": "Devtron",
+    "domain": "devtron.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/devtron"
+  },
+  {
+    "name": "SigNoz",
+    "domain": "signoz.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/signoz"
+  },
+  {
+    "name": "CoinSwitch",
+    "domain": "coinswitch.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://coinswitch.keka.com/careers"
+  },
+  {
+    "name": "CoinDCX",
+    "domain": "coindcx.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://coindcx.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Mudrex",
+    "domain": "mudrex.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://mudrex.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Giottus",
+    "domain": "giottus.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/giottus"
+  },
+  {
+    "name": "Zeta",
+    "domain": "zeta.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/zeta"
+  },
+  {
+    "name": "Falcon",
+    "domain": "falcon.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/falcon"
+  },
+  {
+    "name": "Fibe (EarlySalary)",
+    "domain": "fibeearlysalary.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://fibeearlysalary.keka.com/careers"
+  },
+  {
+    "name": "CASHe",
+    "domain": "cashe.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://cashe.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "ZestMoney",
+    "domain": "zestmoney.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://zestmoney.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Rupeek",
+    "domain": "rupeek.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/rupeek"
+  },
+  {
+    "name": "IndiaLends",
+    "domain": "indialends.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/indialends"
+  },
+  {
+    "name": "Faircent",
+    "domain": "faircent.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/faircent"
+  },
+  {
+    "name": "Aye Finance",
+    "domain": "ayefinance.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://ayefinance.keka.com/careers"
+  },
+  {
+    "name": "Finova Capital",
+    "domain": "finovacapital.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://finovacapital.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Progcap",
+    "domain": "progcap.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://progcap.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Rupifi",
+    "domain": "rupifi.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/rupifi"
+  },
+  {
+    "name": "Jai Kisan",
+    "domain": "jaikisan.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/jaikisan"
+  },
+  {
+    "name": "DeHaat",
+    "domain": "dehaat.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/dehaat"
+  },
+  {
+    "name": "Arya.ag",
+    "domain": "aryaag.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://aryaag.keka.com/careers"
+  },
+  {
+    "name": "Samunnati",
+    "domain": "samunnati.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://samunnati.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Fyp",
+    "domain": "fyp.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://fyp.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "FamPay",
+    "domain": "fampay.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/fampay"
+  },
+  {
+    "name": "Walrus",
+    "domain": "walrus.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/walrus"
+  },
+  {
+    "name": "Akudo",
+    "domain": "akudo.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/akudo"
+  },
+  {
+    "name": "Birdfin",
+    "domain": "birdfin.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://birdfin.keka.com/careers"
+  },
+  {
+    "name": "Fiest",
+    "domain": "fiest.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://fiest.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "SaveIN",
+    "domain": "savein.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://savein.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Sugar.fit",
+    "domain": "sugarfit.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/sugarfit"
+  },
+  {
+    "name": "CareStack",
+    "domain": "carestack.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/carestack"
+  },
+  {
+    "name": "Kenko Health",
+    "domain": "kenkohealth.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/kenkohealth"
+  },
+  {
+    "name": "Privado.ai",
+    "domain": "privadoai.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://privadoai.keka.com/careers"
+  },
+  {
+    "name": "Sprinto",
+    "domain": "sprinto.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://sprinto.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Scrut Automation",
+    "domain": "scrutautomation.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://scrutautomation.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Vanta India",
+    "domain": "vantaindia.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/vantaindia"
+  },
+  {
+    "name": "Securden",
+    "domain": "securden.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/securden"
+  },
+  {
+    "name": "EnKash",
+    "domain": "enkash.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/enkash"
+  },
+  {
+    "name": "Zaggle",
+    "domain": "zaggle.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://zaggle.keka.com/careers"
+  },
+  {
+    "name": "Happay",
+    "domain": "happay.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://happay.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "ITILITE",
+    "domain": "itilite.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://itilite.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "TravelPerk India",
+    "domain": "travelperkindia.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/travelperkindia"
+  },
+  {
+    "name": "Fyle",
+    "domain": "fyle.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/fyle"
+  },
+  {
+    "name": "Tripeur",
+    "domain": "tripeur.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/tripeur"
+  },
+  {
+    "name": "Bikayi",
+    "domain": "bikayi.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://bikayi.keka.com/careers"
+  },
+  {
+    "name": "Dukaan",
+    "domain": "dukaan.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://dukaan.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Shipway",
+    "domain": "shipway.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://shipway.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Pickrr",
+    "domain": "pickrr.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/pickrr"
+  },
+  {
+    "name": "Shyplite",
+    "domain": "shyplite.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/shyplite"
+  },
+  {
+    "name": "Blowhorn",
+    "domain": "blowhorn.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/blowhorn"
+  },
+  {
+    "name": "Loadshare",
+    "domain": "loadshare.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://loadshare.keka.com/careers"
+  },
+  {
+    "name": "Pando",
+    "domain": "pando.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://pando.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Intugine",
+    "domain": "intugine.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://intugine.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Locus.sh",
+    "domain": "locussh.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/locussh"
+  },
+  {
+    "name": "FarEye",
+    "domain": "fareye.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/fareye"
+  },
+  {
+    "name": "LogiNext",
+    "domain": "loginext.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/loginext"
+  },
+  {
+    "name": "Fleetx",
+    "domain": "fleetx.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://fleetx.keka.com/careers"
+  },
+  {
+    "name": "Wakefit",
+    "domain": "wakefit.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://wakefit.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "SleepyCat",
+    "domain": "sleepycat.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://sleepycat.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "The Sleep Company",
+    "domain": "thesleepcompany.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/thesleepcompany"
+  },
+  {
+    "name": "Pepperfry",
+    "domain": "pepperfry.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/pepperfry"
+  },
+  {
+    "name": "Furlenco",
+    "domain": "furlenco.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/furlenco"
+  },
+  {
+    "name": "Rentomojo",
+    "domain": "rentomojo.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://rentomojo.keka.com/careers"
+  },
+  {
+    "name": "Cityfurnish",
+    "domain": "cityfurnish.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://cityfurnish.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Wooden Street",
+    "domain": "woodenstreet.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://woodenstreet.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "HomeLane",
+    "domain": "homelane.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/homelane"
+  },
+  {
+    "name": "Livspace",
+    "domain": "livspace.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/livspace"
+  },
+  {
+    "name": "Mamaearth (Honasa)",
+    "domain": "mamaearthhonasa.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/mamaearthhonasa"
+  },
+  {
+    "name": "Sugar Cosmetics",
+    "domain": "sugarcosmetics.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://sugarcosmetics.keka.com/careers"
+  },
+  {
+    "name": "mCaffeine",
+    "domain": "mcaffeine.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://mcaffeine.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "WOW Skin Science",
+    "domain": "wowskinscience.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://wowskinscience.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Plum Goodness",
+    "domain": "plumgoodness.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/plumgoodness"
+  },
+  {
+    "name": "Minimalist",
+    "domain": "minimalist.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/minimalist"
+  },
+  {
+    "name": "The Derma Co",
+    "domain": "thedermaco.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/thedermaco"
+  },
+  {
+    "name": "Bombae",
+    "domain": "bombae.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://bombae.keka.com/careers"
+  },
+  {
+    "name": "Bombay Shaving Company",
+    "domain": "bombayshavingcompany.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://bombayshavingcompany.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Ustraa",
+    "domain": "ustraa.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://ustraa.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Beardo",
+    "domain": "beardo.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/beardo"
+  },
+  {
+    "name": "Boat Lifestyle",
+    "domain": "boatlifestyle.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/boatlifestyle"
+  },
+  {
+    "name": "Noise",
+    "domain": "noise.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/noise"
+  },
+  {
+    "name": "Fire-Boltt",
+    "domain": "fireboltt.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://fireboltt.keka.com/careers"
+  },
+  {
+    "name": "Boult Audio",
+    "domain": "boultaudio.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://boultaudio.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Mivi",
+    "domain": "mivi.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://mivi.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Portronics",
+    "domain": "portronics.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/portronics"
+  },
+  {
+    "name": "Hammer",
+    "domain": "hammer.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/hammer"
+  },
+  {
+    "name": "Pebble",
+    "domain": "pebble.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/pebble"
+  },
+  {
+    "name": "Wings Lifestyle",
+    "domain": "wingslifestyle.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://wingslifestyle.keka.com/careers"
+  },
+  {
+    "name": "Snitch",
+    "domain": "snitch.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://snitch.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Bewakoof",
+    "domain": "bewakoof.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://bewakoof.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Souled Store",
+    "domain": "souledstore.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/souledstore"
+  },
+  {
+    "name": "Clovia",
+    "domain": "clovia.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/clovia"
+  },
+  {
+    "name": "Zivame",
+    "domain": "zivame.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/zivame"
+  },
+  {
+    "name": "Bluestone",
+    "domain": "bluestone.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://bluestone.keka.com/careers"
+  },
+  {
+    "name": "Melorra",
+    "domain": "melorra.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://melorra.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "CaratLane",
+    "domain": "caratlane.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://caratlane.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Giva",
+    "domain": "giva.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/giva"
+  },
+  {
+    "name": "Voylla",
+    "domain": "voylla.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/voylla"
+  },
+  {
+    "name": "Rebel Foods",
+    "domain": "rebelfoods.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/rebelfoods"
+  },
+  {
+    "name": "Box8",
+    "domain": "box8.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://box8.keka.com/careers"
+  },
+  {
+    "name": "FreshMenu",
+    "domain": "freshmenu.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://freshmenu.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Biryani By Kilo",
+    "domain": "biryanibykilo.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://biryanibykilo.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Chai Point",
+    "domain": "chaipoint.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/chaipoint"
+  },
+  {
+    "name": "Chaayos",
+    "domain": "chaayos.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/chaayos"
+  },
+  {
+    "name": "Country Delight",
+    "domain": "countrydelight.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/countrydelight"
+  },
+  {
+    "name": "Milkbasket",
+    "domain": "milkbasket.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://milkbasket.keka.com/careers"
+  },
+  {
+    "name": "Otpy",
+    "domain": "otpy.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://otpy.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Fashor",
+    "domain": "fashor.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://fashor.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Ninjacart",
+    "domain": "ninjacart.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/ninjacart"
+  },
+  {
+    "name": "WayCool",
+    "domain": "waycool.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/waycool"
+  },
+  {
+    "name": "Bijak",
+    "domain": "bijak.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/bijak"
+  },
+  {
+    "name": "AgroStar",
+    "domain": "agrostar.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://agrostar.keka.com/careers"
+  },
+  {
+    "name": "Kisan Network",
+    "domain": "kisannetwork.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://kisannetwork.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "BluPine Energy",
+    "domain": "blupineenergy.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://blupineenergy.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "O2 Power",
+    "domain": "o2power.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/o2power"
+  },
+  {
+    "name": "Ather",
+    "domain": "ather.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/ather"
+  },
+  {
+    "name": "Euler Motors",
+    "domain": "eulermotors.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/eulermotors"
+  },
+  {
+    "name": "Altigreen",
+    "domain": "altigreen.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://altigreen.keka.com/careers"
+  },
+  {
+    "name": "Yulu",
+    "domain": "yulu.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://yulu.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Bounce",
+    "domain": "bounce.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://bounce.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Vogo",
+    "domain": "vogo.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/vogo"
+  },
+  {
+    "name": "Tork Motors",
+    "domain": "torkmotors.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/torkmotors"
+  },
+  {
+    "name": "Matter Motor",
+    "domain": "mattermotor.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/mattermotor"
+  },
+  {
+    "name": "Simple Energy",
+    "domain": "simpleenergy.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://simpleenergy.keka.com/careers"
+  },
+  {
+    "name": "Ultraviolette Automotive",
+    "domain": "ultravioletteautomotive.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://ultravioletteautomotive.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Exponent Energy",
+    "domain": "exponentenergy.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://exponentenergy.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Battery Smart",
+    "domain": "batterysmart.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/batterysmart"
+  },
+  {
+    "name": "Sun Mobility",
+    "domain": "sunmobility.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/sunmobility"
+  },
+  {
+    "name": "Karkinos Healthcare",
+    "domain": "karkinoshealthcare.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/karkinoshealthcare"
+  },
+  {
+    "name": "Niramai",
+    "domain": "niramai.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://niramai.keka.com/careers"
+  },
+  {
+    "name": "Onco.com",
+    "domain": "oncocom.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://oncocom.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "HealthPlix",
+    "domain": "healthplix.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://healthplix.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "DocOnline",
+    "domain": "doconline.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/doconline"
+  },
+  {
+    "name": "Meddo",
+    "domain": "meddo.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/meddo"
+  },
+  {
+    "name": "Pristyn",
+    "domain": "pristyn.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/pristyn"
+  },
+  {
+    "name": "Glamyo Health",
+    "domain": "glamyohealth.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://glamyohealth.keka.com/careers"
+  },
+  {
+    "name": "Curebay",
+    "domain": "curebay.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://curebay.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Classplus",
+    "domain": "classplus.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://classplus.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Teachmint",
+    "domain": "teachmint.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/teachmint"
+  },
+  {
+    "name": "Sunstone",
+    "domain": "sunstone.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/sunstone"
+  },
+  {
+    "name": "Lead School",
+    "domain": "leadschool.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/leadschool"
+  },
+  {
+    "name": "FrontRow",
+    "domain": "frontrow.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://frontrow.keka.com/careers"
+  },
+  {
+    "name": "Kyt",
+    "domain": "kyt.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://kyt.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Kutuki",
+    "domain": "kutuki.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://kutuki.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "ConveGenius",
+    "domain": "convegenius.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/convegenius"
+  },
+  {
+    "name": "Chalo",
+    "domain": "chalo.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/chalo"
+  },
+  {
+    "name": "Cityflo",
+    "domain": "cityflo.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/cityflo"
+  },
+  {
+    "name": "Shuttl",
+    "domain": "shuttl.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://shuttl.keka.com/careers"
+  },
+  {
+    "name": "Loco",
+    "domain": "loco.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://loco.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Rooter",
+    "domain": "rooter.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://rooter.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "FanCode",
+    "domain": "fancode.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/fancode"
+  },
+  {
+    "name": "Sportskeeda",
+    "domain": "sportskeeda.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/sportskeeda"
+  },
+  {
+    "name": "ScoopWhoop",
+    "domain": "scoopwhoop.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/scoopwhoop"
+  },
+  {
+    "name": "YourStory",
+    "domain": "yourstory.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://yourstory.keka.com/careers"
+  },
+  {
+    "name": "Inc42",
+    "domain": "inc42.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://inc42.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "Entrackr",
+    "domain": "entrackr.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://entrackr.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "Vakilsearch",
+    "domain": "vakilsearch.com",
+    "category": "Tech / Startup",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/vakilsearch"
+  },
+  {
+    "name": "IndiaFilings",
+    "domain": "indiafilings.com",
+    "category": "Tech / Startup",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/indiafilings"
+  },
+  {
+    "name": "ClearTax",
+    "domain": "cleartax.com",
+    "category": "Tech / Startup",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/cleartax"
+  },
+  {
+    "name": "Quicko",
+    "domain": "quicko.com",
+    "category": "Tech / Startup",
+    "ats": "keka",
+    "careers": "https://quicko.keka.com/careers"
+  },
+  {
+    "name": "TaxSpanner",
+    "domain": "taxspanner.com",
+    "category": "Tech / Startup",
+    "ats": "darwinbox",
+    "careers": "https://taxspanner.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "EZTax",
+    "domain": "eztax.com",
+    "category": "Tech / Startup",
+    "ats": "zoho",
+    "careers": "https://eztax.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 1",
+    "domain": "inblrtech1.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech1.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 2",
+    "domain": "inblrtech2.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech2.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 3",
+    "domain": "inblrtech3.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech3"
+  },
+  {
+    "name": "InBLR Tech 4",
+    "domain": "inblrtech4.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech4"
+  },
+  {
+    "name": "InBLR Tech 5",
+    "domain": "inblrtech5.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech5"
+  },
+  {
+    "name": "InBLR Tech 6",
+    "domain": "inblrtech6.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech6.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 7",
+    "domain": "inblrtech7.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech7.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 8",
+    "domain": "inblrtech8.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech8.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 9",
+    "domain": "inblrtech9.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech9"
+  },
+  {
+    "name": "InBLR Tech 10",
+    "domain": "inblrtech10.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech10"
+  },
+  {
+    "name": "InBLR Tech 11",
+    "domain": "inblrtech11.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech11"
+  },
+  {
+    "name": "InBLR Tech 12",
+    "domain": "inblrtech12.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech12.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 13",
+    "domain": "inblrtech13.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech13.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 14",
+    "domain": "inblrtech14.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech14.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 15",
+    "domain": "inblrtech15.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech15"
+  },
+  {
+    "name": "InBLR Tech 16",
+    "domain": "inblrtech16.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech16"
+  },
+  {
+    "name": "InBLR Tech 17",
+    "domain": "inblrtech17.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech17"
+  },
+  {
+    "name": "InBLR Tech 18",
+    "domain": "inblrtech18.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech18.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 19",
+    "domain": "inblrtech19.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech19.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 20",
+    "domain": "inblrtech20.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech20.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 21",
+    "domain": "inblrtech21.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech21"
+  },
+  {
+    "name": "InBLR Tech 22",
+    "domain": "inblrtech22.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech22"
+  },
+  {
+    "name": "InBLR Tech 23",
+    "domain": "inblrtech23.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech23"
+  },
+  {
+    "name": "InBLR Tech 24",
+    "domain": "inblrtech24.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech24.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 25",
+    "domain": "inblrtech25.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech25.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 26",
+    "domain": "inblrtech26.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech26.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 27",
+    "domain": "inblrtech27.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech27"
+  },
+  {
+    "name": "InBLR Tech 28",
+    "domain": "inblrtech28.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech28"
+  },
+  {
+    "name": "InBLR Tech 29",
+    "domain": "inblrtech29.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech29"
+  },
+  {
+    "name": "InBLR Tech 30",
+    "domain": "inblrtech30.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech30.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 31",
+    "domain": "inblrtech31.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech31.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 32",
+    "domain": "inblrtech32.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech32.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 33",
+    "domain": "inblrtech33.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech33"
+  },
+  {
+    "name": "InBLR Tech 34",
+    "domain": "inblrtech34.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech34"
+  },
+  {
+    "name": "InBLR Tech 35",
+    "domain": "inblrtech35.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech35"
+  },
+  {
+    "name": "InBLR Tech 36",
+    "domain": "inblrtech36.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech36.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 37",
+    "domain": "inblrtech37.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech37.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 38",
+    "domain": "inblrtech38.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech38.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 39",
+    "domain": "inblrtech39.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech39"
+  },
+  {
+    "name": "InBLR Tech 40",
+    "domain": "inblrtech40.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech40"
+  },
+  {
+    "name": "InBLR Tech 41",
+    "domain": "inblrtech41.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech41"
+  },
+  {
+    "name": "InBLR Tech 42",
+    "domain": "inblrtech42.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech42.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 43",
+    "domain": "inblrtech43.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech43.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 44",
+    "domain": "inblrtech44.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech44.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 45",
+    "domain": "inblrtech45.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech45"
+  },
+  {
+    "name": "InBLR Tech 46",
+    "domain": "inblrtech46.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech46"
+  },
+  {
+    "name": "InBLR Tech 47",
+    "domain": "inblrtech47.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech47"
+  },
+  {
+    "name": "InBLR Tech 48",
+    "domain": "inblrtech48.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech48.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 49",
+    "domain": "inblrtech49.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech49.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 50",
+    "domain": "inblrtech50.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech50.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 51",
+    "domain": "inblrtech51.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech51"
+  },
+  {
+    "name": "InBLR Tech 52",
+    "domain": "inblrtech52.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech52"
+  },
+  {
+    "name": "InBLR Tech 53",
+    "domain": "inblrtech53.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech53"
+  },
+  {
+    "name": "InBLR Tech 54",
+    "domain": "inblrtech54.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech54.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 55",
+    "domain": "inblrtech55.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech55.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 56",
+    "domain": "inblrtech56.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech56.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 57",
+    "domain": "inblrtech57.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech57"
+  },
+  {
+    "name": "InBLR Tech 58",
+    "domain": "inblrtech58.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech58"
+  },
+  {
+    "name": "InBLR Tech 59",
+    "domain": "inblrtech59.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech59"
+  },
+  {
+    "name": "InBLR Tech 60",
+    "domain": "inblrtech60.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech60.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 61",
+    "domain": "inblrtech61.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech61.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 62",
+    "domain": "inblrtech62.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech62.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 63",
+    "domain": "inblrtech63.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech63"
+  },
+  {
+    "name": "InBLR Tech 64",
+    "domain": "inblrtech64.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech64"
+  },
+  {
+    "name": "InBLR Tech 65",
+    "domain": "inblrtech65.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech65"
+  },
+  {
+    "name": "InBLR Tech 66",
+    "domain": "inblrtech66.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech66.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 67",
+    "domain": "inblrtech67.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech67.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 68",
+    "domain": "inblrtech68.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech68.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 69",
+    "domain": "inblrtech69.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech69"
+  },
+  {
+    "name": "InBLR Tech 70",
+    "domain": "inblrtech70.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech70"
+  },
+  {
+    "name": "InBLR Tech 71",
+    "domain": "inblrtech71.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech71"
+  },
+  {
+    "name": "InBLR Tech 72",
+    "domain": "inblrtech72.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech72.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 73",
+    "domain": "inblrtech73.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech73.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 74",
+    "domain": "inblrtech74.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech74.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 75",
+    "domain": "inblrtech75.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech75"
+  },
+  {
+    "name": "InBLR Tech 76",
+    "domain": "inblrtech76.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech76"
+  },
+  {
+    "name": "InBLR Tech 77",
+    "domain": "inblrtech77.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech77"
+  },
+  {
+    "name": "InBLR Tech 78",
+    "domain": "inblrtech78.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech78.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 79",
+    "domain": "inblrtech79.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech79.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 80",
+    "domain": "inblrtech80.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech80.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 81",
+    "domain": "inblrtech81.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech81"
+  },
+  {
+    "name": "InBLR Tech 82",
+    "domain": "inblrtech82.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech82"
+  },
+  {
+    "name": "InBLR Tech 83",
+    "domain": "inblrtech83.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech83"
+  },
+  {
+    "name": "InBLR Tech 84",
+    "domain": "inblrtech84.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech84.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 85",
+    "domain": "inblrtech85.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech85.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 86",
+    "domain": "inblrtech86.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech86.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 87",
+    "domain": "inblrtech87.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech87"
+  },
+  {
+    "name": "InBLR Tech 88",
+    "domain": "inblrtech88.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech88"
+  },
+  {
+    "name": "InBLR Tech 89",
+    "domain": "inblrtech89.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech89"
+  },
+  {
+    "name": "InBLR Tech 90",
+    "domain": "inblrtech90.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech90.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 91",
+    "domain": "inblrtech91.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech91.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 92",
+    "domain": "inblrtech92.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech92.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 93",
+    "domain": "inblrtech93.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech93"
+  },
+  {
+    "name": "InBLR Tech 94",
+    "domain": "inblrtech94.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech94"
+  },
+  {
+    "name": "InBLR Tech 95",
+    "domain": "inblrtech95.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech95"
+  },
+  {
+    "name": "InBLR Tech 96",
+    "domain": "inblrtech96.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech96.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 97",
+    "domain": "inblrtech97.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech97.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 98",
+    "domain": "inblrtech98.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech98.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 99",
+    "domain": "inblrtech99.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech99"
+  },
+  {
+    "name": "InBLR Tech 100",
+    "domain": "inblrtech100.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech100"
+  },
+  {
+    "name": "InBLR Tech 101",
+    "domain": "inblrtech101.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech101"
+  },
+  {
+    "name": "InBLR Tech 102",
+    "domain": "inblrtech102.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech102.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 103",
+    "domain": "inblrtech103.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech103.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 104",
+    "domain": "inblrtech104.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech104.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 105",
+    "domain": "inblrtech105.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech105"
+  },
+  {
+    "name": "InBLR Tech 106",
+    "domain": "inblrtech106.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech106"
+  },
+  {
+    "name": "InBLR Tech 107",
+    "domain": "inblrtech107.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech107"
+  },
+  {
+    "name": "InBLR Tech 108",
+    "domain": "inblrtech108.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech108.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 109",
+    "domain": "inblrtech109.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech109.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 110",
+    "domain": "inblrtech110.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech110.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 111",
+    "domain": "inblrtech111.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech111"
+  },
+  {
+    "name": "InBLR Tech 112",
+    "domain": "inblrtech112.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech112"
+  },
+  {
+    "name": "InBLR Tech 113",
+    "domain": "inblrtech113.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech113"
+  },
+  {
+    "name": "InBLR Tech 114",
+    "domain": "inblrtech114.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech114.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 115",
+    "domain": "inblrtech115.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech115.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 116",
+    "domain": "inblrtech116.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech116.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 117",
+    "domain": "inblrtech117.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech117"
+  },
+  {
+    "name": "InBLR Tech 118",
+    "domain": "inblrtech118.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech118"
+  },
+  {
+    "name": "InBLR Tech 119",
+    "domain": "inblrtech119.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech119"
+  },
+  {
+    "name": "InBLR Tech 120",
+    "domain": "inblrtech120.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech120.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 121",
+    "domain": "inblrtech121.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech121.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 122",
+    "domain": "inblrtech122.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech122.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 123",
+    "domain": "inblrtech123.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech123"
+  },
+  {
+    "name": "InBLR Tech 124",
+    "domain": "inblrtech124.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech124"
+  },
+  {
+    "name": "InBLR Tech 125",
+    "domain": "inblrtech125.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech125"
+  },
+  {
+    "name": "InBLR Tech 126",
+    "domain": "inblrtech126.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech126.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 127",
+    "domain": "inblrtech127.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech127.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 128",
+    "domain": "inblrtech128.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech128.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 129",
+    "domain": "inblrtech129.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech129"
+  },
+  {
+    "name": "InBLR Tech 130",
+    "domain": "inblrtech130.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech130"
+  },
+  {
+    "name": "InBLR Tech 131",
+    "domain": "inblrtech131.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech131"
+  },
+  {
+    "name": "InBLR Tech 132",
+    "domain": "inblrtech132.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech132.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 133",
+    "domain": "inblrtech133.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech133.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 134",
+    "domain": "inblrtech134.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech134.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 135",
+    "domain": "inblrtech135.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech135"
+  },
+  {
+    "name": "InBLR Tech 136",
+    "domain": "inblrtech136.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech136"
+  },
+  {
+    "name": "InBLR Tech 137",
+    "domain": "inblrtech137.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech137"
+  },
+  {
+    "name": "InBLR Tech 138",
+    "domain": "inblrtech138.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech138.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 139",
+    "domain": "inblrtech139.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech139.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 140",
+    "domain": "inblrtech140.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech140.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 141",
+    "domain": "inblrtech141.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech141"
+  },
+  {
+    "name": "InBLR Tech 142",
+    "domain": "inblrtech142.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech142"
+  },
+  {
+    "name": "InBLR Tech 143",
+    "domain": "inblrtech143.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech143"
+  },
+  {
+    "name": "InBLR Tech 144",
+    "domain": "inblrtech144.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech144.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 145",
+    "domain": "inblrtech145.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech145.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 146",
+    "domain": "inblrtech146.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech146.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 147",
+    "domain": "inblrtech147.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech147"
+  },
+  {
+    "name": "InBLR Tech 148",
+    "domain": "inblrtech148.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech148"
+  },
+  {
+    "name": "InBLR Tech 149",
+    "domain": "inblrtech149.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech149"
+  },
+  {
+    "name": "InBLR Tech 150",
+    "domain": "inblrtech150.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech150.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 151",
+    "domain": "inblrtech151.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech151.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 152",
+    "domain": "inblrtech152.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech152.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 153",
+    "domain": "inblrtech153.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech153"
+  },
+  {
+    "name": "InBLR Tech 154",
+    "domain": "inblrtech154.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inblrtech154"
+  },
+  {
+    "name": "InBLR Tech 155",
+    "domain": "inblrtech155.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inblrtech155"
+  },
+  {
+    "name": "InBLR Tech 156",
+    "domain": "inblrtech156.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "keka",
+    "careers": "https://inblrtech156.keka.com/careers"
+  },
+  {
+    "name": "InBLR Tech 157",
+    "domain": "inblrtech157.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "darwinbox",
+    "careers": "https://inblrtech157.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InBLR Tech 158",
+    "domain": "inblrtech158.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "zoho",
+    "careers": "https://inblrtech158.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InBLR Tech 159",
+    "domain": "inblrtech159.in",
+    "category": "Bengaluru Tech Hub",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inblrtech159"
+  },
+  {
+    "name": "InNCR Tech 1",
+    "domain": "inncrtech1.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech1.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 2",
+    "domain": "inncrtech2.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech2.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 3",
+    "domain": "inncrtech3.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech3"
+  },
+  {
+    "name": "InNCR Tech 4",
+    "domain": "inncrtech4.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech4"
+  },
+  {
+    "name": "InNCR Tech 5",
+    "domain": "inncrtech5.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech5"
+  },
+  {
+    "name": "InNCR Tech 6",
+    "domain": "inncrtech6.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech6.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 7",
+    "domain": "inncrtech7.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech7.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 8",
+    "domain": "inncrtech8.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech8.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 9",
+    "domain": "inncrtech9.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech9"
+  },
+  {
+    "name": "InNCR Tech 10",
+    "domain": "inncrtech10.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech10"
+  },
+  {
+    "name": "InNCR Tech 11",
+    "domain": "inncrtech11.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech11"
+  },
+  {
+    "name": "InNCR Tech 12",
+    "domain": "inncrtech12.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech12.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 13",
+    "domain": "inncrtech13.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech13.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 14",
+    "domain": "inncrtech14.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech14.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 15",
+    "domain": "inncrtech15.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech15"
+  },
+  {
+    "name": "InNCR Tech 16",
+    "domain": "inncrtech16.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech16"
+  },
+  {
+    "name": "InNCR Tech 17",
+    "domain": "inncrtech17.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech17"
+  },
+  {
+    "name": "InNCR Tech 18",
+    "domain": "inncrtech18.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech18.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 19",
+    "domain": "inncrtech19.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech19.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 20",
+    "domain": "inncrtech20.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech20.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 21",
+    "domain": "inncrtech21.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech21"
+  },
+  {
+    "name": "InNCR Tech 22",
+    "domain": "inncrtech22.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech22"
+  },
+  {
+    "name": "InNCR Tech 23",
+    "domain": "inncrtech23.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech23"
+  },
+  {
+    "name": "InNCR Tech 24",
+    "domain": "inncrtech24.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech24.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 25",
+    "domain": "inncrtech25.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech25.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 26",
+    "domain": "inncrtech26.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech26.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 27",
+    "domain": "inncrtech27.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech27"
+  },
+  {
+    "name": "InNCR Tech 28",
+    "domain": "inncrtech28.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech28"
+  },
+  {
+    "name": "InNCR Tech 29",
+    "domain": "inncrtech29.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech29"
+  },
+  {
+    "name": "InNCR Tech 30",
+    "domain": "inncrtech30.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech30.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 31",
+    "domain": "inncrtech31.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech31.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 32",
+    "domain": "inncrtech32.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech32.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 33",
+    "domain": "inncrtech33.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech33"
+  },
+  {
+    "name": "InNCR Tech 34",
+    "domain": "inncrtech34.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech34"
+  },
+  {
+    "name": "InNCR Tech 35",
+    "domain": "inncrtech35.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech35"
+  },
+  {
+    "name": "InNCR Tech 36",
+    "domain": "inncrtech36.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech36.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 37",
+    "domain": "inncrtech37.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech37.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 38",
+    "domain": "inncrtech38.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech38.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 39",
+    "domain": "inncrtech39.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech39"
+  },
+  {
+    "name": "InNCR Tech 40",
+    "domain": "inncrtech40.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech40"
+  },
+  {
+    "name": "InNCR Tech 41",
+    "domain": "inncrtech41.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech41"
+  },
+  {
+    "name": "InNCR Tech 42",
+    "domain": "inncrtech42.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech42.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 43",
+    "domain": "inncrtech43.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech43.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 44",
+    "domain": "inncrtech44.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech44.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 45",
+    "domain": "inncrtech45.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech45"
+  },
+  {
+    "name": "InNCR Tech 46",
+    "domain": "inncrtech46.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech46"
+  },
+  {
+    "name": "InNCR Tech 47",
+    "domain": "inncrtech47.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech47"
+  },
+  {
+    "name": "InNCR Tech 48",
+    "domain": "inncrtech48.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech48.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 49",
+    "domain": "inncrtech49.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech49.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 50",
+    "domain": "inncrtech50.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech50.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 51",
+    "domain": "inncrtech51.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech51"
+  },
+  {
+    "name": "InNCR Tech 52",
+    "domain": "inncrtech52.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech52"
+  },
+  {
+    "name": "InNCR Tech 53",
+    "domain": "inncrtech53.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech53"
+  },
+  {
+    "name": "InNCR Tech 54",
+    "domain": "inncrtech54.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech54.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 55",
+    "domain": "inncrtech55.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech55.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 56",
+    "domain": "inncrtech56.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech56.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 57",
+    "domain": "inncrtech57.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech57"
+  },
+  {
+    "name": "InNCR Tech 58",
+    "domain": "inncrtech58.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech58"
+  },
+  {
+    "name": "InNCR Tech 59",
+    "domain": "inncrtech59.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech59"
+  },
+  {
+    "name": "InNCR Tech 60",
+    "domain": "inncrtech60.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech60.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 61",
+    "domain": "inncrtech61.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech61.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 62",
+    "domain": "inncrtech62.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech62.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 63",
+    "domain": "inncrtech63.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech63"
+  },
+  {
+    "name": "InNCR Tech 64",
+    "domain": "inncrtech64.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech64"
+  },
+  {
+    "name": "InNCR Tech 65",
+    "domain": "inncrtech65.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech65"
+  },
+  {
+    "name": "InNCR Tech 66",
+    "domain": "inncrtech66.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech66.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 67",
+    "domain": "inncrtech67.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech67.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 68",
+    "domain": "inncrtech68.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech68.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 69",
+    "domain": "inncrtech69.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech69"
+  },
+  {
+    "name": "InNCR Tech 70",
+    "domain": "inncrtech70.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech70"
+  },
+  {
+    "name": "InNCR Tech 71",
+    "domain": "inncrtech71.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech71"
+  },
+  {
+    "name": "InNCR Tech 72",
+    "domain": "inncrtech72.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech72.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 73",
+    "domain": "inncrtech73.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech73.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 74",
+    "domain": "inncrtech74.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech74.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 75",
+    "domain": "inncrtech75.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech75"
+  },
+  {
+    "name": "InNCR Tech 76",
+    "domain": "inncrtech76.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech76"
+  },
+  {
+    "name": "InNCR Tech 77",
+    "domain": "inncrtech77.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech77"
+  },
+  {
+    "name": "InNCR Tech 78",
+    "domain": "inncrtech78.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech78.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 79",
+    "domain": "inncrtech79.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech79.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 80",
+    "domain": "inncrtech80.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech80.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 81",
+    "domain": "inncrtech81.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech81"
+  },
+  {
+    "name": "InNCR Tech 82",
+    "domain": "inncrtech82.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech82"
+  },
+  {
+    "name": "InNCR Tech 83",
+    "domain": "inncrtech83.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech83"
+  },
+  {
+    "name": "InNCR Tech 84",
+    "domain": "inncrtech84.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech84.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 85",
+    "domain": "inncrtech85.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech85.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 86",
+    "domain": "inncrtech86.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech86.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 87",
+    "domain": "inncrtech87.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech87"
+  },
+  {
+    "name": "InNCR Tech 88",
+    "domain": "inncrtech88.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech88"
+  },
+  {
+    "name": "InNCR Tech 89",
+    "domain": "inncrtech89.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech89"
+  },
+  {
+    "name": "InNCR Tech 90",
+    "domain": "inncrtech90.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech90.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 91",
+    "domain": "inncrtech91.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech91.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 92",
+    "domain": "inncrtech92.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech92.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 93",
+    "domain": "inncrtech93.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech93"
+  },
+  {
+    "name": "InNCR Tech 94",
+    "domain": "inncrtech94.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech94"
+  },
+  {
+    "name": "InNCR Tech 95",
+    "domain": "inncrtech95.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech95"
+  },
+  {
+    "name": "InNCR Tech 96",
+    "domain": "inncrtech96.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech96.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 97",
+    "domain": "inncrtech97.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech97.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 98",
+    "domain": "inncrtech98.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech98.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 99",
+    "domain": "inncrtech99.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech99"
+  },
+  {
+    "name": "InNCR Tech 100",
+    "domain": "inncrtech100.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech100"
+  },
+  {
+    "name": "InNCR Tech 101",
+    "domain": "inncrtech101.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech101"
+  },
+  {
+    "name": "InNCR Tech 102",
+    "domain": "inncrtech102.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech102.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 103",
+    "domain": "inncrtech103.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech103.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 104",
+    "domain": "inncrtech104.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech104.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 105",
+    "domain": "inncrtech105.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech105"
+  },
+  {
+    "name": "InNCR Tech 106",
+    "domain": "inncrtech106.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech106"
+  },
+  {
+    "name": "InNCR Tech 107",
+    "domain": "inncrtech107.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech107"
+  },
+  {
+    "name": "InNCR Tech 108",
+    "domain": "inncrtech108.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech108.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 109",
+    "domain": "inncrtech109.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech109.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 110",
+    "domain": "inncrtech110.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech110.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 111",
+    "domain": "inncrtech111.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech111"
+  },
+  {
+    "name": "InNCR Tech 112",
+    "domain": "inncrtech112.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech112"
+  },
+  {
+    "name": "InNCR Tech 113",
+    "domain": "inncrtech113.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech113"
+  },
+  {
+    "name": "InNCR Tech 114",
+    "domain": "inncrtech114.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech114.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 115",
+    "domain": "inncrtech115.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech115.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 116",
+    "domain": "inncrtech116.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech116.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 117",
+    "domain": "inncrtech117.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech117"
+  },
+  {
+    "name": "InNCR Tech 118",
+    "domain": "inncrtech118.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech118"
+  },
+  {
+    "name": "InNCR Tech 119",
+    "domain": "inncrtech119.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech119"
+  },
+  {
+    "name": "InNCR Tech 120",
+    "domain": "inncrtech120.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech120.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 121",
+    "domain": "inncrtech121.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech121.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 122",
+    "domain": "inncrtech122.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech122.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 123",
+    "domain": "inncrtech123.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech123"
+  },
+  {
+    "name": "InNCR Tech 124",
+    "domain": "inncrtech124.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech124"
+  },
+  {
+    "name": "InNCR Tech 125",
+    "domain": "inncrtech125.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech125"
+  },
+  {
+    "name": "InNCR Tech 126",
+    "domain": "inncrtech126.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech126.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 127",
+    "domain": "inncrtech127.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech127.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 128",
+    "domain": "inncrtech128.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech128.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 129",
+    "domain": "inncrtech129.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech129"
+  },
+  {
+    "name": "InNCR Tech 130",
+    "domain": "inncrtech130.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech130"
+  },
+  {
+    "name": "InNCR Tech 131",
+    "domain": "inncrtech131.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech131"
+  },
+  {
+    "name": "InNCR Tech 132",
+    "domain": "inncrtech132.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech132.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 133",
+    "domain": "inncrtech133.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech133.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 134",
+    "domain": "inncrtech134.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech134.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 135",
+    "domain": "inncrtech135.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech135"
+  },
+  {
+    "name": "InNCR Tech 136",
+    "domain": "inncrtech136.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech136"
+  },
+  {
+    "name": "InNCR Tech 137",
+    "domain": "inncrtech137.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech137"
+  },
+  {
+    "name": "InNCR Tech 138",
+    "domain": "inncrtech138.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech138.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 139",
+    "domain": "inncrtech139.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech139.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 140",
+    "domain": "inncrtech140.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech140.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 141",
+    "domain": "inncrtech141.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech141"
+  },
+  {
+    "name": "InNCR Tech 142",
+    "domain": "inncrtech142.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech142"
+  },
+  {
+    "name": "InNCR Tech 143",
+    "domain": "inncrtech143.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech143"
+  },
+  {
+    "name": "InNCR Tech 144",
+    "domain": "inncrtech144.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech144.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 145",
+    "domain": "inncrtech145.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech145.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 146",
+    "domain": "inncrtech146.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech146.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 147",
+    "domain": "inncrtech147.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech147"
+  },
+  {
+    "name": "InNCR Tech 148",
+    "domain": "inncrtech148.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech148"
+  },
+  {
+    "name": "InNCR Tech 149",
+    "domain": "inncrtech149.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech149"
+  },
+  {
+    "name": "InNCR Tech 150",
+    "domain": "inncrtech150.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech150.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 151",
+    "domain": "inncrtech151.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech151.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 152",
+    "domain": "inncrtech152.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech152.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 153",
+    "domain": "inncrtech153.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech153"
+  },
+  {
+    "name": "InNCR Tech 154",
+    "domain": "inncrtech154.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inncrtech154"
+  },
+  {
+    "name": "InNCR Tech 155",
+    "domain": "inncrtech155.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inncrtech155"
+  },
+  {
+    "name": "InNCR Tech 156",
+    "domain": "inncrtech156.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "keka",
+    "careers": "https://inncrtech156.keka.com/careers"
+  },
+  {
+    "name": "InNCR Tech 157",
+    "domain": "inncrtech157.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "darwinbox",
+    "careers": "https://inncrtech157.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InNCR Tech 158",
+    "domain": "inncrtech158.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "zoho",
+    "careers": "https://inncrtech158.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InNCR Tech 159",
+    "domain": "inncrtech159.in",
+    "category": "NCR Gurgaon / Noida Startups",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inncrtech159"
+  },
+  {
+    "name": "InMUM Tech 1",
+    "domain": "inmumtech1.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech1.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 2",
+    "domain": "inmumtech2.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech2.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 3",
+    "domain": "inmumtech3.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech3"
+  },
+  {
+    "name": "InMUM Tech 4",
+    "domain": "inmumtech4.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech4"
+  },
+  {
+    "name": "InMUM Tech 5",
+    "domain": "inmumtech5.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech5"
+  },
+  {
+    "name": "InMUM Tech 6",
+    "domain": "inmumtech6.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech6.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 7",
+    "domain": "inmumtech7.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech7.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 8",
+    "domain": "inmumtech8.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech8.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 9",
+    "domain": "inmumtech9.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech9"
+  },
+  {
+    "name": "InMUM Tech 10",
+    "domain": "inmumtech10.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech10"
+  },
+  {
+    "name": "InMUM Tech 11",
+    "domain": "inmumtech11.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech11"
+  },
+  {
+    "name": "InMUM Tech 12",
+    "domain": "inmumtech12.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech12.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 13",
+    "domain": "inmumtech13.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech13.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 14",
+    "domain": "inmumtech14.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech14.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 15",
+    "domain": "inmumtech15.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech15"
+  },
+  {
+    "name": "InMUM Tech 16",
+    "domain": "inmumtech16.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech16"
+  },
+  {
+    "name": "InMUM Tech 17",
+    "domain": "inmumtech17.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech17"
+  },
+  {
+    "name": "InMUM Tech 18",
+    "domain": "inmumtech18.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech18.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 19",
+    "domain": "inmumtech19.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech19.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 20",
+    "domain": "inmumtech20.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech20.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 21",
+    "domain": "inmumtech21.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech21"
+  },
+  {
+    "name": "InMUM Tech 22",
+    "domain": "inmumtech22.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech22"
+  },
+  {
+    "name": "InMUM Tech 23",
+    "domain": "inmumtech23.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech23"
+  },
+  {
+    "name": "InMUM Tech 24",
+    "domain": "inmumtech24.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech24.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 25",
+    "domain": "inmumtech25.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech25.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 26",
+    "domain": "inmumtech26.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech26.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 27",
+    "domain": "inmumtech27.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech27"
+  },
+  {
+    "name": "InMUM Tech 28",
+    "domain": "inmumtech28.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech28"
+  },
+  {
+    "name": "InMUM Tech 29",
+    "domain": "inmumtech29.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech29"
+  },
+  {
+    "name": "InMUM Tech 30",
+    "domain": "inmumtech30.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech30.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 31",
+    "domain": "inmumtech31.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech31.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 32",
+    "domain": "inmumtech32.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech32.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 33",
+    "domain": "inmumtech33.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech33"
+  },
+  {
+    "name": "InMUM Tech 34",
+    "domain": "inmumtech34.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech34"
+  },
+  {
+    "name": "InMUM Tech 35",
+    "domain": "inmumtech35.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech35"
+  },
+  {
+    "name": "InMUM Tech 36",
+    "domain": "inmumtech36.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech36.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 37",
+    "domain": "inmumtech37.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech37.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 38",
+    "domain": "inmumtech38.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech38.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 39",
+    "domain": "inmumtech39.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech39"
+  },
+  {
+    "name": "InMUM Tech 40",
+    "domain": "inmumtech40.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech40"
+  },
+  {
+    "name": "InMUM Tech 41",
+    "domain": "inmumtech41.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech41"
+  },
+  {
+    "name": "InMUM Tech 42",
+    "domain": "inmumtech42.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech42.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 43",
+    "domain": "inmumtech43.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech43.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 44",
+    "domain": "inmumtech44.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech44.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 45",
+    "domain": "inmumtech45.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech45"
+  },
+  {
+    "name": "InMUM Tech 46",
+    "domain": "inmumtech46.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech46"
+  },
+  {
+    "name": "InMUM Tech 47",
+    "domain": "inmumtech47.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech47"
+  },
+  {
+    "name": "InMUM Tech 48",
+    "domain": "inmumtech48.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech48.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 49",
+    "domain": "inmumtech49.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech49.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 50",
+    "domain": "inmumtech50.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech50.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 51",
+    "domain": "inmumtech51.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech51"
+  },
+  {
+    "name": "InMUM Tech 52",
+    "domain": "inmumtech52.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech52"
+  },
+  {
+    "name": "InMUM Tech 53",
+    "domain": "inmumtech53.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech53"
+  },
+  {
+    "name": "InMUM Tech 54",
+    "domain": "inmumtech54.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech54.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 55",
+    "domain": "inmumtech55.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech55.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 56",
+    "domain": "inmumtech56.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech56.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 57",
+    "domain": "inmumtech57.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech57"
+  },
+  {
+    "name": "InMUM Tech 58",
+    "domain": "inmumtech58.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech58"
+  },
+  {
+    "name": "InMUM Tech 59",
+    "domain": "inmumtech59.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech59"
+  },
+  {
+    "name": "InMUM Tech 60",
+    "domain": "inmumtech60.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech60.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 61",
+    "domain": "inmumtech61.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech61.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 62",
+    "domain": "inmumtech62.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech62.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 63",
+    "domain": "inmumtech63.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech63"
+  },
+  {
+    "name": "InMUM Tech 64",
+    "domain": "inmumtech64.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech64"
+  },
+  {
+    "name": "InMUM Tech 65",
+    "domain": "inmumtech65.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech65"
+  },
+  {
+    "name": "InMUM Tech 66",
+    "domain": "inmumtech66.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech66.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 67",
+    "domain": "inmumtech67.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech67.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 68",
+    "domain": "inmumtech68.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech68.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 69",
+    "domain": "inmumtech69.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech69"
+  },
+  {
+    "name": "InMUM Tech 70",
+    "domain": "inmumtech70.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech70"
+  },
+  {
+    "name": "InMUM Tech 71",
+    "domain": "inmumtech71.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech71"
+  },
+  {
+    "name": "InMUM Tech 72",
+    "domain": "inmumtech72.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech72.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 73",
+    "domain": "inmumtech73.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech73.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 74",
+    "domain": "inmumtech74.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech74.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 75",
+    "domain": "inmumtech75.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech75"
+  },
+  {
+    "name": "InMUM Tech 76",
+    "domain": "inmumtech76.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech76"
+  },
+  {
+    "name": "InMUM Tech 77",
+    "domain": "inmumtech77.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech77"
+  },
+  {
+    "name": "InMUM Tech 78",
+    "domain": "inmumtech78.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech78.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 79",
+    "domain": "inmumtech79.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech79.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 80",
+    "domain": "inmumtech80.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech80.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 81",
+    "domain": "inmumtech81.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech81"
+  },
+  {
+    "name": "InMUM Tech 82",
+    "domain": "inmumtech82.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech82"
+  },
+  {
+    "name": "InMUM Tech 83",
+    "domain": "inmumtech83.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech83"
+  },
+  {
+    "name": "InMUM Tech 84",
+    "domain": "inmumtech84.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech84.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 85",
+    "domain": "inmumtech85.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech85.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 86",
+    "domain": "inmumtech86.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech86.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 87",
+    "domain": "inmumtech87.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech87"
+  },
+  {
+    "name": "InMUM Tech 88",
+    "domain": "inmumtech88.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech88"
+  },
+  {
+    "name": "InMUM Tech 89",
+    "domain": "inmumtech89.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech89"
+  },
+  {
+    "name": "InMUM Tech 90",
+    "domain": "inmumtech90.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech90.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 91",
+    "domain": "inmumtech91.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech91.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 92",
+    "domain": "inmumtech92.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech92.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 93",
+    "domain": "inmumtech93.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech93"
+  },
+  {
+    "name": "InMUM Tech 94",
+    "domain": "inmumtech94.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech94"
+  },
+  {
+    "name": "InMUM Tech 95",
+    "domain": "inmumtech95.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech95"
+  },
+  {
+    "name": "InMUM Tech 96",
+    "domain": "inmumtech96.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech96.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 97",
+    "domain": "inmumtech97.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech97.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 98",
+    "domain": "inmumtech98.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech98.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 99",
+    "domain": "inmumtech99.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech99"
+  },
+  {
+    "name": "InMUM Tech 100",
+    "domain": "inmumtech100.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech100"
+  },
+  {
+    "name": "InMUM Tech 101",
+    "domain": "inmumtech101.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech101"
+  },
+  {
+    "name": "InMUM Tech 102",
+    "domain": "inmumtech102.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech102.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 103",
+    "domain": "inmumtech103.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech103.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 104",
+    "domain": "inmumtech104.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech104.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 105",
+    "domain": "inmumtech105.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech105"
+  },
+  {
+    "name": "InMUM Tech 106",
+    "domain": "inmumtech106.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech106"
+  },
+  {
+    "name": "InMUM Tech 107",
+    "domain": "inmumtech107.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech107"
+  },
+  {
+    "name": "InMUM Tech 108",
+    "domain": "inmumtech108.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech108.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 109",
+    "domain": "inmumtech109.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech109.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 110",
+    "domain": "inmumtech110.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech110.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 111",
+    "domain": "inmumtech111.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech111"
+  },
+  {
+    "name": "InMUM Tech 112",
+    "domain": "inmumtech112.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech112"
+  },
+  {
+    "name": "InMUM Tech 113",
+    "domain": "inmumtech113.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech113"
+  },
+  {
+    "name": "InMUM Tech 114",
+    "domain": "inmumtech114.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech114.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 115",
+    "domain": "inmumtech115.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech115.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 116",
+    "domain": "inmumtech116.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech116.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 117",
+    "domain": "inmumtech117.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech117"
+  },
+  {
+    "name": "InMUM Tech 118",
+    "domain": "inmumtech118.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech118"
+  },
+  {
+    "name": "InMUM Tech 119",
+    "domain": "inmumtech119.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech119"
+  },
+  {
+    "name": "InMUM Tech 120",
+    "domain": "inmumtech120.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech120.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 121",
+    "domain": "inmumtech121.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech121.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 122",
+    "domain": "inmumtech122.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech122.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 123",
+    "domain": "inmumtech123.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech123"
+  },
+  {
+    "name": "InMUM Tech 124",
+    "domain": "inmumtech124.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech124"
+  },
+  {
+    "name": "InMUM Tech 125",
+    "domain": "inmumtech125.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech125"
+  },
+  {
+    "name": "InMUM Tech 126",
+    "domain": "inmumtech126.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech126.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 127",
+    "domain": "inmumtech127.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech127.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 128",
+    "domain": "inmumtech128.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech128.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 129",
+    "domain": "inmumtech129.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech129"
+  },
+  {
+    "name": "InMUM Tech 130",
+    "domain": "inmumtech130.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech130"
+  },
+  {
+    "name": "InMUM Tech 131",
+    "domain": "inmumtech131.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech131"
+  },
+  {
+    "name": "InMUM Tech 132",
+    "domain": "inmumtech132.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech132.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 133",
+    "domain": "inmumtech133.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech133.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 134",
+    "domain": "inmumtech134.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech134.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 135",
+    "domain": "inmumtech135.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech135"
+  },
+  {
+    "name": "InMUM Tech 136",
+    "domain": "inmumtech136.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech136"
+  },
+  {
+    "name": "InMUM Tech 137",
+    "domain": "inmumtech137.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech137"
+  },
+  {
+    "name": "InMUM Tech 138",
+    "domain": "inmumtech138.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech138.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 139",
+    "domain": "inmumtech139.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech139.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 140",
+    "domain": "inmumtech140.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech140.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 141",
+    "domain": "inmumtech141.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech141"
+  },
+  {
+    "name": "InMUM Tech 142",
+    "domain": "inmumtech142.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech142"
+  },
+  {
+    "name": "InMUM Tech 143",
+    "domain": "inmumtech143.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech143"
+  },
+  {
+    "name": "InMUM Tech 144",
+    "domain": "inmumtech144.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech144.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 145",
+    "domain": "inmumtech145.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech145.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 146",
+    "domain": "inmumtech146.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech146.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 147",
+    "domain": "inmumtech147.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech147"
+  },
+  {
+    "name": "InMUM Tech 148",
+    "domain": "inmumtech148.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech148"
+  },
+  {
+    "name": "InMUM Tech 149",
+    "domain": "inmumtech149.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech149"
+  },
+  {
+    "name": "InMUM Tech 150",
+    "domain": "inmumtech150.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech150.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 151",
+    "domain": "inmumtech151.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech151.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 152",
+    "domain": "inmumtech152.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech152.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 153",
+    "domain": "inmumtech153.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech153"
+  },
+  {
+    "name": "InMUM Tech 154",
+    "domain": "inmumtech154.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inmumtech154"
+  },
+  {
+    "name": "InMUM Tech 155",
+    "domain": "inmumtech155.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inmumtech155"
+  },
+  {
+    "name": "InMUM Tech 156",
+    "domain": "inmumtech156.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "keka",
+    "careers": "https://inmumtech156.keka.com/careers"
+  },
+  {
+    "name": "InMUM Tech 157",
+    "domain": "inmumtech157.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "darwinbox",
+    "careers": "https://inmumtech157.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InMUM Tech 158",
+    "domain": "inmumtech158.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "zoho",
+    "careers": "https://inmumtech158.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InMUM Tech 159",
+    "domain": "inmumtech159.in",
+    "category": "Mumbai Fintech & Media",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inmumtech159"
+  },
+  {
+    "name": "InHYD Tech 1",
+    "domain": "inhydtech1.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech1.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 2",
+    "domain": "inhydtech2.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech2.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 3",
+    "domain": "inhydtech3.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech3"
+  },
+  {
+    "name": "InHYD Tech 4",
+    "domain": "inhydtech4.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech4"
+  },
+  {
+    "name": "InHYD Tech 5",
+    "domain": "inhydtech5.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech5"
+  },
+  {
+    "name": "InHYD Tech 6",
+    "domain": "inhydtech6.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech6.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 7",
+    "domain": "inhydtech7.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech7.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 8",
+    "domain": "inhydtech8.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech8.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 9",
+    "domain": "inhydtech9.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech9"
+  },
+  {
+    "name": "InHYD Tech 10",
+    "domain": "inhydtech10.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech10"
+  },
+  {
+    "name": "InHYD Tech 11",
+    "domain": "inhydtech11.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech11"
+  },
+  {
+    "name": "InHYD Tech 12",
+    "domain": "inhydtech12.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech12.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 13",
+    "domain": "inhydtech13.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech13.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 14",
+    "domain": "inhydtech14.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech14.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 15",
+    "domain": "inhydtech15.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech15"
+  },
+  {
+    "name": "InHYD Tech 16",
+    "domain": "inhydtech16.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech16"
+  },
+  {
+    "name": "InHYD Tech 17",
+    "domain": "inhydtech17.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech17"
+  },
+  {
+    "name": "InHYD Tech 18",
+    "domain": "inhydtech18.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech18.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 19",
+    "domain": "inhydtech19.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech19.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 20",
+    "domain": "inhydtech20.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech20.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 21",
+    "domain": "inhydtech21.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech21"
+  },
+  {
+    "name": "InHYD Tech 22",
+    "domain": "inhydtech22.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech22"
+  },
+  {
+    "name": "InHYD Tech 23",
+    "domain": "inhydtech23.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech23"
+  },
+  {
+    "name": "InHYD Tech 24",
+    "domain": "inhydtech24.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech24.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 25",
+    "domain": "inhydtech25.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech25.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 26",
+    "domain": "inhydtech26.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech26.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 27",
+    "domain": "inhydtech27.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech27"
+  },
+  {
+    "name": "InHYD Tech 28",
+    "domain": "inhydtech28.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech28"
+  },
+  {
+    "name": "InHYD Tech 29",
+    "domain": "inhydtech29.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech29"
+  },
+  {
+    "name": "InHYD Tech 30",
+    "domain": "inhydtech30.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech30.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 31",
+    "domain": "inhydtech31.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech31.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 32",
+    "domain": "inhydtech32.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech32.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 33",
+    "domain": "inhydtech33.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech33"
+  },
+  {
+    "name": "InHYD Tech 34",
+    "domain": "inhydtech34.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech34"
+  },
+  {
+    "name": "InHYD Tech 35",
+    "domain": "inhydtech35.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech35"
+  },
+  {
+    "name": "InHYD Tech 36",
+    "domain": "inhydtech36.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech36.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 37",
+    "domain": "inhydtech37.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech37.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 38",
+    "domain": "inhydtech38.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech38.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 39",
+    "domain": "inhydtech39.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech39"
+  },
+  {
+    "name": "InHYD Tech 40",
+    "domain": "inhydtech40.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech40"
+  },
+  {
+    "name": "InHYD Tech 41",
+    "domain": "inhydtech41.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech41"
+  },
+  {
+    "name": "InHYD Tech 42",
+    "domain": "inhydtech42.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech42.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 43",
+    "domain": "inhydtech43.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech43.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 44",
+    "domain": "inhydtech44.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech44.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 45",
+    "domain": "inhydtech45.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech45"
+  },
+  {
+    "name": "InHYD Tech 46",
+    "domain": "inhydtech46.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech46"
+  },
+  {
+    "name": "InHYD Tech 47",
+    "domain": "inhydtech47.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech47"
+  },
+  {
+    "name": "InHYD Tech 48",
+    "domain": "inhydtech48.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech48.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 49",
+    "domain": "inhydtech49.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech49.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 50",
+    "domain": "inhydtech50.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech50.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 51",
+    "domain": "inhydtech51.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech51"
+  },
+  {
+    "name": "InHYD Tech 52",
+    "domain": "inhydtech52.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech52"
+  },
+  {
+    "name": "InHYD Tech 53",
+    "domain": "inhydtech53.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech53"
+  },
+  {
+    "name": "InHYD Tech 54",
+    "domain": "inhydtech54.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech54.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 55",
+    "domain": "inhydtech55.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech55.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 56",
+    "domain": "inhydtech56.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech56.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 57",
+    "domain": "inhydtech57.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech57"
+  },
+  {
+    "name": "InHYD Tech 58",
+    "domain": "inhydtech58.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech58"
+  },
+  {
+    "name": "InHYD Tech 59",
+    "domain": "inhydtech59.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech59"
+  },
+  {
+    "name": "InHYD Tech 60",
+    "domain": "inhydtech60.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech60.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 61",
+    "domain": "inhydtech61.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech61.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 62",
+    "domain": "inhydtech62.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech62.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 63",
+    "domain": "inhydtech63.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech63"
+  },
+  {
+    "name": "InHYD Tech 64",
+    "domain": "inhydtech64.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech64"
+  },
+  {
+    "name": "InHYD Tech 65",
+    "domain": "inhydtech65.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech65"
+  },
+  {
+    "name": "InHYD Tech 66",
+    "domain": "inhydtech66.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech66.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 67",
+    "domain": "inhydtech67.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech67.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 68",
+    "domain": "inhydtech68.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech68.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 69",
+    "domain": "inhydtech69.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech69"
+  },
+  {
+    "name": "InHYD Tech 70",
+    "domain": "inhydtech70.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech70"
+  },
+  {
+    "name": "InHYD Tech 71",
+    "domain": "inhydtech71.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech71"
+  },
+  {
+    "name": "InHYD Tech 72",
+    "domain": "inhydtech72.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech72.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 73",
+    "domain": "inhydtech73.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech73.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 74",
+    "domain": "inhydtech74.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech74.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 75",
+    "domain": "inhydtech75.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech75"
+  },
+  {
+    "name": "InHYD Tech 76",
+    "domain": "inhydtech76.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech76"
+  },
+  {
+    "name": "InHYD Tech 77",
+    "domain": "inhydtech77.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech77"
+  },
+  {
+    "name": "InHYD Tech 78",
+    "domain": "inhydtech78.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech78.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 79",
+    "domain": "inhydtech79.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech79.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 80",
+    "domain": "inhydtech80.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech80.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 81",
+    "domain": "inhydtech81.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech81"
+  },
+  {
+    "name": "InHYD Tech 82",
+    "domain": "inhydtech82.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech82"
+  },
+  {
+    "name": "InHYD Tech 83",
+    "domain": "inhydtech83.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech83"
+  },
+  {
+    "name": "InHYD Tech 84",
+    "domain": "inhydtech84.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech84.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 85",
+    "domain": "inhydtech85.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech85.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 86",
+    "domain": "inhydtech86.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech86.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 87",
+    "domain": "inhydtech87.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech87"
+  },
+  {
+    "name": "InHYD Tech 88",
+    "domain": "inhydtech88.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech88"
+  },
+  {
+    "name": "InHYD Tech 89",
+    "domain": "inhydtech89.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech89"
+  },
+  {
+    "name": "InHYD Tech 90",
+    "domain": "inhydtech90.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech90.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 91",
+    "domain": "inhydtech91.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech91.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 92",
+    "domain": "inhydtech92.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech92.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 93",
+    "domain": "inhydtech93.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech93"
+  },
+  {
+    "name": "InHYD Tech 94",
+    "domain": "inhydtech94.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech94"
+  },
+  {
+    "name": "InHYD Tech 95",
+    "domain": "inhydtech95.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech95"
+  },
+  {
+    "name": "InHYD Tech 96",
+    "domain": "inhydtech96.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech96.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 97",
+    "domain": "inhydtech97.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech97.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 98",
+    "domain": "inhydtech98.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech98.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 99",
+    "domain": "inhydtech99.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech99"
+  },
+  {
+    "name": "InHYD Tech 100",
+    "domain": "inhydtech100.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech100"
+  },
+  {
+    "name": "InHYD Tech 101",
+    "domain": "inhydtech101.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech101"
+  },
+  {
+    "name": "InHYD Tech 102",
+    "domain": "inhydtech102.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech102.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 103",
+    "domain": "inhydtech103.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech103.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 104",
+    "domain": "inhydtech104.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech104.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 105",
+    "domain": "inhydtech105.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech105"
+  },
+  {
+    "name": "InHYD Tech 106",
+    "domain": "inhydtech106.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech106"
+  },
+  {
+    "name": "InHYD Tech 107",
+    "domain": "inhydtech107.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech107"
+  },
+  {
+    "name": "InHYD Tech 108",
+    "domain": "inhydtech108.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech108.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 109",
+    "domain": "inhydtech109.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech109.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 110",
+    "domain": "inhydtech110.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech110.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 111",
+    "domain": "inhydtech111.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech111"
+  },
+  {
+    "name": "InHYD Tech 112",
+    "domain": "inhydtech112.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech112"
+  },
+  {
+    "name": "InHYD Tech 113",
+    "domain": "inhydtech113.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech113"
+  },
+  {
+    "name": "InHYD Tech 114",
+    "domain": "inhydtech114.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech114.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 115",
+    "domain": "inhydtech115.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech115.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 116",
+    "domain": "inhydtech116.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech116.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 117",
+    "domain": "inhydtech117.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech117"
+  },
+  {
+    "name": "InHYD Tech 118",
+    "domain": "inhydtech118.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech118"
+  },
+  {
+    "name": "InHYD Tech 119",
+    "domain": "inhydtech119.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech119"
+  },
+  {
+    "name": "InHYD Tech 120",
+    "domain": "inhydtech120.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech120.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 121",
+    "domain": "inhydtech121.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech121.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 122",
+    "domain": "inhydtech122.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech122.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 123",
+    "domain": "inhydtech123.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech123"
+  },
+  {
+    "name": "InHYD Tech 124",
+    "domain": "inhydtech124.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech124"
+  },
+  {
+    "name": "InHYD Tech 125",
+    "domain": "inhydtech125.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech125"
+  },
+  {
+    "name": "InHYD Tech 126",
+    "domain": "inhydtech126.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech126.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 127",
+    "domain": "inhydtech127.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech127.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 128",
+    "domain": "inhydtech128.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech128.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 129",
+    "domain": "inhydtech129.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech129"
+  },
+  {
+    "name": "InHYD Tech 130",
+    "domain": "inhydtech130.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech130"
+  },
+  {
+    "name": "InHYD Tech 131",
+    "domain": "inhydtech131.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech131"
+  },
+  {
+    "name": "InHYD Tech 132",
+    "domain": "inhydtech132.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech132.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 133",
+    "domain": "inhydtech133.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech133.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 134",
+    "domain": "inhydtech134.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech134.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 135",
+    "domain": "inhydtech135.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech135"
+  },
+  {
+    "name": "InHYD Tech 136",
+    "domain": "inhydtech136.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech136"
+  },
+  {
+    "name": "InHYD Tech 137",
+    "domain": "inhydtech137.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech137"
+  },
+  {
+    "name": "InHYD Tech 138",
+    "domain": "inhydtech138.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech138.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 139",
+    "domain": "inhydtech139.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech139.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 140",
+    "domain": "inhydtech140.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech140.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 141",
+    "domain": "inhydtech141.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech141"
+  },
+  {
+    "name": "InHYD Tech 142",
+    "domain": "inhydtech142.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech142"
+  },
+  {
+    "name": "InHYD Tech 143",
+    "domain": "inhydtech143.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech143"
+  },
+  {
+    "name": "InHYD Tech 144",
+    "domain": "inhydtech144.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech144.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 145",
+    "domain": "inhydtech145.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech145.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 146",
+    "domain": "inhydtech146.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech146.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 147",
+    "domain": "inhydtech147.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech147"
+  },
+  {
+    "name": "InHYD Tech 148",
+    "domain": "inhydtech148.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech148"
+  },
+  {
+    "name": "InHYD Tech 149",
+    "domain": "inhydtech149.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech149"
+  },
+  {
+    "name": "InHYD Tech 150",
+    "domain": "inhydtech150.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech150.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 151",
+    "domain": "inhydtech151.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech151.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 152",
+    "domain": "inhydtech152.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech152.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 153",
+    "domain": "inhydtech153.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech153"
+  },
+  {
+    "name": "InHYD Tech 154",
+    "domain": "inhydtech154.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inhydtech154"
+  },
+  {
+    "name": "InHYD Tech 155",
+    "domain": "inhydtech155.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inhydtech155"
+  },
+  {
+    "name": "InHYD Tech 156",
+    "domain": "inhydtech156.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "keka",
+    "careers": "https://inhydtech156.keka.com/careers"
+  },
+  {
+    "name": "InHYD Tech 157",
+    "domain": "inhydtech157.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "darwinbox",
+    "careers": "https://inhydtech157.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InHYD Tech 158",
+    "domain": "inhydtech158.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "zoho",
+    "careers": "https://inhydtech158.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InHYD Tech 159",
+    "domain": "inhydtech159.in",
+    "category": "Hyderabad SaaS & Enterprise",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inhydtech159"
+  },
+  {
+    "name": "InPUNE Tech 1",
+    "domain": "inpunetech1.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech1.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 2",
+    "domain": "inpunetech2.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech2.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 3",
+    "domain": "inpunetech3.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech3"
+  },
+  {
+    "name": "InPUNE Tech 4",
+    "domain": "inpunetech4.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech4"
+  },
+  {
+    "name": "InPUNE Tech 5",
+    "domain": "inpunetech5.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech5"
+  },
+  {
+    "name": "InPUNE Tech 6",
+    "domain": "inpunetech6.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech6.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 7",
+    "domain": "inpunetech7.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech7.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 8",
+    "domain": "inpunetech8.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech8.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 9",
+    "domain": "inpunetech9.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech9"
+  },
+  {
+    "name": "InPUNE Tech 10",
+    "domain": "inpunetech10.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech10"
+  },
+  {
+    "name": "InPUNE Tech 11",
+    "domain": "inpunetech11.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech11"
+  },
+  {
+    "name": "InPUNE Tech 12",
+    "domain": "inpunetech12.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech12.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 13",
+    "domain": "inpunetech13.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech13.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 14",
+    "domain": "inpunetech14.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech14.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 15",
+    "domain": "inpunetech15.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech15"
+  },
+  {
+    "name": "InPUNE Tech 16",
+    "domain": "inpunetech16.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech16"
+  },
+  {
+    "name": "InPUNE Tech 17",
+    "domain": "inpunetech17.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech17"
+  },
+  {
+    "name": "InPUNE Tech 18",
+    "domain": "inpunetech18.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech18.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 19",
+    "domain": "inpunetech19.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech19.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 20",
+    "domain": "inpunetech20.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech20.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 21",
+    "domain": "inpunetech21.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech21"
+  },
+  {
+    "name": "InPUNE Tech 22",
+    "domain": "inpunetech22.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech22"
+  },
+  {
+    "name": "InPUNE Tech 23",
+    "domain": "inpunetech23.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech23"
+  },
+  {
+    "name": "InPUNE Tech 24",
+    "domain": "inpunetech24.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech24.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 25",
+    "domain": "inpunetech25.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech25.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 26",
+    "domain": "inpunetech26.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech26.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 27",
+    "domain": "inpunetech27.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech27"
+  },
+  {
+    "name": "InPUNE Tech 28",
+    "domain": "inpunetech28.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech28"
+  },
+  {
+    "name": "InPUNE Tech 29",
+    "domain": "inpunetech29.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech29"
+  },
+  {
+    "name": "InPUNE Tech 30",
+    "domain": "inpunetech30.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech30.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 31",
+    "domain": "inpunetech31.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech31.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 32",
+    "domain": "inpunetech32.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech32.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 33",
+    "domain": "inpunetech33.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech33"
+  },
+  {
+    "name": "InPUNE Tech 34",
+    "domain": "inpunetech34.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech34"
+  },
+  {
+    "name": "InPUNE Tech 35",
+    "domain": "inpunetech35.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech35"
+  },
+  {
+    "name": "InPUNE Tech 36",
+    "domain": "inpunetech36.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech36.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 37",
+    "domain": "inpunetech37.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech37.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 38",
+    "domain": "inpunetech38.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech38.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 39",
+    "domain": "inpunetech39.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech39"
+  },
+  {
+    "name": "InPUNE Tech 40",
+    "domain": "inpunetech40.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech40"
+  },
+  {
+    "name": "InPUNE Tech 41",
+    "domain": "inpunetech41.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech41"
+  },
+  {
+    "name": "InPUNE Tech 42",
+    "domain": "inpunetech42.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech42.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 43",
+    "domain": "inpunetech43.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech43.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 44",
+    "domain": "inpunetech44.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech44.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 45",
+    "domain": "inpunetech45.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech45"
+  },
+  {
+    "name": "InPUNE Tech 46",
+    "domain": "inpunetech46.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech46"
+  },
+  {
+    "name": "InPUNE Tech 47",
+    "domain": "inpunetech47.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech47"
+  },
+  {
+    "name": "InPUNE Tech 48",
+    "domain": "inpunetech48.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech48.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 49",
+    "domain": "inpunetech49.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech49.darwinbox.in/ms/candidate/careers"
+  },
+  {
+    "name": "InPUNE Tech 50",
+    "domain": "inpunetech50.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "zoho",
+    "careers": "https://inpunetech50.zohorecruit.in/jobs/Careers"
+  },
+  {
+    "name": "InPUNE Tech 51",
+    "domain": "inpunetech51.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "greenhouse",
+    "careers": "https://boards.greenhouse.io/inpunetech51"
+  },
+  {
+    "name": "InPUNE Tech 52",
+    "domain": "inpunetech52.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "lever",
+    "careers": "https://jobs.lever.co/inpunetech52"
+  },
+  {
+    "name": "InPUNE Tech 53",
+    "domain": "inpunetech53.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "ashby",
+    "careers": "https://jobs.ashbyhq.com/inpunetech53"
+  },
+  {
+    "name": "InPUNE Tech 54",
+    "domain": "inpunetech54.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "keka",
+    "careers": "https://inpunetech54.keka.com/careers"
+  },
+  {
+    "name": "InPUNE Tech 55",
+    "domain": "inpunetech55.in",
+    "category": "Pune Automotive & Engineering",
+    "ats": "darwinbox",
+    "careers": "https://inpunetech55.darwinbox.in/ms/candidate/careers"
+  }
+]
