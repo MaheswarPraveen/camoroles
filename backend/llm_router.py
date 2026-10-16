@@ -9,9 +9,10 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 
-# Single pinned model for consistent scoring
-GROQ_MODEL = "llama-3.3-70b-versatile"
-OPENROUTER_FALLBACK_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
+# Active Groq models (ultra-low latency on LPU)
+GROQ_MODEL = "openai/gpt-oss-120b"
+GROQ_BACKUP_MODEL = "openai/gpt-oss-20b"
+OPENROUTER_FALLBACK_MODEL = "nvidia/nemotron-3.5-lightning:free"
 
 class LLMRouter:
     """
@@ -25,30 +26,31 @@ class LLMRouter:
     def chat_json(messages: List[Dict[str, str]], timeout: float = 20.0) -> Dict[str, Any]:
         last_error = None
 
-        # 1. Try Groq Primary
+        # 1. Try Groq (Primary & Backup)
         if GROQ_API_KEY:
-            try:
-                with httpx.Client(timeout=timeout) as client:
-                    resp = client.post(
-                        "https://api.groq.com/openai/v1/chat/completions",
-                        headers={
-                            "Authorization": f"Bearer {GROQ_API_KEY}",
-                            "Content-Type": "application/json"
-                        },
-                        json={
-                            "model": GROQ_MODEL,
-                            "messages": messages,
-                            "temperature": 0.1,
-                            "response_format": {"type": "json_object"}
-                        }
-                    )
-                    if resp.status_code == 200:
-                        content = resp.json()["choices"][0]["message"]["content"]
-                        return json.loads(content)
-                    else:
-                        last_error = f"Groq {resp.status_code}: {resp.text[:200]}"
-            except Exception as e:
-                last_error = f"Groq exception: {str(e)}"
+            for model_name in [GROQ_MODEL, GROQ_BACKUP_MODEL]:
+                try:
+                    with httpx.Client(timeout=timeout) as client:
+                        resp = client.post(
+                            "https://api.groq.com/openai/v1/chat/completions",
+                            headers={
+                                "Authorization": f"Bearer {GROQ_API_KEY}",
+                                "Content-Type": "application/json"
+                            },
+                            json={
+                                "model": model_name,
+                                "messages": messages,
+                                "temperature": 0.1,
+                                "response_format": {"type": "json_object"}
+                            }
+                        )
+                        if resp.status_code == 200:
+                            content = resp.json()["choices"][0]["message"]["content"]
+                            return json.loads(content)
+                        else:
+                            last_error = f"Groq ({model_name}) {resp.status_code}: {resp.text[:200]}"
+                except Exception as e:
+                    last_error = f"Groq ({model_name}) exception: {str(e)}"
 
         # 2. Try OpenRouter Fallback
         if OPENROUTER_API_KEY:
