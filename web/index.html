@@ -7,1143 +7,52 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    /* =============================================================
-       CAMOUROLES DESIGN SYSTEM: BLACK & BLUE SKEUOMORPHISM + MINIMALISM
-       Obsidian base, deep navy surfaces, electric cobalt, cyan glow
-       ============================================================= */
-    :root {
-      --bg:             #07090E; /* Obsidian Void */
-      --surface:        #0C101A; /* Graphite Surface */
-      --surface-card:   #101624; /* Elevated Card */
-      --surface-hover:  #151D2E; /* Card Hover */
-      --surface-sunken: #05070B; /* Debossed Well */
-      --line:           #1C2638; /* Hairline Border */
-      --line-subtle:    #141C2B;
-      --line-highlight: rgba(255, 255, 255, 0.08); /* Top bevel specular */
-      
-      --blue:           #0066FF; /* Electric Cobalt */
-      --blue-hover:     #1A75FF;
-      --blue-deep:      #0044BB;
-      --blue-glow:      rgba(0, 102, 255, 0.35);
-      --cyan:           #00D2FF; /* Vibrant Cyan Glow */
-      --cyan-glow:      rgba(0, 210, 255, 0.25);
-      
-      --text:           #F8FAFC; /* Crisp White */
-      --muted:          #94A3B8; /* Slate Subtext */
-      --dim:            #64748B; /* Inactive Dim */
-      --green:          #10B981; /* Live Verified Green */
-      --green-glow:     rgba(16, 185, 129, 0.3);
-      --slider-pct:     100%;
-    }
-
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      font-size: 15px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      min-height: 100vh;
-    }
-
-    .tabular-num {
-      font-variant-numeric: tabular-nums;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--cyan);
-      outline-offset: 2px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, select {
-      font-family: inherit;
-      font-size: 14px;
-    }
-
-    /* Scrollbars */
-    ::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1C2638;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #2E3E58;
-    }
-
-    /* =============================================================
-       STICKY TOP BAR (56px) - SKEUOMORPHIC METALLIC RIM
-       ============================================================= */
-    .top-bar {
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      height: 56px;
-      background: rgba(12, 16, 26, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), inset 0 -1px 0 rgba(0, 102, 255, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .brand-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      background: linear-gradient(135deg, #0066FF 0%, #00D2FF 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(0, 102, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    }
-
-    .brand-name {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      color: #FFFFFF;
-      background: linear-gradient(180deg, #FFFFFF 30%, #CBD5E1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .brand-tagline {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--muted);
-      border-left: 1px solid var(--line);
-      padding-left: 12px;
-      display: none;
-    }
-
-    @media (min-width: 680px) {
-      .brand-tagline {
-        display: inline;
-      }
-    }
-
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .verified-counter-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #E2E8F0;
-      padding: 5px 10px;
-      border: 1px solid #1E293B;
-      border-radius: 999px;
-      background: #080B12;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255, 255, 255, 0.05);
-    }
-
-    .live-pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--green);
-      animation: pulseGreen 2.2s infinite ease-in-out;
-    }
-
-    @keyframes pulseGreen {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.45; transform: scale(0.85); }
-    }
-
-    .btn-filter-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      height: 34px;
-      padding: 0 12px;
-      background: #101624;
-      border: 1px solid var(--line);
-      border-radius: 7px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      box-shadow: inset 0 1px 0 var(--line-highlight), 0 2px 4px rgba(0,0,0,0.5);
-    }
-
-    @media (min-width: 1080px) {
-      .btn-filter-toggle {
-        display: none;
-      }
-    }
-
-    /* =============================================================
-       THREE-ZONE DESKTOP LAYOUT (>= 1080px)
-       Zone 1: Filter Rail (270px)
-       Zone 2: Stream Panel (Middle flex, max 780px)
-       Zone 3: Match CV Panel (Right 370px)
-       ============================================================= */
-    .app-layout {
-      max-width: 1480px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 1080px) {
-      .app-layout {
-        grid-template-columns: 270px minmax(0, 800px) 380px;
-        min-height: calc(100vh - 56px);
-      }
-    }
-
-    /* =============================================================
-       ZONE 1: FILTER RAIL (Left 270px)
-       ============================================================= */
-    .filter-rail {
-      background: var(--surface);
-      border-right: 1px solid var(--line);
-      padding: 18px 16px;
-      display: none;
-    }
-
-    @media (min-width: 1080px) {
-      .filter-rail {
-        display: block;
-        position: sticky;
-        top: 56px;
-        height: calc(100vh - 56px);
-        overflow-y: auto;
-      }
-    }
-
-    .rail-section {
-      margin-bottom: 22px;
-    }
-
-    .rail-section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 9px;
-    }
-
-    .rail-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #94A3B8;
-    }
-
-    .rail-link-clear {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--cyan);
-      cursor: pointer;
-      transition: opacity 0.15s;
-    }
-    .rail-link-clear:hover {
-      opacity: 0.8;
-      text-decoration: underline;
-    }
-
-    /* Debossed Sunken Search Field */
-    .search-input-wrap {
-      position: relative;
-      width: 100%;
-    }
-
-    .search-icon-svg {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--dim);
-      pointer-events: none;
-    }
-
-    .search-input-field {
-      width: 100%;
-      height: 40px;
-      padding: 0 34px 0 38px;
-      background: var(--surface-sunken);
-      border: 1px solid #1C2638;
-      border-radius: 8px;
-      color: var(--text);
-      font-size: 13.5px;
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.85), 0 1px 0 rgba(255, 255, 255, 0.04);
-      transition: all 0.15s ease;
-    }
-
-    .search-input-field:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.85), 0 0 12px var(--blue-glow);
-    }
-
-    .search-clear-btn {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: var(--dim);
-      cursor: pointer;
-      display: none;
-    }
-    .search-clear-btn:hover { color: var(--text); }
-
-    /* Custom Skeuomorphic Tactile Slider */
-    .slider-box {
-      background: var(--surface-sunken);
-      border: 1px solid #1A2436;
-      border-radius: 9px;
-      padding: 12px 14px;
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.7);
-    }
-
-    .slider-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 10px;
-    }
-
-    .slider-readout {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--cyan);
-      text-shadow: 0 0 8px var(--cyan-glow);
-    }
-
-    input[type=range].tactile-slider {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(to right, #0066FF 0%, #00D2FF var(--slider-pct, 100%), #141C2B var(--slider-pct, 100%), #141C2B 100%);
-      outline: none;
-      margin: 0;
-      cursor: pointer;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.95), 0 1px 0 rgba(255, 255, 255, 0.06);
-      border: 1px solid #1C2638;
-      transition: background 0.05s ease;
-    }
-
-    input[type=range].tactile-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #3B82F6, #0066FF 65%, #003AA8);
-      border: 2px solid #00D2FF;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 210, 255, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
-    }
-
-    input[type=range].tactile-slider::-webkit-slider-thumb:hover {
-      transform: scale(1.18);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 210, 255, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-    }
-
-    input[type=range].tactile-slider::-webkit-slider-thumb:active {
-      transform: scale(1.06);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 210, 255, 1);
-    }
-
-    input[type=range].tactile-slider::-moz-range-thumb {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #3B82F6, #0066FF 65%, #003AA8);
-      border: 2px solid #00D2FF;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 210, 255, 0.6);
-      cursor: pointer;
-    }
-
-    input[type=range].tactile-slider::-moz-range-track {
-      height: 8px;
-      border-radius: 999px;
-      background: #141C2B;
-    }
-
-    .slider-presets-row {
-      display: flex;
-      gap: 5px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    .preset-pill-btn {
-      padding: 4px 8px;
-      font-size: 11px;
-      font-weight: 600;
-      border-radius: 5px;
-      background: #0E1422;
-      border: 1px solid #1E293B;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .preset-pill-btn:hover {
-      color: #FFFFFF;
-      border-color: #2D3E58;
-      background: #141C2E;
-    }
-
-    .preset-pill-btn.active {
-      background: rgba(0, 102, 255, 0.22);
-      border-color: var(--cyan);
-      color: var(--cyan);
-      box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
-    }
-
-    /* Filter Option Lists */
-    .filter-list {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      max-height: 260px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .filter-option-btn {
-      width: 100%;
-      text-align: left;
-      padding: 7px 10px;
-      border-radius: 6px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: #94A3B8;
-      font-size: 13px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.15s ease;
-    }
-
-    .filter-option-btn:hover {
-      background: var(--surface-card);
-      color: #FFFFFF;
-      border-color: #1A2436;
-    }
-
-    .filter-option-btn.active {
-      background: rgba(0, 102, 255, 0.15);
-      border-color: rgba(0, 102, 255, 0.45);
-      font-weight: 700;
-      color: #38BDF8;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-    }
-
-    .filter-option-btn.active .filter-count {
-      color: var(--cyan);
-    }
-
-    .filter-count {
-      font-size: 11px;
-      color: var(--dim);
-    }
-
-    /* =============================================================
-       ZONE 2: RESULTS STREAM (Middle)
-       ============================================================= */
-    .stream-panel {
-      background: var(--bg);
-      border-right: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
-
-    .stream-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--line);
-      background: var(--surface);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: sticky;
-      top: 56px;
-      z-index: 40;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    .stream-header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .stream-tabs-wrap {
-      display: flex;
-      gap: 6px;
-    }
-
-    .stream-tab-btn {
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      border-radius: 6px;
-      background: #0A0E18;
-      border: 1px solid #1C2638;
-      color: var(--muted);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
-    }
-
-    .stream-tab-btn:hover {
-      color: #FFFFFF;
-      border-color: #2D3E58;
-    }
-
-    .stream-tab-btn.active {
-      background: rgba(0, 102, 255, 0.2);
-      border-color: var(--blue);
-      color: #38BDF8;
-      box-shadow: 0 0 12px var(--blue-glow);
-    }
-
-    .stream-count-text {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* Active Filter Badges Bar */
-    .active-pills-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-    }
-    .active-pills-bar:empty { display: none; }
-
-    .active-filter-pill {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--cyan);
-      background: rgba(0, 210, 255, 0.1);
-      border: 1px solid rgba(0, 210, 255, 0.35);
-      border-radius: 999px;
-      padding: 2px 8px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .active-filter-pill button {
-      background: none;
-      border: none;
-      color: var(--cyan);
-      cursor: pointer;
-      font-size: 12px;
-      line-height: 1;
-    }
-
-    /* =============================================================
-       JOB ROWS - TACTILE SKEUOMORPHIC CARDS
-       ============================================================= */
-    .job-rows-container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .job-row {
-      padding: 20px 22px;
-      border-bottom: 1px solid var(--line);
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      transition: background 0.15s ease, box-shadow 0.15s ease;
-      position: relative;
-    }
-
-    .job-row:hover {
-      background: var(--surface-card);
-      box-shadow: inset 0 1px 0 var(--line-highlight);
-    }
-
-    .job-row-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .job-row-title-area {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .job-title {
-      font-size: 16.5px;
-      font-weight: 700;
-      color: #FFFFFF;
-      line-height: 1.35;
-      letter-spacing: -0.015em;
-    }
-
-    .job-company-line {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13.5px;
-      color: var(--muted);
-    }
-
-    .job-company-badge {
-      font-weight: 700;
-      color: #38BDF8;
-    }
-
-    .job-actions-top {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .match-chip {
-      background: linear-gradient(135deg, rgba(0, 102, 255, 0.25) 0%, rgba(0, 210, 255, 0.2) 100%);
-      color: #38BDF8;
-      border: 1px solid rgba(0, 210, 255, 0.4);
-      font-size: 11.5px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 999px;
-      box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
-    }
-
-    .btn-bookmark {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      background: #0B101A;
-      border: 1px solid #1E293B;
-      color: var(--dim);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .btn-bookmark:hover {
-      color: #F8FAFC;
-      border-color: #3B82F6;
-      background: #141C2B;
-    }
-    .btn-bookmark.saved {
-      color: #FBBF24;
-      border-color: rgba(251, 191, 36, 0.4);
-      background: rgba(251, 191, 36, 0.1);
-    }
-    .btn-bookmark.saved svg {
-      fill: #FBBF24;
-    }
-
-    /* Metadata Line (Location, Experience, Source, Verified) */
-    .job-meta-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-
-    .job-meta-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .verified-micro-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: var(--green);
-      font-weight: 600;
-      font-size: 11.5px;
-    }
-    .verified-micro-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 6px var(--green);
-    }
-
-    /* Match Reason Callout */
-    .job-match-reason {
-      margin-top: 4px;
-      font-size: 13px;
-      line-height: 1.45;
-      color: #CBD5E1;
-      background: #090E17;
-      border-left: 2px solid var(--blue);
-      border-radius: 0 6px 6px 0;
-      padding: 7px 12px;
-    }
-
-    /* Skills Pill Row */
-    .job-skills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 3px;
-    }
-
-    .skill-tag {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: #CBD5E1;
-      background: #0B101C;
-      padding: 3px 8px;
-      border-radius: 5px;
-      border: 1px solid #1C2638;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    /* Job Card Footer / Apply Bar */
-    .job-row-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 8px;
-      padding-top: 10px;
-      border-top: 1px dashed #172033;
-    }
-
-    .source-brand-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* Tactile Skeuomorphic Apply Link */
-    .btn-apply-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      height: 34px;
-      padding: 0 14px;
-      background: linear-gradient(180deg, #1A75FF 0%, #0066FF 65%, #004BBF 100%);
-      border: 1px solid #3B82F6;
-      border-top-color: #60A5FA;
-      border-radius: 7px;
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #FFFFFF;
-      box-shadow: 0 2px 0 #00368C, 0 4px 14px rgba(0, 102, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-      cursor: pointer;
-      transition: all 0.1s ease;
-    }
-
-    .btn-apply-link:hover {
-      background: linear-gradient(180deg, #3385FF 0%, #0066FF 65%, #004BBF 100%);
-      box-shadow: 0 2px 0 #00368C, 0 6px 18px rgba(0, 102, 255, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.45);
-    }
-
-    .btn-apply-link:active {
-      transform: translateY(1.5px);
-      box-shadow: 0 0.5px 0 #00368C, 0 2px 6px rgba(0, 102, 255, 0.3);
-    }
-
-    /* Keyword Highlighting */
-    mark.search-kw {
-      background: rgba(0, 210, 255, 0.22);
-      color: #38BDF8;
-      font-weight: 700;
-      border-radius: 3px;
-      padding: 0 2px;
-    }
-
-    /* Empty state */
-    .empty-state-box {
-      padding: 60px 24px;
-      text-align: center;
-      color: var(--muted);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* =============================================================
-       ZONE 3: MATCH CV PANEL (Right 380px)
-       ============================================================= */
-    .match-panel {
-      background: var(--surface);
-      padding: 22px 20px;
-      display: none;
-    }
-
-    @media (min-width: 1080px) {
-      .match-panel {
-        display: block;
-        position: sticky;
-        top: 56px;
-        height: calc(100vh - 56px);
-        overflow-y: auto;
-      }
-    }
-
-    .panel-block {
-      background: var(--surface-card);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 18px;
-      margin-bottom: 20px;
-      box-shadow: inset 0 1px 0 var(--line-highlight), 0 4px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    .panel-heading {
-      font-size: 16px;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.015em;
-      margin-bottom: 6px;
-    }
-
-    .panel-subtext {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.45;
-      margin-bottom: 16px;
-    }
-
-    /* In-Memory Dropzone */
-    .dropzone-box {
-      background: var(--surface-sunken);
-      border: 2px dashed #1E293B;
-      border-radius: 8px;
-      padding: 24px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .dropzone-box:hover {
-      border-color: var(--blue);
-      background: #080C14;
-      box-shadow: 0 0 14px var(--blue-glow);
-    }
-
-    .dropzone-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .dropzone-hint {
-      font-size: 11.5px;
-      color: var(--dim);
-    }
-
-    /* Active Candidate Card */
-    .candidate-box {
-      margin-top: 14px;
-      padding: 12px 14px;
-      background: #090E17;
-      border: 1px solid #1A2436;
-      border-radius: 8px;
-      display: none;
-    }
-
-    .candidate-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #38BDF8;
-    }
-    .candidate-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .btn-plain-link {
-      background: none;
-      border: none;
-      color: #EF4444;
-      font-size: 11.5px;
-      cursor: pointer;
-      margin-top: 8px;
-      text-decoration: underline;
-    }
-
-    .pref-group {
-      margin-top: 16px;
-    }
-
-    .pref-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #94A3B8;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .pref-chips-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .pref-chip {
-      padding: 5px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      border-radius: 6px;
-      background: #0B101A;
-      border: 1px solid #1E293B;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .pref-chip:hover {
-      color: #FFFFFF;
-      border-color: #2D3E58;
-    }
-    .pref-chip.active {
-      background: rgba(0, 102, 255, 0.22);
-      border-color: var(--cyan);
-      color: var(--cyan);
-      box-shadow: 0 0 10px var(--cyan-glow);
-    }
-
-    /* Primary Blaze/Electric Button */
-    .btn-primary-action {
-      width: 100%;
-      height: 42px;
-      margin-top: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: linear-gradient(180deg, #1A75FF 0%, #0066FF 65%, #004BBF 100%);
-      color: #FFFFFF;
-      font-size: 14px;
-      font-weight: 700;
-      border-radius: 8px;
-      border: 1px solid #3B82F6;
-      border-top-color: #60A5FA;
-      box-shadow: 0 3px 0 #00368C, 0 6px 18px rgba(0, 102, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-      cursor: pointer;
-      transition: all 0.1s ease;
-    }
-
-    .btn-primary-action:hover {
-      background: linear-gradient(180deg, #3385FF 0%, #0066FF 65%, #004BBF 100%);
-      box-shadow: 0 3px 0 #00368C, 0 8px 24px rgba(0, 102, 255, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.45);
-    }
-
-    .btn-primary-action:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 #00368C, 0 2px 6px rgba(0, 102, 255, 0.3);
-    }
-
-    /* =============================================================
-       MOBILE BOTTOM SHEET MODAL (< 1080px)
-       ============================================================= */
-    .mobile-modal-backdrop {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-
-    .mobile-bottom-sheet {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      max-height: 85vh;
-      background: #0C101A;
-      border-top: 1px solid var(--line);
-      border-radius: 16px 16px 0 0;
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.8), inset 0 1px 0 var(--line-highlight);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transform: translateY(100%);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .mobile-modal-backdrop.open {
-      display: block;
-    }
-    .mobile-modal-backdrop.open .mobile-bottom-sheet {
-      transform: translateY(0);
-    }
-
-    .sheet-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #101624;
-    }
-    .sheet-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #FFFFFF;
-    }
-    .sheet-close-btn {
-      background: none;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .sheet-body {
-      padding: 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .sheet-footer {
-      padding: 14px 20px;
-      border-top: 1px solid var(--line);
-      background: #101624;
-    }
-
-    /* Mobile Sticky Bottom Nav (< 1080px) */
-    .mobile-nav-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 56px;
-      background: rgba(12, 16, 26, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--line);
-      display: flex;
-      z-index: 50;
-    }
-
-    @media (min-width: 1080px) {
-      .mobile-nav-bar {
-        display: none;
-      }
-    }
-
-    .mobile-nav-btn {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .mobile-nav-btn.active {
-      color: #38BDF8;
-    }
-  </style>
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
 
-  <!-- Sticky Top Bar (56px) -->
+  <!-- ==========================================================================
+       STICKY TOP NAVIGATION BAR (56px)
+       ========================================================================== -->
   <header class="top-bar">
     <div class="brand-area">
-      <div class="brand-logo-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <div class="brand-cube-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2" fill="url(#cube-top)" stroke="#00D2FF" stroke-width="1.2"/><polygon points="2 7 12 12 12 22 2 17 2 7" fill="url(#cube-left)" stroke="#0066FF" stroke-width="1.2"/><polygon points="22 7 12 12 12 22 22 17 22 7" fill="url(#cube-right)" stroke="#0044BB" stroke-width="1.2"/><defs><linearGradient id="cube-top" x1="2" y1="2" x2="22" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#0066FF"/></linearGradient><linearGradient id="cube-left" x1="2" y1="7" x2="12" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#0066FF"/><stop offset="1" stop-color="#002D80"/></linearGradient><linearGradient id="cube-right" x1="22" y1="7" x2="12" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#0044BB"/><stop offset="1" stop-color="#00184A"/></linearGradient></defs></svg>
       </div>
-      <span class="brand-name" id="app-brand-name">Camouroles</span>
+      <span class="brand-name">Camouroles</span>
       <span class="brand-tagline">Jobs LinkedIn & Naukri don't show you</span>
     </div>
 
     <div class="top-actions">
-      <!-- Verified Live Indicator -->
+      <!-- Live Verified Indicator -->
       <div class="verified-counter-badge">
         <span class="live-pulse-dot"></span>
         <span id="verified-roles-indicator" class="tabular-num">1,288 live verified roles</span>
       </div>
 
+      <!-- Google Sign-In & Profile Container -->
+      <div class="auth-container" id="auth-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
       <!-- Mobile Filters Trigger Button -->
       <button class="btn-filter-toggle" onclick="openFiltersModal()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
         <span>Filters</span>
       </button>
     </div>
   </header>
 
-  <!-- Desktop 3-Zone Layout -->
+  <!-- ==========================================================================
+       THREE-ZONE DESKTOP GRID (270px | minmax(0, 800px) | 380px)
+       ========================================================================== -->
   <main class="app-layout">
 
-    <!-- =============================================================
+    <!-- -------------------------------------------------------------
          ZONE 1: FILTER RAIL (Left 270px)
-         ============================================================= -->
+         ------------------------------------------------------------- -->
     <aside class="filter-rail">
-      <!-- Search Input Field with Debounce -->
+      <!-- Search Openings -->
       <div class="rail-section">
         <div class="rail-section-header">
           <span class="rail-label">Search Openings</span>
@@ -1155,7 +64,7 @@
         </div>
       </div>
 
-      <!-- Custom Tactile Experience Slider (0 - 10+ Years) -->
+      <!-- Max Experience Tactile Slider -->
       <div class="rail-section">
         <div class="rail-section-header">
           <span class="rail-label">Max Experience</span>
@@ -1163,7 +72,7 @@
         </div>
         <div class="slider-box">
           <div class="slider-header-row">
-            <span style="font-size:12px; color:var(--muted);">Upper Bound</span>
+            <span style="font-size:11.5px; color:var(--text-dim);">Upper Bound</span>
             <span id="desktop-exp-readout" class="slider-readout">Any Experience</span>
           </div>
           <input type="range" id="desktop-exp-slider" class="tactile-slider" min="0" max="10" step="1" value="10" oninput="onExpSliderInput(this.value)">
@@ -1177,7 +86,7 @@
         </div>
       </div>
 
-      <!-- 12 Disciplines Filter List -->
+      <!-- Discipline Taxonomy List (All 12 Disciplines) -->
       <div class="rail-section">
         <div class="rail-section-header">
           <span class="rail-label">Discipline</span>
@@ -1239,7 +148,7 @@
         </div>
       </div>
 
-      <!-- 14 Global Tech Hubs Filter List -->
+      <!-- Global Tech Hubs (All 14 Locations) -->
       <div class="rail-section">
         <div class="rail-section-header">
           <span class="rail-label">Global Tech Hubs</span>
@@ -1294,7 +203,7 @@
         </div>
       </div>
 
-      <!-- Verified Portals & FAANG Filter -->
+      <!-- Verified Portals Filter -->
       <div class="rail-section">
         <div class="rail-section-header">
           <span class="rail-label">Verified Portals</span>
@@ -1323,11 +232,11 @@
       </div>
     </aside>
 
-    <!-- =============================================================
-         ZONE 2: RESULTS STREAM (Middle)
-         ============================================================= -->
+    <!-- -------------------------------------------------------------
+         ZONE 2: RESULTS STREAM (Center)
+         ------------------------------------------------------------- -->
     <section class="stream-panel">
-      <!-- Sticky Stream Header with Live Counts & Tabs -->
+      <!-- Sticky Stream Header -->
       <div class="stream-header">
         <div class="stream-header-top">
           <div class="stream-tabs-wrap">
@@ -1345,26 +254,25 @@
 
         <!-- Active Filter Badges Bar -->
         <div class="active-pills-bar" id="active-pills-bar">
-          <!-- Filled dynamically via JS -->
+          <!-- Populated dynamically via app.js -->
         </div>
       </div>
 
-      <!-- Dense Row List Container -->
+      <!-- Job Cards Container -->
       <div id="job-rows-container" class="job-rows-container">
-        <!-- Rendered via JS -->
+        <!-- Rendered dynamically by app.js -->
       </div>
     </section>
 
-    <!-- =============================================================
+    <!-- -------------------------------------------------------------
          ZONE 3: MATCH CV PANEL (Right 380px)
-         ============================================================= -->
+         ------------------------------------------------------------- -->
     <aside class="match-panel">
-      <!-- CV Ingestion Block -->
       <div class="panel-block">
         <h2 class="panel-heading">Match Your Engineering CV</h2>
         <p class="panel-subtext">Upload your CV to automatically score and rank all verified tech roles against your background.</p>
 
-        <!-- In-Memory Dropzone (DPDP Compliant) -->
+        <!-- In-Memory Dropzone -->
         <div class="dropzone-box" onclick="document.getElementById('cv-file-input').click()">
           <input type="file" id="cv-file-input" accept=".pdf" style="display:none;" onchange="onCvSelected(event)">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -1372,7 +280,7 @@
           <div class="dropzone-hint">PDF up to 5MB · In-memory parsing only</div>
         </div>
 
-        <!-- Active Candidate Profile Card -->
+        <!-- Candidate Profile Box -->
         <div class="candidate-box" id="candidate-data-box">
           <div class="candidate-title" id="cand-headline">Software Engineer</div>
           <div class="candidate-sub" id="cand-exp">0 years experience</div>
@@ -1380,52 +288,52 @@
           <button class="btn-plain-link" onclick="deleteMyData()">Delete my profile</button>
         </div>
 
-        <!-- Preferences: Target Location -->
+        <!-- Target Location Hub -->
         <div class="pref-group">
           <label class="pref-label">Target Location Hub</label>
           <div class="pref-chips-wrap" id="pref-location-chips">
-            <button class="pref-chip active" data-v="all" onclick="selectPrefLocation(this, 'all')">All</button>
-            <button class="pref-chip" data-v="worldwide_remote" onclick="selectPrefLocation(this, 'worldwide_remote')">Remote</button>
-            <button class="pref-chip" data-v="sf_bay" onclick="selectPrefLocation(this, 'sf_bay')">SF Bay</button>
-            <button class="pref-chip" data-v="seattle" onclick="selectPrefLocation(this, 'seattle')">Seattle</button>
-            <button class="pref-chip" data-v="nyc" onclick="selectPrefLocation(this, 'nyc')">NYC</button>
-            <button class="pref-chip" data-v="london" onclick="selectPrefLocation(this, 'london')">London</button>
-            <button class="pref-chip" data-v="india" onclick="selectPrefLocation(this, 'india')">India</button>
+            <button class="pref-chip active" data-v="All" onclick="selectPrefLocation(this, 'All')">All</button>
+            <button class="pref-chip" data-v="Worldwide Remote" onclick="selectPrefLocation(this, 'Worldwide Remote')">Remote</button>
+            <button class="pref-chip" data-v="SF Bay Area" onclick="selectPrefLocation(this, 'SF Bay Area')">SF Bay</button>
+            <button class="pref-chip" data-v="Seattle & Bellevue" onclick="selectPrefLocation(this, 'Seattle & Bellevue')">Seattle</button>
+            <button class="pref-chip" data-v="New York City" onclick="selectPrefLocation(this, 'New York City')">NYC</button>
+            <button class="pref-chip" data-v="London & UK" onclick="selectPrefLocation(this, 'London & UK')">London</button>
+            <button class="pref-chip" data-v="India" onclick="selectPrefLocation(this, 'India')">India</button>
           </div>
         </div>
 
-        <!-- Preferences: Target Discipline -->
+        <!-- Target Engineering Discipline -->
         <div class="pref-group">
           <label class="pref-label">Target Engineering Discipline</label>
           <div class="pref-chips-wrap" id="pref-role-chips">
-            <button class="pref-chip active" data-v="all" onclick="selectPrefRole(this, 'all')">All</button>
-            <button class="pref-chip" data-v="robotics" onclick="selectPrefRole(this, 'robotics')">Robotics</button>
-            <button class="pref-chip" data-v="embedded" onclick="selectPrefRole(this, 'embedded')">Embedded</button>
-            <button class="pref-chip" data-v="ai_ml" onclick="selectPrefRole(this, 'ai_ml')">AI / ML</button>
-            <button class="pref-chip" data-v="backend" onclick="selectPrefRole(this, 'backend')">Backend</button>
-            <button class="pref-chip" data-v="devops" onclick="selectPrefRole(this, 'devops')">DevOps</button>
-            <button class="pref-chip" data-v="fullstack" onclick="selectPrefRole(this, 'fullstack')">Full Stack</button>
+            <button class="pref-chip active" data-v="All" onclick="selectPrefRole(this, 'All')">All</button>
+            <button class="pref-chip" data-v="Robotics & Autonomy" onclick="selectPrefRole(this, 'Robotics & Autonomy')">Robotics</button>
+            <button class="pref-chip" data-v="Embedded & Firmware" onclick="selectPrefRole(this, 'Embedded & Firmware')">Embedded</button>
+            <button class="pref-chip" data-v="AI & Machine Learning" onclick="selectPrefRole(this, 'AI & Machine Learning')">AI / ML</button>
+            <button class="pref-chip" data-v="Backend & Distributed" onclick="selectPrefRole(this, 'Backend & Distributed')">Backend</button>
+            <button class="pref-chip" data-v="Cloud, DevOps & SRE" onclick="selectPrefRole(this, 'Cloud, DevOps & SRE')">DevOps</button>
+            <button class="pref-chip" data-v="Full Stack Engineering" onclick="selectPrefRole(this, 'Full Stack Engineering')">Full Stack</button>
           </div>
         </div>
 
-        <!-- Tactile Skeuomorphic Action Button -->
+        <!-- Primary Calculate Action -->
         <button class="btn-primary-action" onclick="recalculateMatches()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <span>Calculate Ranked Matches</span>
         </button>
       </div>
 
-      <!-- Privacy & Ethics Callout -->
-      <div style="font-size:12px; color:var(--dim); line-height:1.55; padding: 0 4px;">
+      <!-- Privacy Promise Notice -->
+      <div style="font-size:12px; color:var(--text-dim); line-height:1.55; padding: 0 4px;">
         <p><strong>Privacy Promise:</strong> Your CV is evaluated strictly in memory. We never store raw documents or sell personal data. You can erase all records with one click anytime.</p>
       </div>
     </aside>
 
   </main>
 
-  <!-- =============================================================
-       MOBILE BOTTOM SHEET MODAL (< 1080px)
-       ============================================================= -->
+  <!-- ==========================================================================
+       MOBILE DRAWER SHEET MODAL (< 1080px)
+       ========================================================================== -->
   <div class="mobile-modal-backdrop" id="mobile-filter-modal" onclick="onModalBackdropClick(event)">
     <div class="mobile-bottom-sheet" onclick="event.stopPropagation()">
       <div class="sheet-header">
@@ -1436,7 +344,6 @@
       </div>
 
       <div class="sheet-body">
-        <!-- Search Field -->
         <div>
           <label class="rail-label">Keyword Search</label>
           <div class="search-input-wrap" style="margin-top:6px;">
@@ -1444,7 +351,6 @@
           </div>
         </div>
 
-        <!-- Mobile Experience Slider -->
         <div>
           <div class="rail-section-header">
             <span class="rail-label">Max Experience</span>
@@ -1462,10 +368,9 @@
           </div>
         </div>
 
-        <!-- Mobile Disciplines -->
         <div>
           <label class="rail-label">Discipline</label>
-          <div class="pref-chips-wrap" id="mob-discipline-chips" style="margin-top:6px;">
+          <div class="pref-chips-wrap" style="margin-top:6px;">
             <button class="pref-chip active" data-discipline="all" onclick="setDisciplineFilter('all')">All</button>
             <button class="pref-chip" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">Robotics</button>
             <button class="pref-chip" data-discipline="embedded" onclick="setDisciplineFilter('embedded')">Embedded</button>
@@ -1478,10 +383,9 @@
           </div>
         </div>
 
-        <!-- Mobile Locations -->
         <div>
           <label class="rail-label">Location</label>
-          <div class="pref-chips-wrap" id="mob-location-chips" style="margin-top:6px;">
+          <div class="pref-chips-wrap" style="margin-top:6px;">
             <button class="pref-chip active" data-location="all" onclick="setLocationFilter('all')">All</button>
             <button class="pref-chip" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">Remote</button>
             <button class="pref-chip" data-location="sf_bay" onclick="setLocationFilter('sf_bay')">SF Bay</button>
@@ -1518,488 +422,6 @@
     </button>
   </nav>
 
-  <!-- =============================================================
-       CLIENT SCRIPT & DYNAMIC REACTIVITY
-       ============================================================= -->
-  <script>
-    const API_BASE = window.location.origin + '/api';
-
-    // Application State
-    let activeFilters = {
-      q: '',
-      discipline: 'all',
-      location: 'all',
-      maxExp: 10,
-      expPreset: 'all',
-      ats: 'all'
-    };
-
-    let activeTab = 'all'; // 'all' or 'saved'
-    let cachedJobsList = [];
-    let savedJobIds = new Set(JSON.parse(localStorage.getItem('camouroles_saved_jobs') || '[]'));
-    let debounceTimer = null;
-
-    // Experience Readout Lookup Table
-    function getExpReadoutText(val) {
-      const n = parseInt(val, 10);
-      if (n >= 10) return 'Any Experience (All Levels)';
-      if (n === 0) return '0 Yrs (Intern / Fresher)';
-      if (n <= 2) return `0 - ${n} Yrs (Early Career)`;
-      if (n <= 5) return `0 - ${n} Yrs (Mid-Level)`;
-      return `0 - ${n} Yrs (Senior / Lead)`;
-    }
-
-    // Initialize Page
-    document.addEventListener('DOMContentLoaded', () => {
-      updateSavedPillCount();
-      syncExpSlider(10, 'all');
-      loadCatalog();
-      loadProfileData();
-    });
-
-    // Experience Slider Logic
-    function onExpSliderInput(val) {
-      const n = parseInt(val, 10);
-      activeFilters.maxExp = n;
-      activeFilters.expPreset = (n >= 10) ? 'all' : `${n}`;
-
-      syncExpSlider(n, activeFilters.expPreset);
-      updateActivePills();
-      loadCatalog();
-    }
-
-    function setExpPreset(preset) {
-      activeFilters.expPreset = preset;
-      let targetVal = 10;
-      if (preset === '0-1') targetVal = 1;
-      else if (preset === '1-3') targetVal = 3;
-      else if (preset === '3-6') targetVal = 6;
-      else if (preset === '6+') targetVal = 9;
-      else targetVal = 10;
-
-      activeFilters.maxExp = targetVal;
-      syncExpSlider(targetVal, preset);
-      updateActivePills();
-      loadCatalog();
-    }
-
-    function syncExpSlider(val, preset) {
-      const pct = (val / 10) * 100;
-      const text = getExpReadoutText(val);
-
-      // Desktop slider
-      const deskSlider = document.getElementById('desktop-exp-slider');
-      const deskReadout = document.getElementById('desktop-exp-readout');
-      if (deskSlider) {
-        deskSlider.value = val;
-        deskSlider.style.setProperty('--slider-pct', `${pct}%`);
-      }
-      if (deskReadout) deskReadout.textContent = text;
-
-      // Mobile slider
-      const mobSlider = document.getElementById('mobile-exp-slider');
-      const mobReadout = document.getElementById('mobile-exp-readout');
-      if (mobSlider) {
-        mobSlider.value = val;
-        mobSlider.style.setProperty('--slider-pct', `${pct}%`);
-      }
-      if (mobReadout) mobReadout.textContent = text;
-
-      // Update preset pill button classes
-      document.querySelectorAll('[data-exp-preset]').forEach(el => {
-        el.classList.toggle('active', el.getAttribute('data-exp-preset') === preset);
-      });
-    }
-
-    // Filter Switchers
-    function setDisciplineFilter(val) {
-      activeFilters.discipline = val;
-      document.querySelectorAll('[data-discipline]').forEach(el => {
-        el.classList.toggle('active', el.getAttribute('data-discipline') === val);
-      });
-      updateActivePills();
-      loadCatalog();
-    }
-
-    function setLocationFilter(val) {
-      activeFilters.location = val;
-      document.querySelectorAll('[data-location]').forEach(el => {
-        el.classList.toggle('active', el.getAttribute('data-location') === val);
-      });
-      updateActivePills();
-      loadCatalog();
-    }
-
-    function setAtsFilter(val) {
-      activeFilters.ats = val;
-      document.querySelectorAll('[data-ats]').forEach(el => {
-        el.classList.toggle('active', el.getAttribute('data-ats') === val);
-      });
-      updateActivePills();
-      loadCatalog();
-    }
-
-    // Search with 150ms Instant Debounce
-    function onSearchInput(val) {
-      const deskInput = document.getElementById('desktop-search-input');
-      const mobInput = document.getElementById('mobile-search-input');
-      const clearBtn = document.getElementById('search-clear-btn');
-
-      if (deskInput && deskInput.value !== val) deskInput.value = val;
-      if (mobInput && mobInput.value !== val) mobInput.value = val;
-      if (clearBtn) clearBtn.style.display = val ? 'block' : 'none';
-
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        activeFilters.q = val.trim();
-        updateActivePills();
-        loadCatalog();
-      }, 150);
-    }
-
-    function clearSearchInput() {
-      onSearchInput('');
-    }
-
-    // Active Filters Pill Bar
-    function updateActivePills() {
-      const container = document.getElementById('active-pills-bar');
-      if (!container) return;
-      const pills = [];
-
-      if (activeFilters.q) {
-        pills.push(`<span>Query: "${escapeHtml(activeFilters.q)}"</span><button onclick="clearSearchInput()">✕</button>`);
-      }
-      if (activeFilters.discipline !== 'all') {
-        pills.push(`<span>${escapeHtml(activeFilters.discipline)}</span><button onclick="setDisciplineFilter('all')">✕</button>`);
-      }
-      if (activeFilters.location !== 'all') {
-        pills.push(`<span>${escapeHtml(activeFilters.location)}</span><button onclick="setLocationFilter('all')">✕</button>`);
-      }
-      if (activeFilters.maxExp < 10) {
-        pills.push(`<span>Max ${activeFilters.maxExp} Yrs</span><button onclick="setExpPreset('all')">✕</button>`);
-      }
-      if (activeFilters.ats !== 'all') {
-        pills.push(`<span>Portal: ${escapeHtml(activeFilters.ats)}</span><button onclick="setAtsFilter('all')">✕</button>`);
-      }
-
-      container.innerHTML = pills.map(p => `<div class="active-filter-pill">${p}</div>`).join('');
-    }
-
-    // Tab Switcher (All vs Saved)
-    function setTab(tab) {
-      activeTab = tab;
-      document.getElementById('tab-all-roles').classList.toggle('active', tab === 'all');
-      document.getElementById('tab-saved-roles').classList.toggle('active', tab === 'saved');
-      
-      const mobJobsBtn = document.getElementById('mob-nav-jobs');
-      const mobSavedBtn = document.getElementById('mob-nav-saved');
-      if (mobJobsBtn) mobJobsBtn.classList.toggle('active', tab === 'all');
-      if (mobSavedBtn) mobSavedBtn.classList.toggle('active', tab === 'saved');
-
-      renderJobRows(cachedJobsList);
-    }
-
-    // Saved Jobs LocalStorage Logic
-    function toggleBookmark(jobId) {
-      if (savedJobIds.has(jobId)) {
-        savedJobIds.delete(jobId);
-      } else {
-        savedJobIds.add(jobId);
-      }
-      localStorage.setItem('camouroles_saved_jobs', JSON.stringify([...savedJobIds]));
-      updateSavedPillCount();
-      renderJobRows(cachedJobsList);
-    }
-
-    function updateSavedPillCount() {
-      const pill = document.getElementById('saved-count-pill');
-      if (pill) pill.textContent = savedJobIds.size;
-    }
-
-    // Highlight search keywords in text
-    function highlightQuery(text, query) {
-      if (!query || !text) return escapeHtml(text || '');
-      const escapedText = escapeHtml(text);
-      const cleanQ = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const regex = new RegExp(`(${cleanQ})`, 'gi');
-      return escapedText.replace(regex, '<mark class="search-kw">$1</mark>');
-    }
-
-    // Main Catalog Loader
-    async function loadCatalog() {
-      let url = `${API_BASE}/jobs/search?limit=120`;
-      if (activeFilters.q) url += `&q=${encodeURIComponent(activeFilters.q)}`;
-      if (activeFilters.location && activeFilters.location !== 'all') url += `&location=${encodeURIComponent(activeFilters.location)}`;
-      if (activeFilters.discipline && activeFilters.discipline !== 'all') url += `&role=${encodeURIComponent(activeFilters.discipline)}`;
-      if (activeFilters.ats && activeFilters.ats !== 'all') url += `&ats_type=${encodeURIComponent(activeFilters.ats)}`;
-      if (activeFilters.maxExp < 10) url += `&max_exp=${activeFilters.maxExp}`;
-
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        const jobs = data.jobs || [];
-        cachedJobsList = jobs;
-
-        renderJobRows(jobs);
-
-        const countText = `${jobs.length} roles available`;
-        document.getElementById('feed-count').textContent = countText;
-        document.getElementById('feed-count-pill').textContent = jobs.length;
-        if (document.getElementById('sheet-apply-btn-label')) {
-          document.getElementById('sheet-apply-btn-label').textContent = `Show ${jobs.length} Openings`;
-        }
-      } catch (err) {
-        console.error("Load catalog error:", err);
-      }
-    }
-
-    // Render Job Cards
-    function renderJobRows(jobs) {
-      const container = document.getElementById('job-rows-container');
-      if (!container) return;
-
-      let displayJobs = jobs;
-      if (activeTab === 'saved') {
-        displayJobs = jobs.filter(j => savedJobIds.has(j.id));
-      }
-
-      if (!displayJobs.length) {
-        container.innerHTML = `
-          <div class="empty-state-box">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <div style="font-size:15px; font-weight:700; color:#CBD5E1;">
-              ${activeTab === 'saved' ? 'No saved openings yet' : 'No matching roles found'}
-            </div>
-            <div style="font-size:13px; color:#64748B;">
-              ${activeTab === 'saved' ? 'Click the bookmark icon on any role to pin it to this view.' : 'Try adjusting the max experience slider or broadening your location filter.'}
-            </div>
-          </div>
-        `;
-        return;
-      }
-
-      const q = activeFilters.q;
-
-      container.innerHTML = displayJobs.map(j => {
-        const sources = j.sources || [];
-        const applyUrl = j.apply_url || (sources[0] && sources[0].url) || '#';
-        const brand = (sources[0] && sources[0].brand) || j.ats_type || 'direct';
-        const isSaved = savedJobIds.has(j.id);
-
-        return `
-          <article class="job-row">
-            <div class="job-row-main">
-              <div class="job-row-title-area">
-                <h3 class="job-title">${highlightQuery(j.title, q)}</h3>
-                <div class="job-company-line">
-                  <span class="job-company-badge">${highlightQuery(j.company, q)}</span>
-                  <span>·</span>
-                  <span>${escapeHtml(j.location || 'Remote')}</span>
-                </div>
-              </div>
-
-              <div class="job-actions-top">
-                ${j.match_score ? `
-                  <div class="match-chip tabular-num">
-                    ${j.match_score}% match
-                  </div>
-                ` : ''}
-                <button class="btn-bookmark ${isSaved ? 'saved' : ''}" title="${isSaved ? 'Remove bookmark' : 'Save role'}" onclick="toggleBookmark('${j.id}')">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Second Line: Location, Experience, Portal, Verified Live -->
-            <div class="job-meta-line">
-              <span class="job-meta-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                ${escapeHtml(j.location || 'Worldwide Remote')}
-              </span>
-              <span class="job-meta-item tabular-num">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                ${escapeHtml(j.experience || '0 - 3 yrs')}
-              </span>
-              <span class="job-meta-item">
-                <span class="verified-micro-badge">
-                  <span class="verified-micro-dot"></span>
-                  Verified Live
-                </span>
-              </span>
-            </div>
-
-            <!-- AI Match Reason if available -->
-            ${j.why_matched ? `
-              <div class="job-match-reason">
-                ${escapeHtml(j.why_matched)}
-              </div>
-            ` : ''}
-
-            <!-- Skills List with Highlight -->
-            ${(j.skills && j.skills.length) ? `
-              <div class="job-skills-row">
-                ${j.skills.slice(0, 5).map(s => `<span class="skill-tag">${highlightQuery(s, q)}</span>`).join('')}
-              </div>
-            ` : ''}
-
-            <!-- Apply Action Row -->
-            <div class="job-row-actions">
-              <div class="source-brand-badge">
-                ${renderBrandLogoSvg(brand)}
-                <span>${escapeHtml(brand.toUpperCase())} Direct Portal</span>
-              </div>
-              <a href="${applyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-link">
-                <span>Direct Apply</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-
-    // Render Brand Micro-SVGs (Strictly no emojis)
-    function renderBrandLogoSvg(brand) {
-      const b = String(brand).toLowerCase();
-      if (b.includes('amazon')) {
-        return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
-      } else if (b.includes('greenhouse')) {
-        return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
-      } else if (b.includes('ycombinator')) {
-        return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF5B1F" stroke-width="2"><polygon points="12 2 2 22 22 22"/></svg>`;
-      }
-      return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
-    }
-
-    // CV Upload Handling
-    async function onCvSelected(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const statusText = document.getElementById('dropzone-status-text');
-      statusText.textContent = `Analyzing ${file.name}...`;
-
-      const formData = new FormData();
-      formData.append('file', file);
-
-      try {
-        const res = await fetch(`${API_BASE}/cv/upload`, {
-          method: 'POST',
-          body: formData
-        });
-
-        if (!res.ok) throw new Error("Failed to parse CV");
-        const data = await res.json();
-        statusText.textContent = `Analyzed: ${file.name}`;
-        loadProfileData();
-        loadCatalog();
-      } catch (err) {
-        console.error("CV upload error:", err);
-        statusText.textContent = "Upload failed. Try PDF.";
-      }
-    }
-
-    // Load Profile Data
-    async function loadProfileData() {
-      try {
-        const res = await fetch(`${API_BASE}/profile`);
-        if (!res.ok) return;
-        const data = await res.json();
-        const profile = data.profile;
-        if (!profile || !profile.headline) return;
-
-        const box = document.getElementById('candidate-data-box');
-        if (box) box.style.display = 'block';
-
-        const headline = document.getElementById('cand-headline');
-        if (headline) headline.textContent = profile.headline;
-
-        const exp = document.getElementById('cand-exp');
-        if (exp) exp.textContent = `${profile.years_of_experience || 0} years experience`;
-
-        const skills = document.getElementById('cand-skills');
-        if (skills && profile.skills) {
-          skills.innerHTML = profile.skills.slice(0, 6).map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('');
-        }
-      } catch (err) {
-        console.error("Profile load error:", err);
-      }
-    }
-
-    // Recalculate Matches via CV Preferences
-    let prefLocation = 'all';
-    let prefRole = 'all';
-
-    function selectPrefLocation(btn, val) {
-      prefLocation = val;
-      document.querySelectorAll('#pref-location-chips .pref-chip').forEach(el => el.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    function selectPrefRole(btn, val) {
-      prefRole = val;
-      document.querySelectorAll('#pref-role-chips .pref-chip').forEach(el => el.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    async function recalculateMatches() {
-      try {
-        const res = await fetch(`${API_BASE}/cv/preferences`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            location: prefLocation,
-            role_type: prefRole,
-            experience_max: activeFilters.maxExp
-          })
-        });
-        const data = await res.json();
-        // Switch to matches feed
-        const matchesRes = await fetch(`${API_BASE}/matches`);
-        const matchesData = await matchesRes.json();
-        if (matchesData.matches && matchesData.matches.length) {
-          cachedJobsList = matchesData.matches;
-          renderJobRows(matchesData.matches);
-          document.getElementById('feed-count').textContent = `${matchesData.matches.length} AI ranked matches`;
-        }
-      } catch (err) {
-        console.error("Preference match error:", err);
-      }
-    }
-
-    async function deleteMyData() {
-      if (!confirm("Are you sure you want to permanently delete your profile and extracted CV data?")) return;
-      try {
-        await fetch(`${API_BASE}/profile`, { method: 'DELETE' });
-        document.getElementById('candidate-data-box').style.display = 'none';
-        document.getElementById('dropzone-status-text').textContent = 'Upload CV Document';
-        loadCatalog();
-      } catch (err) {
-        console.error("Delete error:", err);
-      }
-    }
-
-    // Mobile Modal Helpers
-    function openFiltersModal() {
-      document.getElementById('mobile-filter-modal').classList.add('open');
-    }
-    function closeFiltersModal() {
-      document.getElementById('mobile-filter-modal').classList.remove('open');
-    }
-    function onModalBackdropClick(e) {
-      if (e.target.id === 'mobile-filter-modal') closeFiltersModal();
-    }
-
-    function escapeHtml(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-  </script>
+  <script src="/static/app.js"></script>
 </body>
 </html>

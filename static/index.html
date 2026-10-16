@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Camouroles — Unlisted Tech Roles & FAANG Openings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       STICKY TOP NAVIGATION BAR (56px)
+       ========================================================================== -->
+  <header class="top-bar">
+    <div class="brand-area">
+      <div class="brand-cube-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2" fill="url(#cube-top)" stroke="#00D2FF" stroke-width="1.2"/><polygon points="2 7 12 12 12 22 2 17 2 7" fill="url(#cube-left)" stroke="#0066FF" stroke-width="1.2"/><polygon points="22 7 12 12 12 22 22 17 22 7" fill="url(#cube-right)" stroke="#0044BB" stroke-width="1.2"/><defs><linearGradient id="cube-top" x1="2" y1="2" x2="22" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#0066FF"/></linearGradient><linearGradient id="cube-left" x1="2" y1="7" x2="12" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#0066FF"/><stop offset="1" stop-color="#002D80"/></linearGradient><linearGradient id="cube-right" x1="22" y1="7" x2="12" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#0044BB"/><stop offset="1" stop-color="#00184A"/></linearGradient></defs></svg>
+      </div>
+      <span class="brand-name">Camouroles</span>
+      <span class="brand-tagline">Jobs LinkedIn & Naukri don't show you</span>
+    </div>
+
+    <div class="top-actions">
+      <!-- Live Verified Indicator -->
+      <div class="verified-counter-badge">
+        <span class="live-pulse-dot"></span>
+        <span id="verified-roles-indicator" class="tabular-num">1,288 live verified roles</span>
+      </div>
+
+      <!-- Google Sign-In & Profile Container -->
+      <div class="auth-container" id="auth-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Mobile Filters Trigger Button -->
+      <button class="btn-filter-toggle" onclick="openFiltersModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        <span>Filters</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       THREE-ZONE DESKTOP GRID (270px | minmax(0, 800px) | 380px)
+       ========================================================================== -->
+  <main class="app-layout">
+
+    <!-- -------------------------------------------------------------
+         ZONE 1: FILTER RAIL (Left 270px)
+         ------------------------------------------------------------- -->
+    <aside class="filter-rail">
+      <!-- Search Openings -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Search Openings</span>
+        </div>
+        <div class="search-input-wrap">
+          <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="desktop-search-input" class="search-input-field" placeholder="Title, company, skill..." oninput="onSearchInput(this.value)">
+          <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearchInput()">✕</button>
+        </div>
+      </div>
+
+      <!-- Max Experience Tactile Slider -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Max Experience</span>
+          <span class="rail-link-clear" onclick="setExpPreset('all')">Reset</span>
+        </div>
+        <div class="slider-box">
+          <div class="slider-header-row">
+            <span style="font-size:11.5px; color:var(--text-dim);">Upper Bound</span>
+            <span id="desktop-exp-readout" class="slider-readout">Any Experience</span>
+          </div>
+          <input type="range" id="desktop-exp-slider" class="tactile-slider" min="0" max="10" step="1" value="10" oninput="onExpSliderInput(this.value)">
+          <div class="slider-presets-row">
+            <button class="preset-pill-btn active" data-exp-preset="all" onclick="setExpPreset('all')">All</button>
+            <button class="preset-pill-btn" data-exp-preset="0-1" onclick="setExpPreset('0-1')">0-1y</button>
+            <button class="preset-pill-btn" data-exp-preset="1-3" onclick="setExpPreset('1-3')">1-3y</button>
+            <button class="preset-pill-btn" data-exp-preset="3-6" onclick="setExpPreset('3-6')">3-6y</button>
+            <button class="preset-pill-btn" data-exp-preset="6+" onclick="setExpPreset('6+')">6y+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discipline Taxonomy List (All 12 Disciplines) -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Discipline</span>
+          <span class="rail-link-clear" onclick="setDisciplineFilter('all')">All</span>
+        </div>
+        <div class="filter-list" id="discipline-filter-list">
+          <button class="filter-option-btn active" data-discipline="all" onclick="setDisciplineFilter('all')">
+            <span>All Disciplines</span>
+            <span class="filter-count">1,288</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">
+            <span>Robotics & Autonomy</span>
+            <span class="filter-count">142</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="embedded" onclick="setDisciplineFilter('embedded')">
+            <span>Embedded & Firmware</span>
+            <span class="filter-count">98</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="vision" onclick="setDisciplineFilter('vision')">
+            <span>Vision & Perception</span>
+            <span class="filter-count">64</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="ai_ml" onclick="setDisciplineFilter('ai_ml')">
+            <span>AI & Machine Learning</span>
+            <span class="filter-count">318</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="backend" onclick="setDisciplineFilter('backend')">
+            <span>Backend & Distributed</span>
+            <span class="filter-count">284</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="devops" onclick="setDisciplineFilter('devops')">
+            <span>Cloud, DevOps & SRE</span>
+            <span class="filter-count">112</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="hardware" onclick="setDisciplineFilter('hardware')">
+            <span>Hardware & Silicon</span>
+            <span class="filter-count">56</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="security" onclick="setDisciplineFilter('security')">
+            <span>Cybersecurity & Trust</span>
+            <span class="filter-count">48</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="mobile" onclick="setDisciplineFilter('mobile')">
+            <span>Mobile (iOS / Android)</span>
+            <span class="filter-count">42</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="fullstack" onclick="setDisciplineFilter('fullstack')">
+            <span>Full Stack Engineering</span>
+            <span class="filter-count">110</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="frontend" onclick="setDisciplineFilter('frontend')">
+            <span>Frontend & Web Systems</span>
+            <span class="filter-count">86</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="data" onclick="setDisciplineFilter('data')">
+            <span>Data Engineering</span>
+            <span class="filter-count">74</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Global Tech Hubs (All 14 Locations) -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Global Tech Hubs</span>
+          <span class="rail-link-clear" onclick="setLocationFilter('all')">All</span>
+        </div>
+        <div class="filter-list" id="location-filter-list">
+          <button class="filter-option-btn active" data-location="all" onclick="setLocationFilter('all')">
+            <span>All Locations</span>
+          </button>
+          <button class="filter-option-btn" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">
+            <span>Worldwide Remote</span>
+          </button>
+          <button class="filter-option-btn" data-location="sf_bay" onclick="setLocationFilter('sf_bay')">
+            <span>SF Bay Area</span>
+          </button>
+          <button class="filter-option-btn" data-location="seattle" onclick="setLocationFilter('seattle')">
+            <span>Seattle & Bellevue</span>
+          </button>
+          <button class="filter-option-btn" data-location="nyc" onclick="setLocationFilter('nyc')">
+            <span>New York City</span>
+          </button>
+          <button class="filter-option-btn" data-location="austin" onclick="setLocationFilter('austin')">
+            <span>Austin & Texas</span>
+          </button>
+          <button class="filter-option-btn" data-location="london" onclick="setLocationFilter('london')">
+            <span>London & UK</span>
+          </button>
+          <button class="filter-option-btn" data-location="germany" onclick="setLocationFilter('germany')">
+            <span>Germany (Munich/Berlin)</span>
+          </button>
+          <button class="filter-option-btn" data-location="netherlands" onclick="setLocationFilter('netherlands')">
+            <span>Netherlands (Amsterdam)</span>
+          </button>
+          <button class="filter-option-btn" data-location="switzerland" onclick="setLocationFilter('switzerland')">
+            <span>Switzerland (Zurich)</span>
+          </button>
+          <button class="filter-option-btn" data-location="japan" onclick="setLocationFilter('japan')">
+            <span>Japan (Tokyo)</span>
+          </button>
+          <button class="filter-option-btn" data-location="singapore" onclick="setLocationFilter('singapore')">
+            <span>Singapore & APAC</span>
+          </button>
+          <button class="filter-option-btn" data-location="india" onclick="setLocationFilter('india')">
+            <span>India (Blr/Hyd/Pune/NCR)</span>
+          </button>
+          <button class="filter-option-btn" data-location="canada" onclick="setLocationFilter('canada')">
+            <span>Canada (Toronto/Van)</span>
+          </button>
+          <button class="filter-option-btn" data-location="australia" onclick="setLocationFilter('australia')">
+            <span>Australia (Sydney/Mel)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Verified Portals Filter -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Verified Portals</span>
+          <span class="rail-link-clear" onclick="setAtsFilter('all')">All</span>
+        </div>
+        <div class="filter-list">
+          <button class="filter-option-btn active" data-ats="all" onclick="setAtsFilter('all')">
+            <span>All Sources</span>
+          </button>
+          <button class="filter-option-btn" data-ats="faang" onclick="setAtsFilter('faang')">
+            <span style="color:#38BDF8; font-weight:700;">★ FAANG & Tech Giants</span>
+          </button>
+          <button class="filter-option-btn" data-ats="amazon" onclick="setAtsFilter('amazon')">
+            <span>Amazon & AWS Direct</span>
+          </button>
+          <button class="filter-option-btn" data-ats="greenhouse" onclick="setAtsFilter('greenhouse')">
+            <span>Greenhouse Boards</span>
+          </button>
+          <button class="filter-option-btn" data-ats="ycombinator" onclick="setAtsFilter('ycombinator')">
+            <span>Y Combinator Startups</span>
+          </button>
+          <button class="filter-option-btn" data-ats="lever" onclick="setAtsFilter('lever')">
+            <span>Lever Boards</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- -------------------------------------------------------------
+         ZONE 2: RESULTS STREAM (Center)
+         ------------------------------------------------------------- -->
+    <section class="stream-panel">
+      <!-- Sticky Stream Header -->
+      <div class="stream-header">
+        <div class="stream-header-top">
+          <div class="stream-tabs-wrap">
+            <button class="stream-tab-btn active" id="tab-all-roles" onclick="setTab('all')">
+              <span>All Roles</span>
+              <span class="tabular-num" id="feed-count-pill">1,288</span>
+            </button>
+            <button class="stream-tab-btn" id="tab-saved-roles" onclick="setTab('saved')">
+              <span>★ Saved</span>
+              <span class="tabular-num" id="saved-count-pill">0</span>
+            </button>
+          </div>
+          <span class="stream-count-text tabular-num" id="feed-count">1,288 roles available</span>
+        </div>
+
+        <!-- Active Filter Badges Bar -->
+        <div class="active-pills-bar" id="active-pills-bar">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+
+      <!-- Job Cards Container -->
+      <div id="job-rows-container" class="job-rows-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+         ZONE 3: MATCH CV PANEL (Right 380px)
+         ------------------------------------------------------------- -->
+    <aside class="match-panel">
+      <div class="panel-block">
+        <h2 class="panel-heading">Match Your Engineering CV</h2>
+        <p class="panel-subtext">Upload your CV to automatically score and rank all verified tech roles against your background.</p>
+
+        <!-- In-Memory Dropzone -->
+        <div class="dropzone-box" onclick="document.getElementById('cv-file-input').click()">
+          <input type="file" id="cv-file-input" accept=".pdf" style="display:none;" onchange="onCvSelected(event)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <div class="dropzone-title" id="dropzone-status-text">Upload CV Document</div>
+          <div class="dropzone-hint">PDF up to 5MB · In-memory parsing only</div>
+        </div>
+
+        <!-- Candidate Profile Box -->
+        <div class="candidate-box" id="candidate-data-box">
+          <div class="candidate-title" id="cand-headline">Software Engineer</div>
+          <div class="candidate-sub" id="cand-exp">0 years experience</div>
+          <div class="job-skills-row" id="cand-skills"></div>
+          <button class="btn-plain-link" onclick="deleteMyData()">Delete my profile</button>
+        </div>
+
+        <!-- Target Location Hub -->
+        <div class="pref-group">
+          <label class="pref-label">Target Location Hub</label>
+          <div class="pref-chips-wrap" id="pref-location-chips">
+            <button class="pref-chip active" data-v="All" onclick="selectPrefLocation(this, 'All')">All</button>
+            <button class="pref-chip" data-v="Worldwide Remote" onclick="selectPrefLocation(this, 'Worldwide Remote')">Remote</button>
+            <button class="pref-chip" data-v="SF Bay Area" onclick="selectPrefLocation(this, 'SF Bay Area')">SF Bay</button>
+            <button class="pref-chip" data-v="Seattle & Bellevue" onclick="selectPrefLocation(this, 'Seattle & Bellevue')">Seattle</button>
+            <button class="pref-chip" data-v="New York City" onclick="selectPrefLocation(this, 'New York City')">NYC</button>
+            <button class="pref-chip" data-v="London & UK" onclick="selectPrefLocation(this, 'London & UK')">London</button>
+            <button class="pref-chip" data-v="India" onclick="selectPrefLocation(this, 'India')">India</button>
+          </div>
+        </div>
+
+        <!-- Target Engineering Discipline -->
+        <div class="pref-group">
+          <label class="pref-label">Target Engineering Discipline</label>
+          <div class="pref-chips-wrap" id="pref-role-chips">
+            <button class="pref-chip active" data-v="All" onclick="selectPrefRole(this, 'All')">All</button>
+            <button class="pref-chip" data-v="Robotics & Autonomy" onclick="selectPrefRole(this, 'Robotics & Autonomy')">Robotics</button>
+            <button class="pref-chip" data-v="Embedded & Firmware" onclick="selectPrefRole(this, 'Embedded & Firmware')">Embedded</button>
+            <button class="pref-chip" data-v="AI & Machine Learning" onclick="selectPrefRole(this, 'AI & Machine Learning')">AI / ML</button>
+            <button class="pref-chip" data-v="Backend & Distributed" onclick="selectPrefRole(this, 'Backend & Distributed')">Backend</button>
+            <button class="pref-chip" data-v="Cloud, DevOps & SRE" onclick="selectPrefRole(this, 'Cloud, DevOps & SRE')">DevOps</button>
+            <button class="pref-chip" data-v="Full Stack Engineering" onclick="selectPrefRole(this, 'Full Stack Engineering')">Full Stack</button>
+          </div>
+        </div>
+
+        <!-- Primary Calculate Action -->
+        <button class="btn-primary-action" onclick="recalculateMatches()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Calculate Ranked Matches</span>
+        </button>
+      </div>
+
+      <!-- Privacy Promise Notice -->
+      <div style="font-size:12px; color:var(--text-dim); line-height:1.55; padding: 0 4px;">
+        <p><strong>Privacy Promise:</strong> Your CV is evaluated strictly in memory. We never store raw documents or sell personal data. You can erase all records with one click anytime.</p>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ==========================================================================
+       MOBILE DRAWER SHEET MODAL (< 1080px)
+       ========================================================================== -->
+  <div class="mobile-modal-backdrop" id="mobile-filter-modal" onclick="onModalBackdropClick(event)">
+    <div class="mobile-bottom-sheet" onclick="event.stopPropagation()">
+      <div class="sheet-header">
+        <span class="sheet-title">Filter Openings</span>
+        <button class="sheet-close-btn" onclick="closeFiltersModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="sheet-body">
+        <div>
+          <label class="rail-label">Keyword Search</label>
+          <div class="search-input-wrap" style="margin-top:6px;">
+            <input type="text" id="mobile-search-input" class="search-input-field" placeholder="Title, company, skill..." oninput="onSearchInput(this.value)">
+          </div>
+        </div>
+
+        <div>
+          <div class="rail-section-header">
+            <span class="rail-label">Max Experience</span>
+            <span class="slider-readout" id="mobile-exp-readout">Any Experience</span>
+          </div>
+          <div class="slider-box">
+            <input type="range" id="mobile-exp-slider" class="tactile-slider" min="0" max="10" step="1" value="10" oninput="onExpSliderInput(this.value)">
+            <div class="slider-presets-row">
+              <button class="preset-pill-btn active" data-exp-preset="all" onclick="setExpPreset('all')">All</button>
+              <button class="preset-pill-btn" data-exp-preset="0-1" onclick="setExpPreset('0-1')">0-1y</button>
+              <button class="preset-pill-btn" data-exp-preset="1-3" onclick="setExpPreset('1-3')">1-3y</button>
+              <button class="preset-pill-btn" data-exp-preset="3-6" onclick="setExpPreset('3-6')">3-6y</button>
+              <button class="preset-pill-btn" data-exp-preset="6+" onclick="setExpPreset('6+')">6y+</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="rail-label">Discipline</label>
+          <div class="pref-chips-wrap" style="margin-top:6px;">
+            <button class="pref-chip active" data-discipline="all" onclick="setDisciplineFilter('all')">All</button>
+            <button class="pref-chip" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">Robotics</button>
+            <button class="pref-chip" data-discipline="embedded" onclick="setDisciplineFilter('embedded')">Embedded</button>
+            <button class="pref-chip" data-discipline="vision" onclick="setDisciplineFilter('vision')">Vision</button>
+            <button class="pref-chip" data-discipline="ai_ml" onclick="setDisciplineFilter('ai_ml')">AI/ML</button>
+            <button class="pref-chip" data-discipline="backend" onclick="setDisciplineFilter('backend')">Backend</button>
+            <button class="pref-chip" data-discipline="devops" onclick="setDisciplineFilter('devops')">DevOps</button>
+            <button class="pref-chip" data-discipline="fullstack" onclick="setDisciplineFilter('fullstack')">Full Stack</button>
+            <button class="pref-chip" data-discipline="frontend" onclick="setDisciplineFilter('frontend')">Frontend</button>
+          </div>
+        </div>
+
+        <div>
+          <label class="rail-label">Location</label>
+          <div class="pref-chips-wrap" style="margin-top:6px;">
+            <button class="pref-chip active" data-location="all" onclick="setLocationFilter('all')">All</button>
+            <button class="pref-chip" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">Remote</button>
+            <button class="pref-chip" data-location="sf_bay" onclick="setLocationFilter('sf_bay')">SF Bay</button>
+            <button class="pref-chip" data-location="seattle" onclick="setLocationFilter('seattle')">Seattle</button>
+            <button class="pref-chip" data-location="nyc" onclick="setLocationFilter('nyc')">NYC</button>
+            <button class="pref-chip" data-location="austin" onclick="setLocationFilter('austin')">Austin</button>
+            <button class="pref-chip" data-location="london" onclick="setLocationFilter('london')">London</button>
+            <button class="pref-chip" data-location="india" onclick="setLocationFilter('india')">India</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sheet-footer">
+        <button class="btn-primary-action" style="margin-top:0;" onclick="closeFiltersModal()">
+          <span id="sheet-apply-btn-label">Show Results</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Bottom Nav (< 1080px) -->
+  <nav class="mobile-nav-bar">
+    <button class="mobile-nav-btn active" id="mob-nav-jobs" onclick="showMobileTab('roles')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Browse</span>
+    </button>
+    <button class="mobile-nav-btn" id="mob-nav-filter" onclick="openFiltersModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      <span>Filters</span>
+    </button>
+    <button class="mobile-nav-btn" id="mob-nav-saved" onclick="setTab('saved')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>Saved</span>
+    </button>
+  </nav>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

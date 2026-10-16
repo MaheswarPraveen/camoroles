@@ -1,0 +1,6 @@
+# Camouroles Master Coding Rules
+- Follow TASTE.md and gemini-code-1792180581489.md strictly.
+- Black & Blue skeuomorphic theme: #07090E, #0C101A, #101624, #0066FF, #00D2FF.
+- Zero placeholder or truncated arrays.
+- Tabular nums for all counters and badges.
+- 100% verified live application links with zero 404s.
