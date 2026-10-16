@@ -545,6 +545,14 @@ def get_user_profile(user_id: str = Depends(verify_token)):
         }
     }
 
+@app.delete("/api/profile")
+def delete_user_profile(user_id: str = Depends(verify_token)):
+    """Deletes all personal CV profiles and match history for the user."""
+    db = get_db()
+    db.table("cv_profiles").delete().eq("user_id", user_id).execute()
+    db.table("job_matches").delete().eq("user_id", user_id).execute()
+    return {"success": True, "message": "All personal CV data deleted."}
+
 # ---------- 6. Unlock Apply Link ----------
 
 @app.post("/api/matches/{job_id}/unlock")

@@ -1,1339 +1,1419 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>camOroles — Stealth Roles & Direct Ingestion</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Camouroles — Jobs LinkedIn doesn't show you</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    /* -------------------------------------------------------------
+       DESIGN TOKENS (Camouroles Field Gear Palette)
+       ------------------------------------------------------------- */
     :root {
-      --bg: #090A0F;
-      --sidebar: #0E1017;
-      --card: #12151F;
-      --card-hover: #161A26;
-      --border: #1E2333;
-      --border-subtle: #171B28;
-      --border-focus: #3B82F6;
-      --text: #F1F5F9;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
-      --accent: #10B981;
-      --accent-soft: rgba(16, 185, 129, 0.12);
-      --accent-border: rgba(16, 185, 129, 0.3);
-      --pro: #8B5CF6;
-      --pro-soft: rgba(139, 92, 246, 0.14);
-      --pro-border: rgba(139, 92, 246, 0.35);
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --mono: 'JetBrains Mono', monospace;
+      --bg:        #EEF0EA;  /* page background */
+      --surface:   #E3E6DD;  /* panels, filter rail */
+      --line:      #C4CABB;  /* 1px borders */
+      --text:      #1F241A;  /* bark */
+      --muted:     #5C6652;  /* secondary text, 5.5:1 on --bg */
+      --moss:      #3E4A2F;  /* nav, headings accents */
+      --lichen:    #9AA77B;  /* tags, quiet highlights */
+      --blaze:     #FF5B1F;  /* FILL only: match chip, primary button */
+      --blaze-ink: #B93A0A;  /* orange used as TEXT or icon on light bg */
+      --on-blaze:  #1F241A;  /* text on blaze fill */
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      padding-bottom: 70px;
-    }
-
-    @media (min-width: 1024px) {
-      body { padding-bottom: 0; }
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; }
-
-    /* Top Command Bar */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: rgba(9, 10, 15, 0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      height: 60px;
-    }
-
-    .header-inner {
-      max-width: 1340px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand-group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -0.4px;
-    }
-
-    .brand-mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, #10B981, #059669);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #000;
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .pro-badge {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: var(--pro-soft);
-      border: 1px solid var(--pro-border);
-      color: #C4B5FD;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      letter-spacing: 0.5px;
-    }
-
-    .live-indicator {
-      display: none;
-      align-items: center;
-      gap: 7px;
-      font-size: 12px;
-      color: var(--text-dim);
-      font-family: var(--mono);
-    }
-
-    @media (min-width: 900px) {
-      .live-indicator { display: flex; }
-    }
-
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    /* Desktop Nav Tabs */
-    .nav-tabs {
-      display: none;
-      align-items: center;
-      gap: 4px;
-      background: var(--sidebar);
-      border: 1px solid var(--border);
-      padding: 3px;
-      border-radius: 8px;
-    }
-
-    @media (min-width: 768px) {
-      .nav-tabs { display: flex; }
-    }
-
-    .nav-tab-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      transition: all .12s ease;
-    }
-
-    .nav-tab-btn:hover { color: var(--text); }
-    .nav-tab-btn.active {
-      color: #FFF;
-      background: var(--card);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    }
-
-    /* Header Right Actions */
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-filter-trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 12px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      transition: all .15s;
-    }
-
-    .btn-filter-trigger:hover {
-      border-color: #38425C;
-      background: var(--card-hover);
-    }
-
-    .filter-count-badge {
-      font-family: var(--mono);
-      font-size: 10px;
-      background: var(--accent);
-      color: #000;
-      padding: 1px 6px;
-      border-radius: 10px;
-      font-weight: 700;
-    }
-
-    /* Main Container */
-    .main-layout {
-      max-width: 1340px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    /* View Sections */
-    .view-panel { display: none; }
-    .view-panel.active { display: block; }
-
-    /* Desktop Two-Column Layout for Discover */
-    .discover-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    @media (min-width: 1080px) {
-      .discover-grid {
-        grid-template-columns: 360px 1fr;
-        align-items: start;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:        #171B14;
+        --surface:   #1F251A;
+        --line:      #343C2C;
+        --text:      #E6E9DF;
+        --muted:     #9AA48D;
+        --moss:      #B7C29A;
+        --lichen:    #6F7D52;
+        --blaze:     #FF6B35;
+        --blaze-ink: #FF8A5C;
+        --on-blaze:  #171B14;
       }
     }
 
-    /* Sticky Left Console */
-    .agent-console-sticky {
-      position: sticky;
-      top: 84px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
+    [data-theme="light"] {
+      --bg:        #EEF0EA;
+      --surface:   #E3E6DD;
+      --line:      #C4CABB;
+      --text:      #1F241A;
+      --muted:     #5C6652;
+      --moss:      #3E4A2F;
+      --lichen:    #9AA77B;
+      --blaze:     #FF5B1F;
+      --blaze-ink: #B93A0A;
+      --on-blaze:  #1F241A;
     }
 
-    .console-header {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 14px;
+    [data-theme="dark"] {
+      --bg:        #171B14;
+      --surface:   #1F251A;
+      --line:      #343C2C;
+      --text:      #E6E9DF;
+      --muted:     #9AA48D;
+      --moss:      #B7C29A;
+      --lichen:    #6F7D52;
+      --blaze:     #FF6B35;
+      --blaze-ink: #FF8A5C;
+      --on-blaze:  #171B14;
     }
 
-    .console-header h3 {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
+    /* Base Reset & Typography */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .dropzone-compact {
-      border: 1px dashed var(--border);
-      background: rgba(255,255,255,0.015);
-      border-radius: 8px;
-      padding: 20px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .15s;
-    }
-
-    .dropzone-compact:hover {
-      border-color: var(--accent);
-      background: rgba(16, 185, 129, 0.04);
-    }
-
-    .cv-active-profile {
-      background: var(--sidebar);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px;
-      margin-top: 14px;
-    }
-
-    /* Feed Header */
-    .feed-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .feed-title-wrap h2 {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
-
-    .feed-count {
-      font-size: 13px;
-      color: var(--text-dim);
-      font-family: var(--mono);
-      margin-top: 2px;
-    }
-
-    /* Quick Filter Chips Row */
-    .quick-chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .quick-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all .15s;
-    }
-
-    .quick-chip:hover {
-      border-color: #38425C;
+    html, body {
+      background-color: var(--bg);
       color: var(--text);
+      font-family: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .quick-chip.active {
-      background: rgba(16, 185, 129, 0.1);
-      border-color: var(--accent-border);
-      color: var(--accent);
-      font-weight: 600;
+    /* Tabular numbers for all stats, scores, dates */
+    .tabular-num {
+      font-variant-numeric: tabular-nums;
     }
 
-    /* Modern Dense Job Cards */
-    .jobs-feed-list {
+    /* Accessibility focus ring */
+    :focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 2px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    /* -------------------------------------------------------------
+       TOP BAR (Sticky 56px)
+       ------------------------------------------------------------- */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 56px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: baseline;
       gap: 12px;
     }
 
-    .job-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 20px;
-      transition: border-color .15s, transform .12s;
+    .brand-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
     }
 
-    .job-item:hover {
-      border-color: #2D374D;
-      background: var(--card-hover);
+    .brand-tagline {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      display: none;
     }
 
-    .job-item-top {
+    @media (min-width: 640px) {
+      .brand-tagline {
+        display: inline;
+      }
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .verified-dot-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--bg);
+    }
+
+    .blaze-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--blaze);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .btn-filter-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 12px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    @media (min-width: 1024px) {
+      .btn-filter-toggle {
+        display: none;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       THREE-ZONE DESKTOP LAYOUT (>= 1024px)
+       ------------------------------------------------------------- */
+    .app-layout {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 1024px) {
+      .app-layout {
+        grid-template-columns: 260px minmax(0, 720px) 380px;
+        min-height: calc(100vh - 56px);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       ZONE 1: FILTER RAIL (Left, 260px)
+       ------------------------------------------------------------- */
+    .filter-rail {
+      background: var(--surface);
+      border-right: 1px solid var(--line);
+      padding: 16px;
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .filter-rail {
+        display: block;
+        position: sticky;
+        top: 56px;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+      }
+    }
+
+    .rail-section {
+      margin-bottom: 24px;
+    }
+
+    .rail-section-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .rail-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--moss);
+    }
+
+    .rail-link-clear {
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .search-input-field {
+      width: 100%;
+      height: 38px;
+      padding: 0 12px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .filter-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .filter-option-btn {
+      width: 100%;
+      text-align: left;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .filter-option-btn:hover {
+      background: var(--bg);
+    }
+
+    .filter-option-btn.active {
+      background: var(--bg);
+      border-color: var(--line);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .filter-count {
+      font-size: 12px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* -------------------------------------------------------------
+       ZONE 2: RESULTS STREAM (Middle, max 720px, dense rows)
+       ------------------------------------------------------------- */
+    .stream-panel {
+      padding: 0;
+      background: var(--bg);
+      border-right: 1px solid var(--line);
+    }
+
+    .stream-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background: var(--surface);
+    }
+
+    .stream-title {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .stream-count {
+      font-size: 13px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Dense Rows - separated by 1px lines, 0 radius */
+    .job-row {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: background 150ms ease-out;
+    }
+
+    .job-row:hover {
+      background: var(--surface);
+    }
+
+    .job-row-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .job-row-title-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
     }
 
     .job-title {
       font-size: 16px;
-      font-weight: 700;
-      color: #FFF;
+      font-weight: 600;
+      color: var(--text);
       line-height: 1.3;
-      margin-bottom: 4px;
     }
 
-    .job-company-meta {
+    .job-company {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    /* Second Line: spaced items, NO middle dots */
+    .job-meta-line {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
+      gap: 16px;
       font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
+      color: var(--muted);
     }
 
-    .company-name {
-      color: #E2E8F0;
-      font-weight: 600;
-    }
-
-    .badge-tag {
-      font-family: var(--mono);
-      font-size: 11px;
-      padding: 2px 7px;
-      background: var(--sidebar);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text-muted);
+    .job-meta-item {
       display: inline-flex;
       align-items: center;
       gap: 4px;
     }
 
-    .badge-remote {
-      color: var(--accent);
-      border-color: rgba(16, 185, 129, 0.25);
-      background: var(--accent-soft);
-    }
-
-    /* Match Score Pill */
-    .score-pill {
-      font-family: var(--mono);
+    /* Match reason - 2 lines, sentence case */
+    .job-match-reason {
+      margin-top: 4px;
       font-size: 13px;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 6px;
-      background: var(--accent-soft);
-      border: 1px solid var(--accent-border);
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
+      line-height: 1.4;
+      color: var(--moss);
+      background: var(--surface);
+      border-left: 2px solid var(--blaze);
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
     }
 
-    /* Why Matched Box */
-    .why-box {
-      background: rgba(16, 185, 129, 0.04);
-      border-left: 2px solid var(--accent);
-      border-radius: 0 6px 6px 0;
-      padding: 8px 12px;
-      font-size: 12px;
-      color: #D1D5DB;
-      margin: 10px 0 12px;
-      line-height: 1.5;
-    }
-
-    /* Skills Pill Row */
-    .tech-stack-row {
+    /* Skills list (lichen highlight) */
+    .job-skills-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 10px;
+      gap: 6px;
+      margin-top: 4px;
     }
 
-    .tech-tag {
-      font-family: var(--mono);
-      font-size: 11px;
+    .skill-tag {
+      font-size: 12px;
+      color: var(--text);
+      background: var(--surface);
       padding: 2px 6px;
       border-radius: 4px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      color: var(--text-dim);
+      border: 1px solid var(--line);
     }
 
-    /* Apply Action Buttons */
-    .apply-actions-row {
+    /* Action & Match Score at Right Edge */
+    .job-row-actions {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-subtle);
+      justify-content: space-between;
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--line);
     }
 
-    .btn-apply {
+    .match-chip {
+      background-color: var(--blaze);
+      color: var(--on-blaze);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-variant-numeric: tabular-nums;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1px solid var(--border);
-      background: var(--sidebar);
-      color: var(--text);
-      transition: all .12s ease;
+      gap: 4px;
     }
 
-    .btn-apply:hover {
-      border-color: var(--accent);
-      color: #FFF;
-      background: #151926;
-    }
-
-    .btn-apply.primary {
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-      font-weight: 700;
-    }
-
-    .btn-apply.primary:hover {
-      background: #059669;
-    }
-
-    /* ==================== EXPANSIVE FILTER DRAWER / MODAL ==================== */
-    .filter-drawer-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(4px);
-      z-index: 100;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .filter-drawer-overlay.active {
-      display: flex;
-    }
-
-    .filter-modal {
-      width: 100%;
-      max-width: 720px;
-      max-height: 90vh;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .modal-header {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .modal-header h3 {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .modal-body {
-      padding: 24px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    .filter-section-title {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: var(--text-dim);
-      margin-bottom: 10px;
-    }
-
-    .filter-chips-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .filter-chip-option {
-      padding: 6px 12px;
-      border-radius: 6px;
-      background: var(--sidebar);
-      border: 1px solid var(--border);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-muted);
-      cursor: pointer;
+    .btn-apply-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all .12s;
+      height: 32px;
+      padding: 0 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
     }
 
-    .filter-chip-option:hover {
-      border-color: #38425C;
+    .btn-apply-link:hover {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* -------------------------------------------------------------
+       ZONE 3: MATCH CV PANEL (Right, 380px)
+       ------------------------------------------------------------- */
+    .match-panel {
+      background: var(--surface);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    @media (min-width: 1024px) {
+      .match-panel {
+        position: sticky;
+        top: 56px;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+      }
+    }
+
+    .panel-block {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .panel-heading {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .panel-subtext {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    /* CV Upload Dropzone */
+    .dropzone-box {
+      border: 1px dashed var(--line);
+      background: var(--surface);
+      border-radius: 6px;
+      padding: 20px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 150ms ease-out;
+    }
+
+    .dropzone-box:hover {
+      border-color: var(--text);
+    }
+
+    .dropzone-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 6px;
+    }
+
+    .dropzone-hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Active Candidate State */
+    .candidate-box {
+      margin-top: 12px;
+      padding: 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      display: none;
+    }
+
+    .candidate-title {
+      font-size: 14px;
+      font-weight: 600;
       color: var(--text);
     }
 
-    .filter-chip-option.active {
-      background: rgba(16, 185, 129, 0.12);
-      border-color: var(--accent);
-      color: var(--accent);
+    .candidate-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 2px 0 8px;
+    }
+
+    /* Preference Chips */
+    .pref-group {
+      margin-top: 16px;
+    }
+
+    .pref-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--moss);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .pref-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pref-chip {
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .pref-chip.active {
+      background: var(--moss);
+      color: #FFF;
+      border-color: var(--moss);
       font-weight: 600;
     }
 
-    .modal-footer {
-      padding: 16px 24px;
-      border-top: 1px solid var(--border);
+    /* Primary Blaze Action Button (Only 1 primary button per view) */
+    .btn-blaze-primary {
+      width: 100%;
+      height: 42px;
+      background-color: var(--blaze);
+      color: var(--on-blaze);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .btn-blaze-primary:hover {
+      opacity: 0.94;
+    }
+
+    /* Plain Text Buttons */
+    .btn-plain-link {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 4px 0;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    .btn-plain-link:hover {
+      color: var(--text);
+    }
+
+    /* -------------------------------------------------------------
+       MODAL & BOTTOM SHEET (Filters on phone/tablet)
+       ------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 100;
+      display: none;
+      align-items: flex-end;
+    }
+
+    @media (min-width: 768px) {
+      .modal-overlay {
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .bottom-sheet {
+      width: 100%;
+      max-height: 85vh;
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    }
+
+    @media (min-width: 768px) {
+      .bottom-sheet {
+        max-width: 540px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      }
+    }
+
+    .sheet-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--sidebar);
     }
 
-    /* Mobile Bottom Navigation */
-    .mobile-bottom-bar {
+    .sheet-title {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .sheet-body {
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sheet-footer {
+      padding: 16px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 12px;
+      background: var(--surface);
+    }
+
+    /* Empty state */
+    .empty-state-box {
+      padding: 48px 16px;
+      text-align: center;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .empty-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .empty-desc {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Mobile Bottom Navigation Bar (< 1024px) */
+    .mobile-nav-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      z-index: 50;
-      background: rgba(14, 16, 23, 0.96);
-      backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border);
+      height: 52px;
+      background: var(--surface);
+      border-top: 1px solid var(--line);
       display: flex;
-      justify-content: space-around;
-      padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+      z-index: 40;
     }
 
-    @media (min-width: 768px) {
-      .mobile-bottom-bar { display: none; }
+    @media (min-width: 1024px) {
+      .mobile-nav-bar {
+        display: none;
+      }
     }
 
-    .mobile-tab-btn {
+    .mobile-nav-btn {
+      flex: 1;
+      height: 100%;
+      border: none;
+      background: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
-      background: none;
-      border: none;
-      color: var(--text-dim);
-      font-size: 11px;
-      font-weight: 600;
+      justify-content: center;
+      gap: 2px;
       cursor: pointer;
-      padding: 4px 16px;
     }
 
-    .mobile-tab-btn.active { color: var(--accent); }
-
-    /* Clean Footer Disclaimer */
-    footer {
-      max-width: 1340px;
-      margin: 40px auto 0;
-      padding: 24px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-dim);
-      line-height: 1.6;
+    .mobile-nav-btn.active {
+      color: var(--text);
+      font-weight: 800;
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="header-inner">
-    <div class="brand-group">
-      <div class="brand-mark">C</div>
-      <span>camOroles</span>
-      <span class="pro-badge">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        PRO PASS
-      </span>
-      <div class="live-indicator">
-        <div class="live-dot"></div>
-        <span id="top-live-roles-count">1,138 verified live openings</span>
-      </div>
+  <!-- Top Bar (Sticky 56px) -->
+  <header class="top-bar">
+    <div class="brand-area">
+      <span class="brand-name" id="app-brand-name">Camouroles</span>
+      <span class="brand-tagline">Jobs LinkedIn doesn't show you</span>
     </div>
 
-    <!-- Center Navigation -->
-    <nav class="nav-tabs">
-      <button class="nav-tab-btn active" onclick="switchView('discover')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Discover & Matches
-      </button>
-      <button class="nav-tab-btn" onclick="switchView('directory')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        Directory
-      </button>
-      <button class="nav-tab-btn" onclick="switchView('profile')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Profile
-      </button>
-    </nav>
+    <div class="top-actions">
+      <!-- Verified Live Indicator (Blaze dot) -->
+      <div class="verified-dot-badge">
+        <span class="blaze-dot"></span>
+        <span id="verified-roles-indicator" class="tabular-num">1,138 verified live roles</span>
+      </div>
 
-    <!-- Right Header Actions -->
-    <div class="header-actions">
-      <button class="btn-filter-trigger" onclick="openFilterModal()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      <!-- Mobile Filters Trigger Button -->
+      <button class="btn-filter-toggle" onclick="openFiltersModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
         <span>Filters</span>
-        <span class="filter-count-badge" id="header-filter-count">0</span>
+      </button>
+
+      <!-- Theme Manual Toggle -->
+      <button class="btn-icon" id="theme-toggle-btn" title="Toggle theme" onclick="toggleTheme()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="main-layout">
+  <!-- Desktop 3-Zone Layout -->
+  <main class="app-layout">
 
-  <!-- ==================== 1. DISCOVER & MATCHES VIEW ==================== -->
-  <section id="view-discover" class="view-panel active">
-    <div class="discover-grid">
-      
-      <!-- Left Column: Agentic Resume & Preferences Console -->
-      <aside class="agent-console-sticky">
-        <div class="console-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>
-          <h3>Agentic Match Engine</h3>
+    <!-- -------------------------------------------------------------
+         ZONE 1: FILTER RAIL (Left 260px)
+         ------------------------------------------------------------- -->
+    <aside class="filter-rail">
+      <!-- Search Input -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Search roles</span>
         </div>
-
-        <div class="dropzone-compact" onclick="document.getElementById('file-upload-input').click()">
-          <input type="file" id="file-upload-input" accept=".pdf" style="display:none;" onchange="onCvFileUploaded(event)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-dim); margin-bottom:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
-          <div style="font-size:13px; font-weight:600;" id="dropzone-label-text">Drop Resume PDF</div>
-          <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">In-memory parsing · DPDP compliant</div>
-        </div>
-
-        <div id="cv-profile-box" class="cv-active-profile" style="display:none;">
-          <div style="font-size:11px; font-weight:700; color:var(--accent); text-transform:uppercase; margin-bottom:4px;">Active Candidate</div>
-          <div style="font-size:13px; font-weight:700; color:#FFF;" id="cv-active-headline">Junior Full-Stack Developer</div>
-          <div style="font-size:11px; color:var(--text-dim); margin:4px 0 10px;" id="cv-active-exp">1.5 years experience</div>
-          <div class="tech-stack-row" id="cv-active-skills"></div>
-        </div>
-
-        <div style="margin-top:16px;">
-          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Target Location & Work Type</div>
-          <div class="quick-chips-row" id="agent-location-chips">
-            <div class="quick-chip active" data-v="all" onclick="selectAgentLocation(this, 'all')">All Locations</div>
-            <div class="quick-chip" data-v="worldwide_remote" onclick="selectAgentLocation(this, 'worldwide_remote')">Worldwide Remote</div>
-            <div class="quick-chip" data-v="us_remote" onclick="selectAgentLocation(this, 'us_remote')">United States</div>
-            <div class="quick-chip" data-v="uk_eu" onclick="selectAgentLocation(this, 'uk_eu')">UK & Europe</div>
-            <div class="quick-chip" data-v="asia_pacific" onclick="selectAgentLocation(this, 'asia_pacific')">Japan & APAC</div>
-            <div class="quick-chip" data-v="india" onclick="selectAgentLocation(this, 'india')">India Hubs</div>
-          </div>
-        </div>
-
-        <div style="margin-top:16px;">
-          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Engineering Discipline</div>
-          <div class="quick-chips-row" id="agent-role-chips">
-            <div class="quick-chip active" data-v="all" onclick="selectAgentRole(this, 'all')">All Disciplines</div>
-            <div class="quick-chip" data-v="robotics" onclick="selectAgentRole(this, 'robotics')">Robotics & Autonomous</div>
-            <div class="quick-chip" data-v="embedded" onclick="selectAgentRole(this, 'embedded')">Embedded & Firmware</div>
-            <div class="quick-chip" data-v="ai" onclick="selectAgentRole(this, 'ai')">AI, Vision & ML</div>
-            <div class="quick-chip" data-v="hardware" onclick="selectAgentRole(this, 'hardware')">Hardware & Mechatronics</div>
-            <div class="quick-chip" data-v="systems" onclick="selectAgentRole(this, 'systems')">Backend & Systems</div>
-            <div class="quick-chip" data-v="fullstack" onclick="selectAgentRole(this, 'fullstack')">Full Stack</div>
-            <div class="quick-chip" data-v="frontend" onclick="selectAgentRole(this, 'frontend')">Frontend & UI</div>
-          </div>
-        </div>
-
-        <button class="btn-apply primary" style="width:100%; justify-content:center; margin-top:16px; padding:8px 0;" onclick="triggerPreferenceRecalculate()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Update Match Feed
-        </button>
-      </aside>
-
-      <!-- Right Column: Main Job Feed -->
-      <section>
-        <div class="feed-header-row">
-          <div class="feed-title-wrap">
-            <h2 id="discover-feed-title">Verified Roles & Top Matches</h2>
-            <div class="feed-count" id="discover-feed-count">Curated openings across FAANG, Tier-1 Tech, and YC startups</div>
-          </div>
-
-          <div class="quick-chips-row" style="margin-bottom:0;">
-            <div class="quick-chip" onclick="quickFilterFeed('faang')">FAANG & Giants</div>
-            <div class="quick-chip" onclick="quickFilterFeed('robotics')">Robotics</div>
-            <div class="quick-chip" onclick="quickFilterFeed('remote')">Remote Only</div>
-            <div class="quick-chip" onclick="quickFilterFeed('yc')">Y Combinator</div>
-          </div>
-        </div>
-
-        <div class="jobs-feed-list" id="discover-jobs-list"></div>
-      </section>
-
-    </div>
-  </section>
-
-  <!-- ==================== 2. DIRECTORY VIEW (MANUAL SEARCH) ==================== -->
-  <section id="view-directory" class="view-panel">
-    <div class="feed-header-row">
-      <div class="feed-title-wrap">
-        <h2>Browse All Openings</h2>
-        <div class="feed-count" id="directory-count">Query verified engineering roles worldwide</div>
+        <input type="text" id="desktop-search-input" class="search-input-field" placeholder="Keywords, titles, skills..." oninput="onSearchInput(this.value)">
       </div>
 
-      <div style="display:flex; gap:10px; align-items:center;">
-        <input type="text" id="directory-search-input" placeholder="Search Apple, Tesla, Robotics, C++, Python..." style="background:var(--card); border:1px solid var(--border); border-radius:6px; padding:7px 14px; font-size:13px; color:#FFF; width:280px; outline:none;" oninput="onDirectorySearchInput()">
-        <button class="btn-filter-trigger" onclick="openFilterModal()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-          Filter Catalog
+      <!-- Discipline Filter -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Discipline</span>
+          <span class="rail-link-clear" onclick="setDisciplineFilter('all')">All</span>
+        </div>
+        <div class="filter-list" id="discipline-filter-list">
+          <button class="filter-option-btn active" data-discipline="all" onclick="setDisciplineFilter('all')">
+            <span>All disciplines</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">
+            <span>Robotics & autonomous</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="embedded" onclick="setDisciplineFilter('embedded')">
+            <span>Embedded & firmware</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="ai" onclick="setDisciplineFilter('ai')">
+            <span>AI & machine learning</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="systems" onclick="setDisciplineFilter('systems')">
+            <span>Backend & systems</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="hardware" onclick="setDisciplineFilter('hardware')">
+            <span>Hardware & mechatronics</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="fullstack" onclick="setDisciplineFilter('fullstack')">
+            <span>Full stack</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="frontend" onclick="setDisciplineFilter('frontend')">
+            <span>Frontend & UI</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Location Filter -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Location</span>
+          <span class="rail-link-clear" onclick="setLocationFilter('all')">All</span>
+        </div>
+        <div class="filter-list">
+          <button class="filter-option-btn active" data-location="all" onclick="setLocationFilter('all')">
+            <span>All locations</span>
+          </button>
+          <button class="filter-option-btn" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">
+            <span>Remote worldwide</span>
+          </button>
+          <button class="filter-option-btn" data-location="us" onclick="setLocationFilter('us')">
+            <span>United States</span>
+          </button>
+          <button class="filter-option-btn" data-location="uk_eu" onclick="setLocationFilter('uk_eu')">
+            <span>UK & Europe</span>
+          </button>
+          <button class="filter-option-btn" data-location="asia_pacific" onclick="setLocationFilter('asia_pacific')">
+            <span>Japan & APAC</span>
+          </button>
+          <button class="filter-option-btn" data-location="india" onclick="setLocationFilter('india')">
+            <span>India hubs</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Experience Filter -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Experience</span>
+          <span class="rail-link-clear" onclick="setExpFilter('all')">All</span>
+        </div>
+        <div class="filter-list">
+          <button class="filter-option-btn active" data-exp="all" onclick="setExpFilter('all')">
+            <span>All levels</span>
+          </button>
+          <button class="filter-option-btn" data-exp="0-1" onclick="setExpFilter('0-1')">
+            <span>Fresher (0-1 yrs)</span>
+          </button>
+          <button class="filter-option-btn" data-exp="junior" onclick="setExpFilter('junior')">
+            <span>Early career (1-3 yrs)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Source ATS Filter -->
+      <div class="rail-section">
+        <div class="rail-section-header">
+          <span class="rail-label">Source portal</span>
+          <span class="rail-link-clear" onclick="setAtsFilter('all')">All</span>
+        </div>
+        <div class="filter-list">
+          <button class="filter-option-btn active" data-ats="all" onclick="setAtsFilter('all')">
+            <span>All sources</span>
+          </button>
+          <button class="filter-option-btn" data-ats="greenhouse" onclick="setAtsFilter('greenhouse')">
+            <span>Greenhouse boards</span>
+          </button>
+          <button class="filter-option-btn" data-ats="ycombinator" onclick="setAtsFilter('ycombinator')">
+            <span>Y Combinator startups</span>
+          </button>
+          <button class="filter-option-btn" data-ats="lever" onclick="setAtsFilter('lever')">
+            <span>Lever postings</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- -------------------------------------------------------------
+         ZONE 2: RESULTS STREAM (Middle, max 720px, dense rows)
+         ------------------------------------------------------------- -->
+    <section class="stream-panel">
+      <!-- Stream header with real counts -->
+      <div class="stream-header">
+        <span class="stream-title" id="feed-title">Unlisted engineering roles</span>
+        <span class="stream-count" id="feed-count">1,138 roles available</span>
+      </div>
+
+      <!-- Dense Row List Container -->
+      <div id="job-rows-container">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+         ZONE 3: MATCH CV PANEL (Right 380px)
+         ------------------------------------------------------------- -->
+    <aside class="match-panel">
+      <!-- CV Upload Block -->
+      <div class="panel-block">
+        <h2 class="panel-heading">Match your CV</h2>
+        <p class="panel-subtext">Upload your CV to rank all unlisted roles against your engineering background.</p>
+
+        <!-- In-memory Dropzone -->
+        <div class="dropzone-box" onclick="document.getElementById('cv-file-input').click()">
+          <input type="file" id="cv-file-input" accept=".pdf" style="display:none;" onchange="onCvSelected(event)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--muted);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+          <div class="dropzone-title" id="dropzone-status-text">Upload CV</div>
+          <div class="dropzone-hint">PDF up to 5MB · In-memory parsing only</div>
+        </div>
+
+        <!-- Active Candidate Data -->
+        <div class="candidate-box" id="candidate-data-box">
+          <div class="candidate-title" id="cand-headline">Software Engineer</div>
+          <div class="candidate-sub" id="cand-exp">0 years experience</div>
+          <div class="job-skills-row" id="cand-skills"></div>
+          <button class="btn-plain-link" onclick="deleteMyData()">Delete my data</button>
+        </div>
+
+        <!-- Target Location Preference -->
+        <div class="pref-group">
+          <label class="pref-label">Target location</label>
+          <div class="pref-chips-wrap" id="pref-location-chips">
+            <button class="pref-chip active" data-v="all" onclick="selectPrefLocation(this, 'all')">All</button>
+            <button class="pref-chip" data-v="worldwide_remote" onclick="selectPrefLocation(this, 'worldwide_remote')">Remote</button>
+            <button class="pref-chip" data-v="us" onclick="selectPrefLocation(this, 'us')">United States</button>
+            <button class="pref-chip" data-v="uk_eu" onclick="selectPrefLocation(this, 'uk_eu')">UK & Europe</button>
+            <button class="pref-chip" data-v="asia_pacific" onclick="selectPrefLocation(this, 'asia_pacific')">APAC</button>
+            <button class="pref-chip" data-v="india" onclick="selectPrefLocation(this, 'india')">India</button>
+          </div>
+        </div>
+
+        <!-- Target Discipline Preference -->
+        <div class="pref-group">
+          <label class="pref-label">Target discipline</label>
+          <div class="pref-chips-wrap" id="pref-role-chips">
+            <button class="pref-chip active" data-v="all" onclick="selectPrefRole(this, 'all')">All</button>
+            <button class="pref-chip" data-v="robotics" onclick="selectPrefRole(this, 'robotics')">Robotics</button>
+            <button class="pref-chip" data-v="embedded" onclick="selectPrefRole(this, 'embedded')">Embedded</button>
+            <button class="pref-chip" data-v="ai" onclick="selectPrefRole(this, 'ai')">AI & ML</button>
+            <button class="pref-chip" data-v="hardware" onclick="selectPrefRole(this, 'hardware')">Hardware</button>
+            <button class="pref-chip" data-v="systems" onclick="selectPrefRole(this, 'systems')">Systems</button>
+            <button class="pref-chip" data-v="fullstack" onclick="selectPrefRole(this, 'fullstack')">Full stack</button>
+          </div>
+        </div>
+
+        <!-- Single Primary Blaze Button -->
+        <button class="btn-blaze-primary" onclick="recalculateMatches()">
+          <span>Show matches</span>
         </button>
       </div>
-    </div>
 
-    <!-- Active Filter Tags Display Bar -->
-    <div id="active-filter-tags-bar" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;"></div>
+      <!-- Privacy & Ethics Note -->
+      <div style="font-size:12px; color:var(--muted); line-height:1.5;">
+        <p><strong>Personal data:</strong> Your CV is evaluated in memory. We store extracted skills and embeddings only, never raw documents. You can click "Delete my data" anytime to erase all stored records.</p>
+      </div>
+    </aside>
 
-    <div class="jobs-feed-list" id="directory-jobs-list"></div>
-  </section>
+  </main>
 
-  <!-- ==================== 3. PROFILE VIEW ==================== -->
-  <section id="view-profile" class="view-panel">
-    <div style="max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:20px;">
-      
-      <!-- Pro Status Banner -->
-      <div style="background:var(--card); border:1px solid var(--pro-border); border-radius:10px; padding:24px; display:flex; justify-content:space-between; align-items:center;">
+  <!-- -------------------------------------------------------------
+       MOBILE / TABLET FILTERS SHEET (< 1024px)
+       ------------------------------------------------------------- -->
+  <div class="modal-overlay" id="mobile-filter-modal" onclick="closeFiltersModalOnBackdrop(event)">
+    <div class="bottom-sheet">
+      <div class="sheet-header">
+        <span class="sheet-title">Filters</span>
+        <button class="btn-icon" onclick="closeFiltersModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="sheet-body">
+        <!-- Search Input -->
         <div>
-          <div class="pro-badge" style="margin-bottom:8px;">PRO PASS ACTIVE</div>
-          <h2 style="font-size:20px; font-weight:800; color:#FFF; margin-bottom:4px;">Unlimited Direct Access</h2>
-          <div style="font-size:13px; color:var(--text-muted);">All company names and direct ATS apply links are completely unlocked.</div>
+          <label class="pref-label">Keywords</label>
+          <input type="text" id="mobile-search-input" class="search-input-field" placeholder="Keywords, titles, skills..." oninput="onSearchInput(this.value)">
         </div>
-        <div style="text-align:right;">
-          <div style="font-family:var(--mono); font-size:12px; color:#A78BFA;">Valid until Jan 2030</div>
-          <div style="font-family:var(--mono); font-size:11px; color:var(--text-dim); margin-top:2px;">No auto-debit · Developer tier</div>
+
+        <!-- Discipline -->
+        <div>
+          <label class="pref-label">Discipline</label>
+          <div class="pref-chips-wrap" id="mob-discipline-chips">
+            <button class="pref-chip active" data-discipline="all" onclick="setDisciplineFilter('all')">All</button>
+            <button class="pref-chip" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">Robotics & autonomous</button>
+            <button class="pref-chip" data-discipline="embedded" onclick="setDisciplineFilter('embedded')">Embedded & firmware</button>
+            <button class="pref-chip" data-discipline="ai" onclick="setDisciplineFilter('ai')">AI & ML</button>
+            <button class="pref-chip" data-discipline="systems" onclick="setDisciplineFilter('systems')">Backend & systems</button>
+            <button class="pref-chip" data-discipline="hardware" onclick="setDisciplineFilter('hardware')">Hardware</button>
+            <button class="pref-chip" data-discipline="fullstack" onclick="setDisciplineFilter('fullstack')">Full stack</button>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label class="pref-label">Location</label>
+          <div class="pref-chips-wrap" id="mob-location-chips">
+            <button class="pref-chip active" data-location="all" onclick="setLocationFilter('all')">All</button>
+            <button class="pref-chip" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">Remote</button>
+            <button class="pref-chip" data-location="us" onclick="setLocationFilter('us')">United States</button>
+            <button class="pref-chip" data-location="uk_eu" onclick="setLocationFilter('uk_eu')">UK & Europe</button>
+            <button class="pref-chip" data-location="asia_pacific" onclick="setLocationFilter('asia_pacific')">APAC</button>
+            <button class="pref-chip" data-location="india" onclick="setLocationFilter('india')">India</button>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div>
+          <label class="pref-label">Experience</label>
+          <div class="pref-chips-wrap" id="mob-exp-chips">
+            <button class="pref-chip active" data-exp="all" onclick="setExpFilter('all')">All levels</button>
+            <button class="pref-chip" data-exp="0-1" onclick="setExpFilter('0-1')">Fresher (0-1 yrs)</button>
+            <button class="pref-chip" data-exp="junior" onclick="setExpFilter('junior')">Early career (1-3 yrs)</button>
+          </div>
         </div>
       </div>
 
-      <!-- Candidate Data Card -->
-      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:24px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-          <h3 style="font-size:16px; font-weight:700;">Candidate Persona</h3>
-          <button class="btn-apply" onclick="document.getElementById('profile-file-input').click()">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
-            Update Resume
-          </button>
-          <input type="file" id="profile-file-input" accept=".pdf" style="display:none;" onchange="onCvFileUploaded(event)">
-        </div>
-
-        <div style="font-size:15px; font-weight:700; color:#FFF; margin-bottom:4px;" id="profile-headline-text">Junior Full Stack Developer</div>
-        <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;" id="profile-summary-text">Parsed via Groq LLaMA-3.3-70B. Evaluates skills overlap and seniority fit.</div>
-        <div class="tech-stack-row" id="profile-skills-tags"></div>
+      <div class="sheet-footer">
+        <button class="btn-blaze-primary" style="margin-top:0;" onclick="closeFiltersModal()">
+          <span id="sheet-apply-btn-label">Apply filters</span>
+        </button>
       </div>
-
-      <!-- Authentication Details -->
-      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:24px;">
-        <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">Account Authentication</h3>
-        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">Synchronize candidate matches and unlocked URLs.</p>
-        <div style="display:flex; gap:10px;">
-          <button class="btn-apply" onclick="alert('Google OAuth connected via Supabase Auth.')">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-            Google Connected
-          </button>
-        </div>
-      </div>
-
     </div>
-  </section>
-
-</main>
-
-<!-- ==================== EXPANSIVE FILTER MODAL ==================== -->
-<div class="filter-drawer-overlay" id="filter-modal-overlay" onclick="closeFilterModalOnBackdrop(event)">
-  <div class="filter-modal">
-    
-    <div class="modal-header">
-      <div style="display:flex; align-items:center; gap:8px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-        <h3>Filter Roles Catalog</h3>
-      </div>
-      <button onclick="closeFilterModal()" style="background:none; border:none; color:var(--text-dim); cursor:pointer;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-
-    <div class="modal-body">
-      
-      <!-- 1. Work Location -->
-      <div>
-        <div class="filter-section-title">Geographic Work Type</div>
-        <div class="filter-chips-grid" id="modal-loc-chips">
-          <div class="filter-chip-option active" data-filter="loc" data-val="all" onclick="selectFilterOption(this)">All Locations</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="remote" onclick="selectFilterOption(this)">Worldwide Remote (100%)</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="us" onclick="selectFilterOption(this)">United States</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="uk" onclick="selectFilterOption(this)">United Kingdom & London</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="germany" onclick="selectFilterOption(this)">Germany & Netherlands</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="switzerland" onclick="selectFilterOption(this)">Switzerland (Zurich)</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="canada" onclick="selectFilterOption(this)">Canada</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="japan" onclick="selectFilterOption(this)">Japan (Tokyo)</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="singapore" onclick="selectFilterOption(this)">Singapore & APAC</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="india" onclick="selectFilterOption(this)">India Tech Hubs</div>
-        </div>
-      </div>
-
-      <!-- 2. Engineering Discipline -->
-      <div>
-        <div class="filter-section-title">Engineering Discipline</div>
-        <div class="filter-chips-grid" id="modal-role-chips">
-          <div class="filter-chip-option active" data-filter="role" data-val="all" onclick="selectFilterOption(this)">All Disciplines</div>
-          <div class="filter-chip-option" data-filter="role" data-val="robotics" onclick="selectFilterOption(this)">Robotics & Autonomous Systems</div>
-          <div class="filter-chip-option" data-filter="role" data-val="embedded" onclick="selectFilterOption(this)">Embedded Systems & Firmware</div>
-          <div class="filter-chip-option" data-filter="role" data-val="ai" onclick="selectFilterOption(this)">AI, Computer Vision & Perception</div>
-          <div class="filter-chip-option" data-filter="role" data-val="hardware" onclick="selectFilterOption(this)">Hardware & Mechatronics</div>
-          <div class="filter-chip-option" data-filter="role" data-val="systems" onclick="selectFilterOption(this)">Backend & Distributed Systems</div>
-          <div class="filter-chip-option" data-filter="role" data-val="fullstack" onclick="selectFilterOption(this)">Full Stack Engineering</div>
-          <div class="filter-chip-option" data-filter="role" data-val="frontend" onclick="selectFilterOption(this)">Frontend & UI</div>
-        </div>
-      </div>
-
-      <!-- 3. Company & Source Tier -->
-      <div>
-        <div class="filter-section-title">Company Tier & Portals</div>
-        <div class="filter-chips-grid" id="modal-ats-chips">
-          <div class="filter-chip-option active" data-filter="ats" data-val="all" onclick="selectFilterOption(this)">All Sources</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="faang" onclick="selectFilterOption(this)">FAANG & Tech Giants (Apple, MSFT, Sony, Uber, Nvidia, Tesla)</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="ycombinator" onclick="selectFilterOption(this)">Y Combinator (YC Startups)</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="greenhouse" onclick="selectFilterOption(this)">Greenhouse ATS</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="lever" onclick="selectFilterOption(this)">Lever Portal</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="workable" onclick="selectFilterOption(this)">Workable Portal</div>
-        </div>
-      </div>
-
-      <!-- 4. Experience Level -->
-      <div>
-        <div class="filter-section-title">Experience Level</div>
-        <div class="filter-chips-grid" id="modal-exp-chips">
-          <div class="filter-chip-option active" data-filter="exp" data-val="all" onclick="selectFilterOption(this)">Any Experience</div>
-          <div class="filter-chip-option" data-filter="exp" data-val="fresher" onclick="selectFilterOption(this)">Freshers & Graduates (0 - 1 Years)</div>
-          <div class="filter-chip-option" data-filter="exp" data-val="junior" onclick="selectFilterOption(this)">Junior Engineer (1 - 2 Years)</div>
-          <div class="filter-chip-option" data-filter="exp" data-val="early" onclick="selectFilterOption(this)">Early Career (2 - 3 Years)</div>
-        </div>
-      </div>
-
-      <!-- 5. Technology Stack -->
-      <div>
-        <div class="filter-section-title">Technology & Tools</div>
-        <div class="filter-chips-grid" id="modal-tech-chips">
-          <div class="filter-chip-option" data-filter="tech" data-val="C++" onclick="toggleFilterTech(this)">C++</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="ROS2" onclick="toggleFilterTech(this)">ROS / ROS2</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="Python" onclick="toggleFilterTech(this)">Python</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="CUDA" onclick="toggleFilterTech(this)">CUDA</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="RTOS" onclick="toggleFilterTech(this)">RTOS / Firmware</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="PyTorch" onclick="toggleFilterTech(this)">PyTorch</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="Linux" onclick="toggleFilterTech(this)">Linux</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="React" onclick="toggleFilterTech(this)">React</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="TypeScript" onclick="toggleFilterTech(this)">TypeScript</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="Node.js" onclick="toggleFilterTech(this)">Node.js</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="FastAPI" onclick="toggleFilterTech(this)">FastAPI</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="PostgreSQL" onclick="toggleFilterTech(this)">PostgreSQL</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="Go" onclick="toggleFilterTech(this)">Go</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="Rust" onclick="toggleFilterTech(this)">Rust</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="Docker" onclick="toggleFilterTech(this)">Docker</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="AWS" onclick="toggleFilterTech(this)">AWS</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="modal-footer">
-      <button class="btn-apply" onclick="resetAllFilters()">Reset All</button>
-      <button class="btn-apply primary" onclick="applyModalFilters()">Apply Filters</button>
-    </div>
-
   </div>
-</div>
 
-<!-- Mobile Bottom Navigation Bar -->
-<div class="mobile-bottom-bar">
-  <button class="mobile-tab-btn active" id="mob-discover" onclick="switchView('discover')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    <span>Discover</span>
-  </button>
-  <button class="mobile-tab-btn" id="mob-directory" onclick="switchView('directory')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <span>Explore</span>
-  </button>
-  <button class="mobile-tab-btn" id="mob-profile" onclick="switchView('profile')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <span>Profile</span>
-  </button>
-</div>
+  <!-- Mobile Sticky Bottom Nav (< 1024px) -->
+  <nav class="mobile-nav-bar">
+    <button class="mobile-nav-btn active" id="mob-nav-jobs" onclick="showMobileView('jobs')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Roles</span>
+    </button>
+    <button class="mobile-nav-btn" id="mob-nav-match" onclick="showMobileView('match')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <span>Match CV</span>
+    </button>
+  </nav>
 
-<footer>
-  <p>All product names, logos, and company names are property of their respective owners (Waymo, Figure AI, Anthropic, Scale AI, Kodiak Robotics, Verkada, Datadog, Y Combinator). Used for factual identification purposes only.</p>
-</footer>
+  <!-- -------------------------------------------------------------
+       APPLICATION LOGIC & CLIENT SCRIPT
+       ------------------------------------------------------------- -->
+  <script>
+    // Global Brand Configuration Constant (AGENTS.md rule)
+    const BRAND_NAME = "Camouroles";
+    document.getElementById('app-brand-name').textContent = BRAND_NAME;
 
-<script>
-  const API_BASE = window.location.origin + '/api';
+    const API_BASE = window.location.origin + '/api';
 
-  // Global State
-  let currentActiveView = 'discover';
-  let activeFilters = {
-    loc: 'all',
-    exp: 'all',
-    ats: 'all',
-    role: 'all',
-    tech: null,
-    q: ''
-  };
+    // State
+    let activeFilters = {
+      q: '',
+      discipline: 'all',
+      location: 'all',
+      exp: 'all',
+      ats: 'all'
+    };
 
-  let agentPreferences = {
-    loc: 'all',
-    role: 'all'
-  };
+    let userPreferences = {
+      location: 'all',
+      role: 'all'
+    };
 
-  let debounceTimer = null;
+    let debounceTimer = null;
+    let cachedJobsList = [];
 
-  // Vector Brand Logos Map
-  const SVG_LOGOS = {
-    apple: `<svg width="13" height="13" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-.99 1.73-.86 2.76.99.08 2.02-.51 2.59-1.26z" fill="#FFF"/></svg>`,
-    microsoft: `<svg width="13" height="13" viewBox="0 0 24 24"><rect x="1" y="1" width="10" height="10" fill="#F25022"/><rect x="13" y="1" width="10" height="10" fill="#7FBA00"/><rect x="1" y="13" width="10" height="10" fill="#00A4EF"/><rect x="13" y="13" width="10" height="10" fill="#FFB900"/></svg>`,
-    google: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>`,
-    amazon: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF9900"/><path d="M7 13c3 2 7 2 10 0" stroke="#000" stroke-width="2" fill="none"/></svg>`,
-    meta: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#0668E1" d="M16.96 4C14.34 4 12.78 5.6 12 6.64 11.22 5.6 9.66 4 7.04 4 3.15 4 0 7.37 0 11.66c0 5.48 5.2 9.53 11.4 12.27.38.17.82.17 1.2 0 6.2-2.74 11.4-6.79 11.4-12.27C24 7.37 20.85 4 16.96 4z"/></svg>`,
-    uber: `<svg width="13" height="13" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#000"/><circle cx="12" cy="12" r="7" fill="none" stroke="#FFF" stroke-width="2"/><line x1="12" y1="5" x2="19" y2="5" stroke="#FFF" stroke-width="2"/></svg>`,
-    sony: `<svg width="13" height="13" viewBox="0 0 24 24"><text x="1" y="16" fill="#FFF" font-family="sans-serif" font-weight="900" font-size="11">SONY</text></svg>`,
-    nvidia: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#76B900" d="M8.88 16.48c-1.34 0-2.43-1.09-2.43-2.43 0-1.34 1.09-2.43 2.43-2.43h6.24c.78-1.07 1.24-2.38 1.24-3.79 0-3.53-2.87-6.4-6.4-6.4C4.43 1.43 0 5.86 0 11.39c0 5.53 4.43 9.96 9.96 9.96 3.65 0 6.84-1.95 8.59-4.87h-9.67z"/></svg>`,
-    tesla: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#E82127" d="M12 4.5c2.97 0 5.63.85 8.07 2.37l1.09-2.61C18.25 2.76 15.22 2 12 2S5.75 2.76 2.84 4.26l1.09 2.61C6.37 5.35 9.03 4.5 12 4.5zM12 8.5c-1.6 0-3.05.34-4.32.93l.97 2.32c1.03-.45 2.15-.71 3.35-.71s2.32.26 3.35.71l.97-2.32C15.05 8.84 13.6 8.5 12 8.5zM13.5 13h-3v9h3v-9z"/></svg>`,
-    ycombinator: `<svg width="13" height="13" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6600"/><path d="M7.5 6L12 14.5L16.5 6H14.2L12 10.3L9.8 6H7.5ZM11 13V18H13V13H11Z" fill="#FFF"/></svg>`,
-    greenhouse: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#00B276"/><path d="M12 7c-2.8 0-5 2.2-5 5 0 2.2 1.4 4 3.4 4.7l.6-2.2c-1-.4-1.8-1.4-1.8-2.5 0-1.5 1.2-2.8 2.8-2.8 1.5 0 2.8 1.2 2.8 2.8 0 1.1-.7 2.1-1.8 2.5l.6 2.2c2-.7 3.4-2.5 3.4-4.7 0-2.8-2.2-5-5-5z" fill="#FFF"/></svg>`,
-    lever: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2E3192"/><path d="M8 8h2v8H8zm6 0h2v8h-2z" fill="#FFF"/></svg>`,
-    workable: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#007788"/><path d="M7 12l3 3 7-7" stroke="#FFF" stroke-width="2.5" fill="none"/></svg>`,
-    direct: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>`
-  };
-
-  function getLogoSvg(brand) {
-    return SVG_LOGOS[brand] || SVG_LOGOS.direct;
-  }
-
-  // Navigation
-  function switchView(viewName) {
-    currentActiveView = viewName;
-    document.querySelectorAll('.view-panel').forEach(v => v.classList.remove('active'));
-    document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.mobile-tab-btn').forEach(b => b.classList.remove('active'));
-
-    document.getElementById(`view-${viewName}`).classList.add('active');
-
-    const desktopIndex = viewName === 'discover' ? 0 : viewName === 'directory' ? 1 : 2;
-    document.querySelectorAll('.nav-tab-btn')[desktopIndex]?.classList.add('active');
-    document.getElementById(`mob-${viewName}`)?.classList.add('active');
-
-    if (viewName === 'directory') fetchDirectoryJobs();
-    if (viewName === 'profile') fetchProfileData();
-  }
-
-  // Filter Modal Controls
-  function openFilterModal() {
-    document.getElementById('filter-modal-overlay').classList.add('active');
-  }
-
-  function closeFilterModal() {
-    document.getElementById('filter-modal-overlay').classList.remove('active');
-  }
-
-  function closeFilterModalOnBackdrop(e) {
-    if (e.target.id === 'filter-modal-overlay') closeFilterModal();
-  }
-
-  function selectFilterOption(el) {
-    const filterType = el.getAttribute('data-filter');
-    const val = el.getAttribute('data-val');
-    document.querySelectorAll(`.filter-chip-option[data-filter="${filterType}"]`).forEach(c => c.classList.remove('active'));
-    el.classList.add('active');
-    activeFilters[filterType] = val;
-  }
-
-  function toggleFilterTech(el) {
-    const val = el.getAttribute('data-val');
-    if (activeFilters.tech === val) {
-      activeFilters.tech = null;
-      el.classList.remove('active');
-    } else {
-      document.querySelectorAll(`.filter-chip-option[data-filter="tech"]`).forEach(c => c.classList.remove('active'));
-      el.classList.add('active');
-      activeFilters.tech = val;
-    }
-  }
-
-  function resetAllFilters() {
-    activeFilters = { loc: 'all', exp: 'all', ats: 'all', role: 'all', tech: null, q: '' };
-    document.querySelectorAll('.filter-chip-option').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.filter-chip-option[data-val="all"]').forEach(c => c.classList.add('active'));
-    applyModalFilters();
-  }
-
-  function applyModalFilters() {
-    closeFilterModal();
-    updateFilterBadgeCount();
-    if (currentActiveView === 'directory') {
-      fetchDirectoryJobs();
-    } else {
-      fetchDirectoryJobs('discover-jobs-list');
-    }
-  }
-
-  function updateFilterBadgeCount() {
-    let count = 0;
-    if (activeFilters.loc !== 'all') count++;
-    if (activeFilters.exp !== 'all') count++;
-    if (activeFilters.ats !== 'all') count++;
-    if (activeFilters.role !== 'all') count++;
-    if (activeFilters.tech) count++;
-    if (activeFilters.q) count++;
-    document.getElementById('header-filter-count').textContent = count;
-  }
-
-  // Quick Filter Pills on Discover
-  function quickFilterFeed(type) {
-    if (type === 'faang') activeFilters.ats = activeFilters.ats === 'faang' ? 'all' : 'faang';
-    if (type === 'robotics') activeFilters.role = activeFilters.role === 'robotics' ? 'all' : 'robotics';
-    if (type === 'remote') activeFilters.loc = activeFilters.loc === 'remote' ? 'all' : 'remote';
-    if (type === 'yc') activeFilters.ats = activeFilters.ats === 'ycombinator' ? 'all' : 'ycombinator';
-    updateFilterBadgeCount();
-    fetchDirectoryJobs('discover-jobs-list');
-  }
-
-  // Agentic Preferences
-  function selectAgentLocation(el, val) {
-    document.querySelectorAll('#agent-location-chips .quick-chip').forEach(c => c.classList.remove('active'));
-    el.classList.add('active');
-    agentPreferences.loc = val;
-  }
-
-  function selectAgentRole(el, val) {
-    document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => c.classList.remove('active'));
-    el.classList.add('active');
-    agentPreferences.role = val;
-  }
-
-  async function triggerPreferenceRecalculate() {
-    const btn = event.currentTarget;
-    btn.textContent = 'Matching your background...';
-    try {
-      const res = await fetch(`${API_BASE}/cv/preferences`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          location: agentPreferences.loc,
-          role_type: agentPreferences.role,
-          experience_max: 3
-        })
-      });
-      await res.json();
-      loadUserMatchesFeed();
-    } catch (e) {
-      console.error(e);
-    } finally {
-      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Update Match Feed`;
-    }
-  }
-
-  // Render Modern Job Cards
-  function renderJobCards(containerId, jobs) {
-    const container = document.getElementById(containerId);
-    if (!jobs || !jobs.length) {
-      container.innerHTML = `
-        <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:48px 24px; text-align:center; color:var(--text-muted);">
-          <div style="font-weight:700; color:#FFF; font-size:15px; margin-bottom:4px;">No roles match the active filters</div>
-          <div style="font-size:12px;">Try selecting 'All Locations' or resetting your technology filters.</div>
-        </div>
-      `;
-      return;
+    // Theme Management (Supports Light, Dark, and Manual Setting)
+    function initTheme() {
+      const savedTheme = localStorage.getItem('camouroles-theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
     }
 
-    container.innerHTML = jobs.map(j => {
-      const sources = j.sources || [];
-      const primaryUrl = j.apply_url || (sources[0] && sources[0].url);
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('camouroles-theme', next);
+    }
 
-      return `
-        <div class="job-item">
-          <div class="job-item-top">
-            <div style="flex:1;">
-              <div class="job-title">${j.title}</div>
-              <div class="job-company-meta">
-                <span class="company-name">${j.company}</span>
-                <span>·</span>
-                <span class="badge-tag">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                  ${j.location || 'Remote'}
-                </span>
-                <span class="badge-tag">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                  ${j.experience || '0-3 yrs'}
-                </span>
-                ${j.is_remote ? `<span class="badge-tag badge-remote">Remote</span>` : ''}
+    initTheme();
+
+    // Dense Job Rows Rendering (DESIGN_RULES.md - line 44)
+    function renderJobRows(jobs) {
+      const container = document.getElementById('job-rows-container');
+      if (!jobs || jobs.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state-box">
+            <div class="empty-title">No roles match these filters</div>
+            <div class="empty-desc">Remove active location or role filters to see available unlisted openings.</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = jobs.map(j => {
+        const sources = j.sources || [];
+        const applyUrl = j.apply_url || (sources[0] && sources[0].url) || '#';
+        const sourceLabel = j.ats_type ? j.ats_type.toLowerCase() : 'direct';
+
+        return `
+          <article class="job-row">
+            <!-- First Line: Title and Company -->
+            <div class="job-row-main">
+              <div class="job-row-title-line">
+                <span class="job-title">${escapeHtml(j.title)}</span>
+                <span class="job-company">${escapeHtml(j.company)}</span>
               </div>
+              ${j.match_score ? `
+                <div class="match-chip tabular-num">
+                  ${j.match_score}% match
+                </div>
+              ` : ''}
             </div>
 
-            ${j.match_score ? `
-              <div class="score-pill">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                ${j.match_score}% Match
+            <!-- Second Line: Location, Experience, ATS source, Verified (separate spaced items, no dots) -->
+            <div class="job-meta-line">
+              <span class="job-meta-item">${escapeHtml(j.location || 'Remote')}</span>
+              <span class="job-meta-item tabular-num">${escapeHtml(j.experience || '0-3 yrs')}</span>
+              <span class="job-meta-item">${escapeHtml(sourceLabel)}</span>
+              <span class="job-meta-item">verified live</span>
+            </div>
+
+            <!-- Match Reason (2 lines, sentence case) -->
+            ${j.why_matched ? `
+              <div class="job-match-reason">
+                ${escapeHtml(j.why_matched)}
               </div>
             ` : ''}
-          </div>
 
-          ${j.why_matched ? `
-            <div class="why-box">
-              <strong style="color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Fit Analysis:</strong><br>
-              ${j.why_matched.replace(/\n/g, '<br>')}
-            </div>
-          ` : ''}
+            <!-- Skills List -->
+            ${(j.skills && j.skills.length) ? `
+              <div class="job-skills-row">
+                ${j.skills.slice(0, 5).map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('')}
+              </div>
+            ` : ''}
 
-          <div class="tech-stack-row">
-            ${(j.skills || []).slice(0, 6).map(s => `<span class="tech-tag">${s}</span>`).join('')}
-          </div>
-
-          <!-- Multi-Source Apply Redirect Buttons -->
-          <div class="apply-actions-row">
-            ${sources.map(s => `
-              <a href="${s.url || primaryUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply primary">
-                ${getLogoSvg(s.brand)}
-                <span>${s.name}</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+            <!-- Action Line at Right Edge -->
+            <div class="job-row-actions">
+              <span style="font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums;">Active opening</span>
+              <a href="${applyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-link">
+                <span>Reveal apply link</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
               </a>
-            `).join('')}
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  // Fetch Directory Jobs
-  async function fetchDirectoryJobs(targetContainer = 'directory-jobs-list') {
-    let url = `${API_BASE}/jobs/search?limit=50`;
-    if (activeFilters.q) url += `&q=${encodeURIComponent(activeFilters.q)}`;
-    if (activeFilters.loc && activeFilters.loc !== 'all') url += `&location=${encodeURIComponent(activeFilters.loc)}`;
-    if (activeFilters.exp && activeFilters.exp !== 'all') url += `&experience=${encodeURIComponent(activeFilters.exp)}`;
-    if (activeFilters.ats && activeFilters.ats !== 'all') url += `&ats_type=${encodeURIComponent(activeFilters.ats)}`;
-    if (activeFilters.role && activeFilters.role !== 'all') url += `&role=${encodeURIComponent(activeFilters.role)}`;
-    if (activeFilters.tech) url += `&skill=${encodeURIComponent(activeFilters.tech)}`;
-
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      const jobs = data.jobs || [];
-
-      renderJobCards(targetContainer, jobs);
-      const counterText = `${jobs.length} verified openings found`;
-      if (document.getElementById('directory-count')) {
-        document.getElementById('directory-count').textContent = counterText;
-      }
-      if (document.getElementById('discover-feed-count')) {
-        document.getElementById('discover-feed-count').textContent = counterText;
-      }
-      if (document.getElementById('top-live-roles-count')) {
-        document.getElementById('top-live-roles-count').textContent = `${data.total || jobs.length} verified live openings`;
-      }
-    } catch (e) {
-      console.error(e);
+            </div>
+          </article>
+        `;
+      }).join('');
     }
-  }
 
-  // Load User Matches Feed
-  async function loadUserMatchesFeed() {
-    try {
-      const res = await fetch(`${API_BASE}/matches`);
-      const data = await res.json();
-      const matches = data.matches || [];
+    // Fetch and Filter Jobs
+    async function loadCatalog() {
+      let url = `${API_BASE}/jobs/search?limit=100`;
+      if (activeFilters.q) url += `&q=${encodeURIComponent(activeFilters.q)}`;
+      if (activeFilters.location && activeFilters.location !== 'all') url += `&location=${encodeURIComponent(activeFilters.location)}`;
+      if (activeFilters.discipline && activeFilters.discipline !== 'all') url += `&role=${encodeURIComponent(activeFilters.discipline)}`;
+      if (activeFilters.exp && activeFilters.exp !== 'all') url += `&experience=${encodeURIComponent(activeFilters.exp)}`;
+      if (activeFilters.ats && activeFilters.ats !== 'all') url += `&ats_type=${encodeURIComponent(activeFilters.ats)}`;
 
-      if (matches.length > 0) {
-        document.getElementById('discover-feed-title').textContent = "Your Tailored Matches";
-        document.getElementById('discover-feed-count').textContent = `${matches.length} roles aligned with your background`;
-        renderJobCards('discover-jobs-list', matches);
-      } else {
-        fetchDirectoryJobs('discover-jobs-list');
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const jobs = data.jobs || [];
+        cachedJobsList = jobs;
+
+        renderJobRows(jobs);
+
+        const countText = `${jobs.length} roles found`;
+        document.getElementById('feed-count').textContent = countText;
+        if (document.getElementById('sheet-apply-btn-label')) {
+          document.getElementById('sheet-apply-btn-label').textContent = `Apply filters (${jobs.length} roles)`;
+        }
+      } catch (err) {
+        console.error("Load catalog error:", err);
       }
-    } catch (e) {
-      fetchDirectoryJobs('discover-jobs-list');
     }
-  }
 
-  // In-Memory CV Upload (DPDP Compliant)
-  async function onCvFileUploaded(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    document.getElementById('dropzone-label-text').textContent = 'Analyzing in memory...';
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-      const res = await fetch(`${API_BASE}/cv/upload`, {
-        method: 'POST',
-        body: formData
+    // Filter Handlers
+    function setDisciplineFilter(val) {
+      activeFilters.discipline = val;
+      document.querySelectorAll('[data-discipline]').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('data-discipline') === val);
       });
-      const data = await res.json();
-
-      document.getElementById('dropzone-label-text').textContent = 'Resume Analyzed';
-      document.getElementById('cv-profile-box').style.display = 'block';
-      document.getElementById('cv-active-headline').textContent = data.headline;
-      document.getElementById('cv-active-skills').innerHTML = (data.skills || []).map(s => `<span class="tech-tag">${s}</span>`).join('');
-
-      // Auto-adapt discipline to candidate's domain
-      const text = (data.headline + ' ' + (data.skills || []).join(' ')).toLowerCase();
-      if (text.includes('robot') || text.includes('ros') || text.includes('autonomous') || text.includes('slam')) {
-        agentPreferences.role = 'robotics';
-        document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => {
-          c.classList.toggle('active', c.getAttribute('data-v') === 'robotics');
-        });
-      } else if (text.includes('embedded') || text.includes('firmware') || text.includes('rtos') || text.includes('microcontroller')) {
-        agentPreferences.role = 'embedded';
-        document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => {
-          c.classList.toggle('active', c.getAttribute('data-v') === 'embedded');
-        });
-      } else if (text.includes('vision') || text.includes('pytorch') || text.includes('deep learning')) {
-        agentPreferences.role = 'ai';
-        document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => {
-          c.classList.toggle('active', c.getAttribute('data-v') === 'ai');
-        });
-      }
-
-      loadUserMatchesFeed();
-      fetchProfileData();
-    } catch (err) {
-      alert("CV upload error: " + err.message);
+      loadCatalog();
     }
-  }
 
-  // Debounced Directory Search Input
-  function onDirectorySearchInput() {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      activeFilters.q = document.getElementById('directory-search-input').value.trim();
-      updateFilterBadgeCount();
-      fetchDirectoryJobs();
-    }, 250);
-  }
-
-  // Profile Data Fetch
-  async function fetchProfileData() {
-    try {
-      const res = await fetch(`${API_BASE}/profile`);
-      const data = await res.json();
-
-      if (data.has_cv) {
-        document.getElementById('profile-headline-text').textContent = data.headline;
-        document.getElementById('profile-summary-text').textContent = `${data.experience_years} years experience · ${data.summary}`;
-        document.getElementById('profile-skills-tags').innerHTML = (data.skills || []).map(s => `<span class="tech-tag">${s}</span>`).join('');
-
-        // Also populate left console on Discover
-        document.getElementById('cv-profile-box').style.display = 'block';
-        document.getElementById('cv-active-headline').textContent = data.headline;
-        document.getElementById('cv-active-exp').textContent = `${data.experience_years} years experience`;
-        document.getElementById('cv-active-skills').innerHTML = (data.skills || []).map(s => `<span class="tech-tag">${s}</span>`).join('');
-      }
-    } catch (e) {
-      console.error(e);
+    function setLocationFilter(val) {
+      activeFilters.location = val;
+      document.querySelectorAll('[data-location]').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('data-location') === val);
+      });
+      loadCatalog();
     }
-  }
 
-  // Initial Load
-  loadUserMatchesFeed();
-  fetchProfileData();
-</script>
+    function setExpFilter(val) {
+      activeFilters.exp = val;
+      document.querySelectorAll('[data-exp]').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('data-exp') === val);
+      });
+      loadCatalog();
+    }
+
+    function setAtsFilter(val) {
+      activeFilters.ats = val;
+      document.querySelectorAll('[data-ats]').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('data-ats') === val);
+      });
+      loadCatalog();
+    }
+
+    function onSearchInput(val) {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        activeFilters.q = val.trim();
+        loadCatalog();
+      }, 200);
+    }
+
+    // CV Upload (In-Memory, DPDP/Privacy Compliant)
+    async function onCvSelected(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      document.getElementById('dropzone-status-text').textContent = 'Analyzing in memory...';
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const res = await fetch(`${API_BASE}/cv/upload`, {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        document.getElementById('dropzone-status-text').textContent = 'Upload CV';
+        document.getElementById('candidate-data-box').style.display = 'block';
+        document.getElementById('cand-headline').textContent = data.headline || 'Software Engineer';
+        document.getElementById('cand-skills').innerHTML = (data.skills || []).map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('');
+
+        // Adapt discipline preference automatically if recognized
+        const text = (data.headline + ' ' + (data.skills || []).join(' ')).toLowerCase();
+        if (text.includes('robot') || text.includes('autonomous') || text.includes('ros')) {
+          userPreferences.role = 'robotics';
+          updatePrefChips('role', 'robotics');
+        } else if (text.includes('embedded') || text.includes('firmware') || text.includes('hardware')) {
+          userPreferences.role = 'embedded';
+          updatePrefChips('role', 'embedded');
+        } else if (text.includes('ai') || text.includes('vision') || text.includes('pytorch')) {
+          userPreferences.role = 'ai';
+          updatePrefChips('role', 'ai');
+        }
+
+        recalculateMatches();
+      } catch (err) {
+        alert("CV upload error: " + err.message);
+        document.getElementById('dropzone-status-text').textContent = 'Upload CV';
+      }
+    }
+
+    // Recalculate Matches
+    async function recalculateMatches() {
+      try {
+        const res = await fetch(`${API_BASE}/cv/preferences`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            location: userPreferences.location,
+            role_type: userPreferences.role
+          })
+        });
+        const data = await res.json();
+        const matches = data.matches || [];
+
+        if (matches.length > 0) {
+          document.getElementById('feed-title').textContent = "Your matched roles";
+          document.getElementById('feed-count').textContent = `${matches.length} matched against your CV`;
+          renderJobRows(matches);
+        } else {
+          loadCatalog();
+        }
+      } catch (err) {
+        console.error(err);
+        loadCatalog();
+      }
+    }
+
+    function selectPrefLocation(btn, val) {
+      userPreferences.location = val;
+      updatePrefChips('location', val);
+    }
+
+    function selectPrefRole(btn, val) {
+      userPreferences.role = val;
+      updatePrefChips('role', val);
+    }
+
+    function updatePrefChips(type, val) {
+      const containerId = type === 'location' ? 'pref-location-chips' : 'pref-role-chips';
+      document.querySelectorAll(`#${containerId} .pref-chip`).forEach(c => {
+        c.classList.toggle('active', c.getAttribute('data-v') === val);
+      });
+    }
+
+    // Delete My Data (AGENTS.md & DESIGN_RULES.md requirement)
+    async function deleteMyData() {
+      if (!confirm("Are you sure you want to delete all stored CV records and match history?")) return;
+      try {
+        await fetch(`${API_BASE}/profile`, { method: 'DELETE' });
+        document.getElementById('candidate-data-box').style.display = 'none';
+        document.getElementById('cv-file-input').value = '';
+        document.getElementById('feed-title').textContent = "Unlisted engineering roles";
+        loadCatalog();
+        alert("All personal data deleted successfully.");
+      } catch (e) {
+        alert("Error deleting data: " + e.message);
+      }
+    }
+
+    // Mobile Sheet Controls
+    function openFiltersModal() {
+      document.getElementById('mobile-filter-modal').classList.add('active');
+    }
+
+    function closeFiltersModal() {
+      document.getElementById('mobile-filter-modal').classList.remove('active');
+    }
+
+    function closeFiltersModalOnBackdrop(e) {
+      if (e.target.id === 'mobile-filter-modal') {
+        closeFiltersModal();
+      }
+    }
+
+    // Mobile View Toggle (< 1024px)
+    function showMobileView(view) {
+      document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+      if (view === 'jobs') {
+        document.getElementById('mob-nav-jobs').classList.add('active');
+        document.querySelector('.stream-panel').style.display = 'block';
+        document.querySelector('.match-panel').style.display = 'none';
+      } else {
+        document.getElementById('mob-nav-match').classList.add('active');
+        document.querySelector('.stream-panel').style.display = 'none';
+        document.querySelector('.match-panel').style.display = 'block';
+      }
+    }
+
+    // Utilities
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Initial Load
+    loadCatalog();
+  </script>
 </body>
 </html>
