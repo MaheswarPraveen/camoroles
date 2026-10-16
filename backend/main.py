@@ -705,6 +705,13 @@ if os.path.exists(web_dir):
 def serve_index():
     index_path = os.path.join(web_dir, "index.html")
     if os.path.exists(index_path):
-        return FileResponse(index_path)
+        return FileResponse(
+            index_path,
+            headers={
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Pragma": "no-cache",
+                "Expires": "0"
+            }
+        )
     return {"message": "camOroles API is running. Visit /docs for OpenAPI specs."}
 
