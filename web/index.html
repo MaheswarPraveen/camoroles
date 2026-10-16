@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>camOroles — Hidden Jobs LinkedIn Doesn't Show You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    :root {
+      --bg: #090B0E;
+      --card: #13171F;
+      --card-border: #1F2633;
+      --accent: #22C55E;
+      --accent-glow: rgba(34, 197, 94, 0.15);
+      --amber: #F59E0B;
+      --text: #F1F5F9;
+      --text-muted: #94A3B8;
+      --font: 'Plus Jakarta Sans', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    
+    .container { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+    
+    header { padding: 24px 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+    .logo span { color: var(--accent); }
+    .badge { font-family: var(--mono); font-size: 11px; padding: 4px 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--card-border); border-radius: 6px; color: var(--text-muted); }
+
+    .hero { text-align: center; padding: 64px 0 40px; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: var(--accent-glow); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 100px; color: var(--accent); font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+    h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 18px; }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 17px; color: var(--text-muted); max-width: 620px; margin: 0 auto 32px; }
+
+    /* Upload Card */
+    .upload-zone { background: var(--card); border: 2px dashed var(--card-border); border-radius: 16px; padding: 40px 24px; text-align: center; cursor: pointer; transition: all .2s; margin-bottom: 48px; }
+    .upload-zone:hover { border-color: var(--accent); background: #171C26; }
+    .upload-zone.dragover { border-color: var(--accent); background: var(--accent-glow); }
+    .upload-icon { font-size: 32px; margin-bottom: 12px; }
+    .upload-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .upload-sub { font-size: 13px; color: var(--text-muted); }
+    .compliance-tag { font-size: 12px; color: var(--accent); margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; }
+
+    /* Section Headers */
+    .sec-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+    .sec-head h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+
+    /* Job Cards */
+    .job-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 60px; }
+    .job-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 14px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: transform .15s, border-color .15s; }
+    .job-card:hover { border-color: #2F384B; transform: translateY(-1px); }
+    .job-main { flex: 1; }
+    .job-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 13px; color: var(--text-muted); }
+    .job-title { font-size: 18px; font-weight: 700; color: #FFF; margin-bottom: 6px; }
+    .company-blur { filter: blur(4px); user-select: none; opacity: 0.6; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag { font-family: var(--mono); font-size: 12px; padding: 3px 8px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); }
+
+    .score-badge { text-align: center; padding: 10px 14px; background: var(--accent-glow); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 12px; min-width: 80px; }
+    .score-val { font-size: 22px; font-weight: 800; color: var(--accent); line-height: 1; }
+    .score-lbl { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; margin-top: 4px; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font); font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 10px; cursor: pointer; border: none; text-decoration: none; transition: all .15s; }
+    .btn-primary { background: var(--accent); color: #000; }
+    .btn-primary:hover { background: #1ea34d; }
+    .btn-outline { background: transparent; border: 1px solid var(--card-border); color: var(--text); }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); }
+
+    /* Why matched block */
+    .why-block { background: rgba(34, 197, 94, 0.05); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 8px 8px 0; margin-top: 12px; font-size: 13px; color: #D1D5DB; }
+
+    /* Pricing Section */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 40px 0 80px; }
+    .price-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 32px 24px; text-align: center; position: relative; }
+    .price-card.featured { border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+    .price-amt { font-size: 38px; font-weight: 800; margin: 16px 0 8px; }
+    .price-amt small { font-size: 15px; font-weight: 500; color: var(--text-muted); }
+    .price-ticks { list-style: none; text-align: left; margin: 24px 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--text-muted); }
+    .price-ticks li::before { content: "✓ "; color: var(--accent); font-weight: 800; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--card-border); text-align: center; color: var(--text-muted); font-size: 13px; }
+    footer a { color: var(--text); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+    <div class="logo">cam<span>O</span>roles <span class="badge">BETA</span></div>
+    <div>
+      <button class="btn btn-outline" id="btn-login" onclick="handleAuth()">Sign in</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="pill">⚡ Unlisted tech jobs across Indian startups</div>
+    <h1>Hidden jobs LinkedIn<br><em>doesn't show you.</em></h1>
+    <p>We crawl direct Keka, Darwinbox, and Zoho career portals every morning. Drop your CV, see your exact match scores, and apply before roles get flooded.</p>
+
+    <!-- Upload Zone -->
+    <div class="upload-zone" id="drop-zone" onclick="document.getElementById('cv-file').click()">
+      <input type="file" id="cv-file" accept=".pdf" style="display:none" onchange="handleFileSelect(event)">
+      <div class="upload-icon">📄</div>
+      <div class="upload-title" id="upload-status">Drop your CV here, or browse PDF</div>
+      <div class="upload-sub">Matches computed in ~8 seconds · No PDF saved</div>
+      <div class="compliance-tag">🔒 DPDP Compliant · PDF parsed in memory & discarded immediately</div>
+    </div>
+  </section>
+
+  <!-- Live Feed -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <h2 id="feed-title">Live Unlisted Roles (Updated Daily)</h2>
+        <p style="color:var(--text-muted); font-size:13px; margin-top:2px">Direct from startup career pages. Upload CV to reveal matches & apply.</p>
+      </div>
+      <div class="badge" id="quota-badge">3 free links/week</div>
+    </div>
+
+    <div class="job-list" id="jobs-container">
+      <!-- Skeleton loader -->
+      <div class="job-card">
+        <div class="job-main">
+          <div class="job-meta"><span>Fetching live ATS openings...</span></div>
+          <div class="job-title">Loading verified positions...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="sec-head" style="justify-content:center; text-align:center;">
+      <div>
+        <h2>Simple, Honest Pricing</h2>
+        <p style="color:var(--text-muted); font-size:14px; margin-top:4px">No auto-debit. No recurring traps. Pay once when you are actively interviewing.</p>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Free Tier</h3>
+        <p style="color:var(--text-muted); font-size:13px">For casual browsing</p>
+        <div class="price-amt">₹0</div>
+        <ul class="price-ticks">
+          <li>3 apply link unlocks / week</li>
+          <li>AI match score on all jobs</li>
+          <li>2-line "Why it matches" breakdown</li>
+          <li>Basic candidate dashboard</li>
+        </ul>
+        <button class="btn btn-outline" style="width:100%" onclick="document.getElementById('cv-file').click()">Get Started</button>
+      </div>
+
+      <div class="price-card featured">
+        <div class="badge" style="background:var(--accent); color:#000; font-weight:700; margin-bottom:12px;">MOST POPULAR</div>
+        <h3>1-Week Sprint</h3>
+        <p style="color:var(--text-muted); font-size:13px">For active job hunters</p>
+        <div class="price-amt">₹30 <small>/ 7 days</small></div>
+        <ul class="price-ticks">
+          <li><strong>Unlimited</strong> apply link unlocks</li>
+          <li>Instant WhatsApp / Email alerts on new roles</li>
+          <li>Direct link to hiring managers</li>
+          <li>One-time charge (no subscription auto-debit)</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%" onclick="buyPlan('week')">Unlock 7 Days (₹30)</button>
+      </div>
+
+      <div class="price-card">
+        <h3>Monthly Pass</h3>
+        <p style="color:var(--text-muted); font-size:13px">For thorough career transitions</p>
+        <div class="price-amt">₹100 <small>/ 30 days</small></div>
+        <ul class="price-ticks">
+          <li>Everything in 1-Week Sprint</li>
+          <li>Full 30-day unlimited access</li>
+          <li>AI resume improvement feedback</li>
+          <li>One-time charge (no subscription auto-debit)</li>
+        </ul>
+        <button class="btn btn-outline" style="width:100%" onclick="buyPlan('month')">Unlock 30 Days (₹100)</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 camOroles.in · Operated by Veetil Maheswar · DPDP Act Compliant</p>
+    <p style="margin-top:8px"><a href="#terms">Terms</a> · <a href="#privacy">Privacy</a> · <a href="#refunds">Refund Policy</a> · Contact: xczmax@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+  const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:8000/api' : '/api';
+  let currentUser = null;
+  let authToken = null;
+
+  async function loadPreviewJobs() {
+    try {
+      const res = await fetch(`${API_BASE}/jobs/preview`);
+      const data = await res.json();
+      renderJobs(data.jobs || []);
+    } catch (e) {
+      console.error("Preview fetch error:", e);
+    }
+  }
+
+  function renderJobs(jobs, matchesMode = false) {
+    const container = document.getElementById('jobs-container');
+    if (!jobs.length) {
+      container.innerHTML = `<div style="text-align:center; padding:40px; color:var(--text-muted)">No new matching roles today. Check back tomorrow!</div>`;
+      return;
+    }
+
+    container.innerHTML = jobs.map(j => `
+      <div class="job-card">
+        <div class="job-main">
+          <div class="job-meta">
+            <span>📍 ${j.location || 'India'}</span>
+            <span>•</span>
+            <span>💼 ${j.experience || '0-3 yrs'}</span>
+            <span>•</span>
+            <span style="color:var(--accent)">Verified Active</span>
+          </div>
+          <div class="job-title">${j.title}</div>
+          <div style="font-size:14px; color:var(--text-muted)">
+            at <strong class="${j.is_unlocked ? '' : 'company-blur'}">${j.company || j.teaser_company}</strong>
+          </div>
+          ${j.why_matched ? `<div class="why-block">💡 <strong>Why you match:</strong><br>${j.why_matched.replace('\n', '<br>')}</div>` : ''}
+          <div class="tags">
+            ${(j.skills || []).slice(0, 4).map(s => `<span class="tag">${s}</span>`).join('')}
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px">
+          ${j.match_score ? `
+            <div class="score-badge">
+              <div class="score-val">${j.match_score}</div>
+              <div class="score-lbl">Score</div>
+            </div>
+          ` : ''}
+          ${j.is_unlocked ? `
+            <a href="${j.apply_url}" target="_blank" class="btn btn-primary">Apply Now ↗</a>
+          ` : `
+            <button class="btn btn-outline" onclick="unlockJob('${j.job_id || j.id}')">Unlock Link 🔓</button>
+          `}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  async function handleFileSelect(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const statusEl = document.getElementById('upload-status');
+    statusEl.innerHTML = `Parsing CV in memory... <span style="color:var(--accent)">Matching against live roles</span>`;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch(`${API_BASE}/cv/upload`, {
+        method: 'POST',
+        headers: authToken ? { 'Authorization': `Bearer ${authToken}` } : {},
+        body: formData
+      });
+
+      if (!res.ok) throw new Error("Upload failed");
+      const result = await res.json();
+      statusEl.innerHTML = `✓ Parsed: <strong>${result.headline}</strong> · Found ${result.matches_found} matches`;
+      loadUserMatches();
+    } catch (err) {
+      statusEl.innerHTML = `❌ Error: ${err.message}. Try another PDF.`;
+    }
+  }
+
+  async function loadUserMatches() {
+    if (!authToken) return;
+    try {
+      const res = await fetch(`${API_BASE}/matches`, {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
+      const data = await res.json();
+      document.getElementById('feed-title').textContent = "Your Tailored Matches";
+      document.getElementById('quota-badge').textContent = data.is_unlimited ? "Unlimited Pass Active" : `${data.free_unlocks_left} free unlocks left`;
+      renderJobs(data.matches, true);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async function unlockJob(jobId) {
+    if (!authToken) {
+      alert("Sign in or upload your CV to unlock apply links!");
+      return;
+    }
+    try {
+      const res = await fetch(`${API_BASE}/matches/${jobId}/unlock`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        alert(err.detail || "Could not unlock link. Please upgrade.");
+        return;
+      }
+      const data = await res.json();
+      loadUserMatches();
+      window.open(data.apply_url, '_blank');
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async function buyPlan(plan) {
+    if (!authToken) {
+      alert("Please sign in or upload your CV before purchasing.");
+      return;
+    }
+    try {
+      const res = await fetch(`${API_BASE}/checkout/order`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan })
+      });
+      const order = await res.json();
+
+      const options = {
+        key: order.key_id,
+        amount: order.amount,
+        currency: "INR",
+        name: "camOroles",
+        description: plan === 'week' ? "1-Week Unlimited Pass" : "1-Month Unlimited Pass",
+        order_id: order.order_id,
+        handler: async function (response) {
+          const verifyRes = await fetch(`${API_BASE}/checkout/verify`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              plan: plan
+            })
+          });
+          if (verifyRes.ok) {
+            alert("Payment successful! Unlimited access unlocked.");
+            loadUserMatches();
+          }
+        },
+        theme: { color: "#22C55E" }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    } catch (e) {
+      alert("Could not start checkout: " + e.message);
+    }
+  }
+
+  function handleAuth() {
+    alert("Sign-in popup / OAuth flow triggers here.");
+  }
+
+  loadPreviewJobs();
+</script>
+</body>
+</html>
