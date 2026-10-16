@@ -92,6 +92,21 @@ def extract_job_sources(job: Dict[str, Any], is_unlocked: bool) -> List[Dict[str
     elif "datadog" in company_lower:
         brand = "datadog"
         portal_name = "Datadog"
+    elif "amazon" in company_lower or "amazon" in ats_type:
+        brand = "amazon"
+        portal_name = "Amazon Jobs"
+    elif "google" in company_lower or "alphabet" in company_lower:
+        brand = "google"
+        portal_name = "Google Careers"
+    elif "apple" in company_lower:
+        brand = "apple"
+        portal_name = "Apple Jobs"
+    elif "microsoft" in company_lower:
+        brand = "microsoft"
+        portal_name = "Microsoft Careers"
+    elif "meta" in company_lower or "facebook" in company_lower:
+        brand = "meta"
+        portal_name = "Meta Careers"
     elif "ycombinator" in ats_type or "ycombinator.com" in apply_url:
         brand = "ycombinator"
         portal_name = "Y Combinator"
@@ -112,21 +127,141 @@ def extract_job_sources(job: Dict[str, Any], is_unlocked: bool) -> List[Dict[str
     })
 
     return sources
+ 
+# ---------- TAXONOMY DEFINITIONS (12 Disciplines & 14 Global Hubs) ----------
+ 
+DISCIPLINE_TAXONOMY = {
+    "robotics": "title.ilike.%robotics%,title.ilike.%autonomous%,title.ilike.%autonomy%,title.ilike.%slam%,title.ilike.%ros%,title.ilike.%kinematics%,title.ilike.%motion planning%",
+    "embedded": "title.ilike.%embedded%,title.ilike.%firmware%,title.ilike.%rtos%,title.ilike.%microcontroller%,title.ilike.%bsp%,title.ilike.%device driver%",
+    "vision": "title.ilike.%vision%,title.ilike.%perception%,title.ilike.%sensing%,title.ilike.%point cloud%,title.ilike.%lidar%,title.ilike.%camera%",
+    "ai_ml": "title.ilike.%ai%,title.ilike.%learning%,title.ilike.%pytorch%,title.ilike.%deep learning%,title.ilike.%transformers%,title.ilike.%neural%,title.ilike.%scientist%",
+    "backend": "title.ilike.%backend%,title.ilike.%systems%,title.ilike.%distributed%,title.ilike.%grpc%,title.ilike.%microservices%,title.ilike.%cloud%",
+    "devops": "title.ilike.%devops%,title.ilike.%sre%,title.ilike.%reliability%,title.ilike.%infrastructure%,title.ilike.%kubernetes%,title.ilike.%terraform%,title.ilike.%platform%",
+    "hardware": "title.ilike.%hardware%,title.ilike.%silicon%,title.ilike.%asic%,title.ilike.%fpga%,title.ilike.%pcb%,title.ilike.%electrical%,title.ilike.%circuits%",
+    "security": "title.ilike.%security%,title.ilike.%cryptograph%,title.ilike.%appsec%,title.ilike.%penetration%,title.ilike.%infosec%,title.ilike.%vulnerability%",
+    "mobile": "title.ilike.%mobile%,title.ilike.%ios%,title.ilike.%android%,title.ilike.%swift%,title.ilike.%kotlin%,title.ilike.%react native%",
+    "fullstack": "title.ilike.%full stack%,title.ilike.%fullstack%,title.ilike.%software engineer%,title.ilike.%applications%",
+    "frontend": "title.ilike.%frontend%,title.ilike.%front end%,title.ilike.%ui%,title.ilike.%web%,title.ilike.%react%",
+    "data": "title.ilike.%data engineer%,title.ilike.%data%,title.ilike.%analytics%,title.ilike.%etl%,title.ilike.%spark%,title.ilike.%warehouse%"
+}
+
+LOCATION_TAXONOMY = {
+    "worldwide_remote": "remote",
+    "sf_bay": "location.ilike.%San Francisco%,location.ilike.%SF%,location.ilike.%Sunnyvale%,location.ilike.%Mountain View%,location.ilike.%Palo Alto%,location.ilike.%San Jose%,location.ilike.%Bay Area%",
+    "nyc": "location.ilike.%New York%,location.ilike.%NYC%,location.ilike.%Brooklyn%,location.ilike.%Manhattan%",
+    "seattle": "location.ilike.%Seattle%,location.ilike.%Bellevue%,location.ilike.%Redmond%,location.ilike.%Washington%",
+    "austin": "location.ilike.%Austin%,location.ilike.%Texas%,location.ilike.%Dallas%,location.ilike.%Houston%",
+    "london": "location.ilike.%London%,location.ilike.%UK%,location.ilike.%United Kingdom%,location.ilike.%Cambridge%",
+    "germany": "location.ilike.%Germany%,location.ilike.%Munich%,location.ilike.%Berlin%",
+    "netherlands": "location.ilike.%Netherlands%,location.ilike.%Amsterdam%",
+    "switzerland": "location.ilike.%Switzerland%,location.ilike.%Zurich%,location.ilike.%Geneva%",
+    "japan": "location.ilike.%Japan%,location.ilike.%Tokyo%",
+    "singapore": "location.ilike.%Singapore%,location.ilike.%APAC%",
+    "india": "location.ilike.%India%,location.ilike.%Bangalore%,location.ilike.%Bengaluru%,location.ilike.%Hyderabad%,location.ilike.%Pune%,location.ilike.%Delhi%,location.ilike.%Chennai%,location.ilike.%Noida%",
+    "canada": "location.ilike.%Canada%,location.ilike.%Toronto%,location.ilike.%Vancouver%,location.ilike.%Montreal%",
+    "australia": "location.ilike.%Australia%,location.ilike.%Sydney%,location.ilike.%Melbourne%"
+}
+
+def apply_catalog_filters(query, role=None, location=None, is_remote=None, ats_type=None, experience=None, min_exp=None, max_exp=None, skill=None, q=None):
+    if is_remote is True:
+        query = query.eq("is_remote", True)
+    elif is_remote is False:
+        query = query.eq("is_remote", False)
+
+    if ats_type and ats_type.lower() != "all":
+        ats = ats_type.lower()
+        if ats in ("faang", "giants"):
+            query = query.or_("company.ilike.%Amazon%,company.ilike.%Waymo%,company.ilike.%Google%,company.ilike.%Apple%,company.ilike.%Microsoft%,company.ilike.%Meta%")
+        elif ats == "amazon":
+            query = query.ilike("company", "%Amazon%")
+        else:
+            query = query.ilike("ats_type", f"%{ats}%")
+
+    if role and role.lower() != "all":
+        rl = role.lower()
+        if rl in ("ai", "ml", "machine_learning", "aiml"):
+            rl = "ai_ml"
+        elif rl in ("systems", "infra", "sre"):
+            rl = "backend"
+        
+        if rl in DISCIPLINE_TAXONOMY:
+            query = query.or_(DISCIPLINE_TAXONOMY[rl])
+        else:
+            query = query.ilike("title", f"%{rl}%")
+
+    if location and location.lower() != "all":
+        loc = location.lower()
+        if loc in ("worldwide_remote", "remote", "worldwide"):
+            query = query.or_("is_remote.eq.true,location.ilike.%remote%,location.ilike.%virtual%")
+        elif loc in ("us", "us_remote", "united states"):
+            query = query.or_("location.ilike.%United States%,location.ilike.%USA%,location.ilike.%US%")
+        elif loc in ("uk_eu", "eu", "europe"):
+            query = query.or_("location.ilike.%London%,location.ilike.%UK%,location.ilike.%Germany%,location.ilike.%Munich%,location.ilike.%Netherlands%,location.ilike.%Amsterdam%,location.ilike.%Switzerland%,location.ilike.%Zurich%")
+        elif loc in ("asia_pacific", "apac"):
+            query = query.or_("location.ilike.%Japan%,location.ilike.%Tokyo%,location.ilike.%Singapore%,location.ilike.%Australia%,location.ilike.%Sydney%")
+        elif loc in LOCATION_TAXONOMY:
+            query = query.or_(LOCATION_TAXONOMY[loc])
+        else:
+            query = query.ilike("location", f"%{loc}%")
+
+    # Numeric experience bounds
+    if max_exp is not None:
+        try:
+            query = query.lte("experience_min", int(max_exp))
+        except Exception:
+            pass
+    if min_exp is not None:
+        try:
+            query = query.gte("experience_max", int(min_exp))
+        except Exception:
+            pass
+
+    if experience and experience.lower() != "all" and max_exp is None and min_exp is None:
+        exp = experience.lower()
+        if exp in ("0-1", "0-1y", "fresher", "entry"):
+            query = query.lte("experience_max", 1)
+        elif exp in ("1-3", "1-3y", "junior", "early"):
+            query = query.lte("experience_min", 3).gte("experience_max", 1)
+        elif exp in ("3-6", "3-6y", "mid"):
+            query = query.lte("experience_min", 6).gte("experience_max", 3)
+        elif exp in ("6+", "6y+", "senior", "lead", "staff"):
+            query = query.gte("experience_max", 6)
+        elif exp.isdigit():
+            val = int(exp)
+            query = query.lte("experience_min", val)
+
+    if skill and skill.strip():
+        query = query.contains("skills", [skill.strip()])
+
+    if q and q.strip():
+        clean_q = q.strip().replace("'", "").replace("%", "")
+        if clean_q:
+            query = query.or_(f"title.ilike.%{clean_q}%,company.ilike.%{clean_q}%,description.ilike.%{clean_q}%")
+
+    return query
 
 # ---------- 1. Public Free Job Preview (No Login) ----------
 
 @app.get("/api/jobs/preview")
-def get_job_previews(limit: int = 15):
+def get_job_previews(
+    q: Optional[str] = None,
+    role: Optional[str] = None,
+    location: Optional[str] = None,
+    ats_type: Optional[str] = None,
+    experience: Optional[str] = None,
+    min_exp: Optional[int] = None,
+    max_exp: Optional[int] = None,
+    limit: int = 15
+):
     """
     Public preview feed:
     Active jobs with stealth branding and verified source badges.
     """
     db = get_db()
-    res = db.table("jobs").select("id, title, company, ats_type, location, is_remote, experience_min, experience_max, skills, apply_url, last_verified_at, created_at")\
-        .eq("is_active", True)\
-        .order("created_at", desc=True)\
-        .limit(limit)\
-        .execute()
+    query = db.table("jobs").select("id, title, company, ats_type, location, is_remote, experience_min, experience_max, skills, apply_url, last_verified_at, created_at")\
+        .eq("is_active", True)
+    query = apply_catalog_filters(query, role=role, location=location, ats_type=ats_type, experience=experience, min_exp=min_exp, max_exp=max_exp, q=q)
+    res = query.order("created_at", desc=True).limit(limit).execute()
     
     preview_items = []
     for j in res.data or []:
@@ -274,34 +409,7 @@ def match_with_preferences(req: PreferenceMatchRequest, user_id: str = Depends(v
         raise HTTPException(status_code=400, detail="Please upload a CV first.")
 
     query = db.table("jobs").select("*").eq("is_active", True)
-    loc = str(req.location or "all").lower()
-    if loc == "worldwide_remote":
-        query = query.eq("is_remote", True)
-    elif loc in ("us_remote", "us", "united states"):
-        query = query.ilike("location", "%us%")
-    elif loc in ("uk_eu", "uk", "eu", "europe", "germany", "netherlands"):
-        query = query.or_("location.ilike.%london%,location.ilike.%uk%,location.ilike.%germany%,location.ilike.%munich%,location.ilike.%netherlands%,location.ilike.%amsterdam%,location.ilike.%switzerland%,location.ilike.%zurich%")
-    elif loc in ("asia_pacific", "apac", "japan", "singapore"):
-        query = query.or_("location.ilike.%japan%,location.ilike.%tokyo%,location.ilike.%singapore%,location.ilike.%australia%,location.ilike.%canada%")
-    elif loc in ("india", "in"):
-        query = query.ilike("location", "%india%")
-
-    if req.role_type and req.role_type != "all":
-        rt = req.role_type.lower()
-        if rt in ("robotics", "embedded"):
-            query = query.or_("title.ilike.%robotics%,title.ilike.%autonomous%,title.ilike.%embedded%,title.ilike.%firmware%,title.ilike.%mechatronics%")
-        elif rt in ("ai", "ai_ml", "machine_learning"):
-            query = query.or_("title.ilike.%ai%,title.ilike.%learning%,title.ilike.%vision%,title.ilike.%perception%,title.ilike.%pytorch%")
-        elif rt in ("systems", "backend"):
-            query = query.or_("title.ilike.%backend%,title.ilike.%systems%,title.ilike.%cloud%,title.ilike.%infrastructure%")
-        elif rt in ("hardware", "firmware"):
-            query = query.or_("title.ilike.%hardware%,title.ilike.%silicon%,title.ilike.%firmware%,title.ilike.%sensing%")
-        elif rt == "frontend":
-            query = query.or_("title.ilike.%frontend%,title.ilike.%ui%,title.ilike.%web%")
-        elif rt == "fullstack":
-            query = query.or_("title.ilike.%full stack%,title.ilike.%fullstack%,title.ilike.%software%")
-        else:
-            query = query.ilike("title", f"%{rt}%")
+    query = apply_catalog_filters(query, role=req.role_type, location=req.location, max_exp=req.experience_max)
 
     candidates = query.limit(16).execute().data or []
     if len(candidates) < 4:
@@ -392,8 +500,11 @@ def search_jobs(
     ats_type: Optional[str] = None,
     role: Optional[str] = None,
     experience: Optional[str] = None,
+    min_exp: Optional[int] = None,
+    max_exp: Optional[int] = None,
     skill: Optional[str] = None,
-    limit: int = 50,
+    limit: int = 60,
+    offset: int = 0,
     user_id: str = Depends(verify_token)
 ):
     """Manual catalog search with rich location, ATS source, remote, and experience filters."""
@@ -415,74 +526,18 @@ def search_jobs(
             unlocked_jobs.add(m["job_id"])
 
     query = db.table("jobs").select("id, title, company, ats_type, location, is_remote, experience_min, experience_max, skills, apply_url, last_verified_at, created_at").eq("is_active", True)
-
-    if is_remote is not None:
-        query = query.eq("is_remote", is_remote)
-
-    if ats_type and ats_type.lower() != "all":
-        ats = ats_type.lower()
-        if ats in ("faang", "giants"):
-            query = query.or_("company.ilike.%apple%,company.ilike.%microsoft%,company.ilike.%sony%,company.ilike.%uber%,company.ilike.%nvidia%,company.ilike.%tesla%,company.ilike.%google%,company.ilike.%amazon%,company.ilike.%meta%")
-        else:
-            query = query.ilike("ats_type", f"%{ats}%")
-
-    if role and role.lower() != "all":
-        rt = role.lower()
-        if rt in ("robotics", "embedded"):
-            query = query.or_("title.ilike.%robotics%,title.ilike.%autonomous%,title.ilike.%embedded%,title.ilike.%firmware%,title.ilike.%mechatronics%")
-        elif rt in ("ai", "ai_ml", "machine_learning"):
-            query = query.or_("title.ilike.%ai%,title.ilike.%learning%,title.ilike.%vision%,title.ilike.%perception%,title.ilike.%pytorch%")
-        elif rt in ("systems", "backend"):
-            query = query.or_("title.ilike.%backend%,title.ilike.%systems%,title.ilike.%cloud%,title.ilike.%infrastructure%")
-        elif rt in ("hardware", "firmware"):
-            query = query.or_("title.ilike.%hardware%,title.ilike.%silicon%,title.ilike.%firmware%,title.ilike.%sensing%")
-        elif rt == "frontend":
-            query = query.or_("title.ilike.%frontend%,title.ilike.%ui%,title.ilike.%web%")
-        elif rt == "fullstack":
-            query = query.or_("title.ilike.%full stack%,title.ilike.%fullstack%,title.ilike.%software%")
-        else:
-            query = query.ilike("title", f"%{rt}%")
-
-    if experience and experience.lower() != "all":
-        exp = experience.lower()
-        if exp in ("fresher", "0-1", "0 - 1"):
-            query = query.lte("experience_max", 1)
-        elif exp in ("junior", "1-2", "0 - 2"):
-            query = query.lte("experience_max", 2)
-        elif exp in ("early", "1-3", "0 - 3"):
-            query = query.lte("experience_max", 3)
-
-    if location and location.lower() != "all":
-        loc = location.lower()
-        if loc in ("us", "us_remote", "united states"):
-            query = query.ilike("location", "%us%")
-        elif loc in ("uk", "london", "cambridge"):
-            query = query.or_("location.ilike.%london%,location.ilike.%uk%,location.ilike.%united kingdom%")
-        elif loc in ("germany", "netherlands", "eu", "europe", "munich", "amsterdam"):
-            query = query.or_("location.ilike.%germany%,location.ilike.%munich%,location.ilike.%netherlands%,location.ilike.%amsterdam%")
-        elif loc in ("switzerland", "zurich"):
-            query = query.or_("location.ilike.%switzerland%,location.ilike.%zurich%")
-        elif loc in ("japan", "tokyo"):
-            query = query.or_("location.ilike.%japan%,location.ilike.%tokyo%")
-        elif loc in ("canada", "toronto", "vancouver"):
-            query = query.or_("location.ilike.%canada%,location.ilike.%toronto%")
-        elif loc in ("singapore", "apac", "australia", "sydney"):
-            query = query.or_("location.ilike.%singapore%,location.ilike.%australia%")
-        elif loc in ("india", "in"):
-            query = query.ilike("location", "%india%")
-        elif loc in ("bangalore", "bengaluru"):
-            query = query.or_("location.ilike.%bangalore%,location.ilike.%bengaluru%")
-        elif loc in ("hyderabad", "pune", "delhi", "noida", "gurgaon"):
-            query = query.ilike("location", f"%{loc}%")
-        elif loc in ("remote", "worldwide"):
-            query = query.eq("is_remote", True)
-
-    if skill and skill.strip():
-        query = query.contains("skills", [skill.strip()])
-
-    if q and q.strip():
-        clean_q = q.strip().replace("'", "")
-        query = query.or_(f"title.ilike.%{clean_q}%,company.ilike.%{clean_q}%,description.ilike.%{clean_q}%")
+    query = apply_catalog_filters(
+        query,
+        role=role,
+        location=location,
+        is_remote=is_remote,
+        ats_type=ats_type,
+        experience=experience,
+        min_exp=min_exp,
+        max_exp=max_exp,
+        skill=skill,
+        q=q
+    )
 
     res = query.order("created_at", desc=True).limit(limit).execute()
 
