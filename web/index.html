@@ -714,29 +714,34 @@
         </div>
 
         <div style="margin-top:16px;">
-          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Target Work Type</div>
+          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Target Location & Work Type</div>
           <div class="quick-chips-row" id="agent-location-chips">
             <div class="quick-chip active" data-v="all" onclick="selectAgentLocation(this, 'all')">All Locations</div>
             <div class="quick-chip" data-v="worldwide_remote" onclick="selectAgentLocation(this, 'worldwide_remote')">Worldwide Remote</div>
-            <div class="quick-chip" data-v="us_remote" onclick="selectAgentLocation(this, 'us_remote')">US Remote Only</div>
-            <div class="quick-chip" data-v="india" onclick="selectAgentLocation(this, 'india')">India Tech Hubs</div>
+            <div class="quick-chip" data-v="us_remote" onclick="selectAgentLocation(this, 'us_remote')">United States</div>
+            <div class="quick-chip" data-v="uk_eu" onclick="selectAgentLocation(this, 'uk_eu')">UK & Europe</div>
+            <div class="quick-chip" data-v="asia_pacific" onclick="selectAgentLocation(this, 'asia_pacific')">Japan & APAC</div>
+            <div class="quick-chip" data-v="india" onclick="selectAgentLocation(this, 'india')">India Hubs</div>
           </div>
         </div>
 
         <div style="margin-top:16px;">
-          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Specialization</div>
+          <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px;">Engineering Discipline</div>
           <div class="quick-chips-row" id="agent-role-chips">
-            <div class="quick-chip active" data-v="all" onclick="selectAgentRole(this, 'all')">All Roles</div>
+            <div class="quick-chip active" data-v="all" onclick="selectAgentRole(this, 'all')">All Disciplines</div>
+            <div class="quick-chip" data-v="robotics" onclick="selectAgentRole(this, 'robotics')">Robotics & Autonomous</div>
+            <div class="quick-chip" data-v="embedded" onclick="selectAgentRole(this, 'embedded')">Embedded & Firmware</div>
+            <div class="quick-chip" data-v="ai" onclick="selectAgentRole(this, 'ai')">AI, Vision & ML</div>
+            <div class="quick-chip" data-v="hardware" onclick="selectAgentRole(this, 'hardware')">Hardware & Mechatronics</div>
+            <div class="quick-chip" data-v="systems" onclick="selectAgentRole(this, 'systems')">Backend & Systems</div>
             <div class="quick-chip" data-v="fullstack" onclick="selectAgentRole(this, 'fullstack')">Full Stack</div>
-            <div class="quick-chip" data-v="frontend" onclick="selectAgentRole(this, 'frontend')">Frontend</div>
-            <div class="quick-chip" data-v="backend" onclick="selectAgentRole(this, 'backend')">Backend</div>
-            <div class="quick-chip" data-v="ai" onclick="selectAgentRole(this, 'ai')">AI / ML</div>
+            <div class="quick-chip" data-v="frontend" onclick="selectAgentRole(this, 'frontend')">Frontend & UI</div>
           </div>
         </div>
 
         <button class="btn-apply primary" style="width:100%; justify-content:center; margin-top:16px; padding:8px 0;" onclick="triggerPreferenceRecalculate()">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Recalculate Matches
+          Update Match Feed
         </button>
       </aside>
 
@@ -744,13 +749,14 @@
       <section>
         <div class="feed-header-row">
           <div class="feed-title-wrap">
-            <h2 id="discover-feed-title">Verified Roles Feed</h2>
-            <div class="feed-count" id="discover-feed-count">Directly ingested from YC, Greenhouse, Lever, and Workable</div>
+            <h2 id="discover-feed-title">Verified Roles & Top Matches</h2>
+            <div class="feed-count" id="discover-feed-count">Curated openings across FAANG, Tier-1 Tech, and YC startups</div>
           </div>
 
           <div class="quick-chips-row" style="margin-bottom:0;">
+            <div class="quick-chip" onclick="quickFilterFeed('faang')">FAANG & Giants</div>
+            <div class="quick-chip" onclick="quickFilterFeed('robotics')">Robotics</div>
             <div class="quick-chip" onclick="quickFilterFeed('remote')">Remote Only</div>
-            <div class="quick-chip" onclick="quickFilterFeed('fresher')">0-1 yrs</div>
             <div class="quick-chip" onclick="quickFilterFeed('yc')">Y Combinator</div>
           </div>
         </div>
@@ -765,12 +771,12 @@
   <section id="view-directory" class="view-panel">
     <div class="feed-header-row">
       <div class="feed-title-wrap">
-        <h2>Live Role Directory</h2>
-        <div class="feed-count" id="directory-count">Query all 232+ verified startup roles</div>
+        <h2>Browse All Openings</h2>
+        <div class="feed-count" id="directory-count">Query verified engineering roles worldwide</div>
       </div>
 
       <div style="display:flex; gap:10px; align-items:center;">
-        <input type="text" id="directory-search-input" placeholder="Search title, skills, company..." style="background:var(--card); border:1px solid var(--border); border-radius:6px; padding:7px 14px; font-size:13px; color:#FFF; width:260px; outline:none;" oninput="onDirectorySearchInput()">
+        <input type="text" id="directory-search-input" placeholder="Search Apple, Tesla, Robotics, C++, Python..." style="background:var(--card); border:1px solid var(--border); border-radius:6px; padding:7px 14px; font-size:13px; color:#FFF; width:280px; outline:none;" oninput="onDirectorySearchInput()">
         <button class="btn-filter-trigger" onclick="openFilterModal()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
           Filter Catalog
@@ -856,47 +862,67 @@
         <div class="filter-chips-grid" id="modal-loc-chips">
           <div class="filter-chip-option active" data-filter="loc" data-val="all" onclick="selectFilterOption(this)">All Locations</div>
           <div class="filter-chip-option" data-filter="loc" data-val="remote" onclick="selectFilterOption(this)">Worldwide Remote (100%)</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="us" onclick="selectFilterOption(this)">US Remote / US Hours</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="india" onclick="selectFilterOption(this)">India (All Hubs)</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="bangalore" onclick="selectFilterOption(this)">Bangalore / Bengaluru</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="hyderabad" onclick="selectFilterOption(this)">Hyderabad</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="delhi" onclick="selectFilterOption(this)">Delhi NCR / Gurgaon / Noida</div>
-          <div class="filter-chip-option" data-filter="loc" data-val="pune" onclick="selectFilterOption(this)">Pune</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="us" onclick="selectFilterOption(this)">United States</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="uk" onclick="selectFilterOption(this)">United Kingdom & London</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="germany" onclick="selectFilterOption(this)">Germany & Netherlands</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="switzerland" onclick="selectFilterOption(this)">Switzerland (Zurich)</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="canada" onclick="selectFilterOption(this)">Canada</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="japan" onclick="selectFilterOption(this)">Japan (Tokyo)</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="singapore" onclick="selectFilterOption(this)">Singapore & APAC</div>
+          <div class="filter-chip-option" data-filter="loc" data-val="india" onclick="selectFilterOption(this)">India Tech Hubs</div>
         </div>
       </div>
 
-      <!-- 2. Experience Level -->
+      <!-- 2. Engineering Discipline -->
+      <div>
+        <div class="filter-section-title">Engineering Discipline</div>
+        <div class="filter-chips-grid" id="modal-role-chips">
+          <div class="filter-chip-option active" data-filter="role" data-val="all" onclick="selectFilterOption(this)">All Disciplines</div>
+          <div class="filter-chip-option" data-filter="role" data-val="robotics" onclick="selectFilterOption(this)">Robotics & Autonomous Systems</div>
+          <div class="filter-chip-option" data-filter="role" data-val="embedded" onclick="selectFilterOption(this)">Embedded Systems & Firmware</div>
+          <div class="filter-chip-option" data-filter="role" data-val="ai" onclick="selectFilterOption(this)">AI, Computer Vision & Perception</div>
+          <div class="filter-chip-option" data-filter="role" data-val="hardware" onclick="selectFilterOption(this)">Hardware & Mechatronics</div>
+          <div class="filter-chip-option" data-filter="role" data-val="systems" onclick="selectFilterOption(this)">Backend & Distributed Systems</div>
+          <div class="filter-chip-option" data-filter="role" data-val="fullstack" onclick="selectFilterOption(this)">Full Stack Engineering</div>
+          <div class="filter-chip-option" data-filter="role" data-val="frontend" onclick="selectFilterOption(this)">Frontend & UI</div>
+        </div>
+      </div>
+
+      <!-- 3. Company & Source Tier -->
+      <div>
+        <div class="filter-section-title">Company Tier & Portals</div>
+        <div class="filter-chips-grid" id="modal-ats-chips">
+          <div class="filter-chip-option active" data-filter="ats" data-val="all" onclick="selectFilterOption(this)">All Sources</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="faang" onclick="selectFilterOption(this)">FAANG & Tech Giants (Apple, MSFT, Sony, Uber, Nvidia, Tesla)</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="ycombinator" onclick="selectFilterOption(this)">Y Combinator (YC Startups)</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="greenhouse" onclick="selectFilterOption(this)">Greenhouse ATS</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="lever" onclick="selectFilterOption(this)">Lever Portal</div>
+          <div class="filter-chip-option" data-filter="ats" data-val="workable" onclick="selectFilterOption(this)">Workable Portal</div>
+        </div>
+      </div>
+
+      <!-- 4. Experience Level -->
       <div>
         <div class="filter-section-title">Experience Level</div>
         <div class="filter-chips-grid" id="modal-exp-chips">
           <div class="filter-chip-option active" data-filter="exp" data-val="all" onclick="selectFilterOption(this)">Any Experience</div>
-          <div class="filter-chip-option" data-filter="exp" data-val="fresher" onclick="selectFilterOption(this)">Freshers / Graduates (0 - 1 Years)</div>
+          <div class="filter-chip-option" data-filter="exp" data-val="fresher" onclick="selectFilterOption(this)">Freshers & Graduates (0 - 1 Years)</div>
           <div class="filter-chip-option" data-filter="exp" data-val="junior" onclick="selectFilterOption(this)">Junior Engineer (1 - 2 Years)</div>
           <div class="filter-chip-option" data-filter="exp" data-val="early" onclick="selectFilterOption(this)">Early Career (2 - 3 Years)</div>
         </div>
       </div>
 
-      <!-- 3. Source & ATS Portals -->
+      <!-- 5. Technology Stack -->
       <div>
-        <div class="filter-section-title">Verified ATS / Ingestion Source</div>
-        <div class="filter-chips-grid" id="modal-ats-chips">
-          <div class="filter-chip-option active" data-filter="ats" data-val="all" onclick="selectFilterOption(this)">All Sources</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="ycombinator" onclick="selectFilterOption(this)">
-            <svg width="12" height="12" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6600"/><path d="M7.5 6L12 14.5L16.5 6H14.2L12 10.3L9.8 6H7.5ZM11 13V18H13V13H11Z" fill="#FFF"/></svg>
-            Y Combinator (YC)
-          </div>
-          <div class="filter-chip-option" data-filter="ats" data-val="greenhouse" onclick="selectFilterOption(this)">Greenhouse ATS</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="lever" onclick="selectFilterOption(this)">Lever Portal</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="workable" onclick="selectFilterOption(this)">Workable Portal</div>
-          <div class="filter-chip-option" data-filter="ats" data-val="keka" onclick="selectFilterOption(this)">Keka Hire</div>
-        </div>
-      </div>
-
-      <!-- 4. Technology Stack -->
-      <div>
-        <div class="filter-section-title">Technology & Frameworks</div>
+        <div class="filter-section-title">Technology & Tools</div>
         <div class="filter-chips-grid" id="modal-tech-chips">
+          <div class="filter-chip-option" data-filter="tech" data-val="C++" onclick="toggleFilterTech(this)">C++</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="ROS2" onclick="toggleFilterTech(this)">ROS / ROS2</div>
           <div class="filter-chip-option" data-filter="tech" data-val="Python" onclick="toggleFilterTech(this)">Python</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="CUDA" onclick="toggleFilterTech(this)">CUDA</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="RTOS" onclick="toggleFilterTech(this)">RTOS / Firmware</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="PyTorch" onclick="toggleFilterTech(this)">PyTorch</div>
+          <div class="filter-chip-option" data-filter="tech" data-val="Linux" onclick="toggleFilterTech(this)">Linux</div>
           <div class="filter-chip-option" data-filter="tech" data-val="React" onclick="toggleFilterTech(this)">React</div>
           <div class="filter-chip-option" data-filter="tech" data-val="TypeScript" onclick="toggleFilterTech(this)">TypeScript</div>
           <div class="filter-chip-option" data-filter="tech" data-val="Node.js" onclick="toggleFilterTech(this)">Node.js</div>
@@ -904,7 +930,6 @@
           <div class="filter-chip-option" data-filter="tech" data-val="PostgreSQL" onclick="toggleFilterTech(this)">PostgreSQL</div>
           <div class="filter-chip-option" data-filter="tech" data-val="Go" onclick="toggleFilterTech(this)">Go</div>
           <div class="filter-chip-option" data-filter="tech" data-val="Rust" onclick="toggleFilterTech(this)">Rust</div>
-          <div class="filter-chip-option" data-filter="tech" data-val="Next.js" onclick="toggleFilterTech(this)">Next.js</div>
           <div class="filter-chip-option" data-filter="tech" data-val="Docker" onclick="toggleFilterTech(this)">Docker</div>
           <div class="filter-chip-option" data-filter="tech" data-val="AWS" onclick="toggleFilterTech(this)">AWS</div>
         </div>
@@ -928,7 +953,7 @@
   </button>
   <button class="mobile-tab-btn" id="mob-directory" onclick="switchView('directory')">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <span>Directory</span>
+    <span>Explore</span>
   </button>
   <button class="mobile-tab-btn" id="mob-profile" onclick="switchView('profile')">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -937,7 +962,7 @@
 </div>
 
 <footer>
-  <p>All product names, logos, and brands are property of their respective owners (Y Combinator, Greenhouse, Lever, Workable, LinkedIn). All company, product, and service names used on this website are for factual identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
+  <p>All product names, logos, and brands are property of their respective owners (Apple, Microsoft, Google, Amazon, Meta, Uber, Sony, Nvidia, Tesla, Y Combinator). All company, product, and service names used on this website are for factual identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
 </footer>
 
 <script>
@@ -949,6 +974,7 @@
     loc: 'all',
     exp: 'all',
     ats: 'all',
+    role: 'all',
     tech: null,
     q: ''
   };
@@ -962,11 +988,19 @@
 
   // Vector Brand Logos Map
   const SVG_LOGOS = {
+    apple: `<svg width="13" height="13" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-.99 1.73-.86 2.76.99.08 2.02-.51 2.59-1.26z" fill="#FFF"/></svg>`,
+    microsoft: `<svg width="13" height="13" viewBox="0 0 24 24"><rect x="1" y="1" width="10" height="10" fill="#F25022"/><rect x="13" y="1" width="10" height="10" fill="#7FBA00"/><rect x="1" y="13" width="10" height="10" fill="#00A4EF"/><rect x="13" y="13" width="10" height="10" fill="#FFB900"/></svg>`,
+    google: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>`,
+    amazon: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF9900"/><path d="M7 13c3 2 7 2 10 0" stroke="#000" stroke-width="2" fill="none"/></svg>`,
+    meta: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#0668E1" d="M16.96 4C14.34 4 12.78 5.6 12 6.64 11.22 5.6 9.66 4 7.04 4 3.15 4 0 7.37 0 11.66c0 5.48 5.2 9.53 11.4 12.27.38.17.82.17 1.2 0 6.2-2.74 11.4-6.79 11.4-12.27C24 7.37 20.85 4 16.96 4z"/></svg>`,
+    uber: `<svg width="13" height="13" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#000"/><circle cx="12" cy="12" r="7" fill="none" stroke="#FFF" stroke-width="2"/><line x1="12" y1="5" x2="19" y2="5" stroke="#FFF" stroke-width="2"/></svg>`,
+    sony: `<svg width="13" height="13" viewBox="0 0 24 24"><text x="1" y="16" fill="#FFF" font-family="sans-serif" font-weight="900" font-size="11">SONY</text></svg>`,
+    nvidia: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#76B900" d="M8.88 16.48c-1.34 0-2.43-1.09-2.43-2.43 0-1.34 1.09-2.43 2.43-2.43h6.24c.78-1.07 1.24-2.38 1.24-3.79 0-3.53-2.87-6.4-6.4-6.4C4.43 1.43 0 5.86 0 11.39c0 5.53 4.43 9.96 9.96 9.96 3.65 0 6.84-1.95 8.59-4.87h-9.67z"/></svg>`,
+    tesla: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#E82127" d="M12 4.5c2.97 0 5.63.85 8.07 2.37l1.09-2.61C18.25 2.76 15.22 2 12 2S5.75 2.76 2.84 4.26l1.09 2.61C6.37 5.35 9.03 4.5 12 4.5zM12 8.5c-1.6 0-3.05.34-4.32.93l.97 2.32c1.03-.45 2.15-.71 3.35-.71s2.32.26 3.35.71l.97-2.32C15.05 8.84 13.6 8.5 12 8.5zM13.5 13h-3v9h3v-9z"/></svg>`,
     ycombinator: `<svg width="13" height="13" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6600"/><path d="M7.5 6L12 14.5L16.5 6H14.2L12 10.3L9.8 6H7.5ZM11 13V18H13V13H11Z" fill="#FFF"/></svg>`,
     greenhouse: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#00B276"/><path d="M12 7c-2.8 0-5 2.2-5 5 0 2.2 1.4 4 3.4 4.7l.6-2.2c-1-.4-1.8-1.4-1.8-2.5 0-1.5 1.2-2.8 2.8-2.8 1.5 0 2.8 1.2 2.8 2.8 0 1.1-.7 2.1-1.8 2.5l.6 2.2c2-.7 3.4-2.5 3.4-4.7 0-2.8-2.2-5-5-5z" fill="#FFF"/></svg>`,
     lever: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2E3192"/><path d="M8 8h2v8H8zm6 0h2v8h-2z" fill="#FFF"/></svg>`,
     workable: `<svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#007788"/><path d="M7 12l3 3 7-7" stroke="#FFF" stroke-width="2.5" fill="none"/></svg>`,
-    linkedin: `<svg width="13" height="13" viewBox="0 0 24 24"><path fill="#0A66C2" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>`,
     direct: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>`
   };
 
@@ -1025,7 +1059,7 @@
   }
 
   function resetAllFilters() {
-    activeFilters = { loc: 'all', exp: 'all', ats: 'all', tech: null, q: '' };
+    activeFilters = { loc: 'all', exp: 'all', ats: 'all', role: 'all', tech: null, q: '' };
     document.querySelectorAll('.filter-chip-option').forEach(c => c.classList.remove('active'));
     document.querySelectorAll('.filter-chip-option[data-val="all"]').forEach(c => c.classList.add('active'));
     applyModalFilters();
@@ -1046,6 +1080,7 @@
     if (activeFilters.loc !== 'all') count++;
     if (activeFilters.exp !== 'all') count++;
     if (activeFilters.ats !== 'all') count++;
+    if (activeFilters.role !== 'all') count++;
     if (activeFilters.tech) count++;
     if (activeFilters.q) count++;
     document.getElementById('header-filter-count').textContent = count;
@@ -1053,8 +1088,9 @@
 
   // Quick Filter Pills on Discover
   function quickFilterFeed(type) {
+    if (type === 'faang') activeFilters.ats = activeFilters.ats === 'faang' ? 'all' : 'faang';
+    if (type === 'robotics') activeFilters.role = activeFilters.role === 'robotics' ? 'all' : 'robotics';
     if (type === 'remote') activeFilters.loc = activeFilters.loc === 'remote' ? 'all' : 'remote';
-    if (type === 'fresher') activeFilters.exp = activeFilters.exp === 'fresher' ? 'all' : 'fresher';
     if (type === 'yc') activeFilters.ats = activeFilters.ats === 'ycombinator' ? 'all' : 'ycombinator';
     updateFilterBadgeCount();
     fetchDirectoryJobs('discover-jobs-list');
@@ -1075,7 +1111,7 @@
 
   async function triggerPreferenceRecalculate() {
     const btn = event.currentTarget;
-    btn.textContent = 'Calculating Groq Matches...';
+    btn.textContent = 'Matching your background...';
     try {
       const res = await fetch(`${API_BASE}/cv/preferences`, {
         method: 'POST',
@@ -1091,7 +1127,7 @@
     } catch (e) {
       console.error(e);
     } finally {
-      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Recalculate Matches`;
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Update Match Feed`;
     }
   }
 
@@ -1142,7 +1178,7 @@
 
           ${j.why_matched ? `
             <div class="why-box">
-              <strong style="color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Groq Match Rationale:</strong><br>
+              <strong style="color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Fit Analysis:</strong><br>
               ${j.why_matched.replace(/\n/g, '<br>')}
             </div>
           ` : ''}
@@ -1173,6 +1209,7 @@
     if (activeFilters.loc && activeFilters.loc !== 'all') url += `&location=${encodeURIComponent(activeFilters.loc)}`;
     if (activeFilters.exp && activeFilters.exp !== 'all') url += `&experience=${encodeURIComponent(activeFilters.exp)}`;
     if (activeFilters.ats && activeFilters.ats !== 'all') url += `&ats_type=${encodeURIComponent(activeFilters.ats)}`;
+    if (activeFilters.role && activeFilters.role !== 'all') url += `&role=${encodeURIComponent(activeFilters.role)}`;
     if (activeFilters.tech) url += `&skill=${encodeURIComponent(activeFilters.tech)}`;
 
     try {
@@ -1181,7 +1218,7 @@
       const jobs = data.jobs || [];
 
       renderJobCards(targetContainer, jobs);
-      const counterText = `${jobs.length} verified roles match active criteria`;
+      const counterText = `${jobs.length} verified openings found`;
       if (document.getElementById('directory-count')) {
         document.getElementById('directory-count').textContent = counterText;
       }
@@ -1201,8 +1238,8 @@
       const matches = data.matches || [];
 
       if (matches.length > 0) {
-        document.getElementById('discover-feed-title').textContent = "Your Top Matched Roles";
-        document.getElementById('discover-feed-count').textContent = `${matches.length} roles scored with Groq 70B`;
+        document.getElementById('discover-feed-title').textContent = "Your Tailored Matches";
+        document.getElementById('discover-feed-count').textContent = `${matches.length} roles aligned with your background`;
         renderJobCards('discover-jobs-list', matches);
       } else {
         fetchDirectoryJobs('discover-jobs-list');
@@ -1232,6 +1269,25 @@
       document.getElementById('cv-profile-box').style.display = 'block';
       document.getElementById('cv-active-headline').textContent = data.headline;
       document.getElementById('cv-active-skills').innerHTML = (data.skills || []).map(s => `<span class="tech-tag">${s}</span>`).join('');
+
+      // Auto-adapt discipline to candidate's domain
+      const text = (data.headline + ' ' + (data.skills || []).join(' ')).toLowerCase();
+      if (text.includes('robot') || text.includes('ros') || text.includes('autonomous') || text.includes('slam')) {
+        agentPreferences.role = 'robotics';
+        document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => {
+          c.classList.toggle('active', c.getAttribute('data-v') === 'robotics');
+        });
+      } else if (text.includes('embedded') || text.includes('firmware') || text.includes('rtos') || text.includes('microcontroller')) {
+        agentPreferences.role = 'embedded';
+        document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => {
+          c.classList.toggle('active', c.getAttribute('data-v') === 'embedded');
+        });
+      } else if (text.includes('vision') || text.includes('pytorch') || text.includes('deep learning')) {
+        agentPreferences.role = 'ai';
+        document.querySelectorAll('#agent-role-chips .quick-chip').forEach(c => {
+          c.classList.toggle('active', c.getAttribute('data-v') === 'ai');
+        });
+      }
 
       loadUserMatchesFeed();
       fetchProfileData();

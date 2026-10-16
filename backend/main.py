@@ -58,14 +58,43 @@ def verify_token(authorization: Optional[str] = Header(None)) -> str:
     return "01455453-042a-435a-ad51-1e4e5c193864"
 
 def extract_job_sources(job: Dict[str, Any], is_unlocked: bool) -> List[Dict[str, Any]]:
-    """Extracts verified multi-source links with official branding."""
+    """Extracts verified multi-source links with official branding for FAANG, Big Tech, and ATS portals."""
     sources = []
     ats_type = str(job.get("ats_type", "direct")).lower()
     apply_url = str(job.get("apply_url", ""))
+    company_lower = str(job.get("company", "")).lower()
 
     brand = "direct"
-    title = "Direct Career Portal"
-    if "ycombinator" in ats_type or "ycombinator.com" in apply_url:
+    title = "Official Careers"
+
+    if "apple" in company_lower:
+        brand = "apple"
+        title = "Apple Careers"
+    elif "microsoft" in company_lower:
+        brand = "microsoft"
+        title = "Microsoft Careers"
+    elif "google" in company_lower:
+        brand = "google"
+        title = "Google Careers"
+    elif "amazon" in company_lower:
+        brand = "amazon"
+        title = "Amazon Jobs"
+    elif "meta" in company_lower:
+        brand = "meta"
+        title = "Meta Careers"
+    elif "uber" in company_lower:
+        brand = "uber"
+        title = "Uber Careers"
+    elif "sony" in company_lower:
+        brand = "sony"
+        title = "Sony Careers"
+    elif "nvidia" in company_lower:
+        brand = "nvidia"
+        title = "NVIDIA Careers"
+    elif "tesla" in company_lower:
+        brand = "tesla"
+        title = "Tesla Careers"
+    elif "ycombinator" in ats_type or "ycombinator.com" in apply_url:
         brand = "ycombinator"
         title = "Y Combinator"
     elif "greenhouse" in ats_type or "greenhouse.io" in apply_url:
@@ -83,7 +112,7 @@ def extract_job_sources(job: Dict[str, Any], is_unlocked: bool) -> List[Dict[str
 
     sources.append({
         "brand": brand,
-        "name": f"Apply via {title}" if is_unlocked else f"Verified {title} Source",
+        "name": f"Apply on {title}" if is_unlocked else f"Verified {title}",
         "url": apply_url if is_unlocked else None
     })
 
@@ -91,7 +120,7 @@ def extract_job_sources(job: Dict[str, Any], is_unlocked: bool) -> List[Dict[str
         clean_company = job["company"].strip().replace(" ", "+")
         sources.append({
             "brand": "direct",
-            "name": "Company Career Search",
+            "name": f"{job['company']} Career Search",
             "url": f"https://www.google.com/search?q={clean_company}+careers+jobs"
         })
 
@@ -258,19 +287,38 @@ def match_with_preferences(req: PreferenceMatchRequest, user_id: str = Depends(v
         raise HTTPException(status_code=400, detail="Please upload a CV first.")
 
     query = db.table("jobs").select("*").eq("is_active", True)
-    if req.location == "worldwide_remote":
+    loc = str(req.location or "all").lower()
+    if loc == "worldwide_remote":
         query = query.eq("is_remote", True)
-    elif req.location == "us_remote":
+    elif loc in ("us_remote", "us", "united states"):
         query = query.ilike("location", "%us%")
-    elif req.location == "india":
+    elif loc in ("uk_eu", "uk", "eu", "europe", "germany", "netherlands"):
+        query = query.or_("location.ilike.%london%,location.ilike.%uk%,location.ilike.%germany%,location.ilike.%munich%,location.ilike.%netherlands%,location.ilike.%amsterdam%,location.ilike.%switzerland%,location.ilike.%zurich%")
+    elif loc in ("asia_pacific", "apac", "japan", "singapore"):
+        query = query.or_("location.ilike.%japan%,location.ilike.%tokyo%,location.ilike.%singapore%,location.ilike.%australia%,location.ilike.%canada%")
+    elif loc in ("india", "in"):
         query = query.ilike("location", "%india%")
 
     if req.role_type and req.role_type != "all":
-        query = query.ilike("title", f"%{req.role_type}%")
+        rt = req.role_type.lower()
+        if rt in ("robotics", "embedded"):
+            query = query.or_("title.ilike.%robotics%,title.ilike.%autonomous%,title.ilike.%embedded%,title.ilike.%firmware%,title.ilike.%mechatronics%")
+        elif rt in ("ai", "ai_ml", "machine_learning"):
+            query = query.or_("title.ilike.%ai%,title.ilike.%learning%,title.ilike.%vision%,title.ilike.%perception%,title.ilike.%pytorch%")
+        elif rt in ("systems", "backend"):
+            query = query.or_("title.ilike.%backend%,title.ilike.%systems%,title.ilike.%cloud%,title.ilike.%infrastructure%")
+        elif rt in ("hardware", "firmware"):
+            query = query.or_("title.ilike.%hardware%,title.ilike.%silicon%,title.ilike.%firmware%,title.ilike.%sensing%")
+        elif rt == "frontend":
+            query = query.or_("title.ilike.%frontend%,title.ilike.%ui%,title.ilike.%web%")
+        elif rt == "fullstack":
+            query = query.or_("title.ilike.%full stack%,title.ilike.%fullstack%,title.ilike.%software%")
+        else:
+            query = query.ilike("title", f"%{rt}%")
 
-    candidates = query.limit(12).execute().data or []
+    candidates = query.limit(16).execute().data or []
     if len(candidates) < 4:
-        candidates = db.table("jobs").select("*").eq("is_active", True).limit(10).execute().data or []
+        candidates = db.table("jobs").select("*").eq("is_active", True).limit(12).execute().data or []
 
     scored_matches = []
     for job in candidates:
@@ -355,6 +403,7 @@ def search_jobs(
     location: Optional[str] = None,
     is_remote: Optional[bool] = None,
     ats_type: Optional[str] = None,
+    role: Optional[str] = None,
     experience: Optional[str] = None,
     skill: Optional[str] = None,
     limit: int = 50,
@@ -384,7 +433,28 @@ def search_jobs(
         query = query.eq("is_remote", is_remote)
 
     if ats_type and ats_type.lower() != "all":
-        query = query.ilike("ats_type", f"%{ats_type.lower()}%")
+        ats = ats_type.lower()
+        if ats in ("faang", "giants"):
+            query = query.or_("company.ilike.%apple%,company.ilike.%microsoft%,company.ilike.%sony%,company.ilike.%uber%,company.ilike.%nvidia%,company.ilike.%tesla%,company.ilike.%google%,company.ilike.%amazon%,company.ilike.%meta%")
+        else:
+            query = query.ilike("ats_type", f"%{ats}%")
+
+    if role and role.lower() != "all":
+        rt = role.lower()
+        if rt in ("robotics", "embedded"):
+            query = query.or_("title.ilike.%robotics%,title.ilike.%autonomous%,title.ilike.%embedded%,title.ilike.%firmware%,title.ilike.%mechatronics%")
+        elif rt in ("ai", "ai_ml", "machine_learning"):
+            query = query.or_("title.ilike.%ai%,title.ilike.%learning%,title.ilike.%vision%,title.ilike.%perception%,title.ilike.%pytorch%")
+        elif rt in ("systems", "backend"):
+            query = query.or_("title.ilike.%backend%,title.ilike.%systems%,title.ilike.%cloud%,title.ilike.%infrastructure%")
+        elif rt in ("hardware", "firmware"):
+            query = query.or_("title.ilike.%hardware%,title.ilike.%silicon%,title.ilike.%firmware%,title.ilike.%sensing%")
+        elif rt == "frontend":
+            query = query.or_("title.ilike.%frontend%,title.ilike.%ui%,title.ilike.%web%")
+        elif rt == "fullstack":
+            query = query.or_("title.ilike.%full stack%,title.ilike.%fullstack%,title.ilike.%software%")
+        else:
+            query = query.ilike("title", f"%{rt}%")
 
     if experience and experience.lower() != "all":
         exp = experience.lower()
@@ -399,6 +469,18 @@ def search_jobs(
         loc = location.lower()
         if loc in ("us", "us_remote", "united states"):
             query = query.ilike("location", "%us%")
+        elif loc in ("uk", "london", "cambridge"):
+            query = query.or_("location.ilike.%london%,location.ilike.%uk%,location.ilike.%united kingdom%")
+        elif loc in ("germany", "netherlands", "eu", "europe", "munich", "amsterdam"):
+            query = query.or_("location.ilike.%germany%,location.ilike.%munich%,location.ilike.%netherlands%,location.ilike.%amsterdam%")
+        elif loc in ("switzerland", "zurich"):
+            query = query.or_("location.ilike.%switzerland%,location.ilike.%zurich%")
+        elif loc in ("japan", "tokyo"):
+            query = query.or_("location.ilike.%japan%,location.ilike.%tokyo%")
+        elif loc in ("canada", "toronto", "vancouver"):
+            query = query.or_("location.ilike.%canada%,location.ilike.%toronto%")
+        elif loc in ("singapore", "apac", "australia", "sydney"):
+            query = query.or_("location.ilike.%singapore%,location.ilike.%australia%")
         elif loc in ("india", "in"):
             query = query.ilike("location", "%india%")
         elif loc in ("bangalore", "bengaluru"):

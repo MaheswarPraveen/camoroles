@@ -4,12 +4,13 @@ import pypdf
 from backend.llm_router import LLMRouter
 
 CV_PARSE_PROMPT = """
-You are an expert technical recruiter analyzing an Indian tech candidate's CV.
+You are an expert technical hiring evaluator analyzing engineering and technology candidate resumes across all disciplines (Robotics, Autonomous Systems, Embedded Firmware, Hardware, AI/ML, Software, Data, Cloud).
 Extract key information and return ONLY a valid JSON object matching this schema:
 {
-  "headline": "Brief candidate title, e.g. 'Backend Engineer (Python / FastAPI / SQL)'",
-  "experience_years": 0.5, // numeric float, 0 if fresher or college student
-  "skills": ["Python", "FastAPI", "PostgreSQL", "Docker", "Git"], // top 5-10 technical skills
+  "headline": "Candidate professional headline, e.g. 'Robotics & Autonomous Systems Engineer (ROS2 / C++ / Motion Control)'",
+  "domain": "One of: 'robotics', 'embedded', 'ai_ml', 'fullstack', 'backend', 'frontend', 'data', 'cloud_devops', 'mobile', or 'hardware'",
+  "experience_years": 1.0, // numeric float, 0 if fresher or college student
+  "skills": ["C++", "ROS2", "Kinematics", "Motion Planning", "Python", "Linux"], // top 5-10 technical skills
   "summary": "Concise 3-sentence summary of projects, education, and technical competencies."
 }
 Be realistic about experience. If they graduated recently or only have internships, experience_years should be between 0 and 1.
@@ -46,7 +47,8 @@ def parse_cv_in_memory(pdf_bytes: bytes) -> Dict[str, Any]:
 
     parsed = LLMRouter.chat_json(messages)
     return {
-        "headline": parsed.get("headline", "Tech Candidate"),
+        "headline": parsed.get("headline", "Engineering Candidate"),
+        "domain": parsed.get("domain", "general"),
         "experience_years": float(parsed.get("experience_years", 0)),
         "skills": list(parsed.get("skills", [])),
         "summary": parsed.get("summary", "")
