@@ -655,7 +655,7 @@
       </span>
       <div class="live-indicator">
         <div class="live-dot"></div>
-        <span>232 live roles indexed</span>
+        <span id="top-live-roles-count">330 verified live openings</span>
       </div>
     </div>
 
@@ -962,7 +962,7 @@
 </div>
 
 <footer>
-  <p>All product names, logos, and brands are property of their respective owners (Apple, Microsoft, Google, Amazon, Meta, Uber, Sony, Nvidia, Tesla, Y Combinator). All company, product, and service names used on this website are for factual identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
+  <p>All product names, logos, and company names are property of their respective owners (Waymo, Figure AI, Anthropic, Scale AI, Kodiak Robotics, Verkada, Datadog, Y Combinator). Used for factual identification purposes only.</p>
 </footer>
 
 <script>
@@ -1224,6 +1224,9 @@
       }
       if (document.getElementById('discover-feed-count')) {
         document.getElementById('discover-feed-count').textContent = counterText;
+      }
+      if (document.getElementById('top-live-roles-count')) {
+        document.getElementById('top-live-roles-count').textContent = `${data.total || jobs.length} verified live openings`;
       }
     } catch (e) {
       console.error(e);
