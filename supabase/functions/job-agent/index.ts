@@ -125,12 +125,13 @@ async function runHarvest() {
 
 async function fetchBoard(src: Source): Promise<BoardJob[] | null> {
   if (src.ats === "greenhouse") {
-    const res = await fetchWithTimeout(`https://boards-api.greenhouse.io/v1/boards/${src.token}/jobs`, 20000);
+    // content=true includes each job's description in the same response.
+    const res = await fetchWithTimeout(`https://boards-api.greenhouse.io/v1/boards/${src.token}/jobs?content=true`, 40000);
     if (res.status === 404) throw new Error("board not found (404)");
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const body = await res.json();
     return (body.jobs || []).map((j: any) => boardJob(src, String(j.id), j.title, j.location?.name || "",
-      `https://job-boards.greenhouse.io/${src.token}/jobs/${j.id}`, null));
+      `https://job-boards.greenhouse.io/${src.token}/jobs/${j.id}`, j.content ? stripHtml(decodeEntities(j.content)) : null));
   }
 
   if (src.ats === "lever") {
