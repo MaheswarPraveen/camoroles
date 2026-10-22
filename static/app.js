@@ -561,12 +561,19 @@ function selectPlan(plan) {
   }
 }
 
-async function startRazorpayCheckout() {
-  if (!currentUser || !readSession()) {
-    showNotification('Sign in with Google first so your plan is saved to your account.');
-    setTimeout(signInWithGoogle, 900);
-    return;
+// Stable id for this browser: guests' Pro is kept on it, and it moves to the account on sign-in.
+function browserDeviceId() {
+  let id = null;
+  try { id = localStorage.getItem('camouroles_device'); } catch (e) {}
+  if (!id) {
+    id = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`);
+    try { localStorage.setItem('camouroles_device', id); } catch (e) {}
   }
+  return id;
+}
+
+// No sign-in needed to pay. Guests get Pro on this browser; signing in later keeps it.
+async function startRazorpayCheckout() {
   const submitBtn = document.getElementById('btn-razorpay-submit');
   const origHtml = submitBtn ? submitBtn.innerHTML : '';
   if (submitBtn) {
@@ -578,7 +585,7 @@ async function startRazorpayCheckout() {
     const res = await fetch(`${API_BASE}/checkout/order`, {
       method: 'POST',
       headers: await authHeaders({ 'Content-Type': 'application/json' }),
-      body: JSON.stringify({ plan: activeSelectedPlan })
+      body: JSON.stringify({ plan: activeSelectedPlan, device_id: browserDeviceId() })
     });
 
     if (!res.ok) {
@@ -626,7 +633,8 @@ async function startRazorpayCheckout() {
               razorpay_order_id: paymentResponse.razorpay_order_id,
               razorpay_payment_id: paymentResponse.razorpay_payment_id,
               razorpay_signature: paymentResponse.razorpay_signature,
-              plan: activeSelectedPlan
+              plan: activeSelectedPlan,
+              device_id: browserDeviceId()
             })
           });
 
@@ -641,7 +649,7 @@ async function startRazorpayCheckout() {
 
           updateProBadgeUI();
           closePlansModal();
-          showNotification('Payment verified. CAMOUROLES Pro is now active.');
+          showNotification(currentUser ? 'Payment verified. CAMOUROLES Pro is now active.' : 'Pro is active on this browser. Sign in anytime to keep it on your account.');
         } catch (vErr) {
           showNotification('Verification issue: ' + vErr.message);
         } finally {
@@ -1894,7 +1902,7 @@ async function loadProfileData() {
   } catch (e) {}
 
   try {
-    const res = await fetch(`${API_BASE}/profile`, { headers: await authHeaders() });
+    const res = await fetch(`${API_BASE}/profile?device_id=${encodeURIComponent(browserDeviceId())}`, { headers: await authHeaders() });
     if (!res.ok) return;
     const data = await res.json();
     if (data.is_unlimited !== undefined) {

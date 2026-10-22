@@ -561,12 +561,21 @@ function sbAdmin(env, path, init = {}) {
 
 const PLAN_PRICES = { week: { paise: 2900, days: 7 }, month: { paise: 9900, days: 30 } };
 
+// Browser id used for guest purchases and free-apply counts (crypto.randomUUID from the page).
+const DEVICE_RX = /^[A-Za-z0-9-]{8,64}$/;
+function cleanDeviceId(v) {
+  const id = String(v || '').trim();
+  return DEVICE_RX.test(id) ? id : '';
+}
+
 async function handleCreateOrder(req, env) {
+  // Signing in is optional: a guest's Pro is kept on their browser's device id until they sign in.
   const user = await getAuthUser(req, env);
-  if (!user) return errorResponse('Please sign in before buying a plan', 401);
   if (!env.SUPABASE_SERVICE_ROLE_KEY) return errorResponse('Database key not configured on worker', 500);
 
   const body = await req.json().catch(() => ({}));
+  const deviceId = cleanDeviceId(body.device_id);
+  if (!user && !deviceId) return errorResponse('Could not identify this browser. Refresh and try again.', 400);
   const plan = body.plan === 'week' ? 'week' : 'month';
   const amountPaise = PLAN_PRICES[plan].paise; // Rs 29 or Rs 99
 
@@ -587,7 +596,7 @@ async function handleCreateOrder(req, env) {
       amount: amountPaise,
       currency: 'INR',
       receipt: `rcpt_${Date.now()}`,
-      notes: { plan, user_id: user.id },
+      notes: { plan, user_id: user?.id || 'guest', device_id: deviceId || '' },
     }),
   });
 
@@ -601,7 +610,7 @@ async function handleCreateOrder(req, env) {
   const logRes = await sbAdmin(env, 'job_orders', {
     method: 'POST',
     headers: { 'Prefer': 'return=minimal' },
-    body: JSON.stringify({ id: order.id, user_id: user.id, amount: amountPaise, plan, status: 'created' }),
+    body: JSON.stringify({ id: order.id, user_id: user?.id || null, device_id: deviceId || null, amount: amountPaise, plan, status: 'created' }),
   });
   if (!logRes.ok) {
     console.error('job_orders insert failed:', logRes.status, await logRes.text().catch(() => ''));
@@ -620,9 +629,9 @@ async function handleCreateOrder(req, env) {
 // ============================================================================
 async function handleVerifyPayment(req, env) {
   const user = await getAuthUser(req, env);
-  if (!user) return errorResponse('Please sign in to finish your payment', 401);
   if (!env.SUPABASE_SERVICE_ROLE_KEY) return errorResponse('Database key not configured on worker', 500);
   const body = await req.json().catch(() => ({}));
+  const deviceId = cleanDeviceId(body.device_id);
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = body;
 
   if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
@@ -652,12 +661,13 @@ async function handleVerifyPayment(req, env) {
     return errorResponse('Invalid payment signature', 400);
   }
 
-  // The order must belong to the signed-in user; the plan comes from the stored order, not the browser.
-  const orderRes = await sbAdmin(env, `job_orders?id=eq.${encodeURIComponent(razorpay_order_id)}&select=user_id,plan,status`);
+  // The order must belong to this account (or, for a guest order, this browser); the plan comes from the stored order.
+  const orderRes = await sbAdmin(env, `job_orders?id=eq.${encodeURIComponent(razorpay_order_id)}&select=user_id,device_id,plan,status`);
   const orderRows = orderRes.ok ? await orderRes.json() : [];
   const orderRow = orderRows[0];
   if (!orderRow) return errorResponse('Order not found', 404);
-  if (orderRow.user_id !== user.id) return errorResponse('This order belongs to a different account', 403);
+  const owns = orderRow.user_id ? orderRow.user_id === user?.id : Boolean(deviceId) && orderRow.device_id === deviceId;
+  if (!owns) return errorResponse('This order belongs to a different account', 403);
 
   const granted = await grantPaidOrder(env, razorpay_order_id, razorpay_payment_id);
   if (!granted.ok) {
@@ -729,58 +739,14 @@ async function handleGoogleAuth(req, env) {
 async function handleGetProfile(req, env) {
   const authUser = await getAuthUser(req, env);
   const userId = authUser?.id || null;
-  const userEmail = authUser?.email || null;
-
-  if (!userId) {
-    return jsonResponse({
-      authenticated: false,
-      user_id: null,
-      has_cv: false,
-      profile: null,
-      headline: null,
-      experience_years: 0,
-      skills: [],
-      summary: '',
-      free_unlocks_left: 3,
-      is_unlimited: false,
-      unlimited_until: null,
-      stats: {
-        total_matches: 0,
-        unlocked_count: 0,
-      },
-    });
-  }
-
-  const sbUrl = env?.SUPABASE_URL || 'https://xteoktfzftqybflpubvo.supabase.co';
-  const sbKey = env?.SUPABASE_SERVICE_ROLE_KEY || env?.SUPABASE_ANON_KEY;
-  let isUnlimited = false;
-  let unlimitedUntil = null;
-
-  if (sbKey) {
-    try {
-      const res = await fetch(`${sbUrl}/rest/v1/user_entitlements?user_id=eq.${encodeURIComponent(userId)}&select=unlimited_until`, {
-        headers: {
-          'apikey': sbKey,
-          'Authorization': `Bearer ${sbKey}`
-        }
-      });
-      if (res.ok) {
-        const rows = await res.json();
-        if (rows && rows.length > 0 && rows[0].unlimited_until) {
-          const exp = new Date(rows[0].unlimited_until).getTime();
-          if (exp > Date.now()) {
-            isUnlimited = true;
-            unlimitedUntil = rows[0].unlimited_until;
-          }
-        }
-      }
-    } catch (e) {}
-  }
+  const deviceId = cleanDeviceId(new URL(req.url).searchParams.get('device_id'));
+  const until = await proUntil(env, userId, deviceId);
+  const isUnlimited = Boolean(until);
 
   return jsonResponse({
-    authenticated: true,
+    authenticated: Boolean(userId),
     user_id: userId,
-    email: userEmail,
+    email: authUser?.email || null,
     has_cv: false,
     profile: null,
     headline: null,
@@ -789,12 +755,34 @@ async function handleGetProfile(req, env) {
     summary: '',
     free_unlocks_left: isUnlimited ? 9999 : 3,
     is_unlimited: isUnlimited,
-    unlimited_until: unlimitedUntil,
+    unlimited_until: until,
     stats: {
       total_matches: 0,
       unlocked_count: 0,
     },
-  });
+  }, 200, { 'Cache-Control': 'no-store' });
+}
+
+// Active Pro end time for an account or a guest browser, or null. A signed-in browser that bought
+// Pro as a guest hands its remaining time to the account here.
+async function proUntil(env, userId, deviceId) {
+  if (!env.SUPABASE_SERVICE_ROLE_KEY) return null;
+  let until = null;
+  try {
+    if (userId && deviceId) {
+      const res = await sbAdmin(env, 'rpc/claim_guest_pro', { method: 'POST', body: JSON.stringify({ p_user: userId, p_device: deviceId }) });
+      if (res.ok) until = await res.json();
+    } else if (userId) {
+      const res = await sbAdmin(env, `user_entitlements?user_id=eq.${encodeURIComponent(userId)}&select=unlimited_until`);
+      if (res.ok) until = (await res.json())[0]?.unlimited_until || null;
+    } else if (deviceId) {
+      const res = await sbAdmin(env, `guest_entitlements?device_id=eq.${encodeURIComponent(deviceId)}&select=unlimited_until`);
+      if (res.ok) until = (await res.json())[0]?.unlimited_until || null;
+    }
+  } catch (e) {
+    console.error('pro lookup failed:', e.message);
+  }
+  return until && new Date(until).getTime() > Date.now() ? until : null;
 }
 
 // ============================================================================
@@ -1264,11 +1252,8 @@ function publicJobs(jobs, env) {
   });
 }
 
-async function hasUnlimited(userId, env) {
-  const res = await sbAdmin(env, `user_entitlements?user_id=eq.${encodeURIComponent(userId)}&select=unlimited_until`);
-  if (!res.ok) return false;
-  const rows = await res.json();
-  return Boolean(rows[0]?.unlimited_until && new Date(rows[0].unlimited_until).getTime() > Date.now());
+async function hasUnlimited(userId, env, deviceId) {
+  return Boolean(await proUntil(env, userId, cleanDeviceId(deviceId)));
 }
 
 async function claimApply(env, userId, deviceId, jobId, unlimited) {
@@ -1306,7 +1291,7 @@ async function handleApply(req, env) {
   if (!job || !job.applyUrl) return errorResponse('This job is no longer listed', 404);
 
   const user = await getAuthUser(req, env);
-  const pro = user ? await hasUnlimited(user.id, env) : false;
+  const pro = await hasUnlimited(user?.id || null, env, deviceId);
   const r = await claimApply(env, user?.id || null, deviceId, jobId, pro);
   const summary = applySummary(r, user, pro);
   if (!r.allowed) {
@@ -1319,7 +1304,7 @@ async function handleApplyStatus(req, env, url) {
   if (!env.SUPABASE_SERVICE_ROLE_KEY) return errorResponse('Database key not configured on worker', 500);
   const deviceId = String(url.searchParams.get('device_id') || '').slice(0, 64);
   const user = await getAuthUser(req, env);
-  const pro = user ? await hasUnlimited(user.id, env) : false;
+  const pro = await hasUnlimited(user?.id || null, env, deviceId);
   const r = await claimApply(env, user?.id || null, deviceId, null, pro);
   return jsonResponse({ gated: env.APPLY_GATE === 'on', ...applySummary(r, user, pro) }, 200, { 'Cache-Control': 'no-store' });
 }
