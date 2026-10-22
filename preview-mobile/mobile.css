@@ -43,7 +43,6 @@
   .top-nav-tabs,
   .verified-counter-badge,
   .top-bar-profile-btn,
-  .btn-pro-badge,
   .btn-filter-toggle,
   .brand-emblem-top-right { display: none !important; }
 
@@ -572,3 +571,35 @@
   .m-gate-backdrop { z-index: 130; }
   .m-gate { padding: 26px var(--m-gutter) calc(14px + env(safe-area-inset-bottom)) !important; overflow: visible; }
 }
+
+/* ==========================================================================
+   Pricing on phones: compact PRO pill in the header + plan card in Profile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .btn-pro-badge {
+    display: inline-flex !important; align-items: center; gap: 5px;
+    height: 36px; padding: 0 12px !important; border-radius: 999px !important;
+    font-size: 12.5px !important; font-weight: 800 !important;
+  }
+  .btn-pro-badge svg { width: 13px; height: 13px; }
+}
+.m-plan-card {
+  margin: 0 0 16px; padding: 18px; border-radius: 18px;
+  background: var(--surface); border: 1px solid var(--gold-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.m-plan-card h3 { margin: 0 0 4px; font-size: 18px; font-weight: 800; color: var(--ink); }
+.m-plan-card p { margin: 0 0 14px; font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+.m-plan-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.m-plan-option {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  padding: 14px; border-radius: 14px; cursor: pointer; text-align: left;
+  background: var(--surface-sunken); border: 1px solid var(--line); color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+.m-plan-option.best { border-color: var(--gold); background: var(--gold-subtle); }
+.m-plan-option strong { font-size: 22px; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+.m-plan-option span { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+.m-plan-option em { font-style: normal; font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 0.04em; }
+.m-plan-active { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); }
+.m-plan-active b { color: var(--gold); }

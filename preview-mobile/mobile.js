@@ -479,6 +479,42 @@ function setupNavPill() {
 }
 
 // --------------------------------------------------------------------------
+// Pricing card at the top of Profile (works on every screen size)
+// --------------------------------------------------------------------------
+function renderPlanCard() {
+  const host = document.querySelector('#profile-page-view .profile-container');
+  if (!host) return;
+  let card = document.getElementById('m-plan-card');
+  if (!card) {
+    card = document.createElement('section');
+    card.id = 'm-plan-card';
+    card.className = 'm-plan-card';
+    const back = host.querySelector('.profile-nav-back');
+    host.insertBefore(card, back ? back.nextSibling : host.firstChild);
+  }
+  if (isUserPro) {
+    const until = userUnlimitedUntil ? new Date(userUnlimitedUntil).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+    card.innerHTML = `<div class="m-plan-active">CAMOUROLES <b>Pro</b> is active${until ? ` · until ${until}` : ''}</div>`;
+    return;
+  }
+  card.innerHTML = `
+    <h3>Go Pro</h3>
+    <p>Unlimited applies to every niche role, plus AI matching on your CV.</p>
+    <div class="m-plan-options">
+      <button type="button" class="m-plan-option" onclick="openPlansModal('week')"><strong>₹29</strong><span>per week</span></button>
+      <button type="button" class="m-plan-option best" onclick="openPlansModal('month')"><em>BEST VALUE</em><strong>₹99</strong><span>per month</span></button>
+    </div>`;
+}
+
+const plainUpdateProBadge = updateProBadgeUI;
+updateProBadgeUI = function () {
+  plainUpdateProBadge();
+  renderPlanCard();
+  const label = document.getElementById('top-pro-label');
+  if (label && isPhone()) label.textContent = isUserPro ? 'PRO' : 'Go Pro';
+};
+
+// --------------------------------------------------------------------------
 // Boot
 // --------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -487,6 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
   watchOverlay(document.body); // the AI chat screen toggles a class on <body>
   setupHeaderAutoHide();
   setupNavPill();
+  updateProBadgeUI();
 
   const closeBtn = document.querySelector('.job-modal-close-btn');
   if (closeBtn && !closeBtn.children.length) {
