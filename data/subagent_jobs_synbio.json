@@ -1,0 +1,189 @@
+[
+  {
+    "title": "Senior Software Engineer I, Research Informatics",
+    "company": "Mammoth Biosciences",
+    "apply_url": "https://jobs.lever.co/mammothbiosci/22d2f058-a6ea-4fc5-89d3-eed1effa5f39",
+    "location": "Brisbane, CA",
+    "ats_type": "lever",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Python", "AWS", "Docker", "Benchling", "NGS Data", "CRISPR Cas"],
+    "description": "Designs and maintains relational data models, ETL pipelines, and internal web applications supporting therapeutic CRISPR Cas gene-editing programs."
+  },
+  {
+    "title": "Research Associate, Automation & Assays",
+    "company": "Prime Medicine",
+    "apply_url": "https://job-boards.greenhouse.io/primemedicine/jobs/6219206004",
+    "location": "Cambridge, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 5,
+    "skills": ["Automated Liquid Handling", "ELISA", "Cell-Based Assays", "Benchling ELN", "Prime Editing"],
+    "description": "Executes routine and high-throughput biochemical, ELISA, and cell-based assays using automated liquid handling systems to accelerate prime editing therapeutic discovery."
+  },
+  {
+    "title": "Senior Scientist, LNP Process Development",
+    "company": "Prime Medicine",
+    "apply_url": "https://job-boards.greenhouse.io/primemedicine/jobs/6118870004",
+    "location": "Cambridge, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 8,
+    "experience_max": 12,
+    "skills": ["Lipid Nanoparticles", "TFF", "Prime Editing Delivery", "Formulation Scale-up", "GMP"],
+    "description": "Leads the design, optimization, and scale-up of novel lipid nanoparticle (LNP) formulations and drug product mixing operations for prime editing."
+  },
+  {
+    "title": "Associate Scientist II, Technology Development - Chemistry",
+    "company": "Prime Medicine",
+    "apply_url": "https://job-boards.greenhouse.io/primemedicine/jobs/6219212004",
+    "location": "Cambridge, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 1,
+    "experience_max": 3,
+    "skills": ["Oligonucleotide Synthesis", "Downstream Purification", "RNA Process Development", "HPLC Analysis"],
+    "description": "Develops chemistry unit operations, synthesis protocols, and downstream purification processes for prime editing guide RNAs."
+  },
+  {
+    "title": "Engineer II, Automation and MES",
+    "company": "Beam Therapeutics",
+    "apply_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8846365002",
+    "location": "Durham, NC",
+    "ats_type": "greenhouse",
+    "experience_min": 10,
+    "experience_max": 12,
+    "skills": ["Rockwell PharmaSuite", "MES", "DeltaV DCS", "Cell & Gene Therapy GMP", "Base Editing"],
+    "description": "Drives engineering, configuration, and validation of Rockwell PharmaSuite MES and automated control systems for base editing gene therapy manufacturing."
+  },
+  {
+    "title": "Senior Research Associate, Flow Cytometry",
+    "company": "Beam Therapeutics",
+    "apply_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8790644002",
+    "location": "Cambridge, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 5,
+    "skills": ["Flow Cytometry", "Cell Sorting", "HSC", "FlowJo", "Base Editing", "Assay Development"],
+    "description": "Designs and executes high-parameter flow cytometry and cell sorting assays on hematopoietic stem and immune cells to evaluate precision base editing therapeutics."
+  },
+  {
+    "title": "Senior IT Technical Analyst, IT Lab Systems",
+    "company": "Beam Therapeutics",
+    "apply_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8687065002",
+    "location": "Cambridge, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 5,
+    "skills": ["LabVantage LIMS", "LES", "SDMS", "QC Lab Instrumentation", "Computerized System Validation"],
+    "description": "Administers and configures LabVantage LIMS and LES environments, translating quality control workflows and gene therapy assays into digitized worksheets."
+  },
+  {
+    "title": "Senior Scientist, LNP Formulation and Delivery",
+    "company": "Scribe Therapeutics",
+    "apply_url": "https://secure7.saashr.com/ta/6216181.careers?ShowJob=638015499",
+    "location": "Alameda, CA",
+    "ats_type": "direct",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["CRISPR Cas Delivery", "Lipid Nanoparticles", "mRNA Packaging", "gRNA Encapsulation", "SEC-MALS"],
+    "description": "Serves as technical lead for research-scale nonviral delivery and lipid nanoparticle (LNP) formulation engineering to package customized CRISPR Cas modalities."
+  },
+  {
+    "title": "Automation Engineer 2, Biofoundry Support",
+    "company": "Ginkgo Bioworks",
+    "apply_url": "https://job-boards.greenhouse.io/ginkgobioworks/jobs/5099624007",
+    "location": "Boston, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 4,
+    "experience_max": 7,
+    "skills": ["Automated Biofoundry", "Liquid Handling Robotics", "Lab Automation", "Systems Integration"],
+    "description": "Supports and optimizes automated laboratory workflows, robotic liquid handlers, and biofoundry hardware across Ginkgo high-throughput cell engineering facilities."
+  },
+  {
+    "title": "Senior Software Engineer, Autonomous Lab",
+    "company": "Ginkgo Bioworks",
+    "apply_url": "https://job-boards.greenhouse.io/ginkgobioworks/jobs/5152834007",
+    "location": "Boston, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 8,
+    "skills": ["Python", "Autonomous Lab Orchestration", "Catalyst Platform", "Workcell Scheduling", "Kafka", "Kubernetes"],
+    "description": "Architects and maintains Ginkgo Catalyst platform to orchestrate, schedule, and autonomously operate robotic laboratory workcells and biofoundry operations."
+  },
+  {
+    "title": "Senior Mechatronics Engineer",
+    "company": "Ginkgo Bioworks",
+    "apply_url": "https://job-boards.greenhouse.io/ginkgobioworks/jobs/5186637007",
+    "location": "Emeryville, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["SolidWorks", "Trajectory Design", "Motion Control", "Mechatronics", "Python Automation"],
+    "description": "Designs, models, and builds custom robotic mechanisms, end-effectors, and automated motion hardware for Ginkgo laboratory robotics."
+  },
+  {
+    "title": "Software Engineer III - Driver Developer",
+    "company": "Ginkgo Bioworks",
+    "apply_url": "https://job-boards.greenhouse.io/ginkgobioworks/jobs/5241119007",
+    "location": "Boston, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 4,
+    "skills": ["Python", "Hardware Integration", "Device Drivers", "SiLA2", "RS-232", "TCP/IP"],
+    "description": "Develops robust Python device drivers, communication protocols, and simulation environments for laboratory instruments and robotic biofoundry automation."
+  },
+  {
+    "title": "Computational Synthetic Chemist",
+    "company": "Ginkgo Bioworks",
+    "apply_url": "https://job-boards.greenhouse.io/ginkgobioworks/jobs/5219763007",
+    "location": "Boston, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 9,
+    "skills": ["Computational Chemistry", "Retrosynthesis", "Cheminformatics", "Molecular Modeling", "Biofoundry"],
+    "description": "Integrates synthesis prediction algorithms and computational route planning with automated molecular synthesis and execution in Ginkgo biofoundry."
+  },
+  {
+    "title": "Senior Research Scientist, Machine Learning (BioFM)",
+    "company": "Deep Genomics",
+    "apply_url": "https://jobs.lever.co/deepgenomics/74978439-123f-4000-ae76-e70730c6cfa0",
+    "location": "Toronto, Canada",
+    "ats_type": "lever",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Machine Learning", "Biological Foundation Models", "BioFM", "PyTorch", "RNA Biology", "Generative Modeling"],
+    "description": "Leads the development and training of biological foundation models that decode RNA biology, predict structural states, and guide programmatic therapeutic design."
+  },
+  {
+    "title": "Research Scientist, In Vitro Pharmacology",
+    "company": "Deep Genomics",
+    "apply_url": "https://jobs.lever.co/deepgenomics/2ec45717-17a1-47a7-8e41-737ec3bc9bf9",
+    "location": "Cambridge, MA",
+    "ats_type": "lever",
+    "experience_min": 3,
+    "experience_max": 6,
+    "skills": ["RNA Editing", "ADAR", "Oligonucleotide Therapeutics", "In Vitro Cell Assays", "qPCR"],
+    "description": "Designs and executes in vitro pharmacodynamic and cellular assays to evaluate novel oligonucleotide modalities, including ADAR-mediated RNA editing."
+  },
+  {
+    "title": "Senior Scientist, Analytical Chemistry",
+    "company": "Deep Genomics",
+    "apply_url": "https://jobs.lever.co/deepgenomics/ba904bda-e9e1-4cea-a6a4-a10867364aec",
+    "location": "Cambridge, MA",
+    "ats_type": "lever",
+    "experience_min": 2,
+    "experience_max": 5,
+    "skills": ["Analytical Chemistry", "Oligonucleotide Characterization", "LC-MS", "HPLC", "Formulation Science"],
+    "description": "Oversees analytical characterization, purity testing, and formulation stability for therapeutic oligonucleotides and RNA-targeting drug candidates."
+  },
+  {
+    "title": "Process Development Engineer",
+    "company": "Synthego",
+    "apply_url": "https://jobs.lever.co/synthego/0264e8f4-2a33-4a03-8f81-c1921ee83ca4",
+    "location": "Redwood City, CA",
+    "ats_type": "lever",
+    "experience_min": 2,
+    "experience_max": 5,
+    "skills": ["Oligonucleotide Synthesis", "HPLC Purification", "Liquid Handling", "Python", "TFF", "CRISPR gRNA"],
+    "description": "Develops and scales RNA and DNA synthesis and purification methods from nanomole to millimole scales to support Synthego CRISPR guide RNA platform."
+  }
+]

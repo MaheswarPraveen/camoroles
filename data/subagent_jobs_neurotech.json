@@ -1,0 +1,167 @@
+[
+  {
+    "title": "Software Engineer, BCI Applications",
+    "company": "Neuralink",
+    "apply_url": "https://boards.greenhouse.io/neuralink/jobs/6596365003?gh_jid=6596365003",
+    "location": "Austin, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 1,
+    "experience_max": 8,
+    "skills": ["BCI Decoding", "Rust", "Python", "Swift", "Low-Latency Concurrency", "HID Subsystems"],
+    "description": "Develops native user applications turning live neural streams from 1,024 implant electrodes over Bluetooth into low-latency digital device control."
+  },
+  {
+    "title": "Signal Processing Engineer",
+    "company": "Neuralink",
+    "apply_url": "https://boards.greenhouse.io/neuralink/jobs/6681863003?gh_jid=6681863003",
+    "location": "Austin, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["DSP", "Spike Detection", "Fixed-Point Quantization", "C", "Python", "Verilog", "Custom SoC"],
+    "description": "Designs and optimizes high-throughput digital signal processing algorithms for real-time neural spike detection and data compression on implant SoCs."
+  },
+  {
+    "title": "Embedded Software Engineer, Implant Systems",
+    "company": "Neuralink",
+    "apply_url": "https://boards.greenhouse.io/neuralink/jobs/6550259003?gh_jid=6550259003",
+    "location": "Austin, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 1,
+    "experience_max": 7,
+    "skills": ["Bare-Metal Firmware", "Embedded C", "Rust", "ARM Cortex", "Safety-Critical", "BLE Stacks"],
+    "description": "Engineers ultra-low-power, safety-critical bare-metal firmware and drivers for the brain implant, balancing radio, thermal, and latency budgets."
+  },
+  {
+    "title": "Embedded Software Engineer",
+    "company": "Paradromics",
+    "apply_url": "https://paradromicsinc.applytojob.com/apply/u5hXN4N9ID/Embedded-Software-Engineer",
+    "location": "Austin, TX",
+    "ats_type": "direct",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Rust", "C++", "Embedded Linux", "RTOS", "HIL", "JTAG"],
+    "description": "Implements performant, low-latency Rust/C++ firmware running on the Connexus high-data-rate brain-computer interface platform."
+  },
+  {
+    "title": "Software Engineer (BCI Decoding & Data)",
+    "company": "Paradromics",
+    "apply_url": "https://paradromicsinc.applytojob.com/apply/r7CgYCDBNk/Software-Engineer",
+    "location": "Oakland, CA",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Python", "Rust", "C++", "BCI Decoding", "Neural Data Curation", "Machine Learning"],
+    "description": "Translates high-dimensional neural decoding algorithms into performant production software, evaluating streaming live intracortical neural data."
+  },
+  {
+    "title": "Field Clinical Specialist / Engineer",
+    "company": "Paradromics",
+    "apply_url": "https://paradromicsinc.applytojob.com/apply/ujxQN2lhPz/Field-Clinical-SpecialistEngineer",
+    "location": "Austin, TX",
+    "ats_type": "direct",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Clinical BCI Trials", "Electrophysiology", "Neural Data Collection", "Operating Room Support"],
+    "description": "Acts as technical authority at hospital clinical partner sites during first-in-human Connexus BCI surgical implantation and research sessions."
+  },
+  {
+    "title": "DSP Algorithm Engineer",
+    "company": "Precision Neuroscience",
+    "apply_url": "https://precisionneuroscience.com/careers",
+    "location": "New York, NY",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["DSP", "Neural Feature Extraction", "Python", "MATLAB", "Simulink", "ECoG Microelectrodes"],
+    "description": "Develops real-time digital signal processing and artifact rejection algorithms for the Layer 7 high-density cortical surface microelectrode array."
+  },
+  {
+    "title": "Firmware Engineer",
+    "company": "Precision Neuroscience",
+    "apply_url": "https://precisionneuroscience.com/careers",
+    "location": "Santa Clara, CA",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Embedded C++", "Python", "STM32", "Nordic", "SPI/I2C/BLE", "IEC 62304", "HIL"],
+    "description": "Develops safety-critical embedded firmware for implantable and external BCI transceivers, writing low-level drivers and telemetry protocols."
+  },
+  {
+    "title": "ASIC Technical Lead",
+    "company": "Synchron",
+    "apply_url": "https://synchron.com/careers",
+    "location": "San Diego, CA",
+    "ats_type": "direct",
+    "experience_min": 7,
+    "experience_max": 15,
+    "skills": ["Mixed-Signal ASIC Design", "Neural Recording AFE", "Cadence", "SPICE", "DRC/LVS/DFT", "Silicon Bring-up"],
+    "description": "Serves as internal technical authority overseeing architecture, simulation, tapeout sign-off, and first-silicon bring-up of custom neural recording ASIC."
+  },
+  {
+    "title": "AFE Test & Integration Engineer",
+    "company": "Synchron",
+    "apply_url": "https://synchron.com/careers",
+    "location": "San Diego, CA",
+    "ats_type": "direct",
+    "experience_min": 1,
+    "experience_max": 4,
+    "skills": ["AFE Characterization", "Benchtop Instrumentation", "Noise Floor", "Electrode Array Integration", "Python"],
+    "description": "Builds automated benchtop test fixtures to characterize custom neural recording ASIC silicon and full signal-chain integration with Stentrode array."
+  },
+  {
+    "title": "Neural Data Infrastructure Engineer",
+    "company": "Blackrock Neurotech",
+    "apply_url": "https://ats.rippling.com/blackrockneurotech/jobs/91ebe665-8784-4195-aae8-03031f7c3f6e",
+    "location": "Salt Lake City, UT",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Intracortical Electrophysiology", "Spike Detection", "Python", "NWB", "HDF5", "Zarr", "PyTorch"],
+    "description": "Architects end-to-end data pipelines turning massive Utah Array intracortical recordings into clean data corpora for neural foundation AI models."
+  },
+  {
+    "title": "AI/ML Training Performance Engineer",
+    "company": "Blackrock Neurotech",
+    "apply_url": "https://ats.rippling.com/blackrockneurotech/jobs/25f3fc2a-b77e-430b-9144-8cc3bb1531c9",
+    "location": "Salt Lake City, UT",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["CUDA Kernel Optimization", "PyTorch Distributed", "GPU Memory", "Triton", "Neural Time Series", "C++"],
+    "description": "Optimizes GPU execution, distributed communication, and kernel efficiency for deep learning training processing large-scale BCI neural recordings."
+  },
+  {
+    "title": "Research Hardware Engineer",
+    "company": "Arbor Neuroscience",
+    "apply_url": "https://jobs.lever.co/convergentresearch/aafb13e6-bdc0-42c7-b704-43516d225a01",
+    "location": "San Francisco, CA",
+    "ats_type": "lever",
+    "experience_min": 3,
+    "experience_max": 10,
+    "skills": ["Bidirectional Neuromodulation", "Chronic Electrophysiology", "Ultrasound Transducers", "PCB Prototyping", "CAD"],
+    "description": "Designs and validates research hardware platforms integrating chronic electrophysiological stimulation and functional ultrasound neuromodulation."
+  },
+  {
+    "title": "Research Scientist, Data Analysis",
+    "company": "Arbor Neuroscience",
+    "apply_url": "https://jobs.lever.co/convergentresearch/42d50bb1-6bf8-40fd-9e3b-e99f2c7d3cb3",
+    "location": "San Francisco, CA",
+    "ats_type": "lever",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Signal Processing", "Closed-Loop Neurofeedback", "fUS Imaging", "Electrophysiology Analysis", "Python"],
+    "description": "Develops online image processing and multimodal neural data analysis algorithms to drive closed-loop neuromodulation experiments."
+  },
+  {
+    "title": "Director of Clinical Science and Applied Research",
+    "company": "Motif Neurotech",
+    "apply_url": "https://job-boards.greenhouse.io/motifneurotech/jobs/5346662008",
+    "location": "Houston, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 10,
+    "experience_max": 18,
+    "skills": ["Neuromodulation Therapies", "AIMD", "Clinical Study Design", "Neurostimulation Protocols", "FDA IDE"],
+    "description": "Leads clinical evidence generation roadmap and early feasibility human studies for Motif minimally invasive magnetoelectric implantable brain stimulation system."
+  }
+]

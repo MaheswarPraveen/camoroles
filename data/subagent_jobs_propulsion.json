@@ -1,0 +1,200 @@
+[
+  {
+    "title": "Turbomachinery Engineer",
+    "company": "Stoke Space",
+    "apply_url": "https://job-boards.greenhouse.io/stokespacetechnologies/jobs/5628898004",
+    "location": "Kent, WA",
+    "ats_type": "greenhouse",
+    "experience_min": 4,
+    "experience_max": 8,
+    "skills": ["Turbomachinery", "Turbopump Design", "Hydrodynamics", "Aerodynamics", "Rotor Dynamics", "CAD"],
+    "description": "Owns clean-sheet design, analysis, and hot-fire testing of advanced turbopumps for Stoke fully reusable Nova launch vehicle."
+  },
+  {
+    "title": "Senior Propulsion Engineer",
+    "company": "Stoke Space",
+    "apply_url": "https://job-boards.greenhouse.io/stokespacetechnologies/jobs/5518791004",
+    "location": "Kent, WA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Liquid Rocket Propulsion", "Regenerative Cooling", "Thrust Chambers", "Injectors", "Cryogenics", "Hot-Fire Testing"],
+    "description": "Drives detailed mechanical design, thermal analysis, and test qualification of regenerative thrust chambers for reusable rocket stages."
+  },
+  {
+    "title": "Stage Test Engineer",
+    "company": "Stoke Space",
+    "apply_url": "https://job-boards.greenhouse.io/stokespacetechnologies/jobs/6146369004",
+    "location": "Moses Lake, WA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Integrated Rocket Stage Testing", "Cryogenic Fluid Systems", "Pneumatics", "Hot-Fire Operations", "DAQ"],
+    "description": "Conducts critical static test and hot-fire operations on integrated Nova rocket stages at Stoke Moses Lake testing complex."
+  },
+  {
+    "title": "Engines - Test Lead (Andromeda Engine)",
+    "company": "Stoke Space",
+    "apply_url": "https://job-boards.greenhouse.io/stokespacetechnologies/jobs/5842216004",
+    "location": "Moses Lake, WA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 7,
+    "skills": ["Rocket Engine Hot-Fire Testing", "Compressible Flow", "Cryogenics", "Thermodynamics", "Controls"],
+    "description": "Serves as test lead commanding hot-fire campaigns and test stand readiness for the staged-combustion Andromeda engine."
+  },
+  {
+    "title": "Turbomachinery Engineer II",
+    "company": "Ursa Major Technologies",
+    "apply_url": "https://ursamajor.com/careers/?gh_jid=4732290005",
+    "location": "Berthoud, CO",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 6,
+    "skills": ["Turbomachinery Design", "Rotor Dynamics", "Bearing Design", "Siemens NX", "GD&T", "DFM"],
+    "description": "Designs, analyzes, and tests turbopump components for rocket propulsion systems, resolving structural and fluid dynamics limitations."
+  },
+  {
+    "title": "Chief Engineer, Hypersonic Missile and Interceptor",
+    "company": "Ursa Major Technologies",
+    "apply_url": "https://ursamajor.com/careers/?gh_jid=4722095005",
+    "location": "Berthoud, CO",
+    "ats_type": "greenhouse",
+    "experience_min": 12,
+    "experience_max": 20,
+    "skills": ["Hypersonic Flight Architecture", "Propulsion Integration", "Aerodynamics", "Missile Systems", "Flight Readiness"],
+    "description": "Acts as overall technical authority and system architect for hypersonic missile and interceptor systems from trade studies through flight."
+  },
+  {
+    "title": "Senior Propulsion Engineer, Combustion Devices",
+    "company": "Ursa Major Technologies",
+    "apply_url": "https://ursamajor.com/careers/?gh_jid=4723139005",
+    "location": "Berthoud, CO",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Liquid Rocket Propulsion", "Combustion Devices", "Injectors & Chambers", "Fluid Dynamics", "Hot-Fire Testing"],
+    "description": "Executes clean-sheet design, system sizing, analysis, and qualification testing of injectors and combustion chambers for liquid rocket engines."
+  },
+  {
+    "title": "Senior Mechanical Engineer, Life Support Systems",
+    "company": "Vast Space",
+    "apply_url": "https://boards.greenhouse.io/vast/jobs/4682799006?gh_jid=4682799006",
+    "location": "Long Beach, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["ECLSS", "Life Support", "Fluid Systems", "Thermal Control", "Human Spaceflight", "Orbital Habitat"],
+    "description": "Owns the design, hardware development, and qualification of environmental control and life support systems (ECLSS) for Haven-1 commercial space station."
+  },
+  {
+    "title": "Mechanical Engineer II, Life Support Systems",
+    "company": "Vast Space",
+    "apply_url": "https://boards.greenhouse.io/vast/jobs/4702874006?gh_jid=4702874006",
+    "location": "Long Beach, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 5,
+    "skills": ["ECLSS", "Life Support Hardware", "Fluid Sizing", "SolidWorks", "Environmental Test"],
+    "description": "Designs, fabricates, and tests mechanical and fluid subsystems for commercial orbital habitat environmental control."
+  },
+  {
+    "title": "Combustion Devices Engineer II",
+    "company": "Vast Space",
+    "apply_url": "https://boards.greenhouse.io/vast/jobs/4645847006?gh_jid=4645847006",
+    "location": "Hawthorne, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 5,
+    "skills": ["Combustion Devices", "Rocket Thrusters", "Injector Design", "CFD", "Thermal Modeling", "Hot-Fire"],
+    "description": "Designs, analyzes, and tests hypergolic/bipropellant combustion chambers and reaction control thrusters for orbital space stations."
+  },
+  {
+    "title": "Propulsion Test Engineer",
+    "company": "Vast Space",
+    "apply_url": "https://boards.greenhouse.io/vast/jobs/4696280006?gh_jid=4696280006",
+    "location": "Mojave, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Chemical Propulsion Testing", "Test Stand Design", "Cryogenic Fluids", "Instrumentation", "Hot-Fire Ops"],
+    "description": "Directs hardware testing, facility activations, and hot-fire tests for space station chemical propulsion systems at Mojave test facility."
+  },
+  {
+    "title": "Aerodynamics Engineer",
+    "company": "Hermeus",
+    "apply_url": "https://jobs.lever.co/hermeus/c9187245-a6b2-415a-ae4c-14aa18bb4207",
+    "location": "Los Angeles, CA",
+    "ats_type": "lever",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Hypersonic Aerodynamics", "CFD", "Supersonic Flow", "Aerothermal Analysis", "Wind Tunnel Testing"],
+    "description": "Develops aerodynamic configurations and executes high-fidelity CFD simulations for supersonic and hypersonic flight vehicles."
+  },
+  {
+    "title": "Propulsion Development Engineer",
+    "company": "Hermeus",
+    "apply_url": "https://jobs.lever.co/hermeus/be9f1489-a625-4c85-b7fc-c9eb7ecceae2",
+    "location": "Los Angeles, CA",
+    "ats_type": "lever",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Air-Breathing Propulsion", "Combined Cycle Engines", "TBCC", "Hot-Fire Testing", "Thermofluids"],
+    "description": "Owns development test campaigns from planning through hot-fire execution for Hermeus turbine-based combined cycle (TBCC) hypersonic engine."
+  },
+  {
+    "title": "Integration Engineer - Fluid & Propulsion Systems",
+    "company": "Hermeus",
+    "apply_url": "https://jobs.lever.co/hermeus/752b1855-d29b-4d53-bda5-05de9b6dcec2",
+    "location": "Los Angeles, CA",
+    "ats_type": "lever",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Propulsion Integration", "Fluid Systems", "Pressurized Hardware", "Assembly", "Flight Testing"],
+    "description": "Drives integration, precision assembly, and flight readiness for fluid and propulsion subsystems on high-speed flight test aircraft."
+  },
+  {
+    "title": "Propulsion Component Engineer",
+    "company": "Impulse Space",
+    "apply_url": "https://impulsespace.pinpointhq.com/en/postings/8c59af65-73ef-4b3c-b59e-a1f8610a1aed",
+    "location": "Redondo Beach, CA",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Spacecraft Propulsion", "Propulsion Valves", "Fluid Mechanics", "FEA", "CAD (NX)"],
+    "description": "Owns end-to-end design, development, and qualification of high-performance propellant valves for orbital transfer vehicles."
+  },
+  {
+    "title": "Senior Propulsion Analyst (Fluids)",
+    "company": "Impulse Space",
+    "apply_url": "https://impulsespace.pinpointhq.com/en/postings/6461dcf6-907a-4171-8cac-6e39099a1669",
+    "location": "Redondo Beach, CA",
+    "ats_type": "direct",
+    "experience_min": 4,
+    "experience_max": 10,
+    "skills": ["Fluids Analysis", "SINDA/FLUINT", "ANSYS Fluent", "Thermal Modeling", "Cryogenics", "CAD (NX)"],
+    "description": "Performs advanced compressible and incompressible fluid flow modeling for spacecraft propulsion systems and kick stages."
+  },
+  {
+    "title": "Composites Design Engineer (Space Launch)",
+    "company": "Dawn Aerospace",
+    "apply_url": "https://job-boards.anz.greenhouse.io/dawnaerospace/jobs/4007212201",
+    "location": "Christchurch, New Zealand",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Composite Materials", "Laminate Theory", "Spaceplane Structures", "CATIA", "Siemens NX"],
+    "description": "Designs carbon-composite primary airframe structures and cryogenic tanks for the Aurora rocket-powered reusable spaceplane."
+  },
+  {
+    "title": "Mechanical Engineer I (Environmental/Propulsion)",
+    "company": "Sierra Space",
+    "apply_url": "https://sierraspace.wd1.myworkdayjobs.com/Sierra_Space_External_Career_Site/job/Madison-WI/Mechanical-Engineer-I--Environmental-Propulsion-_R26388-1",
+    "location": "Madison, WI",
+    "ats_type": "workday",
+    "experience_min": 0,
+    "experience_max": 2,
+    "skills": ["Space Propulsion", "Environmental Control", "3D CAD", "Fluid & Thermal", "Environmental Testing"],
+    "description": "Supports mechanical design, qualification testing, and integration of environmental control subsystems and propulsion components."
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "title": "Principal CPU Microarchitect - RISC-V & AI Compute",
+    "company": "Tenstorrent",
+    "apply_url": "https://job-boards.greenhouse.io/tenstorrent/jobs/4796552007",
+    "location": "Santa Clara, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 10,
+    "experience_max": 15,
+    "skills": ["RISC-V Microarchitecture", "CPU Performance Modeling", "Custom ISA Extensions", "C++", "PPA Optimization"],
+    "description": "Drive frontend and execution unit microarchitecture for custom, high-performance RISC-V CPU cores built from scratch for scalable AI compute platforms."
+  },
+  {
+    "title": "Sr Staff Engineer, SoC RTL Design",
+    "company": "Tenstorrent",
+    "apply_url": "https://job-boards.greenhouse.io/tenstorrent/jobs/4553078007",
+    "location": "Toronto, Canada",
+    "ats_type": "greenhouse",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["SystemVerilog", "RTL Design", "SoC Interconnect Fabrics", "PPA Optimization", "FPGA"],
+    "description": "Architect and implement custom IP blocks and SoC interconnect fabric for Tenstorrent cutting-edge AI silicon processors."
+  },
+  {
+    "title": "Staff Design Verification Engineer, AI HW",
+    "company": "Tenstorrent",
+    "apply_url": "https://job-boards.greenhouse.io/tenstorrent/jobs/4118635007",
+    "location": "Austin, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 6,
+    "experience_max": 12,
+    "skills": ["SystemVerilog", "UVM", "Constrained-Random Verification", "Formal Verification", "SVA", "BF16/FP4"],
+    "description": "Lead verification of Tensix AI compute IP cores, RISC-V CPUs, and matrix execution pipelines from early architecture through tape-out."
+  },
+  {
+    "title": "Physical Design Engineer: Die-to-Die Interface (RTL to GDSII)",
+    "company": "Tenstorrent",
+    "apply_url": "https://job-boards.greenhouse.io/tenstorrent/jobs/5062499007",
+    "location": "Santa Clara, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Physical Design", "Synthesis", "Place & Route", "STA", "Die-to-Die Interconnect", "Sub-7nm FinFET"],
+    "description": "Deliver physical implementation from RTL to GDSII for ultra-high-speed Die-to-Die chiplet interfaces on sub-7nm process nodes."
+  },
+  {
+    "title": "Senior ASIC RTL Design Engineer, AI Hardware",
+    "company": "Cerebras Systems",
+    "apply_url": "https://jobs.ashbyhq.com/cerebras/4a7be83c-5d32-46b7-9d30-cf6759922237",
+    "location": "Sunnyvale, CA",
+    "ats_type": "ashby",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["RTL Design", "SystemVerilog", "ASIC Front-End Integration", "PPA Closure", "Wafer-Scale AI"],
+    "description": "Drive micro-architecture definition, RTL development, and front-end integration for next-generation Cerebras Wafer Scale Engine AI processors."
+  },
+  {
+    "title": "Physical Design Engineer",
+    "company": "Cerebras Systems",
+    "apply_url": "https://jobs.ashbyhq.com/cerebras/d0baac54-76cb-4e8d-93bd-24e121113870",
+    "location": "Sunnyvale, CA",
+    "ats_type": "ashby",
+    "experience_min": 7,
+    "experience_max": 14,
+    "skills": ["Physical Design", "STA", "Place & Route", "ICV", "Calibre", "DRC/LVS Signoff"],
+    "description": "Drive full-chip and block-level physical implementation and PPA convergence for the wafer-scale AI supercomputing processor."
+  },
+  {
+    "title": "Design Verification Engineer",
+    "company": "Cerebras Systems",
+    "apply_url": "https://jobs.ashbyhq.com/cerebras/45dec7be-c0c1-40fe-a88d-d13db4f44e42",
+    "location": "Sunnyvale, CA",
+    "ats_type": "ashby",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["SystemVerilog", "UVM", "DPI", "OOP Testbench Design", "Functional Coverage", "Python"],
+    "description": "Construct modular, scalable testbenches using SystemVerilog and UVM to verify architectural components of the world's largest AI processor."
+  },
+  {
+    "title": "FPGA Engineer",
+    "company": "Cerebras Systems",
+    "apply_url": "https://jobs.ashbyhq.com/cerebras/3f85f614-264f-4987-9fb5-320ee2798e97",
+    "location": "Sunnyvale, CA",
+    "ats_type": "ashby",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["FPGA Design", "Verilog", "Place & Route", "Timing Closure", "TCP/RoCE", "High-Speed Emulation"],
+    "description": "Develop and validate production-grade FPGA subsystems and hardware acceleration platforms interfacing with wafer-scale AI compute clusters."
+  },
+  {
+    "title": "Senior Photonics Circuit Design Engineer",
+    "company": "Lightmatter",
+    "apply_url": "https://boards.greenhouse.io/lightmatter/jobs/5448430008?gh_jid=5448430008",
+    "location": "Mountain View, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 12,
+    "skills": ["Silicon Photonics", "Analog Circuit Design", "Verilog-A", "Behavioral Modeling", "Cadence Virtuoso"],
+    "description": "Model, simulate, and design electro-photonic circuits for Lightmatter next-generation optical compute and interconnect chipsets."
+  },
+  {
+    "title": "Staff Photonics Design and Layout Engineer",
+    "company": "Lightmatter",
+    "apply_url": "https://boards.greenhouse.io/lightmatter/jobs/5374689008?gh_jid=5374689008",
+    "location": "Boston, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 10,
+    "skills": ["Silicon Photonics Layout", "GDSFactory", "Python Scripting", "Optical PDKs", "Cadence Virtuoso"],
+    "description": "Drive full layout and physical design implementation of complex silicon photonics chips and optical interconnect matrices."
+  },
+  {
+    "title": "Analog IC Design Engineer, High-Speed",
+    "company": "Lightmatter",
+    "apply_url": "https://boards.greenhouse.io/lightmatter/jobs/4418732008?gh_jid=4418732008",
+    "location": "Mountain View, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 10,
+    "skills": ["High-Speed Analog IC", "SerDes", "TIA", "Tx Drivers", "Broadband Design", "Photonic Modulators"],
+    "description": "Architect and tape out multi-gigabit Analog-Front-End circuits, trans-impedance amplifiers, and driver circuits interfacing directly with silicon photonic modulators."
+  },
+  {
+    "title": "Sr. Staff Physical Design Engineer",
+    "company": "Lightmatter",
+    "apply_url": "https://boards.greenhouse.io/lightmatter/jobs/5057578008?gh_jid=5057578008",
+    "location": "Mountain View, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 12,
+    "experience_max": 18,
+    "skills": ["ASIC Physical Design", "STA", "Cadence Innovus", "3nm Tapeouts", "DRC/LVS Signoff"],
+    "description": "Direct full-chip physical design and timing closure on leading-edge 3nm nodes for Lightmatter optical computing silicon."
+  },
+  {
+    "title": "Distinguished Formal Verification Architect",
+    "company": "SiFive",
+    "apply_url": "https://sifive.wd1.myworkdayjobs.com/sifivecareers/job/Santa-Clara-California-United-States/Distinguished-Formal-Verification-Architect_R-101444-1",
+    "location": "Santa Clara, CA",
+    "ats_type": "workday",
+    "experience_min": 15,
+    "experience_max": 25,
+    "skills": ["Formal Verification", "SVA", "Mathematical Logic Proofs", "RISC-V Microarchitecture", "EDA Methodology"],
+    "description": "Serve as chief formal verification authority defining company-wide formal verification strategy for high-performance RISC-V cores."
+  },
+  {
+    "title": "Senior Staff Design Verification Engineer - Coherent Interconnect",
+    "company": "SiFive",
+    "apply_url": "https://sifive.wd1.myworkdayjobs.com/sifivecareers/job/Boston-Massachusetts-United-States/Senior-Staff-Design-Verification-Engineer---Coherent-Interconnect_R-101213",
+    "location": "Boston, MA",
+    "ats_type": "workday",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["SystemVerilog", "UVM", "Coherent Interconnect", "AMBA CHI Protocol", "Cache Coherency", "RISC-V DV"],
+    "description": "Lead functional verification of SiFive next-generation multi-core coherent interconnect fabric and cache hierarchies."
+  },
+  {
+    "title": "Principal Design Verification Engineer - CPU Power Management",
+    "company": "SiFive",
+    "apply_url": "https://sifive.wd1.myworkdayjobs.com/sifivecareers/job/Austin-Texas-United-States/Principal-Design-Verification-Engineer---CPU-Subsystem-Power-Management_R-101215-1",
+    "location": "Austin, TX",
+    "ats_type": "workday",
+    "experience_min": 12,
+    "experience_max": 20,
+    "skills": ["CPU Subsystem Verification", "Low Power Verification", "UPF/CPF", "RISC-V", "SystemVerilog", "DVFS"],
+    "description": "Lead comprehensive functional and low-power verification for SiFive high-performance RISC-V CPU subsystem power controllers."
+  }
+]

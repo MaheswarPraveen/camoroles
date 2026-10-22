@@ -1,0 +1,200 @@
+[
+  {
+    "company": "Rigetti Computing",
+    "title": "Field Engineer: Cryogenics & RF Hardware",
+    "apply_url": "https://jobs.lever.co/rigetti/0652d8b2-0c1c-419b-9737-9b78ab575a03",
+    "location": "Berkeley, CA",
+    "ats_type": "lever",
+    "experience_min": 2,
+    "experience_max": 5,
+    "skills": ["Cryogenics", "Dilution Refrigerators", "RF Microwave Hardware", "VNA", "Python"],
+    "description": "Operates, monitors, and troubleshoots dilution refrigerators and custom RF microwave control systems for superconducting quantum processors during system deployments."
+  },
+  {
+    "company": "Rigetti Computing",
+    "title": "Senior Mechanical Engineer - Cryogenic",
+    "apply_url": "https://jobs.lever.co/rigetti/1f07b3ce-fb02-429e-beaf-5c4c88d135ca",
+    "location": "Berkeley, CA",
+    "ats_type": "lever",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Cryogenics", "Thermal Modeling", "FEA", "Dilution Refrigerators", "SolidWorks", "RF Shielding"],
+    "description": "Owns mechanical architecture of quantum hardware systems down to millikelvin stages, designing cryogenic enclosures and thermal anchors for superconducting qubits."
+  },
+  {
+    "company": "Rigetti Computing",
+    "title": "Lead Quantum Engineer, Systems Performance",
+    "apply_url": "https://jobs.lever.co/rigetti/251caffa-84df-47c1-8470-9c57a0897871",
+    "location": "Berkeley, CA",
+    "ats_type": "lever",
+    "experience_min": 5,
+    "experience_max": 9,
+    "skills": ["Superconducting Qubits", "Quantum Gate Calibration", "Quantum Characterization", "Python", "Microwave Control"],
+    "description": "Leads technical efforts in benchmarking, tuning, and calibrating multi-qubit superconducting quantum processors to optimize 1Q/2Q gate fidelities and coherence metrics."
+  },
+  {
+    "company": "PsiQuantum",
+    "title": "Cryogenic Electrical Interconnect Engineer",
+    "apply_url": "https://www.psiquantum.com/apply?gh_jid=8010626003",
+    "location": "Milpitas, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Cryogenics", "Electrical Interconnects", "Signal Integrity", "Thermal Anchoring", "Flexible Printed Circuits"],
+    "description": "Designs and validates high-density electrical interconnect solutions, flexible PCB harnesses, and low-thermal-load cabling spanning room temperature to sub-4K cryogenic stages."
+  },
+  {
+    "company": "PsiQuantum",
+    "title": "Cryostat Equipment Engineer",
+    "apply_url": "https://www.psiquantum.com/apply?gh_jid=7821951003",
+    "location": "Milpitas, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 6,
+    "skills": ["Cryostat Commissioning", "Ultra-High Vacuum", "Dilution Refrigerators", "Helium Mass Spectrometry"],
+    "description": "Directs the assembly, commissioning, vacuum leak testing, and operational maintenance of large-scale cryogenic systems housing superconducting single-photon detectors."
+  },
+  {
+    "company": "PsiQuantum",
+    "title": "Photonics Circuit Designer",
+    "apply_url": "https://www.psiquantum.com/apply?gh_jid=7743064003",
+    "location": "Palo Alto, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Silicon Photonics", "PIC", "Optical Simulation", "Lumerical", "Waveguides", "Modulators"],
+    "description": "Designs, models, and optimizes complex silicon photonic integrated circuits for quantum light manipulation, optical routing, and electro-optic modulation."
+  },
+  {
+    "company": "IonQ",
+    "title": "Physicist - Ion Transport and Waveform Design",
+    "apply_url": "https://ionq.com/job?gh_jid=5828516004",
+    "location": "Boulder, CO",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Trapped-Ion Physics", "Waveform Design", "RF Paul Traps", "Numerical Optimization", "Rust", "C++", "Python"],
+    "description": "Develops and optimizes electromagnetic potential landscapes and control waveforms for ion shuttling, transport, and multi-qubit gate operations in surface-electrode ion traps."
+  },
+  {
+    "company": "IonQ",
+    "title": "Quantum Design Enablement Engineer",
+    "apply_url": "https://ionq.com/job?gh_jid=6206645004",
+    "location": "College Park, MD",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 6,
+    "skills": ["Quantum PDK", "EDA", "Physical Verification", "DRC", "LVS", "Calibre", "Python"],
+    "description": "Enables seamless transfer of trapped-ion quantum chip architectures to external foundries by building automated physical verification rules, PDKs, and layout generators."
+  },
+  {
+    "company": "IonQ",
+    "title": "Optical Integration Engineer",
+    "apply_url": "https://ionq.com/job?gh_jid=6123720004",
+    "location": "Bothell, WA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Laser Systems", "Precision Optical Alignment", "Optomechanics", "Zemax", "SolidWorks", "Python"],
+    "description": "Integrates and tests precision optical assemblies, free-space delivery systems, and laser delivery modules utilized in trapped-ion quantum computing."
+  },
+  {
+    "company": "Alice & Bob",
+    "title": "Cryogenic & RF Platform Operations Manager",
+    "apply_url": "https://jobs.lever.co/alice-bob/eef5dd55-313f-4c32-b137-191c8e3656fb",
+    "location": "Paris, France",
+    "ats_type": "lever",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Dilution Refrigerators", "Cryogenics", "Microwave Cabling", "Platform Maintenance", "Lab Instrumentation"],
+    "description": "Manages operational readiness, preventive maintenance, and troubleshooting across a fleet of dilution refrigerators and RF measurement chains supporting cat-qubit quantum hardware."
+  },
+  {
+    "company": "Alice & Bob",
+    "title": "Senior RF Engineer - Quantum Control",
+    "apply_url": "https://jobs.lever.co/alice-bob/fa74d8d1-58dc-49c5-b097-f0f2d6c80085",
+    "location": "Paris, France",
+    "ats_type": "lever",
+    "experience_min": 5,
+    "experience_max": 9,
+    "skills": ["RF Circuit Design", "3D EM Simulation", "HFSS", "Low Noise Amplifiers", "Altium", "Quantum Control"],
+    "description": "Designs custom RF hardware front-ends, filters, LNAs, and PCBs to generate ultra-low-noise microwave control pulses for Schrödinger cat qubits."
+  },
+  {
+    "company": "Alice & Bob",
+    "title": "Expert Quantum Physicist",
+    "apply_url": "https://jobs.lever.co/alice-bob/993ba0c3-66ed-477d-b211-e013899fd832",
+    "location": "Paris, France",
+    "ats_type": "lever",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Cat Qubits", "Superconducting Circuits", "Quantum Simulation", "Open Quantum Systems", "Python", "Julia"],
+    "description": "Leads mathematical modeling and numerical simulation for bosonic cat-qubit chips, bridging fundamental Hamiltonian physics with fault-tolerant quantum error correction."
+  },
+  {
+    "company": "D-Wave Systems",
+    "title": "Cryogenic RF Engineer",
+    "apply_url": "https://www.dwavesys.com/company/careers/",
+    "location": "Burnaby, Canada",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Cryogenics", "RF Microwave Engineering", "HFSS", "ADS Simulation", "Signal Integrity", "VNA"],
+    "description": "Designs, models, and tests cryogenic RF transmission lines, filters, and high-frequency interconnect assemblies delivering control signals to superconducting quantum chips."
+  },
+  {
+    "company": "D-Wave Systems",
+    "title": "Experimental Physicist II - Scalable Processors",
+    "apply_url": "https://www.dwavesys.com/company/careers/",
+    "location": "Burnaby, Canada",
+    "ats_type": "direct",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Superconducting Qubits", "Qubit Coherence", "Cryogenic Testing", "Quantum Noise Spectroscopy", "Python"],
+    "description": "Performs cryogenic low-temperature measurements and noise characterization on multi-qubit superconducting chips to advance scalable gate-model and annealing quantum architectures."
+  },
+  {
+    "company": "QuEra Computing",
+    "title": "Scientific Software Engineer - Hardware Compilation",
+    "apply_url": "https://boards.greenhouse.io/quera",
+    "location": "Boston, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Quantum Compilers", "Quantum Intermediate Representation", "QIR", "Rust", "C++", "Neutral Atoms"],
+    "description": "Develops intermediate representations, compilers, and hardware emulation pipelines converting quantum algorithms into laser control sequences for neutral-atom QPUs."
+  },
+  {
+    "company": "QuEra Computing",
+    "title": "Quantum Solutions Scientist",
+    "apply_url": "https://boards.greenhouse.io/quera",
+    "location": "Boston, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Quantum Algorithms", "Bloqade", "Julia", "Combinatorial Optimization", "Quantum Simulation", "Python"],
+    "description": "Researches and formulates optimization, chemistry, and simulation applications on neutral-atom quantum processors, conducting resource estimation and algorithm co-design."
+  },
+  {
+    "company": "Quantinuum",
+    "title": "R&D Scientist, Quantum Algorithms",
+    "apply_url": "https://jobs.eu.lever.co/quantinuum",
+    "location": "Cambridge, UK",
+    "ats_type": "lever",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Quantum Algorithms", "TKET", "Quantum Error Mitigation", "Trapped-Ion Computing", "Python"],
+    "description": "Designs and implements novel quantum algorithms and error mitigation techniques for trapped-ion systems, focusing on PDEs, topological data analysis, and scientific computing benchmarks."
+  },
+  {
+    "company": "Xanadu Quantum",
+    "title": "Photonics Engineer - Experimentalist",
+    "apply_url": "https://www.xanadu.ai/careers",
+    "location": "Toronto, Canada",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Quantum Optics", "Squeezed Light", "Silicon Photonics", "Optical Homodyne Detection", "Python"],
+    "description": "Constructs and characterizes free-space and fiber-integrated optical setups generating continuous-variable squeezed quantum states of light for photonic quantum computing."
+  }
+]

@@ -1,38 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Camouroles — Unlisted Tech Roles & FAANG Openings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CAMOUROLES — Unlisted Tech Roles & FAANG Openings</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=20261022g">
+  <link rel="stylesheet" href="/mobile.css?v=20261022g">
+  <meta name="theme-color" content="#0E0F12">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 
   <!-- ==========================================================================
-       STICKY TOP NAVIGATION BAR (56px)
+       STICKY TOP NAVIGATION BAR (56px) — PAPERNEAT EDITION
        ========================================================================== -->
   <header class="top-bar">
-    <div class="brand-area">
-      <div class="brand-cube-logo">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2" fill="url(#cube-top)" stroke="#00D2FF" stroke-width="1.2"/><polygon points="2 7 12 12 12 22 2 17 2 7" fill="url(#cube-left)" stroke="#0066FF" stroke-width="1.2"/><polygon points="22 7 12 12 12 22 22 17 22 7" fill="url(#cube-right)" stroke="#0044BB" stroke-width="1.2"/><defs><linearGradient id="cube-top" x1="2" y1="2" x2="22" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#0066FF"/></linearGradient><linearGradient id="cube-left" x1="2" y1="7" x2="12" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#0066FF"/><stop offset="1" stop-color="#002D80"/></linearGradient><linearGradient id="cube-right" x1="22" y1="7" x2="12" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#0044BB"/><stop offset="1" stop-color="#00184A"/></linearGradient></defs></svg>
+    <div class="brand-area" onclick="showView('feed')" style="cursor:pointer;">
+      <div class="brand-cube-logo" style="display:flex; align-items:center;">
+        <img src="/logo-gold.png" class="brand-emblem-nav emblem-dark" alt="CAMOUROLES Emblem">
+        <img src="/logo-maroon.png" class="brand-emblem-nav emblem-day" alt="CAMOUROLES Emblem">
       </div>
-      <span class="brand-name">Camouroles</span>
-      <span class="brand-tagline">Jobs LinkedIn & Naukri don't show you</span>
+      <span class="brand-name">CAMOUROLES</span>
+      <span class="brand-tagline">Unlisted Tech Roles</span>
     </div>
+
+    <!-- Center Navigation Tabs (Explore, Saved, Profile) -->
+    <nav class="top-nav-tabs">
+      <button class="top-tab-btn active" id="top-tab-browse" onclick="showView('feed')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Explore Roles</span>
+      </button>
+      <button class="top-tab-btn" id="top-tab-saved" onclick="showView('saved')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Saved (<span id="top-saved-count" class="tabular-num">0</span>)</span>
+      </button>
+      <button class="top-tab-btn" id="top-tab-profile" onclick="showView('profile')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Profile & CV</span>
+      </button>
+    </nav>
 
     <div class="top-actions">
       <!-- Live Verified Indicator -->
       <div class="verified-counter-badge">
         <span class="live-pulse-dot"></span>
-        <span id="verified-roles-indicator" class="tabular-num">1,288 live verified roles</span>
+        <span id="verified-roles-indicator" class="tabular-num">1,288 live roles</span>
       </div>
 
-      <!-- Google Sign-In & Profile Container -->
-      <div class="auth-container" id="auth-container">
-        <!-- Rendered dynamically by app.js -->
+      <!-- Theme Switcher -->
+      <button class="btn-theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="Switch Light / Dark Theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <!-- Profile Link Button on Top Bar -->
+      <button class="top-bar-profile-btn" onclick="showView('profile')" title="Open Profile">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span id="top-bar-user-label">Profile</span>
+      </button>
+
+      <!-- Camouroles Pro Upgrade Trigger -->
+      <button class="btn-pro-badge" id="top-pro-badge-btn" onclick="openPlansModal()" title="View Membership Plans & Unlock Roles">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span id="top-pro-label">Pro Upgrade</span>
+      </button>
+
+      <!-- Google Sign In Container -->
+      <div class="google-auth-wrap" id="top-google-auth-wrap">
+        <button class="btn-google-signin" id="btn-google-login" onclick="signInWithGoogle()" title="Sign in with Google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <span id="google-btn-text">Sign In</span>
+        </button>
       </div>
 
       <!-- Mobile Filters Trigger Button -->
@@ -40,8 +82,174 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
         <span>Filters</span>
       </button>
+
+      <!-- Ornate Compass Monogram Badge (Top Right) -->
+      <div class="brand-emblem-top-right" onclick="showView('feed')" title="CAMOUROLES Sovereign Openings">
+        <img src="/logo-gold.png" class="emblem-dark" alt="CAMOUROLES">
+        <img src="/logo-maroon.png" class="emblem-day" alt="CAMOUROLES">
+      </div>
     </div>
   </header>
+
+  <!-- ==========================================================================
+       CHATGPT-STYLE CENTERED HERO SEARCH SECTION (NEAR TOP) + COMPANY LOGOS SHELF
+       ========================================================================== -->
+  <section class="hero-search-section" id="hero-search-section">
+    
+    <!-- Luminous AI Agentic Search Bar with Inline ChatGPT-Style Chat Unfolding Underneath -->
+    <div class="chatgpt-search-wrap">
+
+      <!-- Ornate Compass Monogram (Above Search Bar) -->
+      <div class="hero-brand-emblem-wrap" onclick="openChatGptInterface()">
+        <img src="/logo-gold.png" class="brand-emblem-hero emblem-dark" alt="CAMOUROLES Ornate Gold Compass" title="Click to open AI Talent Partner">
+        <img src="/logo-maroon.png" class="brand-emblem-hero emblem-day" alt="CAMOUROLES Ornate Maroon Compass" title="Click to open AI Talent Partner">
+      </div>
+      
+      <!-- Clear, Visible Segmented Mode Switcher (AI vs Manual) -->
+      <div class="search-mode-segmented-bar">
+        <button class="mode-segment-btn active" id="seg-btn-ai" onclick="setSearchMode('ai')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>AI Recruiter</span>
+        </button>
+        <button class="mode-segment-btn" id="seg-btn-manual" onclick="setSearchMode('manual')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Manual Search</span>
+        </button>
+      </div>
+
+      <!-- AI Agentic Search Bar (Clicking opens the Fullscreen ChatGPT Talent Partner) -->
+      <div class="ai-agentic-search-bar" id="ai-agentic-search-bar" onclick="openChatGptInterface()">
+        <div class="ai-sparkle-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="ai-search-text-content">
+          <span class="ai-badge-shimmer">AI RECRUITER</span>
+          <span class="ai-placeholder-text" id="ai-bar-summary-text">Click here to match using talent intelligence</span>
+        </div>
+        <button class="ai-open-chat-btn" aria-label="Open AI Recruiter Chat" onclick="event.stopPropagation(); openChatGptInterface()">
+          <span id="ai-toggle-btn-label">Match</span>
+          <svg id="ai-toggle-btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+
+      <!-- Manual Keyword Search Bar & CV Match in Manual Mode -->
+      <div class="manual-search-container" id="manual-search-container" style="display:none;">
+        <div class="chatgpt-search-box" id="manual-search-box">
+          <svg class="chatgpt-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="hero-search-input" class="chatgpt-search-input" placeholder="Search keywords: Game Dev, Product Design, SpaceTech, NVIDIA, Tesla..." oninput="onSearchInput(this.value)">
+          <button class="search-clear-action" id="hero-search-clear" onclick="clearSearchInput()">&times;</button>
+
+          <!-- Upload CV Button in Manual Mode -->
+          <button class="manual-cv-capsule-btn" id="manual-cv-capsule-btn" onclick="document.getElementById('manual-cv-file-input').click()" title="Attach CV for Instant Match Probability %">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            <span id="manual-cv-capsule-text">Upload CV</span>
+          </button>
+          <input type="file" id="manual-cv-file-input" accept=".pdf" style="display:none;" onchange="onManualCvSelected(event)">
+        </div>
+
+        <!-- Active CV Match Status Banner in Manual Mode -->
+        <div class="manual-cv-active-banner" id="manual-cv-active-banner" style="display:none;">
+          <div class="manual-cv-banner-left">
+            <span class="manual-cv-badge">CV MATCH ACTIVE</span>
+            <span class="manual-cv-headline" id="manual-cv-headline">Senior Distributed Systems Engineer</span>
+            <span class="manual-cv-sub" id="manual-cv-sub">Ranked by real match probability %</span>
+          </div>
+          <div class="manual-cv-banner-actions">
+            <button class="manual-cv-action-link" onclick="document.getElementById('manual-cv-file-input').click()">Replace CV</button>
+            <button class="manual-cv-action-link" onclick="clearManualCv()">Clear (View All 10,237)</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Authentic Company Trust Showcase (Multi-domain Giants with 1-click Filter) -->
+    <div class="company-showcase-shelf">
+      <span class="showcase-header-label">Verified Openings from Frontier Labs & Industry Leaders (Click to Filter)</span>
+      <div class="showcase-badges-row">
+        <div class="company-showcase-item" data-company="nvidia" onclick="setCompanyFilter('NVIDIA')" title="Filter NVIDIA Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#76B900"><path d="M8.9 7.6c1.6-1.2 3.6-1.7 5.7-1.5 2.1.2 4 1.1 5.3 2.6 1.2 1.4 1.8 3.2 1.8 5.1 0 1.9-.7 3.7-1.9 5.1-1.3 1.5-3.1 2.4-5.2 2.6-2.1.2-4.1-.4-5.7-1.6-.3-.2-.5-.6-.5-1s.3-.8.7-.9c.4-.1.8 0 1 .3 1.3.9 2.8 1.4 4.4 1.3 1.6-.1 3-.8 4.1-1.9 1-1.1 1.5-2.5 1.5-4 0-1.5-.5-2.9-1.5-4-1-1.1-2.4-1.8-4-1.9-1.6-.1-3.1.3-4.4 1.3-.3.2-.8.2-1.1 0-.3-.2-.4-.6-.3-1 .1-.2.2-.3.3-.4zm-3 2.4c2.3-1.8 5.2-2.6 8.2-2.3 3 .3 5.7 1.7 7.6 3.9 1.8 2.1 2.7 4.9 2.7 7.7 0 2.8-1 5.5-2.8 7.7-1.9 2.2-4.6 3.6-7.6 3.9-3 .3-5.9-.5-8.2-2.4-.4-.3-.6-.7-.5-1.2.1-.5.5-.8 1-.8.4 0 .8.2 1 .4 1.9 1.6 4.3 2.2 6.8 2 2.4-.2 4.6-1.4 6.2-3.1 1.5-1.8 2.3-4 2.3-6.4 0-2.3-.8-4.6-2.3-6.4-1.5-1.8-3.7-3-6.1-3.2-2.5-.2-4.9.4-6.8 2-.4.3-.9.3-1.2 0-.4-.2-.5-.7-.4-1.2.1-.2.2-.4.4-.5zm-3.6 2.8c3.2-2.5 7.1-3.6 11.2-3.1 4 .4 7.7 2.3 10.3 5.3 2.5 2.9 3.7 6.6 3.7 10.5s-1.3 7.5-3.8 10.4c-2.6 3-6.3 4.9-10.3 5.3-4.1.4-8.1-.7-11.2-3.2-.4-.3-.6-.8-.5-1.3.1-.5.6-.9 1.1-.8.4.1.8.3 1.1.5 2.7 2.1 6.1 3 9.6 2.7 3.4-.4 6.6-2 8.8-4.5 2.1-2.5 3.2-5.7 3.2-9.1s-1.1-6.5-3.2-9c-2.2-2.6-5.3-4.2-8.8-4.5-3.5-.3-6.9.6-9.6 2.7-.4.3-1 .3-1.3-.1-.3-.4-.3-1 0-1.4.1-.1.3-.3.4-.4z"/></svg>
+          <span>NVIDIA</span>
+        </div>
+        <div class="company-showcase-item" data-company="apple" onclick="setCompanyFilter('Apple')" title="Filter Apple Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.63 1.35-.56.65-.96 1.71-.83 2.73 1.01.08 2.02-.48 2.54-1.23z"/></svg>
+          <span>Apple</span>
+        </div>
+        <div class="company-showcase-item" data-company="microsoft" onclick="setCompanyFilter('Microsoft')" title="Filter Microsoft Openings">
+          <svg width="14" height="14" viewBox="0 0 24 24"><rect x="1" y="1" width="10" height="10" fill="#F25022"/><rect x="13" y="1" width="10" height="10" fill="#7FBA00"/><rect x="1" y="13" width="10" height="10" fill="#00A4EF"/><rect x="13" y="13" width="10" height="10" fill="#FFB900"/></svg>
+          <span>Microsoft</span>
+        </div>
+        <div class="company-showcase-item" data-company="tesla" onclick="setCompanyFilter('Tesla')" title="Filter Tesla Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#E82127"><path d="M12 4.5c4.1 0 7.8 1.4 10.7 3.8l-1.9 2.5C18.4 9 15.3 7.8 12 7.8S5.6 9 3.2 10.8L1.3 8.3C4.2 5.9 7.9 4.5 12 4.5zm0 5.4c2.5 0 4.8.8 6.7 2.2l-1.8 2.3c-1.4-.9-3.1-1.5-4.9-1.5s-3.5.6-4.9 1.5L5.3 12.1C7.2 10.7 9.5 9.9 12 9.9zM12 15c1.1 0 2.1.3 3 .8l-1.5 2.1c-.4-.2-.9-.4-1.5-.4s-1.1.2-1.5.4L9 15.8c.9-.5 1.9-.8 3-.8z"/></svg>
+          <span>Tesla</span>
+        </div>
+        <div class="company-showcase-item" data-company="google" onclick="setCompanyFilter('Google')" title="Filter Google Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <span>Google</span>
+        </div>
+        <div class="company-showcase-item" data-company="amazon" onclick="setCompanyFilter('Amazon')" title="Filter Amazon Openings">
+          <svg class="company-brand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="#FF9900" d="M17.6 15.6c-.3.4-1.2 1-1.9 1.2-.2 0-.2.3 0 .4.8.4 2.1.3 2.6-.2.5-.5.2-1.8-.3-2.4-.2-.2-.4 0-.4.2.1.3.1.8 0 .8z"/><path fill="#FF9900" d="M3.2 17.8C7.8 20.8 14 20 18.3 16.9c.3-.2.2-.6-.2-.4-4 2.6-9.7 3.1-14.3-.2-.4-.3-.6.1-.2.5z"/><path fill="currentColor" d="M14.2 12.1c-.6 0-1.2.2-1.6.5-.4.3-.6.8-.6 1.3 0 .5.2.9.5 1.2.3.3.8.4 1.4.4.8 0 1.4-.3 1.8-.8.4-.5.6-1.2.6-2v-.6h-2.1zm3.8 3.9c-.2.2-.5.3-.8.3-.3 0-.5-.1-.7-.3l-.2-.4c-.5.4-1.1.7-1.7.9-.6.2-1.2.2-1.9.2-1 0-1.8-.3-2.4-.8-.6-.5-.9-1.3-.9-2.3 0-1 .4-1.8 1.1-2.4.7-.6 1.7-.9 3-.9h1.7v-.7c0-.7-.2-1.2-.5-1.6-.3-.4-.9-.5-1.6-.5-.7 0-1.4.2-1.8.6-.4.4-.6 1-.7 1.8l-1.9-.2c.2-1.1.7-1.9 1.4-2.5.7-.6 1.8-.9 3.2-.9 1.3 0 2.3.3 3 1 .7.6 1.1 1.6 1.1 2.8v4.5c0 .6.1 1.1.4 1.3l-1.4.2z"/></svg>
+          <span>Amazon</span>
+        </div>
+        <div class="company-showcase-item" data-company="meta" onclick="setCompanyFilter('Meta')" title="Filter Meta Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#0081FB"><path d="M23.998 12c0-3.23-1.48-5.69-3.69-5.69-2.02 0-3.32 1.57-4.99 3.8-1.57-2.11-2.9-3.8-4.92-3.8-2.22 0-3.7 2.46-3.7 5.69 0 3.89 2.05 7.14 5.09 7.14 1.76 0 3.03-1.07 4.15-2.73 1.13 1.66 2.4 2.73 4.16 2.73 3.04 0 4.9-3.25 4.9-7.14zm-4.73 4.54c-1.39 0-2.42-1.28-3.33-2.82 1.09-1.85 2.1-3.2 3.25-3.2 1.34 0 2.21 1.48 2.21 3.52 0 1.96-.8 2.5-2.13 2.5zm-11.23 0c-1.33 0-2.13-.54-2.13-2.5 0-2.04.87-3.52 2.21-3.52 1.15 0 2.16 1.35 3.25 3.2-.91 1.54-1.94 2.82-3.33 2.82z"/></svg>
+          <span>Meta</span>
+        </div>
+        <div class="company-showcase-item" data-company="rocket lab" onclick="setCompanyFilter('Rocket Lab')" title="Filter Rocket Lab Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9 9h6l-3-7zm-4 8l-3 6 4-1 1-5H8zm8 0h-2l1 5 4 1-3-6zM12 11l-2 8h4l-2-8z"/></svg>
+          <span>Rocket Lab</span>
+        </div>
+        <div class="company-showcase-item" data-company="relativity space" onclick="setCompanyFilter('Relativity Space')" title="Filter Relativity Space Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#6366F1"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+          <span>Relativity Space</span>
+        </div>
+        <div class="company-showcase-item" data-company="cloudflare" onclick="setCompanyFilter('Cloudflare')" title="Filter Cloudflare Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#F38020"><path d="M18.8 11.2c-.4-2.6-2.6-4.6-5.3-4.6-2.2 0-4.1 1.3-4.9 3.2-.5-.3-1.1-.4-1.7-.4-2 0-3.6 1.5-3.8 3.4C1.3 13.1 0 14.6 0 16.5 0 18.7 1.8 20.5 4 20.5h14.8c2.9 0 5.2-2.3 5.2-5.2 0-2.6-1.9-4.8-4.5-5.1-.2 0-.5 0-.7 1z"/></svg>
+          <span>Cloudflare</span>
+        </div>
+        <div class="company-showcase-item" data-company="form energy" onclick="setCompanyFilter('Form Energy')" title="Filter Form Energy Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#10B981"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Form Energy</span>
+        </div>
+        <div class="company-showcase-item" data-company="redwood materials" onclick="setCompanyFilter('Redwood Materials')" title="Filter Redwood Materials Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#059669"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/><polyline points="12 22 12 12 20 7"/></svg>
+          <span>Redwood Materials</span>
+        </div>
+        <div class="company-showcase-item" data-company="riot games" onclick="setCompanyFilter('Riot Games')" title="Filter Riot Games Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#D32936"><path d="M12 2l10 5.5v9L12 22 2 16.5v-9L12 2z"/></svg>
+          <span>Riot Games</span>
+        </div>
+        <div class="company-showcase-item" data-company="epic games" onclick="setCompanyFilter('Epic Games')" title="Filter Epic Games Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm0 2.2l6.8 3.8v7.9L12 19.8l-6.8-3.9V8l6.8-3.8z"/></svg>
+          <span>Epic Games</span>
+        </div>
+        <div class="company-showcase-item" data-company="careem" onclick="setCompanyFilter('Careem')" title="Filter Careem UAE Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#00A859"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4.5" fill="#fff"/></svg>
+          <span>Careem (UAE)</span>
+        </div>
+        <div class="company-showcase-item" data-company="figma" onclick="setCompanyFilter('Figma')" title="Filter Figma Openings">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#F24E1E" d="M12 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/><path fill="#A259FF" d="M12 4a4 4 0 0 0-4 4 4 4 0 0 0 4 4h4V4h-4z"/><path fill="#F24E1E" d="M8 4a4 4 0 0 0 0 8h4V4H8z"/><path fill="#0ACF83" d="M8 16a4 4 0 0 0 4 4 4 4 0 0 0 4-4v-4H8a4 4 0 0 0 0 4z"/><path fill="#1ABCFE" d="M12 12a4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4h-4v4z"/></svg>
+          <span>Figma</span>
+        </div>
+        <div class="company-showcase-item" data-company="robinhood" onclick="setCompanyFilter('Robinhood')" title="Filter Robinhood Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#00C805"><path d="M12 2L4 12l8 10 8-10L12 2z"/></svg>
+          <span>Robinhood</span>
+        </div>
+        <div class="company-showcase-item" data-company="anthropic" onclick="setCompanyFilter('Anthropic')" title="Filter Anthropic Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#D97706"><path d="M14.5 3L22 19h-3.8l-1.6-3.7H7.4L5.8 19H2L9.5 3h5zm-2.5 5.2L9.1 13h5.8L12 8.2z"/></svg>
+          <span>Anthropic</span>
+        </div>
+        <div class="company-showcase-item" data-company="scale ai" onclick="setCompanyFilter('Scale AI')" title="Filter Scale AI Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#818CF8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Scale AI</span>
+        </div>
+        <div class="company-showcase-item" data-company="stripe" onclick="setCompanyFilter('Stripe')" title="Filter Stripe Openings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#6366F1"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.96 15.688.5 12.522.5 6.782.5 2.68 3.518 2.68 8.622c0 5.493 5.494 6.72 8.444 7.825 2.502.936 3.376 1.696 3.376 2.736 0 1.056-.994 1.58-2.409 1.58-2.673 0-5.617-1.196-7.382-2.138l-.946 5.568C5.234 24.89 8.358 25.5 12.032 25.5c6.048 0 10.368-2.912 10.368-8.22 0-5.836-5.712-7.078-8.424-8.13z"/></svg>
+          <span>Stripe</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ==========================================================================
        THREE-ZONE DESKTOP GRID (270px | minmax(0, 800px) | 380px)
@@ -52,6 +260,23 @@
          ZONE 1: FILTER RAIL (Left 270px)
          ------------------------------------------------------------- -->
     <aside class="filter-rail">
+      <!-- Rail CV Upload / Match Status -->
+      <div class="rail-section rail-cv-box-section">
+        <div class="rail-section-header">
+          <span class="rail-label">CV Match Probability</span>
+          <span class="rail-link-clear" id="rail-clear-cv-link" onclick="clearManualCv()" style="display:none;">Clear</span>
+        </div>
+        <div class="rail-cv-card" id="rail-cv-card" onclick="document.getElementById('manual-cv-file-input').click()">
+          <div class="rail-cv-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
+          </div>
+          <div class="rail-cv-text">
+            <div class="rail-cv-title" id="rail-cv-title-text">Upload Resume (PDF)</div>
+            <div class="rail-cv-hint" id="rail-cv-hint-text">Rank jobs by probability %</div>
+          </div>
+        </div>
+      </div>
+
       <!-- Search Openings -->
       <div class="rail-section">
         <div class="rail-section-header">
@@ -60,7 +285,7 @@
         <div class="search-input-wrap">
           <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input type="text" id="desktop-search-input" class="search-input-field" placeholder="Title, company, skill..." oninput="onSearchInput(this.value)">
-          <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearchInput()">✕</button>
+          <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearchInput()"></button>
         </div>
       </div>
 
@@ -95,60 +320,76 @@
         <div class="filter-list" id="discipline-filter-list">
           <button class="filter-option-btn active" data-discipline="all" onclick="setDisciplineFilter('all')">
             <span>All Disciplines</span>
-            <span class="filter-count">1,288</span>
-          </button>
-          <button class="filter-option-btn" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">
-            <span>Robotics & Autonomy</span>
-            <span class="filter-count">142</span>
-          </button>
-          <button class="filter-option-btn" data-discipline="embedded" onclick="setDisciplineFilter('embedded')">
-            <span>Embedded & Firmware</span>
-            <span class="filter-count">98</span>
-          </button>
-          <button class="filter-option-btn" data-discipline="vision" onclick="setDisciplineFilter('vision')">
-            <span>Vision & Perception</span>
-            <span class="filter-count">64</span>
+            <span class="filter-count">7,540</span>
           </button>
           <button class="filter-option-btn" data-discipline="ai_ml" onclick="setDisciplineFilter('ai_ml')">
             <span>AI & Machine Learning</span>
-            <span class="filter-count">318</span>
+            <span class="filter-count">850</span>
           </button>
           <button class="filter-option-btn" data-discipline="backend" onclick="setDisciplineFilter('backend')">
             <span>Backend & Distributed</span>
-            <span class="filter-count">284</span>
+            <span class="filter-count">2,410</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="spacetech" onclick="setDisciplineFilter('spacetech')">
+            <span>SpaceTech & Aerospace</span>
+            <span class="filter-count">142</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="climate_cleanenergy" onclick="setDisciplineFilter('climate_cleanenergy')">
+            <span>ClimateTech & Energy</span>
+            <span class="filter-count">118</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="biotech_health" onclick="setDisciplineFilter('biotech_health')">
+            <span>BioTech & Genomics</span>
+            <span class="filter-count">84</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">
+            <span>Robotics & Autonomy</span>
+            <span class="filter-count">96</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="defense_cyber" onclick="setDisciplineFilter('defense_cyber')">
+            <span>Defense & Cyber Infra</span>
+            <span class="filter-count">125</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="game_dev" onclick="setDisciplineFilter('game_dev')">
+            <span>Game Dev & Unreal/Unity</span>
+            <span class="filter-count">85</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="design" onclick="setDisciplineFilter('design')">
+            <span>Product & UI/UX Design</span>
+            <span class="filter-count">240</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="business" onclick="setDisciplineFilter('business')">
+            <span>Business, Finance & Ops</span>
+            <span class="filter-count">610</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="hr" onclick="setDisciplineFilter('hr')">
+            <span>HR & People Ops</span>
+            <span class="filter-count">78</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="electrical_hardware" onclick="setDisciplineFilter('electrical_hardware')">
+            <span>Electrical & Hardware</span>
+            <span class="filter-count">192</span>
+          </button>
+          <button class="filter-option-btn" data-discipline="civil_construction" onclick="setDisciplineFilter('civil_construction')">
+            <span>Civil & Construction</span>
+            <span class="filter-count">35</span>
           </button>
           <button class="filter-option-btn" data-discipline="devops" onclick="setDisciplineFilter('devops')">
             <span>Cloud, DevOps & SRE</span>
-            <span class="filter-count">112</span>
-          </button>
-          <button class="filter-option-btn" data-discipline="hardware" onclick="setDisciplineFilter('hardware')">
-            <span>Hardware & Silicon</span>
-            <span class="filter-count">56</span>
-          </button>
-          <button class="filter-option-btn" data-discipline="security" onclick="setDisciplineFilter('security')">
-            <span>Cybersecurity & Trust</span>
-            <span class="filter-count">48</span>
-          </button>
-          <button class="filter-option-btn" data-discipline="mobile" onclick="setDisciplineFilter('mobile')">
-            <span>Mobile (iOS / Android)</span>
-            <span class="filter-count">42</span>
-          </button>
-          <button class="filter-option-btn" data-discipline="fullstack" onclick="setDisciplineFilter('fullstack')">
-            <span>Full Stack Engineering</span>
-            <span class="filter-count">110</span>
+            <span class="filter-count">210</span>
           </button>
           <button class="filter-option-btn" data-discipline="frontend" onclick="setDisciplineFilter('frontend')">
             <span>Frontend & Web Systems</span>
-            <span class="filter-count">86</span>
+            <span class="filter-count">180</span>
           </button>
-          <button class="filter-option-btn" data-discipline="data" onclick="setDisciplineFilter('data')">
-            <span>Data Engineering</span>
-            <span class="filter-count">74</span>
+          <button class="filter-option-btn" data-discipline="safety" onclick="setDisciplineFilter('safety')">
+            <span>Safety & Fire Engineering</span>
+            <span class="filter-count">87</span>
           </button>
         </div>
       </div>
 
-      <!-- Global Tech Hubs (All 14 Locations) -->
+      <!-- Global Tech Hubs (All 16 Locations) -->
       <div class="rail-section">
         <div class="rail-section-header">
           <span class="rail-label">Global Tech Hubs</span>
@@ -160,6 +401,12 @@
           </button>
           <button class="filter-option-btn" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">
             <span>Worldwide Remote</span>
+          </button>
+          <button class="filter-option-btn" data-location="uae" onclick="setLocationFilter('uae')">
+            <span>UAE & Dubai Hub</span>
+          </button>
+          <button class="filter-option-btn" data-location="india" onclick="setLocationFilter('india')">
+            <span>India (Blr/Hyd/Pune/NCR)</span>
           </button>
           <button class="filter-option-btn" data-location="sf_bay" onclick="setLocationFilter('sf_bay')">
             <span>SF Bay Area</span>
@@ -191,14 +438,14 @@
           <button class="filter-option-btn" data-location="singapore" onclick="setLocationFilter('singapore')">
             <span>Singapore & APAC</span>
           </button>
-          <button class="filter-option-btn" data-location="india" onclick="setLocationFilter('india')">
-            <span>India (Blr/Hyd/Pune/NCR)</span>
-          </button>
           <button class="filter-option-btn" data-location="canada" onclick="setLocationFilter('canada')">
             <span>Canada (Toronto/Van)</span>
           </button>
           <button class="filter-option-btn" data-location="australia" onclick="setLocationFilter('australia')">
             <span>Australia (Sydney/Mel)</span>
+          </button>
+          <button class="filter-option-btn" data-location="france" onclick="setLocationFilter('france')">
+            <span>France (Paris Hub)</span>
           </button>
         </div>
       </div>
@@ -214,7 +461,7 @@
             <span>All Sources</span>
           </button>
           <button class="filter-option-btn" data-ats="faang" onclick="setAtsFilter('faang')">
-            <span style="color:#38BDF8; font-weight:700;">★ FAANG & Tech Giants</span>
+            <span style="color:#38BDF8; font-weight:700;"> FAANG & Tech Giants</span>
           </button>
           <button class="filter-option-btn" data-ats="amazon" onclick="setAtsFilter('amazon')">
             <span>Amazon & AWS Direct</span>
@@ -222,11 +469,14 @@
           <button class="filter-option-btn" data-ats="greenhouse" onclick="setAtsFilter('greenhouse')">
             <span>Greenhouse Boards</span>
           </button>
-          <button class="filter-option-btn" data-ats="ycombinator" onclick="setAtsFilter('ycombinator')">
-            <span>Y Combinator Startups</span>
+          <button class="filter-option-btn" data-ats="ashby" onclick="setAtsFilter('ashby')">
+            <span>Ashby ATS Boards</span>
           </button>
           <button class="filter-option-btn" data-ats="lever" onclick="setAtsFilter('lever')">
             <span>Lever Boards</span>
+          </button>
+          <button class="filter-option-btn" data-ats="ycombinator" onclick="setAtsFilter('ycombinator')">
+            <span>Y Combinator Startups</span>
           </button>
         </div>
       </div>
@@ -242,14 +492,22 @@
           <div class="stream-tabs-wrap">
             <button class="stream-tab-btn active" id="tab-all-roles" onclick="setTab('all')">
               <span>All Roles</span>
-              <span class="tabular-num" id="feed-count-pill">1,288</span>
+              <span class="tabular-num" id="feed-count-pill">7,540</span>
             </button>
             <button class="stream-tab-btn" id="tab-saved-roles" onclick="setTab('saved')">
-              <span>★ Saved</span>
+              <span>Saved</span>
               <span class="tabular-num" id="saved-count-pill">0</span>
             </button>
           </div>
-          <span class="stream-count-text tabular-num" id="feed-count">1,288 roles available</span>
+          <div class="stream-sort-controls">
+            <span class="sort-label">Rank by:</span>
+            <select id="feed-sort-select" class="feed-sort-select" onchange="onSortChange(this.value)">
+              <option value="match_desc" selected>Highest Match %</option>
+              <option value="latest">Most Recent</option>
+              <option value="salary">Top Compensation</option>
+            </select>
+            <span class="stream-count-text tabular-num" id="feed-count">7,540 roles · Ranked by Match %</span>
+          </div>
         </div>
 
         <!-- Active Filter Badges Bar -->
@@ -260,74 +518,53 @@
 
       <!-- Job Cards Container -->
       <div id="job-rows-container" class="job-rows-container">
-        <!-- Rendered dynamically by app.js -->
+        <!-- Modern Tactile Shimmer Skeleton State -->
+        <div class="feed-loading-state">
+          <div class="feed-loading-banner">
+            <div class="feed-loading-radar"></div>
+            <span class="feed-loading-text">Connecting to Edge Pipeline · Calibrating verified requisitions...</span>
+          </div>
+
+          <div class="skeleton-shimmer-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div class="skeleton-line title"></div>
+              <div class="skeleton-line company"></div>
+            </div>
+            <div class="skeleton-line meta"></div>
+            <div class="skeleton-pills-row">
+              <div class="skeleton-line pill"></div>
+              <div class="skeleton-line pill"></div>
+              <div class="skeleton-line pill"></div>
+            </div>
+          </div>
+
+          <div class="skeleton-shimmer-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div class="skeleton-line title" style="width:48%;"></div>
+              <div class="skeleton-line company"></div>
+            </div>
+            <div class="skeleton-line meta" style="width:32%;"></div>
+            <div class="skeleton-pills-row">
+              <div class="skeleton-line pill"></div>
+              <div class="skeleton-line pill"></div>
+            </div>
+          </div>
+
+          <div class="skeleton-shimmer-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div class="skeleton-line title" style="width:60%;"></div>
+              <div class="skeleton-line company"></div>
+            </div>
+            <div class="skeleton-line meta" style="width:42%;"></div>
+            <div class="skeleton-pills-row">
+              <div class="skeleton-line pill"></div>
+              <div class="skeleton-line pill"></div>
+              <div class="skeleton-line pill"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
-    <!-- -------------------------------------------------------------
-         ZONE 3: MATCH CV PANEL (Right 380px)
-         ------------------------------------------------------------- -->
-    <aside class="match-panel">
-      <div class="panel-block">
-        <h2 class="panel-heading">Match Your Engineering CV</h2>
-        <p class="panel-subtext">Upload your CV to automatically score and rank all verified tech roles against your background.</p>
-
-        <!-- In-Memory Dropzone -->
-        <div class="dropzone-box" onclick="document.getElementById('cv-file-input').click()">
-          <input type="file" id="cv-file-input" accept=".pdf" style="display:none;" onchange="onCvSelected(event)">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          <div class="dropzone-title" id="dropzone-status-text">Upload CV Document</div>
-          <div class="dropzone-hint">PDF up to 5MB · In-memory parsing only</div>
-        </div>
-
-        <!-- Candidate Profile Box -->
-        <div class="candidate-box" id="candidate-data-box">
-          <div class="candidate-title" id="cand-headline">Software Engineer</div>
-          <div class="candidate-sub" id="cand-exp">0 years experience</div>
-          <div class="job-skills-row" id="cand-skills"></div>
-          <button class="btn-plain-link" onclick="deleteMyData()">Delete my profile</button>
-        </div>
-
-        <!-- Target Location Hub -->
-        <div class="pref-group">
-          <label class="pref-label">Target Location Hub</label>
-          <div class="pref-chips-wrap" id="pref-location-chips">
-            <button class="pref-chip active" data-v="All" onclick="selectPrefLocation(this, 'All')">All</button>
-            <button class="pref-chip" data-v="Worldwide Remote" onclick="selectPrefLocation(this, 'Worldwide Remote')">Remote</button>
-            <button class="pref-chip" data-v="SF Bay Area" onclick="selectPrefLocation(this, 'SF Bay Area')">SF Bay</button>
-            <button class="pref-chip" data-v="Seattle & Bellevue" onclick="selectPrefLocation(this, 'Seattle & Bellevue')">Seattle</button>
-            <button class="pref-chip" data-v="New York City" onclick="selectPrefLocation(this, 'New York City')">NYC</button>
-            <button class="pref-chip" data-v="London & UK" onclick="selectPrefLocation(this, 'London & UK')">London</button>
-            <button class="pref-chip" data-v="India" onclick="selectPrefLocation(this, 'India')">India</button>
-          </div>
-        </div>
-
-        <!-- Target Engineering Discipline -->
-        <div class="pref-group">
-          <label class="pref-label">Target Engineering Discipline</label>
-          <div class="pref-chips-wrap" id="pref-role-chips">
-            <button class="pref-chip active" data-v="All" onclick="selectPrefRole(this, 'All')">All</button>
-            <button class="pref-chip" data-v="Robotics & Autonomy" onclick="selectPrefRole(this, 'Robotics & Autonomy')">Robotics</button>
-            <button class="pref-chip" data-v="Embedded & Firmware" onclick="selectPrefRole(this, 'Embedded & Firmware')">Embedded</button>
-            <button class="pref-chip" data-v="AI & Machine Learning" onclick="selectPrefRole(this, 'AI & Machine Learning')">AI / ML</button>
-            <button class="pref-chip" data-v="Backend & Distributed" onclick="selectPrefRole(this, 'Backend & Distributed')">Backend</button>
-            <button class="pref-chip" data-v="Cloud, DevOps & SRE" onclick="selectPrefRole(this, 'Cloud, DevOps & SRE')">DevOps</button>
-            <button class="pref-chip" data-v="Full Stack Engineering" onclick="selectPrefRole(this, 'Full Stack Engineering')">Full Stack</button>
-          </div>
-        </div>
-
-        <!-- Primary Calculate Action -->
-        <button class="btn-primary-action" onclick="recalculateMatches()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <span>Calculate Ranked Matches</span>
-        </button>
-      </div>
-
-      <!-- Privacy Promise Notice -->
-      <div style="font-size:12px; color:var(--text-dim); line-height:1.55; padding: 0 4px;">
-        <p><strong>Privacy Promise:</strong> Your CV is evaluated strictly in memory. We never store raw documents or sell personal data. You can erase all records with one click anytime.</p>
-      </div>
-    </aside>
 
   </main>
 
@@ -371,29 +608,46 @@
         <div>
           <label class="rail-label">Discipline</label>
           <div class="pref-chips-wrap" style="margin-top:6px;">
-            <button class="pref-chip active" data-discipline="all" onclick="setDisciplineFilter('all')">All</button>
-            <button class="pref-chip" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">Robotics</button>
-            <button class="pref-chip" data-discipline="embedded" onclick="setDisciplineFilter('embedded')">Embedded</button>
-            <button class="pref-chip" data-discipline="vision" onclick="setDisciplineFilter('vision')">Vision</button>
-            <button class="pref-chip" data-discipline="ai_ml" onclick="setDisciplineFilter('ai_ml')">AI/ML</button>
+            <button class="pref-chip active" data-discipline="all" onclick="setDisciplineFilter('all')">All Disciplines</button>
+            <button class="pref-chip" data-discipline="ai_ml" onclick="setDisciplineFilter('ai_ml')">AI & ML</button>
             <button class="pref-chip" data-discipline="backend" onclick="setDisciplineFilter('backend')">Backend</button>
+            <button class="pref-chip" data-discipline="spacetech" onclick="setDisciplineFilter('spacetech')">SpaceTech</button>
+            <button class="pref-chip" data-discipline="climate_cleanenergy" onclick="setDisciplineFilter('climate_cleanenergy')">ClimateTech</button>
+            <button class="pref-chip" data-discipline="biotech_health" onclick="setDisciplineFilter('biotech_health')">BioTech</button>
+            <button class="pref-chip" data-discipline="robotics" onclick="setDisciplineFilter('robotics')">Robotics</button>
+            <button class="pref-chip" data-discipline="defense_cyber" onclick="setDisciplineFilter('defense_cyber')">Defense/Cyber</button>
+            <button class="pref-chip" data-discipline="game_dev" onclick="setDisciplineFilter('game_dev')">Game Dev</button>
+            <button class="pref-chip" data-discipline="design" onclick="setDisciplineFilter('design')">Product Design</button>
+            <button class="pref-chip" data-discipline="business" onclick="setDisciplineFilter('business')">Business & Ops</button>
+            <button class="pref-chip" data-discipline="hr" onclick="setDisciplineFilter('hr')">HR & People</button>
+            <button class="pref-chip" data-discipline="electrical_hardware" onclick="setDisciplineFilter('electrical_hardware')">Electrical</button>
+            <button class="pref-chip" data-discipline="civil_construction" onclick="setDisciplineFilter('civil_construction')">Civil/Const.</button>
             <button class="pref-chip" data-discipline="devops" onclick="setDisciplineFilter('devops')">DevOps</button>
-            <button class="pref-chip" data-discipline="fullstack" onclick="setDisciplineFilter('fullstack')">Full Stack</button>
             <button class="pref-chip" data-discipline="frontend" onclick="setDisciplineFilter('frontend')">Frontend</button>
+            <button class="pref-chip" data-discipline="safety" onclick="setDisciplineFilter('safety')">Safety & Fire</button>
           </div>
         </div>
 
         <div>
-          <label class="rail-label">Location</label>
+          <label class="rail-label">Location & Global Hubs</label>
           <div class="pref-chips-wrap" style="margin-top:6px;">
-            <button class="pref-chip active" data-location="all" onclick="setLocationFilter('all')">All</button>
-            <button class="pref-chip" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">Remote</button>
-            <button class="pref-chip" data-location="sf_bay" onclick="setLocationFilter('sf_bay')">SF Bay</button>
-            <button class="pref-chip" data-location="seattle" onclick="setLocationFilter('seattle')">Seattle</button>
-            <button class="pref-chip" data-location="nyc" onclick="setLocationFilter('nyc')">NYC</button>
-            <button class="pref-chip" data-location="austin" onclick="setLocationFilter('austin')">Austin</button>
-            <button class="pref-chip" data-location="london" onclick="setLocationFilter('london')">London</button>
-            <button class="pref-chip" data-location="india" onclick="setLocationFilter('india')">India</button>
+            <button class="pref-chip active" data-location="all" onclick="setLocationFilter('all')">All Hubs</button>
+            <button class="pref-chip" data-location="worldwide_remote" onclick="setLocationFilter('worldwide_remote')">100% Remote</button>
+            <button class="pref-chip" data-location="india" onclick="setLocationFilter('india')">India (Blr/Hyd/NCR)</button>
+            <button class="pref-chip" data-location="uae" onclick="setLocationFilter('uae')">UAE & Dubai</button>
+            <button class="pref-chip" data-location="sf_bay" onclick="setLocationFilter('sf_bay')">SF Bay Area</button>
+            <button class="pref-chip" data-location="seattle" onclick="setLocationFilter('seattle')">Seattle & Bellevue</button>
+            <button class="pref-chip" data-location="nyc" onclick="setLocationFilter('nyc')">New York City</button>
+            <button class="pref-chip" data-location="austin" onclick="setLocationFilter('austin')">Austin & Texas</button>
+            <button class="pref-chip" data-location="london" onclick="setLocationFilter('london')">London & UK</button>
+            <button class="pref-chip" data-location="germany" onclick="setLocationFilter('germany')">Germany</button>
+            <button class="pref-chip" data-location="netherlands" onclick="setLocationFilter('netherlands')">Netherlands</button>
+            <button class="pref-chip" data-location="switzerland" onclick="setLocationFilter('switzerland')">Switzerland</button>
+            <button class="pref-chip" data-location="japan" onclick="setLocationFilter('japan')">Japan (Tokyo)</button>
+            <button class="pref-chip" data-location="singapore" onclick="setLocationFilter('singapore')">Singapore</button>
+            <button class="pref-chip" data-location="canada" onclick="setLocationFilter('canada')">Canada</button>
+            <button class="pref-chip" data-location="australia" onclick="setLocationFilter('australia')">Australia</button>
+            <button class="pref-chip" data-location="france" onclick="setLocationFilter('france')">France (Paris)</button>
           </div>
         </div>
       </div>
@@ -408,7 +662,7 @@
 
   <!-- Mobile Sticky Bottom Nav (< 1080px) -->
   <nav class="mobile-nav-bar">
-    <button class="mobile-nav-btn active" id="mob-nav-jobs" onclick="showMobileTab('roles')">
+    <button class="mobile-nav-btn active" id="mob-nav-jobs" onclick="showView('feed')">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <span>Browse</span>
     </button>
@@ -416,12 +670,405 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
       <span>Filters</span>
     </button>
-    <button class="mobile-nav-btn" id="mob-nav-saved" onclick="setTab('saved')">
+    <button class="mobile-nav-btn" id="mob-nav-ai" onclick="openChatGptInterface()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span style="color:var(--gold); font-weight:700;">AI Match</span>
+    </button>
+    <button class="mobile-nav-btn" id="mob-nav-saved" onclick="showView('saved')">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       <span>Saved</span>
     </button>
+    <button class="mobile-nav-btn" id="mob-nav-profile" onclick="showView('profile')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </button>
   </nav>
 
-  <script src="/static/app.js"></script>
+  <!-- ==========================================================================
+       JOB DETAILS & APPLICATION MODAL (SHORT SUMMARY + SALARY + APPLY SOURCES)
+       ========================================================================== -->
+  <div class="job-modal-backdrop" id="job-apply-modal" onclick="onJobModalBackdropClick(event)">
+    <div class="job-modal-dialog" onclick="event.stopPropagation()">
+      <button class="job-modal-close-btn" onclick="closeJobApplyModal()"></button>
+      
+      <div class="job-modal-header">
+        <div class="job-modal-avatar" id="modal-company-avatar">
+          <!-- Populated by JS -->
+        </div>
+        <div class="job-modal-title-wrap">
+          <h2 class="job-modal-title" id="modal-job-title">Role Title</h2>
+          <div class="job-modal-sub" id="modal-company-sub">Company · Location</div>
+        </div>
+      </div>
+
+      <!-- Quick Comp & Terms Strip -->
+      <div class="job-modal-stats-strip">
+        <div class="modal-stat-item">
+          <span class="modal-stat-label">Salary Band</span>
+          <span class="modal-stat-value highlight" id="modal-salary-val">$180,000 – $240,000 / yr</span>
+        </div>
+        <div class="modal-stat-divider"></div>
+        <div class="modal-stat-item">
+          <span class="modal-stat-label">Experience</span>
+          <span class="modal-stat-value" id="modal-exp-val">2 - 5 yrs</span>
+        </div>
+        <div class="modal-stat-divider"></div>
+        <div class="modal-stat-item">
+          <span class="modal-stat-label">Workplace</span>
+          <span class="modal-stat-value" id="modal-remote-val">Remote / Hybrid</span>
+        </div>
+      </div>
+
+      <!-- Short Summary of Job -->
+      <div class="job-modal-section" id="modal-summary-section">
+        <h4 class="job-modal-section-title">Role Overview & Summary</h4>
+        <div class="job-modal-summary-text" id="modal-summary-text">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Required Tech Stack / Skills -->
+      <div class="job-modal-section">
+        <h4 class="job-modal-section-title">Key Skills & Stack</h4>
+        <div class="job-modal-skills-row" id="modal-skills-row">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Available Application Source(s) -->
+      <div class="job-modal-section">
+        <h4 class="job-modal-section-title">Available Application Sources</h4>
+        <div class="job-modal-sources-box" id="modal-sources-box">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Direct Apply Action Bar -->
+      <div class="job-modal-actions-bar">
+        <a href="#" id="modal-apply-btn" target="_blank" rel="noopener noreferrer" class="btn-primary-action modal-direct-apply-btn">
+          <span>Click Here to Apply</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <button class="btn-modal-cancel" onclick="closeJobApplyModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       DEDICATED PROFILE PAGE VIEW (FULL VIEW FOR REFINED MATCHES & CV)
+       ========================================================================== -->
+  <main class="profile-page-layout" id="profile-page-view" style="display:none;">
+    <div class="profile-container">
+      
+      <!-- Back to Jobs Button -->
+      <div class="profile-nav-back">
+        <button class="btn-back-to-stream" onclick="showView('feed')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Explore Roles</span>
+        </button>
+      </div>
+
+      <!-- Candidate Identity Card -->
+      <div class="profile-card profile-identity-card">
+        <div class="identity-header">
+          <div class="identity-avatar-monogram" id="profile-page-avatar">G</div>
+          <div class="identity-info">
+            <h2 class="identity-name" id="profile-page-name">Guest Candidate</h2>
+            <div class="identity-email" id="profile-page-email">Sign in with Google to sync bookmarks</div>
+            <div class="identity-status-pill">
+              <span class="verified-micro-dot" id="profile-page-dot" style="display:none;"></span>
+              <span id="profile-page-status">Guest Session</span>
+            </div>
+          </div>
+          <button class="btn-signout-profile" id="profile-auth-action-btn" onclick="signInWithGoogle()">Sign In</button>
+        </div>
+      </div>
+
+      <!-- In-Memory CV Dropzone & Candidate Extracted Data -->
+      <div class="profile-card profile-cv-card">
+        <div class="profile-card-header">
+          <div>
+            <h3 class="profile-card-title">Confidential Resume & AI Career Profile</h3>
+            <p class="profile-card-sub">Private & Confidential · Encrypted and never shared with employers without your permission</p>
+          </div>
+          <button class="btn-wipe-data" onclick="deleteMyData()">Clear Saved Profile</button>
+        </div>
+
+        <!-- Upload Dropzone -->
+        <div class="dropzone-box" onclick="document.getElementById('profile-cv-file-input').click()">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
+          <div class="dropzone-title" id="profile-dropzone-status-text">Upload Candidate CV (PDF)</div>
+          <div class="dropzone-hint">Drag & drop or click to replace file for real-time semantic ranking</div>
+          <input type="file" id="profile-cv-file-input" accept=".pdf" style="display:none;" onchange="onProfileCvSelected(event)">
+        </div>
+
+        <!-- Candidate Extracted Data Display -->
+        <div class="candidate-data-box" id="profile-candidate-data-box" style="display:none;">
+          <div class="candidate-headline" id="profile-cand-headline">Senior Distributed Systems & AI Engineer</div>
+          <div class="candidate-exp-text" id="profile-cand-exp">6+ years verified engineering experience</div>
+          <div class="candidate-skills-row" id="profile-cand-skills">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Matching Preference Chips -->
+        <div class="pref-group">
+          <label class="pref-label">Target Global Tech Hub</label>
+          <div class="pref-chips-wrap" id="profile-hub-chips">
+            <button class="pref-chip active" onclick="selectProfileHub(this, 'All')">All Hubs</button>
+            <button class="pref-chip" onclick="selectProfileHub(this, 'Worldwide Remote')">Worldwide Remote</button>
+            <button class="pref-chip" onclick="selectProfileHub(this, 'SF Bay Area')">SF Bay Area</button>
+            <button class="pref-chip" onclick="selectProfileHub(this, 'Seattle')">Seattle</button>
+            <button class="pref-chip" onclick="selectProfileHub(this, 'India')">India (Blr/Hyd)</button>
+            <button class="pref-chip" onclick="selectProfileHub(this, 'London')">London</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top 10 Closest Refined Results -->
+      <div class="profile-card profile-matches-card">
+        <div class="profile-card-header">
+          <div>
+            <h3 class="profile-card-title">Top 10 Refined AI Matches</h3>
+            <p class="profile-card-sub">Autonomous ranking tailored specifically to your profile & stack</p>
+          </div>
+          <button class="btn-plain-link" onclick="clearProfileSearchAndReset()">Reset Match Feed</button>
+        </div>
+        <div class="profile-top-jobs-list" id="profile-top-jobs-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       CHATGPT-STYLE FULLSCREEN IMMERSIVE AI TALENT AGENT INTERFACE
+       Zero outside interfacing when active. Desktop & Mobile / Phone optimized.
+       ========================================================================== -->
+  <div class="chatgpt-portal" id="chatgpt-fullscreen-interface" style="display:none;" role="dialog" aria-modal="true" aria-label="CAMOUROLES AI Talent Partner">
+    
+    <!-- TOP NAVIGATION BAR (ChatGPT Style) -->
+    <header class="chatgpt-top-bar">
+      <div class="chatgpt-top-left">
+        <button class="chatgpt-nav-back-btn" onclick="closeChatGptInterface()" aria-label="Back to Jobs Feed">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Back to Jobs</span>
+        </button>
+
+        <div class="chatgpt-brand-lockup">
+          <div class="chatgpt-monogram-emblem">
+            <img src="/logo-gold.png" class="emblem-dark" alt="CAMOUROLES Emblem">
+            <img src="/logo-maroon.png" class="emblem-day" alt="CAMOUROLES Emblem">
+          </div>
+          <div class="chatgpt-brand-text">
+            <span class="chatgpt-brand-title">CAMOUROLES Talent Intelligence</span>
+            <span class="chatgpt-jev-indicator"><span class="jev-status-pulse"></span> Executive AI Partner Active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chatgpt-top-right">
+        <button class="chatgpt-new-btn" onclick="resetChatGptSession()" title="Start New Conversation">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          <span class="chatgpt-new-btn-text">New Session</span>
+        </button>
+
+        <button class="chatgpt-view-roles-pill" id="chatgpt-view-roles-pill" onclick="closeChatGptAndShowRoles()">
+          <span id="chatgpt-view-roles-label">View Matched Roles (7,540) ↓</span>
+        </button>
+
+        <button class="chatgpt-close-btn" onclick="closeChatGptInterface()" aria-label="Close Chat" title="Close chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN SCROLLABLE DIALOGUE THREAD -->
+    <main class="chatgpt-thread-container" id="chatgpt-thread-container">
+      <div class="chatgpt-thread-inner">
+
+        <!-- WELCOME & CV INTELLIGENCE CARD -->
+        <div class="chatgpt-welcome-card" id="chatgpt-welcome-card">
+          <div class="chatgpt-welcome-header">
+            <div class="chatgpt-welcome-avatar">
+              <img src="/logo-gold.png" class="emblem-dark" alt="CAMOUROLES">
+              <img src="/logo-maroon.png" class="emblem-day" alt="CAMOUROLES">
+            </div>
+            <div>
+              <h2 class="chatgpt-welcome-title">Executive Career Intelligence</h2>
+              <p class="chatgpt-welcome-sub">Autonomous matching across verified direct-from-source engineering openings.</p>
+            </div>
+          </div>
+
+          <!-- DROPZONE / ACTIVE CV STATUS -->
+          <div class="chatgpt-cv-status-card" id="chatgpt-cv-status-card" onclick="document.getElementById('chatgpt-cv-file-input').click()">
+            <div class="chatgpt-cv-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
+            </div>
+            <div class="chatgpt-cv-text-wrap">
+              <div class="chatgpt-cv-title" id="chatgpt-cv-title-text">Drop Candidate CV / Resume (PDF)</div>
+              <div class="chatgpt-cv-desc" id="chatgpt-cv-desc-text">Automatic skill extraction, experience tiering, and instant ranking</div>
+            </div>
+            <span class="chatgpt-cv-action-pill" id="chatgpt-cv-action-pill">Attach PDF</span>
+            <input type="file" id="chatgpt-cv-file-input" accept=".pdf" style="display:none;" onchange="onChatGptCvSelected(event)">
+          </div>
+        </div>
+
+        <!-- MESSAGES FEED -->
+        <div class="chatgpt-messages-feed" id="chatgpt-messages-feed">
+          <!-- Initial Agent Greeting -->
+          <div class="chatgpt-msg-row agent-row">
+            <div class="chatgpt-agent-avatar">
+              <img src="/logo-gold.png" class="emblem-dark" alt="AI">
+              <img src="/logo-maroon.png" class="emblem-day" alt="AI">
+            </div>
+            <div class="chatgpt-bubble agent-bubble">
+              <p>Welcome. I am your career partner on CAMOUROLES. I evaluate your background against verified, unlisted, and direct-from-source engineering positions across frontier tech.</p>
+              <p>You can describe your ideal tech stack, seniority, or compensation target, or drop your CV above for precision ranking. What kind of challenges are you looking to tackle next?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TYPING INDICATOR -->
+        <div class="chatgpt-typing-row" id="chatgpt-typing-row" style="display:none;">
+          <div class="chatgpt-agent-avatar">
+            <img src="/logo-gold.png" class="emblem-dark" alt="AI">
+            <img src="/logo-maroon.png" class="emblem-day" alt="AI">
+          </div>
+          <div class="chatgpt-typing-bubble">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <span class="typing-label">Executive Partner is evaluating live openings...</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FIXED BOTTOM FLOATING COMPOSER (ChatGPT Style) -->
+    <footer class="chatgpt-bottom-composer">
+      <div class="chatgpt-composer-inner">
+
+        <!-- HORIZONTAL QUICK PROMPT CHIPS -->
+        <div class="chatgpt-chips-row" id="chatgpt-chips-row">
+          <button class="chatgpt-chip-pill" onclick="sendChatGptQuickPrompt('Match my uploaded CV against verified roles')">Match my CV</button>
+          <button class="chatgpt-chip-pill" onclick="sendChatGptQuickPrompt('Senior AI & LLM Systems roles in Seattle, SF or Remote')">Senior AI / LLM Systems</button>
+          <button class="chatgpt-chip-pill" onclick="sendChatGptQuickPrompt('Ultra-low latency C++ Systems and Kernel Bypass in Chicago, London or NYC')">Low Latency C++ / HFT</button>
+          <button class="chatgpt-chip-pill" onclick="sendChatGptQuickPrompt('Autonomous Robotics, Perception and Embedded C++')">Robotics & Autonomy</button>
+          <button class="chatgpt-chip-pill" onclick="sendChatGptQuickPrompt('High-TC Remote Roles with $220k+ compensation')">High-TC Remote Roles</button>
+          <button class="chatgpt-chip-pill" onclick="sendChatGptQuickPrompt('Megaprojects, Deep Tech, and Clean Energy in UAE and Middle East')">UAE & Megaprojects</button>
+        </div>
+
+        <!-- CHATGPT INPUT CAPSULE -->
+        <div class="chatgpt-input-box">
+          <button class="chatgpt-attach-btn" onclick="document.getElementById('chatgpt-cv-file-input').click()" title="Attach CV / Resume (PDF)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </button>
+
+          <textarea id="chatgpt-user-input" class="chatgpt-textarea" rows="1" placeholder="Message CAMOUROLES Talent Partner (e.g. Senior C++ in London, match CV, remote $250k+)..." onkeydown="handleChatGptKeyDown(event)" oninput="autoResizeChatGptTextarea(this)"></textarea>
+
+          <button id="chatgpt-send-btn" class="chatgpt-send-circle-btn" onclick="submitChatGptMessage()" title="Send Prompt" aria-label="Send">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+          </button>
+        </div>
+
+        <div class="chatgpt-footer-disclaimer">
+          Direct Requisitions · Verified Engineering Openings · Zero Intermediaries
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="/app.js?v=20261022g"></script>
+  <script src="/mobile.js?v=20261022g"></script>
+
+  <!-- ==========================================================================
+       PRIME PRO MEMBERSHIP & RAZORPAY CHECKOUT MODAL
+       ========================================================================== -->
+  <div class="job-modal-backdrop" id="plans-pricing-modal" onclick="if(event.target.id==='plans-pricing-modal') closePlansModal()">
+    <div class="plans-modal-dialog" onclick="event.stopPropagation()">
+      <button class="job-modal-close-btn" onclick="closePlansModal()" aria-label="Close"></button>
+
+      <!-- Launch Week Offer Ribbon -->
+      <div class="plans-offer-strip">
+        <span>LAUNCH SPECIAL · 50% OFF UNLIMITED ACCESS</span>
+        <span id="modal-offer-countdown">LIMITED TIME</span>
+      </div>
+
+      <div style="text-align:center; margin-bottom:14px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:26px; font-weight:700; color:var(--ink); margin:0 0 4px;">CAMOUROLES Pro</h2>
+        <p style="font-size:13px; color:var(--muted); margin:0;">Direct ATS links to 10,159+ live verified roles & priority AI recruiter guidance</p>
+      </div>
+
+      <!-- Segmented Plan Switcher -->
+      <div class="plans-seg">
+        <button class="plans-seg-btn active" id="seg-plan-month" onclick="selectPlan('month')">
+          Monthly Pro (₹99)
+          <small>Save 20% vs weekly · ₹3.3/day</small>
+        </button>
+        <button class="plans-seg-btn" id="seg-plan-week" onclick="selectPlan('week')">
+          Weekly Pass (₹29)
+          <small>About ₹4/day · 7 days</small>
+        </button>
+      </div>
+
+      <!-- Plan Features Card -->
+      <div class="plan-card-body">
+        <div class="plan-price-row">
+          <span class="plan-price-val" id="plan-display-price">₹99</span>
+          <span class="plan-price-was" id="plan-display-was">₹199</span>
+          <span class="plan-price-tag" id="plan-display-tag">MOST POPULAR</span>
+        </div>
+
+        <div class="plan-feature-list">
+          <div class="plan-feature-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Direct, unmasked application links to all 10,159+ verified positions (Greenhouse, Lever, Ashby, Workday)</span>
+          </div>
+          <div class="plan-feature-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Priority AI Recruiter dialogue, trade-off evaluations & customized role ranking</span>
+          </div>
+          <div class="plan-feature-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>AI Skill Radar & Automated Fit Evaluation across all 10,159+ positions</span>
+          </div>
+          <div class="plan-feature-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Continuous dead-link pruning protection (100% verified working URLs)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Razorpay Pay CTA -->
+      <button class="btn-razorpay-cta" id="btn-razorpay-submit" onclick="startRazorpayCheckout()">
+        <span>Unlock Pro Access via Razorpay</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+
+      <!-- Razorpay Authentic Trust Badge -->
+      <div class="razorpay-trust-box">
+        <div class="trust-shield-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="trust-text-area">
+          <div class="trust-title">100% Secure Checkout by Razorpay</div>
+          <div class="trust-chips">
+            <span class="trust-chip">UPI · GPay / PhonePe</span>
+            <span class="trust-chip">Cards</span>
+            <span class="trust-chip">Net Banking</span>
+            <span class="trust-chip">Wallets</span>
+          </div>
+          <div class="trust-sub">PCI-DSS Level 1 Compliant · 256-bit SSL encrypted</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>

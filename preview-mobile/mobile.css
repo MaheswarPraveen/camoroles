@@ -1,0 +1,574 @@
+/* ==========================================================================
+   CAMOUROLES — MOBILE LAYER (phones, < 768px)
+   Loaded after styles.css. Slim header, compact job cards, bottom sheets, motion.
+   ========================================================================== */
+
+:root {
+  --m-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --m-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --m-gutter: 16px;
+  --m-header-h: 54px;
+  --m-nav-h: 64px;
+}
+
+.m-grabber, .m-nav-pill { display: none; }
+
+@media (max-width: 767px) {
+
+  html, body { overflow-x: hidden; }
+  .m-grabber, .m-nav-pill { display: block; }
+  body { padding-bottom: calc(var(--m-nav-h) + env(safe-area-inset-bottom)); }
+
+  /* ---------- Slim header: logo left, theme + account right ---------- */
+  .top-bar {
+    height: var(--m-header-h);
+    min-height: 0;
+    padding: 0 var(--m-gutter);
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--line);
+    transition: transform 0.32s var(--m-ease-out);
+  }
+  .top-bar.m-hidden { transform: translateY(-100%); }
+
+  .brand-area { gap: 8px; min-width: 0; }
+  .brand-emblem-nav { width: 26px !important; height: 26px !important; }
+  .brand-name { font-size: 15px !important; letter-spacing: 0.08em; white-space: nowrap; }
+  .brand-tagline,
+  .top-nav-tabs,
+  .verified-counter-badge,
+  .top-bar-profile-btn,
+  .btn-pro-badge,
+  .btn-filter-toggle,
+  .brand-emblem-top-right { display: none !important; }
+
+  .top-actions { gap: 6px; margin-left: auto; flex-shrink: 0; }
+  .btn-theme-toggle { width: 36px; height: 36px; }
+
+  /* Sign-in becomes a round Google button; signed-in shows only the avatar */
+  .btn-google-signin {
+    width: 36px; height: 36px; padding: 0 !important;
+    justify-content: center; border-radius: 50%;
+  }
+  .btn-google-signin #google-btn-text,
+  .btn-google-signin > span { display: none; }
+  .google-user-pill { padding: 2px !important; border-radius: 50%; }
+  .google-user-name { display: none; }
+  .google-user-avatar { width: 30px; height: 30px; }
+  .profile-dropdown-menu { right: 0; left: auto; max-width: calc(100vw - 32px); }
+
+  /* ---------- Compact hero: one search pill + one row of company chips ---------- */
+  .hero-search-section { padding: 14px var(--m-gutter) 4px !important; }
+  .hero-brand-emblem-wrap,
+  .showcase-header-label { display: none !important; }
+  .chatgpt-search-wrap { margin: 0 !important; gap: 10px !important; display: flex; flex-direction: column; }
+
+  /* AI / Manual switch: a compact two-option toggle */
+  .search-mode-segmented-bar {
+    display: grid !important; grid-template-columns: 1fr 1fr;
+    width: 100% !important; max-width: none !important;
+    margin: 0 !important; padding: 3px !important; gap: 3px !important;
+    border-radius: 12px !important;
+  }
+  .mode-segment-btn {
+    height: 34px; justify-content: center;
+    font-size: 13px !important; border-radius: 9px !important; padding: 0 !important;
+  }
+  .mode-segment-btn.active { color: var(--gold) !important; }
+
+  /* Manual search: one big field, CV button as an icon */
+  .manual-search-container { flex-direction: column; gap: 8px; width: 100%; }
+  .chatgpt-search-box {
+    height: 52px; min-height: 0; padding: 0 6px 0 14px !important;
+    border-radius: 16px !important; gap: 8px;
+  }
+  .chatgpt-search-input { font-size: 16px !important; min-width: 0; }
+  .search-clear-action { width: 32px; height: 32px; flex: 0 0 auto; }
+  .manual-cv-capsule-btn { height: 40px; padding: 0 12px !important; border-radius: 12px !important; flex: 0 0 auto; }
+  .manual-cv-capsule-btn #manual-cv-capsule-text { font-size: 12.5px; }
+  .manual-cv-active-banner { flex-direction: column; align-items: flex-start !important; gap: 8px; padding: 12px !important; border-radius: 14px !important; }
+  .manual-cv-banner-actions { width: 100%; display: flex; gap: 8px; }
+  .manual-cv-action-link { flex: 1; height: 36px; }
+
+  .ai-agentic-search-bar {
+    height: 52px; min-height: 0;
+    padding: 0 6px 0 14px !important;
+    border-radius: 16px !important;
+    gap: 10px;
+  }
+  .ai-badge-shimmer { display: none; }
+  .ai-search-text-content { min-width: 0; }
+  .ai-placeholder-text {
+    font-size: 14.5px !important;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;
+  }
+  .ai-open-chat-btn { height: 40px; padding: 0 14px !important; border-radius: 12px !important; }
+  #ai-toggle-btn-icon { display: none; }
+
+  .company-showcase-shelf { margin: 12px calc(-1 * var(--m-gutter)) 0 !important; padding: 0 !important; }
+  .showcase-badges-row {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding: 2px var(--m-gutter) 6px !important;
+    gap: 8px !important;
+    scrollbar-width: none;
+    scroll-padding-left: var(--m-gutter);
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent 100%);
+            mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent 100%);
+  }
+  .showcase-badges-row::-webkit-scrollbar { display: none; }
+  .showcase-badges-row::after { content: ''; flex: 0 0 4px; }
+  .company-showcase-item {
+    flex: 0 0 auto; scroll-snap-align: start;
+    height: 34px; padding: 0 12px !important; font-size: 13px !important;
+    border-radius: 999px !important;
+  }
+
+  /* ---------- Feed header ---------- */
+  .app-layout:not([style*="none"]) { display: block !important; }
+  .app-layout { padding: 0 !important; }
+  .profile-nav-back { display: none !important; } /* the bottom bar already leads back */
+  .filter-rail { display: none !important; }
+  .stream-panel { padding: 0 !important; border: 0 !important; background: transparent !important; }
+  .stream-header {
+    position: sticky;
+    top: var(--m-header-h);
+    z-index: 40;
+    padding: 10px var(--m-gutter) 8px !important;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    transition: top 0.32s var(--m-ease-out);
+  }
+  body.m-header-hidden .stream-header { top: 0; }
+  .stream-header-top { flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; gap: 8px !important; }
+  .stream-tabs-wrap { flex: 0 1 auto; min-width: 0; gap: 6px !important; }
+  .stream-tab-btn { height: 34px; padding: 0 10px !important; font-size: 13px !important; white-space: nowrap; }
+  .sort-label, .stream-count-text { display: none !important; }
+  .stream-sort-controls { margin-left: auto !important; flex: 0 0 auto; width: auto !important; }
+  .feed-sort-select { height: 34px; font-size: 13px !important; padding: 0 26px 0 10px !important; width: 128px !important; }
+  .active-pills-bar:empty { display: none; }
+  .active-pills-bar { flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none; margin-top: 8px; }
+
+  /* ---------- Compact job cards ---------- */
+  .job-rows-container { padding: 10px var(--m-gutter) 24px !important; display: flex; flex-direction: column; gap: 10px; }
+
+  .m-card {
+    position: relative;
+    display: block;
+    padding: 14px 14px 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 1px 2px rgba(0, 0, 0, 0.35);
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    transition: transform 0.18s var(--m-ease-out), border-color 0.2s, background-color 0.2s;
+    animation: m-card-in 0.5s var(--m-ease-out) both;
+    animation-delay: calc(var(--i, 0) * 45ms);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 132px;
+  }
+  .m-card.m-seen { animation: none; }
+  .m-card:active { transform: scale(0.985); background: var(--surface-hover); }
+
+  .m-card-top { display: flex; align-items: flex-start; gap: 12px; }
+  .m-logo {
+    flex: 0 0 40px; width: 40px; height: 40px;
+    display: grid; place-items: center;
+    border-radius: 11px;
+    background: var(--surface-sunken);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .m-logo > * { max-width: 26px; max-height: 26px; }
+  .m-logo .company-monogram, .m-logo span { font-size: 12px; }
+
+  .m-head { flex: 1; min-width: 0; }
+  .m-title {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 15.5px; font-weight: 700; line-height: 1.3;
+    color: var(--ink);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    overflow-wrap: anywhere;
+  }
+  .m-company {
+    margin-top: 3px;
+    font-size: 13px; color: var(--ink-secondary); font-weight: 600;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .m-save {
+    flex: 0 0 auto;
+    width: 38px; height: 38px; margin: -6px -6px 0 0;
+    display: grid; place-items: center;
+    border: 0; background: transparent; color: var(--muted);
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .m-save:active { background: var(--gold-subtle); }
+  .m-save.saved { color: var(--gold); }
+  .m-save.saved svg { fill: currentColor; }
+  .m-save.m-pop svg { animation: m-pop 0.42s var(--m-ease-spring); }
+
+  .m-meta {
+    margin-top: 10px;
+    display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .m-meta-item { display: inline-flex; align-items: center; gap: 5px; min-width: 0; max-width: 100%; }
+  .m-meta-item svg { flex: 0 0 auto; opacity: 0.8; }
+  .m-meta-item .m-ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-loc { flex: 1 1 140px; }
+  .m-remote {
+    color: var(--emerald); font-weight: 600;
+    background: rgba(16, 185, 129, 0.1); border-radius: 999px; padding: 2px 8px;
+  }
+  .m-salary { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .tabular-num, .m-exp { font-variant-numeric: tabular-nums; }
+
+  .m-skills {
+    margin-top: 10px;
+    display: flex; gap: 6px; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+            mask-image: linear-gradient(90deg, #000 85%, transparent);
+  }
+  .m-skill {
+    flex: 0 0 auto;
+    font-size: 11.5px; font-weight: 600; color: var(--ink-secondary);
+    padding: 4px 9px; border-radius: 999px;
+    background: var(--surface-sunken); border: 1px solid var(--line);
+    white-space: nowrap;
+  }
+
+  /* Match ring: only rendered when a CV has been scored */
+  .m-match {
+    position: absolute; right: 12px; bottom: 10px;
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+  }
+  .m-match svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+  .m-match .m-ring-bg { stroke: var(--line-strong); }
+  .m-match .m-ring {
+    stroke: var(--gold); stroke-linecap: round;
+    stroke-dasharray: 113.1;
+    stroke-dashoffset: 113.1;
+    animation: m-ring-fill 0.9s var(--m-ease-out) 0.25s forwards;
+  }
+  .m-match-val { font-size: 11px; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .m-card.has-match .m-skills { margin-right: 46px; }
+
+  .load-more-wrap { padding: 4px 0 8px; }
+  .btn-load-more { width: 100%; height: 46px; border-radius: 14px !important; }
+
+  /* Skeletons sized like the compact card */
+  .skeleton-shimmer-card { border-radius: 16px !important; padding: 14px !important; }
+  .feed-loading-banner { font-size: 12px; }
+
+  /* ---------- Bottom nav: frosted, with a sliding active pill ---------- */
+  .mobile-nav-bar {
+    display: flex !important;
+    height: calc(var(--m-nav-h) + env(safe-area-inset-bottom));
+    padding: 6px 8px env(safe-area-inset-bottom) !important;
+    background: color-mix(in srgb, var(--bg) 82%, transparent) !important;
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border-top: 1px solid var(--line) !important;
+    z-index: 70;
+  }
+  .mobile-nav-btn {
+    position: relative; z-index: 1;
+    flex: 1; gap: 3px !important;
+    font-size: 11px !important;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.2s;
+  }
+  .mobile-nav-btn svg { transition: transform 0.3s var(--m-ease-spring); }
+  .mobile-nav-btn.active svg { transform: translateY(-1px) scale(1.08); }
+  .m-nav-pill {
+    position: absolute; z-index: 0;
+    top: 6px; height: 50px;
+    border-radius: 14px;
+    background: var(--gold-subtle);
+    border: 1px solid var(--gold-border);
+    transition: transform 0.38s var(--m-ease-spring), width 0.38s var(--m-ease-spring);
+    pointer-events: none;
+  }
+
+  /* ---------- Bottom sheets (job details + filters) ---------- */
+  .job-modal-backdrop,
+  .mobile-modal-backdrop,
+  .m-sheet-backdrop {
+    position: fixed; inset: 0; z-index: 110;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex !important;
+    align-items: flex-end !important;
+    padding: 0 !important;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.28s ease, visibility 0s linear 0.32s;
+  }
+  .job-modal-backdrop.open,
+  .mobile-modal-backdrop.open,
+  .m-sheet-backdrop.open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.28s ease, visibility 0s;
+  }
+
+  .job-modal-dialog,
+  .mobile-bottom-sheet,
+  .m-sheet {
+    position: relative !important;
+    width: 100% !important; max-width: none !important;
+    max-height: 88vh; max-height: 88dvh;
+    margin: 0 !important;
+    border-radius: 22px 22px 0 0 !important;
+    padding-top: 22px !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateY(100%);
+    transition: transform 0.42s var(--m-ease-out);
+    animation: none !important; /* the sheet slides with the transition above, not the old keyframes */
+    will-change: transform;
+  }
+  .job-modal-backdrop.open .job-modal-dialog,
+  .mobile-modal-backdrop.open .mobile-bottom-sheet,
+  .m-sheet-backdrop.open .m-sheet { transform: translateY(var(--m-drag, 0px)); }
+  .m-dragging { transition: none !important; }
+
+  .m-grabber {
+    position: absolute; top: 0; left: 0; right: 0; height: 24px;
+    display: grid; place-items: center;
+    touch-action: none; cursor: grab;
+  }
+  .m-grabber::before {
+    content: ''; width: 40px; height: 5px; border-radius: 3px; background: var(--line-strong);
+  }
+
+  .job-modal-close-btn { top: 14px !important; right: 12px !important; }
+  .job-modal-header { padding-right: 36px; }
+  .job-modal-title { font-size: 19px !important; line-height: 1.3 !important; }
+  .job-modal-stats-strip { flex-wrap: wrap; gap: 10px !important; }
+  .modal-stat-item.m-empty, .modal-stat-item.m-empty + .modal-stat-divider { display: none; }
+  .job-modal-summary-text { font-size: 14px; line-height: 1.6; }
+  .job-modal-actions-bar {
+    position: sticky; bottom: 0;
+    margin: 16px -20px 0 !important;
+    padding: 12px 20px calc(12px + env(safe-area-inset-bottom)) !important;
+    background: linear-gradient(180deg, transparent, var(--surface) 22%);
+  }
+  .modal-direct-apply-btn { height: 50px; font-size: 15px !important; border-radius: 14px !important; }
+  .modal-direct-apply-btn:active, .btn-primary-action:active { transform: translateY(1.5px); }
+
+  .sheet-body .pref-chips-wrap { gap: 8px !important; }
+  .sheet-body .pref-chip, .preset-pill-btn { min-height: 38px; padding: 0 14px !important; font-size: 13px !important; }
+  .sheet-footer { position: sticky; bottom: 0; background: var(--surface); }
+
+  /* ---------- Filter sheet ---------- */
+  .m-sheet {
+    display: flex; flex-direction: column;
+    background: var(--surface);
+    border-top: 1px solid var(--line-strong);
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
+    padding: 22px 0 0 !important;
+    overflow: hidden;
+  }
+  .m-sheet-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 4px var(--m-gutter) 12px;
+  }
+  .m-sheet-head h2 { margin: 0; font-size: 19px; font-weight: 800; color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+  .m-text-btn {
+    border: 0; background: none; color: var(--gold); font-weight: 700; font-size: 14px;
+    padding: 8px 4px; -webkit-tap-highlight-color: transparent;
+  }
+  .m-sheet-body {
+    flex: 1; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 var(--m-gutter) 16px;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .m-sheet-body h3 {
+    margin: 0 0 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .m-hint { font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--dim); margin-left: 6px; }
+
+  .m-search {
+    display: flex; align-items: center; gap: 10px;
+    box-sizing: border-box; height: 48px; min-height: 48px; padding: 0 14px; margin: 0;
+    background: var(--surface-sunken); border: 1px solid var(--line); border-radius: 14px;
+    color: var(--muted);
+  }
+  .m-search:focus-within { border-color: var(--gold-border); box-shadow: 0 0 0 3px var(--gold-subtle); }
+  .m-search input {
+    flex: 1; min-width: 0; height: 100%;
+    border: 0; outline: 0; background: transparent;
+    color: var(--ink); font-size: 16px; /* 16px stops iOS zooming in */
+  }
+
+  .m-segment {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;
+    padding: 4px; border-radius: 14px;
+    background: var(--surface-sunken); border: 1px solid var(--line);
+  }
+  .m-segment button {
+    height: 38px; border: 0; border-radius: 10px;
+    background: transparent; color: var(--ink-secondary);
+    font-size: 12.5px; font-weight: 700; white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .m-segment button.on { background: var(--gold); color: var(--bg); box-shadow: 0 2px 8px var(--gold-subtle); }
+
+  .m-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .m-chip {
+    display: inline-flex; align-items: center; gap: 0;
+    height: 40px; padding: 0 14px;
+    border-radius: 12px;
+    background: var(--surface-sunken); border: 1px solid var(--line);
+    color: var(--ink-secondary); font-size: 13.5px; font-weight: 600;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.15s var(--m-ease-out);
+  }
+  .m-chip:active { transform: scale(0.96); }
+  .m-chip-check { width: 0; opacity: 0; transition: width 0.25s var(--m-ease-spring), opacity 0.2s, margin 0.25s; }
+  .m-chip.on { background: var(--gold-subtle); border-color: var(--gold); color: var(--gold); }
+  .m-chip.on .m-chip-check { width: 13px; opacity: 1; margin-right: 6px; }
+
+  .m-sheet-foot {
+    padding: 12px var(--m-gutter) calc(12px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .m-primary {
+    width: 100%; height: 52px; border: 0; border-radius: 14px;
+    background: var(--gold); color: var(--bg);
+    font-size: 15.5px; font-weight: 800; font-variant-numeric: tabular-nums;
+    box-shadow: 0 3px 0 color-mix(in srgb, var(--gold) 60%, #000), 0 8px 20px var(--gold-subtle);
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+  .m-primary:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--gold) 60%, #000); }
+
+  /* ---------- AI recruiter chat: one-line top bar ---------- */
+  .chatgpt-top-bar {
+    height: 56px; min-height: 0;
+    padding: 0 10px !important; gap: 8px !important;
+    padding-top: env(safe-area-inset-top) !important;
+  }
+  .chatgpt-top-left { gap: 6px !important; min-width: 0; flex: 1; }
+  .chatgpt-nav-back-btn {
+    width: 40px; height: 40px; padding: 0 !important; justify-content: center; flex: 0 0 auto;
+    border-radius: 12px !important;
+  }
+  .chatgpt-nav-back-btn span { display: none; }
+  .chatgpt-brand-lockup { min-width: 0; gap: 8px !important; }
+  .chatgpt-monogram-emblem { width: 28px !important; height: 28px !important; flex: 0 0 auto; }
+  .chatgpt-brand-text { min-width: 0; }
+  .chatgpt-brand-title { font-size: 0 !important; white-space: nowrap; }
+  .chatgpt-brand-title::after { content: 'AI Recruiter'; font-size: 15px; font-weight: 800; color: var(--ink); }
+  .chatgpt-jev-indicator { font-size: 11px !important; white-space: nowrap; }
+  .chatgpt-top-right { gap: 6px !important; flex: 0 0 auto; }
+  .chatgpt-new-btn { width: 36px; height: 36px; padding: 0 !important; justify-content: center; }
+  .chatgpt-new-btn-text, .chatgpt-close-btn { display: none !important; }
+  .chatgpt-view-roles-pill { height: 36px; padding: 0 12px !important; border-radius: 12px !important; white-space: nowrap; }
+  #chatgpt-view-roles-label { font-size: 12.5px !important; }
+  .chatgpt-footer-disclaimer { display: none !important; }
+  .chatgpt-bottom-composer { padding-bottom: calc(8px + env(safe-area-inset-bottom)) !important; }
+
+  /* ---------- Accent colour on cards (gold at night, burgundy by day) ---------- */
+  .brand-name { color: var(--gold) !important; }
+  .m-card { border-left: 3px solid var(--gold-border); }
+  .m-card:active { border-left-color: var(--gold); }
+  .m-logo { background: var(--gold-subtle); border-color: var(--gold-border); }
+  .m-company { color: var(--gold); }
+  .m-exp { color: var(--ink-secondary); font-weight: 600; }
+  .m-skill { background: var(--gold-subtle); border-color: var(--gold-border); color: var(--ink-secondary); }
+  .stream-tab-btn.active { color: var(--gold) !important; border-color: var(--gold) !important; }
+  .mobile-nav-btn.active, .mobile-nav-btn.active span { color: var(--gold) !important; }
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes m-card-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.99); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes m-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35) rotate(-8deg); }
+  100% { transform: scale(1); }
+}
+@keyframes m-ring-fill {
+  to { stroke-dashoffset: var(--m-ring-offset, 0); }
+}
+
+/* People who ask for less motion get none of it */
+@media (prefers-reduced-motion: reduce) {
+  .m-card, .m-match .m-ring, .m-save.m-pop svg { animation: none !important; }
+  .m-match .m-ring { stroke-dashoffset: var(--m-ring-offset, 0); }
+  .top-bar, .stream-header, .job-modal-dialog, .mobile-bottom-sheet, .m-sheet, .m-sheet-backdrop,
+  .job-modal-backdrop, .mobile-modal-backdrop, .m-nav-pill, .mobile-nav-btn svg, .m-chip, .m-chip-check { transition: none !important; }
+}
+
+/* ==========================================================================
+   Free apply limits: counter in the job sheet + sign-in / upgrade prompt
+   ========================================================================== */
+.m-apply-meter {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  color: var(--ink-secondary);
+  font-size: 13px; font-weight: 600; text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.m-apply-meter[hidden] { display: none; }
+
+.m-gate { text-align: center; }
+.m-gate-icon {
+  width: 56px; height: 56px; margin: 6px auto 12px;
+  display: grid; place-items: center; border-radius: 18px;
+  background: var(--gold-subtle); border: 1px solid var(--gold-border); color: var(--gold);
+}
+.m-gate h2 { margin: 0 0 8px; font-size: 20px; font-weight: 800; color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+.m-gate-body { margin: 0 auto 18px; max-width: 34ch; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+.m-gate .m-primary { width: 100%; height: 52px; border: 0; border-radius: 14px; background: var(--gold); color: var(--bg); font-size: 15.5px; font-weight: 800; cursor: pointer; }
+.m-gate-later { display: block; margin: 8px auto 0; border: 0; background: none; color: var(--muted); font-weight: 700; font-size: 14px; padding: 10px; cursor: pointer; }
+
+/* Desktop: a centred dialog */
+@media (min-width: 768px) {
+  .m-gate-backdrop {
+    position: fixed; inset: 0; z-index: 130;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    visibility: hidden; opacity: 0;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .m-gate-backdrop.open { visibility: visible; opacity: 1; transition: opacity 0.2s ease, visibility 0s; }
+  .m-gate {
+    width: min(400px, calc(100vw - 32px));
+    padding: 28px 24px 18px;
+    border-radius: 20px;
+    background: var(--surface); border: 1px solid var(--line-strong);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    transform: translateY(8px) scale(0.98);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .m-gate-backdrop.open .m-gate { transform: none; }
+  .m-gate .m-grabber { display: none; }
+}
+
+/* Phone: the prompt is a short bottom sheet */
+@media (max-width: 767px) {
+  .m-gate-backdrop { z-index: 130; }
+  .m-gate { padding: 26px var(--m-gutter) calc(14px + env(safe-area-inset-bottom)) !important; overflow: visible; }
+}

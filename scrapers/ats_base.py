@@ -14,7 +14,7 @@ class ATSIngestor:
     def __init__(self):
         if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
             raise ValueError("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be configured in .env")
-        self.endpoint = f"{SUPABASE_URL.rstrip('/')}/rest/v1/jobs"
+        self.endpoint = f"{SUPABASE_URL.rstrip('/')}/rest/v1/jobs?on_conflict=apply_url"
         self.headers = {
             "apikey": SUPABASE_SERVICE_ROLE_KEY,
             "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
@@ -61,13 +61,10 @@ class ATSIngestor:
         try:
             r = self.client.post(self.endpoint, headers=self.headers, json=row)
             if r.status_code in (200, 201, 204):
-                print(f"[OK] Ingested: {row['company']} - {row['title']} ({row['location']})")
                 return True
             else:
-                print(f"[WARN] Ingest error {r.status_code}: {r.text[:150]}")
                 return False
         except Exception as e:
-            print(f"[FAIL] Upsert error for {apply_url}: {e}")
             return False
 
     def batch_ingest_jobs(self, jobs_data: List[Dict[str, Any]]) -> int:
@@ -104,8 +101,13 @@ class ATSIngestor:
                     inserted += len(chunk)
                     print(f"[OK] Batch ingested {len(chunk)} jobs (progress: {inserted}/{len(rows)})")
                 else:
-                    print(f"[WARN] Batch error {r.status_code}: {r.text[:100]}")
+                    # Fallback to item-by-item on batch conflict
+                    for item in chunk:
+                        if self.ingest_job(item):
+                            inserted += 1
             except Exception as e:
-                print(f"[FAIL] Batch chunk error: {e}")
+                for item in chunk:
+                    if self.ingest_job(item):
+                        inserted += 1
 
         return inserted

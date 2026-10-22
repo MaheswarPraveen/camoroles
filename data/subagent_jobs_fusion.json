@@ -1,0 +1,222 @@
+[
+  {
+    "title": "Senior Mechanical Engineer - Cable Magnets",
+    "company": "Commonwealth Fusion Systems",
+    "apply_url": "https://jobs.lever.co/cfsenergy/568cb4d1-cd96-46df-a53a-f86e878a3f21",
+    "location": "Devens, MA",
+    "ats_type": "lever",
+    "experience_min": 7,
+    "experience_max": 12,
+    "skills": ["HTS Magnets", "Superconducting Cable", "FEA", "Cryogenics", "SPARC Tokamak"],
+    "description": "Acts as primary owner of cable magnet hardware for SPARC and ARC tokamak devices, leading structural mechanics and heat transfer design."
+  },
+  {
+    "title": "Senior R&D Electromagnetic Analysis Engineer",
+    "company": "Commonwealth Fusion Systems",
+    "apply_url": "https://jobs.lever.co/cfsenergy/bf885246-2bec-425a-8c0d-c32d09adb989",
+    "location": "Devens, MA",
+    "ats_type": "lever",
+    "experience_min": 7,
+    "experience_max": 12,
+    "skills": ["Electromagnetics", "COMSOL", "Superconducting Physics", "FEA", "Tokamak Magnet Optimization"],
+    "description": "Performs advanced non-linear electromagnetic simulations and multi-objective optimization for high-temperature superconducting tokamak magnets."
+  },
+  {
+    "title": "Principal Scientist - Radio Frequency Plasma Heating",
+    "company": "Commonwealth Fusion Systems",
+    "apply_url": "https://jobs.lever.co/cfsenergy/44506939-83f8-4ceb-8a49-7b155b09f1f7",
+    "location": "Devens, MA",
+    "ats_type": "lever",
+    "experience_min": 7,
+    "experience_max": 15,
+    "skills": ["ICRH", "RF Plasma Heating", "Tokamak Plasma Physics", "HFSS", "COMSOL", "RF Antennas"],
+    "description": "Leads modeling, testing, and commissioning of the multi-megawatt SPARC ICRH antenna and RF network systems to deliver core plasma auxiliary heating."
+  },
+  {
+    "title": "Molten Salt Engineer",
+    "company": "Commonwealth Fusion Systems",
+    "apply_url": "https://jobs.lever.co/cfsenergy/1cc2df24-4ac5-457b-bf6c-04eeba54c6bc",
+    "location": "Devens, MA",
+    "ats_type": "lever",
+    "experience_min": 0,
+    "experience_max": 3,
+    "skills": ["Molten Salt Chemistry", "FLiBe", "Electrochemistry", "Tritium Breeding Blanket", "Corrosion"],
+    "description": "Supports R&D on high-temperature molten salt systems for tritium breeding blankets and heat extraction in commercial ARC fusion power plants."
+  },
+  {
+    "title": "Principal Nuclear Materials Engineer",
+    "company": "Helion Energy",
+    "apply_url": "https://jobs.ashbyhq.com/helion/a45f7359-1915-4646-b593-4d0397d5aa6f",
+    "location": "Everett, WA",
+    "ats_type": "ashby",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["Neutron Radiation Damage", "DPA", "Helium Transmutation", "Corrosion", "Shielding Materials"],
+    "description": "Directs engineering choices on neutron radiation effects across structural metals and magnet coils in Helion pulsed fusion generators."
+  },
+  {
+    "title": "Senior Multiphysics Modeling Engineer",
+    "company": "Helion Energy",
+    "apply_url": "https://jobs.ashbyhq.com/helion/ad92a1bb-cc5e-462e-b41e-4fda4ac48a21",
+    "location": "Everett, WA",
+    "ats_type": "ashby",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["MOOSE Framework", "Coupled Multiphysics", "Plasma Facing Components", "Cyclic Loading", "HPC"],
+    "description": "Builds and validates coupled multiphysics models using the MOOSE simulation environment to analyze high-temperature ceramics and plasma-facing components."
+  },
+  {
+    "title": "Power Electronics Engineer",
+    "company": "Helion Energy",
+    "apply_url": "https://jobs.ashbyhq.com/helion/4f0b0e62-cdd6-4f66-803b-c2d8ee3703c0",
+    "location": "Everett, WA",
+    "ats_type": "ashby",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["High-Voltage Conversion", "Pulsed Power", "Direct Energy Recovery", "Gate Drivers", "Switching Hardware"],
+    "description": "Designs, prototypes, and commissions high-voltage, high-speed power electronics for Helion magnetic compression stages and energy recapture circuits."
+  },
+  {
+    "title": "Principal Experimental Scientist - RF",
+    "company": "Helion Energy",
+    "apply_url": "https://jobs.ashbyhq.com/helion/546d8e0e-e57a-4866-bec8-6c3a0a2c7ef4",
+    "location": "Everett, WA",
+    "ats_type": "ashby",
+    "experience_min": 10,
+    "experience_max": 15,
+    "skills": ["RF Plasma Generation", "Plasma Diagnostics", "FRC Physics", "High-Power RF", "Pulsed Physics"],
+    "description": "Leads high-power RF plasma source development and experimental diagnostic campaigns to optimize plasma formation for Helion FRC fusion injectors."
+  },
+  {
+    "title": "Completions Engineer",
+    "company": "Fervo Energy",
+    "apply_url": "https://job-boards.greenhouse.io/fervoenergy/jobs/4424585009",
+    "location": "Houston, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["EGS", "Geothermal Completions", "Hydraulic Stimulation", "Thermal Stress Tubing", "Wellbore Interventions"],
+    "description": "Plans and executes multistage stimulation and completion programs for horizontal enhanced geothermal wells operating under extreme thermal stresses."
+  },
+  {
+    "title": "Reservoir Engineer, Modeling",
+    "company": "Fervo Energy",
+    "apply_url": "https://job-boards.greenhouse.io/fervoenergy/jobs/4430122009",
+    "location": "Golden, CO",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Geomechanics", "Thermal Simulation", "ResFrac", "Fracture Growth", "DFIT", "EGS Circulation"],
+    "description": "Develops calibrated reservoir simulation and fracture models to predict heat breakthrough and pressure support across commercial EGS geothermal well doublets."
+  },
+  {
+    "title": "Seismologist",
+    "company": "Fervo Energy",
+    "apply_url": "https://job-boards.greenhouse.io/fervoenergy/jobs/4431030009",
+    "location": "Houston, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 0,
+    "experience_max": 5,
+    "skills": ["Induced Seismicity", "Microseismic Detection", "Fault Slip Modeling", "Geophysical Inversion", "Seismic Monitoring"],
+    "description": "Analyzes microseismicity and manages real-time seismic traffic light protocols during high-pressure reservoir stimulation across Fervo geothermal plants."
+  },
+  {
+    "title": "Senior Drilling Engineer",
+    "company": "Quaise Energy",
+    "apply_url": "https://job-boards.greenhouse.io/quaise/jobs/4406082009",
+    "location": "Denver, CO",
+    "ats_type": "greenhouse",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["Deep HPHT Drilling", "Hard-Rock Drilling", "Directional Drilling", "WELLCAT", "COMPASS", "Geothermal Casing"],
+    "description": "Engineers deep well construction programs in hard crystalline basement rock, integrating rotary drilling with novel thermal millimeter-wave systems."
+  },
+  {
+    "title": "Lead Reservoir Engineer",
+    "company": "Quaise Energy",
+    "apply_url": "https://job-boards.greenhouse.io/quaise/jobs/4411119009",
+    "location": "Denver, CO",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 12,
+    "skills": ["Supercritical Geothermal", "High-Temperature Fractures", "Crossflow", "DFIT", "Thermal Forecasting"],
+    "description": "Leads reservoir physics, fracture characterization, and production modeling for superhot, deep rock reservoirs targeted by Quaise 10-20 km deep drilling."
+  },
+  {
+    "title": "Electromagnetics Engineer",
+    "company": "Quaise Energy",
+    "apply_url": "https://job-boards.greenhouse.io/quaise/jobs/4254003009",
+    "location": "Houston, TX",
+    "ats_type": "greenhouse",
+    "experience_min": 0,
+    "experience_max": 3,
+    "skills": ["Microwave", "Millimeter Waves", "Megawatt Gyrotrons", "Waveguides", "HFSS", "CST", "Rock Vaporization"],
+    "description": "Designs and tests millimeter-wave transmission waveguides transmitting megawatt-scale gyrotron energy downhole to vaporize hard crystalline rock."
+  },
+  {
+    "title": "Senior Neutronics Engineer - Isotope Production",
+    "company": "Oklo",
+    "apply_url": "https://job-boards.greenhouse.io/oklo/jobs/6145900004",
+    "location": "Santa Clara, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Fast Reactor Core Physics", "MCNP", "Serpent", "SCALE", "Isotope Production", "Burnup Calculations"],
+    "description": "Executes core neutronics modeling and irradiation target designs within Oklo fast spectrum reactors to optimize clean baseload power with radioisotopes."
+  },
+  {
+    "title": "Thermal-Hydraulics and Safety Analysis Engineer",
+    "company": "Oklo",
+    "apply_url": "https://job-boards.greenhouse.io/oklo/jobs/6208066004",
+    "location": "Santa Clara, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Liquid Metal Fast Reactor", "RELAP5", "SAS4A", "CFD", "OpenFOAM", "Natural Circulation"],
+    "description": "Performs transient safety analysis and thermal-hydraulic modeling to evaluate natural circulation cooling in fast microreactors."
+  },
+  {
+    "title": "Sodium Test Engineer",
+    "company": "Oklo",
+    "apply_url": "https://job-boards.greenhouse.io/oklo/jobs/6135740004",
+    "location": "Idaho Falls, ID",
+    "ats_type": "greenhouse",
+    "experience_min": 2,
+    "experience_max": 7,
+    "skills": ["Molten Sodium Loops", "Liquid Alkali Metals", "Cold Trapping", "Electromagnetic Pumps", "Liquid Metal Safety"],
+    "description": "Operates experimental molten sodium test loops at Oklo Idaho facility, validating valves and electromagnetic pumps under fast reactor coolant conditions."
+  },
+  {
+    "title": "Senior Nuclear Criticality Safety Engineer",
+    "company": "Oklo",
+    "apply_url": "https://job-boards.greenhouse.io/oklo/jobs/6214372004",
+    "location": "Santa Clara, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 12,
+    "skills": ["Criticality Safety", "NRC 10 CFR 70", "MCNP", "SCALE KENO", "Pyrochemical Reprocessing", "HALEU"],
+    "description": "Develops formal Criticality Safety Evaluations (CSEs) and licensing documentation under NRC 10 CFR 70 for Oklo commercial fuel fabrication facilities."
+  },
+  {
+    "title": "Principal Engineer, Nuclear Analysis",
+    "company": "TerraPower",
+    "apply_url": "https://job-boards.greenhouse.io/terrapowerllc/jobs/4454718009",
+    "location": "Bellevue, WA",
+    "ats_type": "greenhouse",
+    "experience_min": 7,
+    "experience_max": 14,
+    "skills": ["Fast Reactor Core Design", "MCNP", "DIF3D", "Natrium Reactor", "Reactivity Coefficients", "Shielding"],
+    "description": "Leads nuclear core design, neutronics calculations, and transient safety analysis for the 345 MWe sodium-cooled Natrium demonstration reactor plant."
+  },
+  {
+    "title": "Senior Engineer, Thermal Hydraulic Test",
+    "company": "TerraPower",
+    "apply_url": "https://job-boards.greenhouse.io/terrapowerllc/jobs/4455648009",
+    "location": "Everett, WA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Liquid Sodium Thermal-Hydraulics", "Test Loop Operations", "Code V&V", "Heat Exchanger Testing"],
+    "description": "Executes thermal-hydraulic experimental campaigns and code validation in laboratory test loops to qualify Natrium reactor heat exchanger components."
+  }
+]

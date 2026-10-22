@@ -33,3 +33,15 @@ uploads/
 Thumbs.db
 .vscode/
 .idea/
+
+.preview/
+
+# Local secrets
+.dev.vars
+
+# Rendered marketing media (regenerate with the make_*.py scripts)
+marketing/**/*.mp4
+marketing/**/*.wav
+
+# Wrangler build/cache output
+.wrangler/

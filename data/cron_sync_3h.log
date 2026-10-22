@@ -1,0 +1,167 @@
+[2026-10-16 21:48:38 UTC] Camouroles 3-Hour Automation Daemon Initialized. Interval: 10800s
+[2026-10-16 21:48:38 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-16 21:48:38 UTC] Starting: 1. Ingest Verified Greenhouse Roles (scrapers/ingest_real_jobs.py)
+[2026-10-16 21:49:23 UTC] [OK] 1. Ingest Verified Greenhouse Roles succeeded.
+[2026-10-16 21:49:23 UTC] Starting: 2. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-16 21:49:49 UTC] [OK] 2. Ingest Y Combinator Roles succeeded.
+[2026-10-16 21:49:49 UTC] Starting: 3. Prune Dead URLs & Check Liveness (scrapers/liveness.py)
+[2026-10-16 21:59:30 UTC] [WARN] 3. Prune Dead URLs & Check Liveness returned code 1. Output:
+n312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u26a0' in position 0: character maps to <undefined>
+
+[2026-10-16 21:59:30 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-16 21:59:30 UTC] Sleeping for 3 hours until next cycle at 00:59:30 UTC...
+[2026-10-16 22:15:27 UTC] Camouroles 3-Hour Automation Daemon Initialized. Interval: 10800s
+[2026-10-16 22:15:27 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-16 22:15:27 UTC] Starting: 1. Ingest Verified Greenhouse Roles (scrapers/ingest_real_jobs.py)
+[2026-10-16 22:16:11 UTC] [OK] 1. Ingest Verified Greenhouse Roles succeeded.
+[2026-10-16 22:16:11 UTC] Starting: 2. Ingest Multi-Domain Roles (scrapers/ingest_multidomain.py)
+[2026-10-16 22:20:10 UTC] [OK] 2. Ingest Multi-Domain Roles succeeded.
+[2026-10-16 22:20:10 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-16 22:20:27 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-16 22:20:27 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-16 22:20:57 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-16 22:20:57 UTC] Starting: 4. Prune Dead URLs & Check Liveness (scrapers/liveness.py)
+[2026-10-16 22:24:57 UTC] [WARN] 4. Prune Dead URLs & Check Liveness returned code 1. Output:
+n312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u26a0' in position 0: character maps to <undefined>
+
+[2026-10-16 22:24:57 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-16 22:24:57 UTC] Sleeping for 3 hours until next cycle at 01:24:57 UTC...
+[2026-10-17 06:38:56 UTC] Camouroles 3-Hour Automation Daemon Initialized. Interval: 10800s
+[2026-10-17 06:38:56 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-17 06:38:56 UTC] Starting: 1. Ingest Verified Greenhouse Roles (scrapers/ingest_real_jobs.py)
+[2026-10-17 06:39:11 UTC] [OK] 1. Ingest Verified Greenhouse Roles succeeded.
+[2026-10-17 06:39:11 UTC] Starting: 2. Ingest Multi-Domain Roles (scrapers/ingest_multidomain.py)
+[2026-10-17 06:43:36 UTC] [OK] 2. Ingest Multi-Domain Roles succeeded.
+[2026-10-17 06:43:36 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-17 06:43:54 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-17 06:43:54 UTC] Starting: 2c. Ingest Live LinkedIn Roles (scrapers/ingest_linkedin.py)
+[2026-10-17 06:45:12 UTC] [OK] 2c. Ingest Live LinkedIn Roles succeeded.
+[2026-10-17 06:45:12 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-17 06:45:39 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-17 06:45:39 UTC] Starting: 4. Prune Dead URLs & Check Liveness (scrapers/liveness.py)
+[2026-10-17 06:49:28 UTC] [OK] 4. Prune Dead URLs & Check Liveness succeeded.
+[2026-10-17 06:49:28 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-17 06:49:28 UTC] Sleeping for 3 hours until next cycle at 09:49:28 UTC...
+[2026-10-17 07:31:14 UTC] Camouroles 3-Hour Automation Daemon Initialized. Interval: 10800s
+[2026-10-17 07:31:14 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-17 07:31:14 UTC] Starting: 1. Ingest Verified Greenhouse Roles (scrapers/ingest_real_jobs.py)
+[2026-10-17 07:31:32 UTC] [OK] 1. Ingest Verified Greenhouse Roles succeeded.
+[2026-10-17 07:31:32 UTC] Starting: 2. Ingest Multi-Domain Roles (scrapers/ingest_multidomain.py)
+[2026-10-17 07:34:56 UTC] [OK] 2. Ingest Multi-Domain Roles succeeded.
+[2026-10-17 07:34:56 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-17 07:35:12 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-17 07:35:12 UTC] Starting: 2c. Ingest Live LinkedIn Roles (scrapers/ingest_linkedin.py)
+[2026-10-17 07:36:35 UTC] [OK] 2c. Ingest Live LinkedIn Roles succeeded.
+[2026-10-17 07:36:35 UTC] Starting: 2d. Ingest Niche & Underground Roles (scrapers/ingest_niche_sources.py)
+[2026-10-17 07:37:30 UTC] [OK] 2d. Ingest Niche & Underground Roles succeeded.
+[2026-10-17 07:37:30 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-17 07:37:55 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-17 07:37:55 UTC] Starting: 4. Prune Dead URLs & Check Liveness (scrapers/liveness.py)
+[2026-10-17 07:43:33 UTC] [OK] 4. Prune Dead URLs & Check Liveness succeeded.
+[2026-10-17 07:43:33 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-17 07:43:33 UTC] Sleeping for 3 hours until next cycle at 10:43:33 UTC...
+[2026-10-17 10:43:33 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-17 10:43:33 UTC] Starting: 1. Ingest Verified Greenhouse Roles (scrapers/ingest_real_jobs.py)
+[2026-10-17 10:43:51 UTC] [OK] 1. Ingest Verified Greenhouse Roles succeeded.
+[2026-10-17 10:43:51 UTC] Starting: 2. Ingest Multi-Domain Roles (scrapers/ingest_multidomain.py)
+[2026-10-17 10:46:43 UTC] [OK] 2. Ingest Multi-Domain Roles succeeded.
+[2026-10-17 10:46:43 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-17 10:46:58 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-17 10:46:58 UTC] Starting: 2c. Ingest Live LinkedIn Roles (scrapers/ingest_linkedin.py)
+[2026-10-17 10:48:24 UTC] [OK] 2c. Ingest Live LinkedIn Roles succeeded.
+[2026-10-17 10:48:24 UTC] Starting: 2d. Ingest Niche & Underground Roles (scrapers/ingest_niche_sources.py)
+[2026-10-17 10:48:52 UTC] [OK] 2d. Ingest Niche & Underground Roles succeeded.
+[2026-10-17 10:48:52 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-17 10:49:13 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-17 10:49:13 UTC] Starting: 4. Prune Dead URLs & Check Liveness (scrapers/liveness.py)
+[2026-10-17 10:51:35 UTC] [OK] 4. Prune Dead URLs & Check Liveness succeeded.
+[2026-10-17 10:51:35 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-17 10:51:35 UTC] Sleeping for 3 hours until next cycle at 13:51:35 UTC...
+[2026-10-17 18:27:29 UTC] Camouroles 3-Hour Automation Daemon Initialized. Interval: 10800s
+[2026-10-17 18:27:29 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-17 18:27:29 UTC] Starting: 1. Job Harvester Agent (ATS Direct APIs) (scrapers/job_harvester.py)
+[2026-10-17 18:27:59 UTC] [OK] 1. Job Harvester Agent (ATS Direct APIs) succeeded.
+[2026-10-17 18:27:59 UTC] Starting: 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) (scrapers/ingest_top_brands.py)
+[2026-10-17 18:28:37 UTC] [OK] 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) succeeded.
+[2026-10-17 18:28:37 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-17 18:29:12 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-17 18:29:12 UTC] Starting: 2c. Ingest Frontier & Deep-Tech Niches (scrapers/ingest_frontier_niches.py)
+[2026-10-17 18:30:15 UTC] [OK] 2c. Ingest Frontier & Deep-Tech Niches succeeded.
+[2026-10-17 18:30:15 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-17 18:30:48 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-17 18:30:48 UTC] Starting: 4. Job Janitor Agent (Dead Link Pruning) (scrapers/job_janitor.py)
+[2026-10-17 18:31:09 UTC] [OK] 4. Job Janitor Agent (Dead Link Pruning) succeeded.
+[2026-10-17 18:31:09 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-17 18:31:09 UTC] Sleeping for 3 hours until next cycle at 21:31:09 UTC...
+[2026-10-17 21:31:01 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-17 21:31:01 UTC] Starting: 1. Job Harvester Agent (ATS Direct APIs) (scrapers/job_harvester.py)
+[2026-10-17 21:31:49 UTC] [OK] 1. Job Harvester Agent (ATS Direct APIs) succeeded.
+[2026-10-17 21:31:49 UTC] Starting: 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) (scrapers/ingest_top_brands.py)
+[2026-10-17 21:32:30 UTC] [OK] 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) succeeded.
+[2026-10-17 21:32:30 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-17 21:32:53 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-17 21:32:53 UTC] Starting: 2c. Ingest Frontier & Deep-Tech Niches (scrapers/ingest_frontier_niches.py)
+[2026-10-17 21:33:56 UTC] [OK] 2c. Ingest Frontier & Deep-Tech Niches succeeded.
+[2026-10-17 21:33:56 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-17 21:34:25 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-17 21:34:25 UTC] Starting: 4. Job Janitor Agent (Dead Link Pruning) (scrapers/job_janitor.py)
+[2026-10-17 21:34:51 UTC] [OK] 4. Job Janitor Agent (Dead Link Pruning) succeeded.
+[2026-10-17 21:34:51 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-17 21:34:51 UTC] Sleeping for 3 hours until next cycle at 00:34:51 UTC...
+[2026-10-18 00:34:51 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-18 00:34:51 UTC] Starting: 1. Job Harvester Agent (ATS Direct APIs) (scrapers/job_harvester.py)
+[2026-10-18 00:35:40 UTC] [OK] 1. Job Harvester Agent (ATS Direct APIs) succeeded.
+[2026-10-18 00:35:40 UTC] Starting: 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) (scrapers/ingest_top_brands.py)
+[2026-10-18 00:36:32 UTC] [OK] 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) succeeded.
+[2026-10-18 00:36:32 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-18 00:36:57 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-18 00:36:57 UTC] Starting: 2c. Ingest Frontier & Deep-Tech Niches (scrapers/ingest_frontier_niches.py)
+[2026-10-18 00:38:14 UTC] [OK] 2c. Ingest Frontier & Deep-Tech Niches succeeded.
+[2026-10-18 00:38:14 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-18 00:38:52 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-18 00:38:52 UTC] Starting: 4. Job Janitor Agent (Dead Link Pruning) (scrapers/job_janitor.py)
+[2026-10-18 00:39:22 UTC] [OK] 4. Job Janitor Agent (Dead Link Pruning) succeeded.
+[2026-10-18 00:39:22 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-18 00:39:22 UTC] Sleeping for 3 hours until next cycle at 03:39:22 UTC...
+[2026-10-18 19:10:51 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-18 19:10:51 UTC] Starting: 1. Job Harvester Agent (ATS Direct APIs) (scrapers/job_harvester.py)
+[2026-10-18 19:10:56 UTC] [OK] 1. Job Harvester Agent (ATS Direct APIs) succeeded.
+[2026-10-18 19:10:56 UTC] Starting: 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) (scrapers/ingest_top_brands.py)
+[2026-10-18 19:11:18 UTC] [OK] 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) succeeded.
+[2026-10-18 19:11:18 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-18 19:11:22 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-18 19:11:22 UTC] Starting: 2c. Ingest Frontier & Deep-Tech Niches (scrapers/ingest_frontier_niches.py)
+[2026-10-18 19:11:25 UTC] [OK] 2c. Ingest Frontier & Deep-Tech Niches succeeded.
+[2026-10-18 19:11:25 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-18 19:11:27 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-18 19:11:27 UTC] Starting: 4. Job Janitor Agent (Dead Link Pruning) (scrapers/job_janitor.py)
+[2026-10-18 19:11:29 UTC] [WARN] 4. Job Janitor Agent (Dead Link Pruning) returned code 1. Output:
+2\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\xczma\AppData\Roaming\Python\Python312\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+[2026-10-18 19:11:29 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-18 19:11:29 UTC] Sleeping for 3 hours until next cycle at 22:11:29 UTC...
+[2026-10-18 22:11:29 UTC] === STARTING 3-HOUR CATALOG SYNC & LIVENESS CYCLE ===
+[2026-10-18 22:11:29 UTC] Starting: 1. Job Harvester Agent (ATS Direct APIs) (scrapers/job_harvester.py)
+[2026-10-18 22:12:39 UTC] [OK] 1. Job Harvester Agent (ATS Direct APIs) succeeded.
+[2026-10-18 22:12:39 UTC] Starting: 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) (scrapers/ingest_top_brands.py)
+[2026-10-18 22:13:22 UTC] [OK] 2. Ingest Top Tech Brands (Apple, NVIDIA, Tesla) succeeded.
+[2026-10-18 22:13:22 UTC] Starting: 2b. Ingest Enterprise & Finance Roles (scrapers/ingest_enterprise_multidomain.py)
+[2026-10-18 22:13:50 UTC] [OK] 2b. Ingest Enterprise & Finance Roles succeeded.
+[2026-10-18 22:13:50 UTC] Starting: 2c. Ingest Frontier & Deep-Tech Niches (scrapers/ingest_frontier_niches.py)
+[2026-10-18 22:15:34 UTC] [OK] 2c. Ingest Frontier & Deep-Tech Niches succeeded.
+[2026-10-18 22:15:34 UTC] Starting: 3. Ingest Y Combinator Roles (scrapers/ycombinator_scraper.py)
+[2026-10-18 22:15:58 UTC] [OK] 3. Ingest Y Combinator Roles succeeded.
+[2026-10-18 22:15:58 UTC] Starting: 4. Job Janitor Agent (Dead Link Pruning) (scrapers/job_janitor.py)
+[2026-10-18 22:16:17 UTC] [OK] 4. Job Janitor Agent (Dead Link Pruning) succeeded.
+[2026-10-18 22:16:17 UTC] === COMPLETED 3-HOUR SYNC & LIVENESS CYCLE ===
+[2026-10-18 22:16:17 UTC] Sleeping for 3 hours until next cycle at 01:16:17 UTC...

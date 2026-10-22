@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "camouroles",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "static",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "SUPABASE_URL": "https://xteoktfzftqybflpubvo.supabase.co",
+    "RAZORPAY_KEY_ID": "rzp_live_TjW0ZP4t3xCyrO",
+    "GOOGLE_CLIENT_ID": "570018263730-rvd8clojdlcjqsfqfcdohsm7r32gcqn0.apps.googleusercontent.com"
+  },
+  // API keys (OPENROUTER_API_KEY, GROQ_API_KEY, RAZORPAY_KEY_SECRET, RAZORPAY_WEBHOOK_SECRET,
+  // SUPABASE_SERVICE_ROLE_KEY, PROXY_KEY) are Wrangler secrets, never in this file.
+  "ratelimits": [
+    { "name": "AI_LIMIT", "namespace_id": "1001", "simple": { "limit": 12, "period": 60 } },
+    { "name": "CV_LIMIT", "namespace_id": "1002", "simple": { "limit": 4, "period": 60 } },
+    { "name": "AI_GLOBAL_LIMIT", "namespace_id": "1003", "simple": { "limit": 60, "period": 60 } }
+  ]
+}

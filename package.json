@@ -1,0 +1,11 @@
+{
+  "name": "camouroles",
+  "version": "1.0.0",
+  "description": "Camouroles - Unlisted Tech Roles & Verified Openings",
+  "scripts": {
+    "login": "wrangler login",
+    "deploy": "wrangler deploy",
+    "deploy:preview": "wrangler deploy --temporary",
+    "dev": "wrangler dev"
+  }
+}

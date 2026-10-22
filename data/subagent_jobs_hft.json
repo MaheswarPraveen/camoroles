@@ -1,0 +1,304 @@
+[
+  {
+    "company": "Jane Street",
+    "title": "Low-Latency Engineer",
+    "location": "New York, NY",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.janestreet.com/join-jane-street/apply/6254435002?gh_jid=6254435002",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": [
+      "Modern C++",
+      "Low Latency Systems",
+      "Kernel Bypass",
+      "DPDK",
+      "Solarflare OpenOnload",
+      "Computer Architecture",
+      "Profiling"
+    ],
+    "description": "Design and optimize holistic fast-trading systems in close collaboration with quants, focusing on kernel bypass, user-space fast-packet processing, and cache-hierarchy optimizations."
+  },
+  {
+    "company": "Jane Street",
+    "title": "Hardware Engineer (FPGA/ASIC)",
+    "location": "New York, NY",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.janestreet.com/join-jane-street/apply/8646893002?gh_jid=8646893002",
+    "experience_min": 2,
+    "experience_max": 8,
+    "skills": [
+      "FPGA",
+      "ASIC Design",
+      "SystemVerilog",
+      "VHDL",
+      "Hardcaml",
+      "RTL Verification",
+      "Timing Closure"
+    ],
+    "description": "Design, verify, and implement ultra-low latency hardware acceleration engines and custom FPGA network pipelines using RTL, Hardcaml, and high-performance EDA tooling."
+  },
+  {
+    "company": "Jane Street",
+    "title": "Hardware Engineer (FPGA/ASIC)",
+    "location": "London, UK",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.janestreet.com/join-jane-street/apply/8651323002?gh_jid=8651323002",
+    "experience_min": 2,
+    "experience_max": 8,
+    "skills": [
+      "FPGA Design",
+      "SystemVerilog",
+      "RTL Synthesis",
+      "Hardcaml",
+      "High-Speed Networking",
+      "Low-Latency Hardware"
+    ],
+    "description": "Architect and deploy FPGA trading accelerators in London, bridging low-level hardware design, network protocol processing, and software-hardware co-design."
+  },
+  {
+    "company": "Optiver",
+    "title": "FPGA Engineer",
+    "location": "Chicago, IL",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.optiver.com/join-us/jobs/8375607002/?gh_jid=8375607002",
+    "experience_min": 2,
+    "experience_max": 7,
+    "skills": [
+      "FPGA Architecture",
+      "SystemVerilog",
+      "VHDL",
+      "RTL Synthesis",
+      "10G/25G Networking",
+      "C++"
+    ],
+    "description": "Build nanosecond-critical FPGA hardware engines for automated market making, implementing custom logic for feed decoding, order execution, and network acceleration."
+  },
+  {
+    "company": "Optiver",
+    "title": "FPGA Engineer",
+    "location": "Amsterdam, Netherlands",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.optiver.com/join-us/jobs/8309280002/?gh_jid=8309280002",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": [
+      "FPGA Engineering",
+      "VHDL",
+      "Verilog",
+      "Digital Simulation",
+      "High-Bandwidth Compute",
+      "RTL Verification"
+    ],
+    "description": "Design and verify cutting-edge FPGA solutions powering European trading desks, optimizing latency, throughput, and hardware-software integration."
+  },
+  {
+    "company": "Optiver",
+    "title": "Software Engineer - C++",
+    "location": "New York, NY",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.optiver.com/join-us/jobs/8521364002/?gh_jid=8521364002",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": [
+      "Modern C++",
+      "Low Latency Systems",
+      "Linux Kernel Tuning",
+      "Multithreading",
+      "Lock-Free Programming",
+      "Network Protocols"
+    ],
+    "description": "Develop ultra-low latency execution engines and real-time market-making systems in modern C++, tuning CPU cache usage, concurrency, and Linux network stacks."
+  },
+  {
+    "company": "Optiver",
+    "title": "Software Engineer - Automated Trading Systems",
+    "location": "Amsterdam, Netherlands",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.optiver.com/join-us/jobs/8375042002/?gh_jid=8375042002",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": [
+      "Modern C++",
+      "Low-Latency Architecture",
+      "Distributed Systems",
+      "Linux OS Internals",
+      "Automated Market Making"
+    ],
+    "description": "Develop and optimize high-throughput, latency-critical automated trading components directly interfacing with European liquidity venues and exchanges."
+  },
+  {
+    "company": "Jump Trading",
+    "title": "Software Engineer | Market Data Systems",
+    "location": "Chicago, IL",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.jumptrading.com/hr/job?gh_jid=7847009",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": [
+      "Modern C++",
+      "Ultra-Low Latency",
+      "Market Data Feed Handlers",
+      "Kernel Bypass Networking",
+      "Multithreading",
+      "Linux Internals"
+    ],
+    "description": "Design and build ultra-fast, deterministic market data feed handlers and book-building pipelines processing multi-gigabit exchange data in real time."
+  },
+  {
+    "company": "Jump Trading",
+    "title": "C++ Software Engineer | Trading Team",
+    "location": "London, UK",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.jumptrading.com/hr/job?gh_jid=8242766",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": [
+      "Modern C++",
+      "Low-Latency Trading Infrastructure",
+      "Concurrency",
+      "Hardware Optimization",
+      "Algorithmic Execution"
+    ],
+    "description": "Embedded in quantitative trading teams to architect, benchmark, and optimize algorithmic execution pipelines and trading strategies for extreme speed and reliability."
+  },
+  {
+    "company": "Jump Trading",
+    "title": "HPC Systems Engineer",
+    "location": "Chicago, IL",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.jumptrading.com/hr/job?gh_jid=5752845",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": [
+      "Linux Kernel Internals",
+      "HPC Clusters",
+      "InfiniBand",
+      "RoCE",
+      "Low Latency Networking",
+      "Distributed Storage"
+    ],
+    "description": "Architect and manage large-scale high-performance research compute environments, tuning Linux kernel parameters, schedulers, and low-latency storage fabrics."
+  },
+  {
+    "company": "Tower Research Capital",
+    "title": "Low Latency Developer",
+    "location": "Gurgaon, India",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.tower-research.com/open-positions/?gh_jid=4357723",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": [
+      "Modern C++",
+      "Ultra-Low Latency",
+      "Linux Kernel Bypass",
+      "Lock-Free Algorithms",
+      "Cache Optimization",
+      "Network Sockets"
+    ],
+    "description": "Develop and tune ultra-low latency execution engines, market data gateways, and exchange connectivity protocols requiring sub-microsecond determinism."
+  },
+  {
+    "company": "Tower Research Capital",
+    "title": "Software Engineer, Trading Systems (C++)",
+    "location": "New York, NY",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.tower-research.com/open-positions/?gh_jid=7985905",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": [
+      "Modern C++",
+      "Low-Latency Systems",
+      "Order Routing",
+      "Distributed Architecture",
+      "Linux",
+      "Multithreading"
+    ],
+    "description": "Build high-throughput, low-latency electronic trading infrastructure, order management platforms, and algorithmic risk check systems in New York."
+  },
+  {
+    "company": "Tower Research Capital",
+    "title": "GPU Systems Engineer",
+    "location": "New York, NY",
+    "ats_type": "greenhouse",
+    "apply_url": "https://www.tower-research.com/open-positions/?gh_jid=8099780",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": [
+      "CUDA",
+      "GPU Kernel Optimization",
+      "Modern C++",
+      "Low Latency Distributed Systems",
+      "HPC"
+    ],
+    "description": "Optimize GPU kernels, high-speed host-device memory transfers, and distributed acceleration infrastructure for quantitative trading and predictive modeling."
+  },
+  {
+    "company": "IMC Trading",
+    "title": "Hardware Engineer",
+    "location": "Chicago, IL",
+    "ats_type": "greenhouse",
+    "apply_url": "https://job-boards.eu.greenhouse.io/imc/jobs/4900419101",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": [
+      "FPGA Design",
+      "SystemVerilog",
+      "RTL Verification",
+      "Low Latency Networking",
+      "Digital Logic",
+      "Timing Analysis"
+    ],
+    "description": "Develop and verify custom FPGA solutions for live automated trading, executing trade signals and processing network packets directly in hardware."
+  },
+  {
+    "company": "IMC Trading",
+    "title": "C++ Software Engineer",
+    "location": "Chicago, IL",
+    "ats_type": "greenhouse",
+    "apply_url": "https://job-boards.eu.greenhouse.io/imc/jobs/4673650101",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": [
+      "Modern C++",
+      "Ultra-Low Latency",
+      "FPGA Hardware Interfaces",
+      "Linux Kernel Optimization",
+      "Exchange Connectivity"
+    ],
+    "description": "Design and build low-latency trading software that connects to global exchanges, interfaces with custom FPGA hardware, and executes algorithmic strategies."
+  },
+  {
+    "company": "IMC Trading",
+    "title": "C++ Software Engineer",
+    "location": "Amsterdam, Netherlands",
+    "ats_type": "greenhouse",
+    "apply_url": "https://job-boards.eu.greenhouse.io/imc/jobs/4634204101",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": [
+      "Modern C++",
+      "Latency-Critical Loop",
+      "FPGA Integration",
+      "Linux Network Stacks",
+      "Market Data Feed Parsing"
+    ],
+    "description": "Engineer software sitting directly in the latency-critical path in Amsterdam, translating trading models into optimized C++ and integrating FPGA accelerators."
+  },
+  {
+    "company": "Five Rings",
+    "title": "Software Developer - Trading Systems",
+    "location": "New York, NY",
+    "ats_type": "greenhouse",
+    "apply_url": "https://job-boards.greenhouse.io/fiveringsllc/jobs/5349839008",
+    "experience_min": 0,
+    "experience_max": 2,
+    "skills": [
+      "Modern C++",
+      "Linux Systems Programming",
+      "Low-Latency Networking",
+      "Algorithmic Execution",
+      "Distributed Systems"
+    ],
+    "description": "Develop real-time algorithmic trading software in C++ on Linux, implementing exchange connectivity gateways, risk controls, and automated trading strategies."
+  }
+]

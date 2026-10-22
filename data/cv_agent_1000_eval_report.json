@@ -1,0 +1,190 @@
+{
+  "iterations": 1000,
+  "total_time_seconds": 45.9,
+  "baseline_avg_reward": 96.15,
+  "best_avg_reward": 96.15,
+  "weights": {
+    "w_disc_direct": 35.0,
+    "w_disc_adjacent": 18.0,
+    "w_title_direct": 25.0,
+    "w_skills_max": 25.0,
+    "w_skills_per_hit": 8.0,
+    "pen_senior_on_junior": 40.0,
+    "rew_junior_boost": 25.0,
+    "rew_mid_align": 15.0,
+    "rew_senior_boost": 20.0,
+    "pen_junior_on_senior": 30.0
+  },
+  "convergence_history": [
+    {
+      "step": 100,
+      "reward": 95.9125,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9296875,
+      "temperature": 0.6697825712726458,
+      "elapsed_sec": 4.29
+    },
+    {
+      "step": 200,
+      "reward": 95.9125,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9296875,
+      "temperature": 0.4486086927805969,
+      "elapsed_sec": 8.29
+    },
+    {
+      "step": 300,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.30047028374584883,
+      "elapsed_sec": 12.22
+    },
+    {
+      "step": 400,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.20124975923831606,
+      "elapsed_sec": 16.23
+    },
+    {
+      "step": 500,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.1347935812106403,
+      "elapsed_sec": 20.69
+    },
+    {
+      "step": 600,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.09028239141431091,
+      "elapsed_sec": 25.37
+    },
+    {
+      "step": 700,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.06046957226212064,
+      "elapsed_sec": 30.2
+    },
+    {
+      "step": 800,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.05,
+      "elapsed_sec": 35.65
+    },
+    {
+      "step": 900,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.05,
+      "elapsed_sec": 40.49
+    },
+    {
+      "step": 1000,
+      "reward": 95.82132352941176,
+      "domain_accuracy": 1.0,
+      "seniority_accuracy": 0.9264705882352942,
+      "temperature": 0.05,
+      "elapsed_sec": 45.9
+    }
+  ],
+  "profile_results": [
+    {
+      "candidate": "Robotics and AI Research Engineer",
+      "yoe": 1,
+      "discipline": "robotics",
+      "reward": 100.0,
+      "domain_acc": 1.0,
+      "seniority_acc": 1.0,
+      "top1_title": "Software Engineer, Robotics",
+      "top1_company": "Scale AI",
+      "top1_score": 96.0
+    },
+    {
+      "candidate": "Senior Staff Distributed Systems & Kernel Engineer",
+      "yoe": 8,
+      "discipline": "backend",
+      "reward": 100.0,
+      "domain_acc": 1.0,
+      "seniority_acc": 1.0,
+      "top1_title": "Senior Cloud Security Engineer",
+      "top1_company": "Microsoft",
+      "top1_score": 96.0
+    },
+    {
+      "candidate": "Junior Fire & Life Safety Engineer",
+      "yoe": 1.5,
+      "discipline": "safety",
+      "reward": 100.0,
+      "domain_acc": 1.0,
+      "seniority_acc": 1.0,
+      "top1_title": "Fire & Life Safety Engineer",
+      "top1_company": "AtkinsRealis",
+      "top1_score": 96.0
+    },
+    {
+      "candidate": "Frontend UI/UX Systems Engineer",
+      "yoe": 3.5,
+      "discipline": "frontend",
+      "reward": 100.0,
+      "domain_acc": 1.0,
+      "seniority_acc": 1.0,
+      "top1_title": "Senior Frontend Engineer, Portfolio",
+      "top1_company": "Coinbase",
+      "top1_score": 91.0
+    },
+    {
+      "candidate": "Ultra-Low-Latency HFT C++ Systems Lead",
+      "yoe": 7,
+      "discipline": "trading",
+      "reward": 69.2,
+      "domain_acc": 1.0,
+      "seniority_acc": 0.5,
+      "top1_title": "GBM - Public,  Electronic Cash Market Making, Quantitative Engineering, Vice President - New York",
+      "top1_company": "Goldman Sachs",
+      "top1_score": 88.0
+    },
+    {
+      "candidate": "Senior Corporate Paralegal & Contract Compliance Specialist",
+      "yoe": 6,
+      "discipline": "legal",
+      "reward": 100.0,
+      "domain_acc": 1.0,
+      "seniority_acc": 1.0,
+      "top1_title": "Senior Product Counsel",
+      "top1_company": "Cloudflare",
+      "top1_score": 88.0
+    },
+    {
+      "candidate": "ASIC / FPGA Digital RTL Design Engineer",
+      "yoe": 4,
+      "discipline": "hardware",
+      "reward": 100.0,
+      "domain_acc": 1.0,
+      "seniority_acc": 1.0,
+      "top1_title": "FPGA Engineer",
+      "top1_company": "Cerebras Systems",
+      "top1_score": 96.0
+    },
+    {
+      "candidate": "Junior Computer Vision / ML Research Associate",
+      "yoe": 0.5,
+      "discipline": "ai",
+      "reward": 100.0,
+      "domain_acc": 1.0,
+      "seniority_acc": 1.0,
+      "top1_title": "Research Scientist, AI Language",
+      "top1_company": "Meta",
+      "top1_score": 96.0
+    }
+  ]
+}

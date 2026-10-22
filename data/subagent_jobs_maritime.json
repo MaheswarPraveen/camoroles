@@ -1,0 +1,167 @@
+[
+  {
+    "title": "Chief Engineer, Dive-LD",
+    "company": "Anduril Maritime",
+    "apply_url": "https://boards.greenhouse.io/andurilindustries/jobs/5251191007",
+    "location": "Quincy, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["AUVs", "Dive-LD", "Subsea Sensing", "Naval Defense", "Systems Engineering", "Marine Robotics"],
+    "description": "Serves as chief technical authority for Anduril flagship Dive-LD Large Displacement Autonomous Undersea Vehicle platform, guiding hardware/software architecture."
+  },
+  {
+    "title": "Senior Propulsion & Hydrodynamics Engineer",
+    "company": "Anduril Maritime",
+    "apply_url": "https://boards.greenhouse.io/andurilindustries/jobs/5166860007",
+    "location": "Costa Mesa, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Marine Hydrodynamics", "CFD Modeling", "Propulsor Design", "AUV", "Electric Thrusters"],
+    "description": "Leads hydrodynamic analysis, drag resistance modeling, fairing geometry design, and electric propulsion integration for high-endurance autonomous subsea vehicles."
+  },
+  {
+    "title": "Staff Robotics Engineer, Maritime",
+    "company": "Anduril Maritime",
+    "apply_url": "https://boards.greenhouse.io/andurilindustries/jobs/5187310007",
+    "location": "Quincy, MA",
+    "ats_type": "greenhouse",
+    "experience_min": 7,
+    "experience_max": 12,
+    "skills": ["Marine Autonomy", "C++", "Python", "Motion Planning", "Obstacle Avoidance", "Gazebo"],
+    "description": "Architects trusted safe navigation, obstacle avoidance, and situational awareness software systems deployed across maritime autonomous vehicles."
+  },
+  {
+    "title": "Robotics Software Engineer - Undersea Dominance",
+    "company": "Anduril Maritime",
+    "apply_url": "https://boards.greenhouse.io/andurilindustries/jobs/5196757007",
+    "location": "Costa Mesa, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Subsea Robotics", "C++", "Sensor Fusion", "State Estimation", "Autonomous Navigation"],
+    "description": "Develops real-time perception, state estimation, and path-planning algorithms directly integrated into next-generation autonomous undersea warfare vehicles."
+  },
+  {
+    "title": "Software Engineer, Autonomous Systems",
+    "company": "Saildrone",
+    "apply_url": "https://boards.greenhouse.io/saildroneinc/jobs/4413114009",
+    "location": "Alameda, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["C++", "Marine Autonomy", "USV", "Real-Time Systems", "Hardware Bring-up"],
+    "description": "Designs, implements, and deploys production autonomy software in C++ governing mission execution, navigation, and hardware control across Saildrone uncrewed ocean fleet."
+  },
+  {
+    "title": "Perception & Sensor Fusion Engineer",
+    "company": "Saildrone",
+    "apply_url": "https://boards.greenhouse.io/saildroneinc/jobs/4413094009",
+    "location": "Alameda, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Multimodal Sensor Fusion", "Computer Vision", "Radar", "LiDAR", "Sonar Integration", "PyTorch", "C++"],
+    "description": "Engineers real-time sensor fusion and computer vision pipelines integrating optical cameras, radar, and acoustic sensors for target tracking in offshore sea states."
+  },
+  {
+    "title": "Platform Lead / Naval Architect - Staff Mechanical Engineer",
+    "company": "Saildrone",
+    "apply_url": "https://boards.greenhouse.io/saildroneinc/jobs/4449264009",
+    "location": "Alameda, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 7,
+    "experience_max": 12,
+    "skills": ["Naval Architecture", "Marine Hydrostatics", "Composite Structures", "ABS Rules", "DNV GL Rules"],
+    "description": "Serves as lead naval architect and platform engineering owner, guiding static/dynamic stability, composite hull design, and regulatory compliance for long-endurance USVs."
+  },
+  {
+    "title": "USV Pilot",
+    "company": "Saildrone",
+    "apply_url": "https://boards.greenhouse.io/saildroneinc/jobs/4112719009",
+    "location": "Alameda, CA",
+    "ats_type": "greenhouse",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["USV Fleet Piloting", "COLREGS Maritime Rules", "Maritime Navigation", "Mission Control Operations", "Ocean Telemetry"],
+    "description": "Conducts 24/7/365 mission operations and real-time piloting oversight for deployed autonomous surface vehicles executing defense and scientific missions worldwide."
+  },
+  {
+    "title": "Staff Robotics Engineer",
+    "company": "Bedrock Ocean Exploration",
+    "apply_url": "https://jobs.ashbyhq.com/bedrockocean/aa3026da-16e2-4ab0-b3f4-e92f4569c26e",
+    "location": "Brooklyn, NY",
+    "ats_type": "ashby",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["AUVs", "ROS 2", "C++", "Python", "GNC", "State Estimation", "Sensor Fusion", "FDIR"],
+    "description": "Directs core vehicle software architecture and autonomy systems for commercial AUV submersibles mapping the deep ocean floor."
+  },
+  {
+    "title": "Hydrographer/Geophysicist",
+    "company": "Bedrock Ocean Exploration",
+    "apply_url": "https://jobs.ashbyhq.com/bedrockocean/80714609-71a3-4de6-8728-71869e4a6257",
+    "location": "Worldwide Remote",
+    "ats_type": "ashby",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["MBES", "Side-Scan Sonar", "Sub-Bottom Profiler", "Bathymetric Processing", "GIS", "AUV Data"],
+    "description": "Performs high-resolution processing and quality assurance on seafloor bathymetry, side-scan sonar, and sub-bottom acoustic datasets captured by autonomous survey vehicles."
+  },
+  {
+    "title": "Chief Engineer (Autonomous Underwater Vehicle)",
+    "company": "Ocean Infinity",
+    "apply_url": "https://apply.workable.com/ocean-infinity/j/8CDB9F77FC",
+    "location": "Southampton, UK",
+    "ats_type": "workable",
+    "experience_min": 10,
+    "experience_max": 20,
+    "skills": ["AUVs", "Subsea Robotics", "Acoustic Navigation", "USBL", "INS", "DVL", "Marine Thrusters"],
+    "description": "Acts as chief technical authority across design, hardware/software integration, and field deployment for Ocean Infinity next-generation deep-sea AUVs."
+  },
+  {
+    "title": "Engineering Manager - Robotics",
+    "company": "Ocean Infinity",
+    "apply_url": "https://apply.workable.com/ocean-infinity/j/75C6377FC5",
+    "location": "London, UK",
+    "ats_type": "workable",
+    "experience_min": 6,
+    "experience_max": 12,
+    "skills": ["Robotics Leadership", "ROS Middleware", "Autonomous Marine Systems", "HIL Testing", "Marine Systems"],
+    "description": "Leads a multidisciplinary robotics engineering team responsible for autonomy, robotic middleware, and onboard software powering remote uncrewed vessels."
+  },
+  {
+    "title": "Senior Electrical Engineer",
+    "company": "Terradepth",
+    "apply_url": "https://recruiting.paylocity.com/recruiting/jobs/Details/4172511/Terradepth-Inc/Senior-Electrical-Engineer",
+    "location": "Panama City Beach, FL",
+    "ats_type": "direct",
+    "experience_min": 7,
+    "experience_max": 12,
+    "skills": ["Subsea Robotics", "PCB Design", "Marine Power Management", "BMS", "SWaP-C", "Marine Electronics"],
+    "description": "Owns end-to-end electrical design for autonomous subsea robotics platforms, developing rugged power conversion and subsea sensor interfaces in marine environments."
+  },
+  {
+    "title": "Field Service Engineer - Customer & Technical Liaison",
+    "company": "Terradepth",
+    "apply_url": "https://recruiting.paylocity.com/recruiting/jobs/Details/4462965/Terradepth-Inc/Field-Service-Engineer-Customer-Technical-Liaison",
+    "location": "Worldwide Remote",
+    "ats_type": "direct",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["AUV Deployment", "Sonar", "Acoustic Sensors", "Linux Admin", "Hydrographic Survey", "Field Triage"],
+    "description": "Leads on-site ocean testing, demonstrations, and mission integrations for Terradepth autonomous undersea vehicles, serving as technical liaison."
+  },
+  {
+    "title": "Lead Principal Software Engineer",
+    "company": "Terradepth",
+    "apply_url": "https://recruiting.paylocity.com/recruiting/jobs/Details/4379863/Terradepth-Inc/Lead-Principal-Software-Engineer",
+    "location": "Worldwide Remote",
+    "ats_type": "direct",
+    "experience_min": 8,
+    "experience_max": 15,
+    "skills": ["Bathymetric Data", "Geospatial Data", "AWS GovCloud", "Kubernetes", "Python Microservices", "Go", "CesiumJS"],
+    "description": "Leads software architecture for Absolute Ocean (AO), Terradepth cloud-native subsea intelligence platform handling high-volume 3D acoustic and seafloor datasets."
+  }
+]

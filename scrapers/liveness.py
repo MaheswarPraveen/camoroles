@@ -32,15 +32,21 @@ def verify_all_active_jobs():
         "Content-Type": "application/json"
     }
 
-    jobs_url = f"{SUPABASE_URL.rstrip('/')}/rest/v1/jobs?is_active=eq.true&select=id,title,company,apply_url"
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
+    jobs_url = f"{SUPABASE_URL.rstrip('/')}/rest/v1/jobs?is_active=eq.true&order=last_verified_at.asc.nullsfirst&limit=150&select=id,title,company,apply_url"
     r = httpx.get(jobs_url, headers=db_headers, timeout=15.0)
     jobs = r.json() if r.status_code == 200 else []
 
-    print(f"[{datetime.now(timezone.utc).isoformat()}] Checking liveness for {len(jobs)} active jobs...")
+    print(f"[{datetime.now(timezone.utc).isoformat()}] Checking liveness for {len(jobs)} jobs (oldest verified batch)...")
     active_count = 0
     closed_count = 0
 
-    with httpx.Client(timeout=12.0, follow_redirects=True, headers=HEADERS) as client:
+    with httpx.Client(timeout=8.0, follow_redirects=True, headers=HEADERS) as client:
         for job in jobs:
             url = job["apply_url"]
             try:
@@ -61,7 +67,7 @@ def verify_all_active_jobs():
 
                 patch_url = f"{SUPABASE_URL.rstrip('/')}/rest/v1/jobs?id=eq.{job['id']}"
                 if is_closed:
-                    print(f"✖ CLOSED: {job['company']} - {job['title']} -> marked inactive")
+                    print(f"[CLOSED] {job['company']} - {job['title']} -> marked inactive")
                     httpx.patch(patch_url, headers=db_headers, json={
                         "is_active": False,
                         "last_verified_at": datetime.now(timezone.utc).isoformat()
@@ -74,7 +80,7 @@ def verify_all_active_jobs():
                     active_count += 1
 
             except Exception as e:
-                print(f"⚠ Liveness probe error for {url}: {e}")
+                print(f"[WARN] Liveness probe error for {url}: {e}")
 
     print(f"Liveness check complete. Active: {active_count}, Pruned: {closed_count}")
 

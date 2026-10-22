@@ -1,0 +1,178 @@
+[
+  {
+    "title": "Protocol Security Engineer",
+    "company": "Matter Labs",
+    "apply_url": "https://jobs.ashbyhq.com/matter-labs",
+    "location": "Worldwide Remote",
+    "ats_type": "ashby",
+    "experience_min": 4,
+    "experience_max": 8,
+    "skills": ["Cryptography", "Zero-Knowledge Proofs", "zkSync", "Solidity", "Rust", "Threat Modeling"],
+    "description": "Protects core zero-knowledge infrastructure and private settlement protocols (zkSync & Prividium) through offensive threat modeling and vulnerability research."
+  },
+  {
+    "title": "Forward Deployed Engineer",
+    "company": "Matter Labs",
+    "apply_url": "https://jobs.ashbyhq.com/matter-labs",
+    "location": "Worldwide Remote",
+    "ats_type": "ashby",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Zero-Knowledge Proofs", "Rust", "TypeScript", "Distributed Systems", "Settlement Architecture"],
+    "description": "Bridges core engineering with institutional partners to deploy custom, highly compliant zero-knowledge privacy chains and settlement flows."
+  },
+  {
+    "title": "ZK Proof Engineer",
+    "company": "Axiom",
+    "apply_url": "https://jobs.ashbyhq.com/axiom",
+    "location": "New York, NY",
+    "ats_type": "ashby",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Zero-Knowledge Proofs", "Rust", "zkVM", "RISC-V", "LLVM", "SNARKs/STARKs"],
+    "description": "Implements and optimizes cryptographic code for zero-knowledge proof generation, bridging low-level architectures with novel ZK circuits."
+  },
+  {
+    "title": "Distributed Systems Engineer",
+    "company": "Axiom",
+    "apply_url": "https://jobs.ashbyhq.com/axiom",
+    "location": "New York, NY",
+    "ats_type": "ashby",
+    "experience_min": 4,
+    "experience_max": 8,
+    "skills": ["Distributed Systems", "Rust", "Zero-Knowledge Proofs", "Prover Networks", "Cloud Infrastructure"],
+    "description": "Designs and scales distributed ZK rollup nodes, sequencers, and decentralized prover networks to orchestrate high-throughput proof generation."
+  },
+  {
+    "title": "Senior Software Engineer, CUDA",
+    "company": "Provable (Aleo)",
+    "apply_url": "https://jobs.ashbyhq.com/provable",
+    "location": "Worldwide Remote",
+    "ats_type": "ashby",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["CUDA", "Zero-Knowledge Proofs", "C++", "GPU Acceleration", "HPC", "Low-Level Systems"],
+    "description": "Designs and optimizes high-performance confidential computing and zero-knowledge proof generation pipelines accelerated by GPUs."
+  },
+  {
+    "title": "Cryptography & zkVM Systems Engineer",
+    "company": "Succinct Labs",
+    "apply_url": "https://jobs.ashbyhq.com/succinct",
+    "location": "San Francisco, CA",
+    "ats_type": "ashby",
+    "experience_min": 2,
+    "experience_max": 8,
+    "skills": ["Rust", "Zero-Knowledge Proofs", "zkVM", "SP1", "STARKs/SNARKs", "RISC-V"],
+    "description": "Builds high-performance zkVM infrastructure (SP1) and decentralized proving marketplace networks for zero-knowledge developers."
+  },
+  {
+    "title": "Sales Engineer, Product Integrations",
+    "company": "Zama",
+    "apply_url": "https://www.zama.ai/careers",
+    "location": "Paris, France",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Fully Homomorphic Encryption", "FHE", "TFHE-rs", "fhEVM", "Rust", "Python"],
+    "description": "Acts as primary technical interface for partners implementing Zama open-source Fully Homomorphic Encryption (FHE) libraries."
+  },
+  {
+    "title": "Security DevOps Engineer",
+    "company": "Zama",
+    "apply_url": "https://www.zama.ai/careers",
+    "location": "Paris, France",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 6,
+    "skills": ["DevSecOps", "FHE Security", "CI/CD Security", "Linux", "Vulnerability Assessment"],
+    "description": "Embeds rigorous security practices and automated vulnerability scanning into pipelines supporting Zama confidential FHE protocols."
+  },
+  {
+    "title": "Blockchain Security Researcher",
+    "company": "StarkWare",
+    "apply_url": "https://starkware.co/careers/",
+    "location": "Worldwide Remote",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["STARKs", "Cairo", "Cryptography", "Rust", "Python", "Exploit Development"],
+    "description": "Performs protocol vulnerability research, offensive attack simulation, and cryptographic review across StarkWare STARK-based scalability infrastructure."
+  },
+  {
+    "title": "R&D Hardware Acceleration Engineer",
+    "company": "Ingonyama",
+    "apply_url": "https://www.ingonyama.com/careers",
+    "location": "Worldwide Remote",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Zero-Knowledge Hardware Acceleration", "CUDA", "Sumcheck Protocol", "Polynomial Arithmetic", "Rust", "FPGA/ASIC"],
+    "description": "Designs specialized GPU and hardware micro-architectures (ICICLE) optimizing compute-heavy ZK cryptographic primitives including MSM."
+  },
+  {
+    "title": "Senior Backend Software Engineer - Quantum Cryptography",
+    "company": "Qrypt",
+    "apply_url": "https://jobs.lever.co/qrypt/",
+    "location": "Austin, TX",
+    "ats_type": "lever",
+    "experience_min": 6,
+    "experience_max": 12,
+    "skills": ["Rust", "Post-Quantum Cryptography", "QRNG", "Systems Programming", "Linux", "C++"],
+    "description": "Architects and implements high-assurance backend microservices in Rust delivering quantum entropy and quantum-resistant ciphers."
+  },
+  {
+    "title": "Senior Product Manager - Post-Quantum Cryptography",
+    "company": "Qrypt",
+    "apply_url": "https://jobs.lever.co/qrypt/",
+    "location": "Austin, TX",
+    "ats_type": "lever",
+    "experience_min": 5,
+    "experience_max": 10,
+    "skills": ["Post-Quantum Cryptography", "NIST PQC Standards", "Quantum Entropy", "Key Management Systems"],
+    "description": "Directs commercial product roadmap translating quantum random number generation and post-quantum cryptographic primitives into enterprise security solutions."
+  },
+  {
+    "title": "Research Engineer, Zero-Knowledge Verification",
+    "company": "Singapore AI Safety Hub",
+    "apply_url": "https://jobs.ashbyhq.com/sash",
+    "location": "London, UK",
+    "ats_type": "ashby",
+    "experience_min": 2,
+    "experience_max": 6,
+    "skills": ["Zero-Knowledge Proofs", "STARKs/SNARKs", "Halo2", "Plonky3", "Rust", "AI Verification"],
+    "description": "Researches and prototypes zero-knowledge proof verification protocols to audit AI compute in datacenters without compromising model weights."
+  },
+  {
+    "title": "Security Engineer: Cryptography / Zero-Knowledge",
+    "company": "Asymmetric Research",
+    "apply_url": "https://jobs.ashbyhq.com/asymmetric.re",
+    "location": "Worldwide Remote",
+    "ats_type": "ashby",
+    "experience_min": 3,
+    "experience_max": 7,
+    "skills": ["Zero-Knowledge Proofs", "Circuit Auditing", "Rust", "Fuzzing", "Cryptographic Primitives"],
+    "description": "Performs specialized cryptographic audits and automated fuzzing on zero-knowledge circuits, rollup provers, and privacy-preserving Layer 1/2 protocols."
+  },
+  {
+    "title": "Cryptography Software Engineer (Post-Quantum)",
+    "company": "PQShield",
+    "apply_url": "https://pqshield.com/careers/",
+    "location": "Oxford, UK",
+    "ats_type": "direct",
+    "experience_min": 3,
+    "experience_max": 8,
+    "skills": ["Post-Quantum Cryptography", "Lattice-Based Cryptography", "NIST PQC", "ML-KEM", "ML-DSA", "C++"],
+    "description": "Implements and hardens standardized post-quantum cryptographic algorithms with side-channel attack countermeasures."
+  },
+  {
+    "title": "Staff Software Engineer, Platform (Quantum & AI Security)",
+    "company": "SandboxAQ",
+    "apply_url": "https://jobs.ashbyhq.com/sandboxaq",
+    "location": "Palo Alto, CA",
+    "ats_type": "ashby",
+    "experience_min": 7,
+    "experience_max": 12,
+    "skills": ["Post-Quantum Cryptography", "Crypto-Agility", "Distributed Systems", "Python", "Go", "TLS/PKI Migration"],
+    "description": "Builds scalable enterprise platform services supporting SandboxAQ AQtive Guard suite to monitor legacy cryptographic inventory and automate PQC migration."
+  }
+]
