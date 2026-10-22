@@ -53,8 +53,8 @@ Deno.serve(async (req) => {
     if (mode === "enrich") return json(await runEnrich());
     return json({ error: "unknown mode" }, 400);
   } catch (e) {
-    await logRun(mode, null, { note: `crash: ${String(e).slice(0, 300)}` });
-    return json({ error: String(e) }, 500);
+    await logRun(mode, null, { note: `crash: ${errText(e)}` });
+    return json({ error: errText(e) }, 500);
   }
 });
 
@@ -103,7 +103,14 @@ async function runHarvest() {
       p_jobs: listing,
       p_allow_remove: allowRemove,
     });
-    if (applyErr) throw applyErr;
+    if (applyErr) {
+      // Mark this board as run anyway, so one bad board cannot block the rest of the queue.
+      const msg = errText(applyErr);
+      await db.from("job_sources").update({ last_run_at: new Date().toISOString(), last_status: `save failed: ${msg}` }).eq("id", src.id);
+      await logRun("harvest", label, { note: `save failed: ${msg}` });
+      results.push({ source: label, error: msg });
+      continue;
+    }
 
     await db.from("job_sources").update({
       last_run_at: new Date().toISOString(),
@@ -414,6 +421,12 @@ async function logRun(mode: string, source: string | null, r: { added?: number; 
     enriched: r.enriched || 0,
     note: r.note || null,
   });
+}
+
+// Supabase errors are plain objects, so String(e) only gives "[object Object]".
+function errText(e: any) {
+  const msg = e?.message ? `${e.code ? e.code + " " : ""}${e.message}` : String(e);
+  return msg.slice(0, 300);
 }
 
 function json(data: unknown, status = 200) {
