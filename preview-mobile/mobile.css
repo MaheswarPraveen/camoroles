@@ -603,3 +603,19 @@
 .m-plan-option em { font-style: normal; font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 0.04em; }
 .m-plan-active { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); }
 .m-plan-active b { color: var(--gold); }
+
+/* Close buttons: a clear round X that never sits on top of content */
+.job-modal-close-btn {
+  display: grid !important; place-items: center;
+  width: 44px !important; height: 44px !important; padding: 0 !important;
+  border-radius: 50% !important;
+  background: var(--surface-sunken) !important; border: 1px solid var(--line-strong) !important;
+  color: var(--ink) !important; cursor: pointer; z-index: 5;
+  -webkit-tap-highlight-color: transparent;
+}
+.job-modal-close-btn::before, .job-modal-close-btn::after { display: none !important; }
+.job-modal-close-btn:active { transform: scale(0.92); }
+@media (max-width: 767px) {
+  .plans-modal-dialog { position: relative !important; padding-top: 70px !important; }
+  .plans-modal-dialog .job-modal-close-btn { position: absolute !important; top: 14px !important; right: 14px !important; }
+}

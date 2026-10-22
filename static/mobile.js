@@ -525,11 +525,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setupNavPill();
   updateProBadgeUI();
 
-  const closeBtn = document.querySelector('.job-modal-close-btn');
-  if (closeBtn && !closeBtn.children.length) {
-    closeBtn.setAttribute('aria-label', 'Close');
-    closeBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
-  }
+  // Every panel's close button gets a real X (job details and the pricing panel share the class).
+  document.querySelectorAll('.job-modal-close-btn').forEach((btn) => {
+    if (btn.children.length) return;
+    btn.setAttribute('aria-label', 'Close');
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  });
 
   const aiText = document.getElementById('ai-bar-summary-text');
   if (aiText && isPhone()) aiText.textContent = 'Ask the AI recruiter…';
