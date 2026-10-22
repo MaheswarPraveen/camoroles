@@ -26,7 +26,7 @@ let activeSelectedPlan = 'month';
 let isUserPro = false; // set only from the server's /api/profile answer
 let userUnlimitedUntil = null;
 try { localStorage.removeItem('camouroles_pro_unlimited'); localStorage.removeItem('camouroles_pro_until'); } catch (e) {}
-let currentTheme = localStorage.getItem('camouroles_theme') || 'dark';
+let currentTheme = localStorage.getItem('camouroles_theme') || 'light';
 let searchDebounceTimer = null;
 let currentView = 'feed'; // 'feed', 'saved', 'profile'
 let searchMode = 'ai'; // 'ai' or 'manual'
