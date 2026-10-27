@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CamouRoles — Find</title>
+<!--
+  "Find." — CamouRoles launch film. 9:16, 1080x1920, 120 BPM, 54 beats (27 s), one continuous take.
+  Every style is computed from time inside seek(t): no CSS transitions, no timers, no state between frames.
+  Springs are closed-form step responses; a value with many targets is the sum of one spring per change.
+  See BEATMAP.md for the beat-by-beat plan.
+-->
+<style>
+  @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo-var.ttf") format("truetype"); font-weight: 100 900; font-stretch: 62% 125%; }
+  @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-var.ttf") format("truetype"); font-weight: 100 900; }
+  html, body { margin: 0; background: #000; }
+  :root { --canvas: #F4F1EA; --ink: #0B0B0C; }
+  #frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--canvas); }
+  #cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; }
+  .abs { position: absolute; }
+  .mask { position: absolute; overflow: hidden; }
+  .glass { position: absolute; overflow: hidden; isolation: isolate; }
+  .glass > svg { position: absolute; left: 0; top: 0; }
+  .glass .rim { position: absolute; inset: 0; border-radius: inherit;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,.95), inset 0 -2px 0 rgba(0,0,0,.22), inset 0 0 0 1.5px rgba(255,255,255,.55), 0 18px 40px rgba(0,0,0,.28);
+    background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.04) 45%, rgba(255,255,255,.08)); }
+  .wordmark { font-family: "Archivo"; font-weight: 800; color: var(--ink); white-space: nowrap; line-height: 1; }
+  .geist { font-family: "Geist"; }
+</style>
+</head>
+<body>
+<div id="frame"><div id="cam"></div></div>
+<script>
+// =====================================================================================
+// Time
+// =====================================================================================
+const BEAT = 0.5, W = 1080, H = 1920, DUR = 27.0;
+const bt = (n) => n * BEAT;
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const easeInOut = (x) => { x = clamp(x); return x < 0.5 ? 4 * x * x * x : 1 - (-2 * x + 2) ** 3 / 2; };
+const easeOut = (x) => { x = clamp(x); return 1 - (1 - x) ** 3; };
+const easeIn = (x) => { x = clamp(x); return x * x * x; };
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const lerpRect = (a, b, k) => ({ x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k), w: lerp(a.w, b.w, k), h: lerp(a.h, b.h, k) });
+
+function springStep(tau, freq = 3.2, zeta = 0.55) {
+  if (tau <= 0) return 0;
+  const w = 2 * Math.PI * freq;
+  if (zeta >= 1) return 1 - Math.exp(-w * tau) * (1 + w * tau);
+  const wd = w * Math.sqrt(1 - zeta * zeta);
+  return 1 - Math.exp(-zeta * w * tau) * (Math.cos(wd * tau) + (zeta * w / wd) * Math.sin(wd * tau));
+}
+function springs(t, init, changes, freq = 3.0, zeta = 0.62) {
+  let v = init, prev = init;
+  for (const [t0, target] of changes) { v += (target - prev) * springStep(t - t0, freq, zeta); prev = target; }
+  return v;
+}
+const pop = (t, t0, f = 3.6, z = 0.48) => springStep(t - t0, f, z);
+
+// =====================================================================================
+// Assets
+// =====================================================================================
+const P = (n) => `assets/photos/set3/${n}`;
+// people-free robotics + embedded set (owner: no people in photos)
+const PHOTOS = {
+  carline: P("n01_19233057.jpg"), cobot: P("n02_16544054.jpg"), pi: P("n03_1472443.jpg"), arduino: P("n04_35673122.jpg"),
+  servo: P("n05_35652459.jpg"), chip: P("n06_3665442.jpg"), hand: P("n07_8386369.jpg"), humanoid: P("n08_29054364.jpg"),
+  bots: P("n09_8566538.jpg"), botsGold: P("n09_8566538_golden.jpg"), printer: P("n10_30720501.jpg"),
+};
+const IMG = {};
+let WALL = null;
+const GLYPH = {};       // glass glyph assets: { [key]: {w,h,mask,map,rim} }
+const WM = {};          // wordmark metrics
+
+async function loadAssets() {
+  await Promise.all(Object.entries(PHOTOS).map(([k, src]) => new Promise((res) => {
+    const im = new Image(); im.onload = () => { IMG[k] = { src, w: im.naturalWidth, h: im.naturalHeight, el: im }; res(); }; im.src = src;
+  })));
+  const blob = await (await fetch("assets/video/wall_intra.mp4")).blob();
+  WALL = document.createElement("video"); WALL.muted = true; WALL.preload = "auto"; WALL.src = URL.createObjectURL(blob);
+  await new Promise((r) => WALL.addEventListener("loadeddata", r, { once: true }));
+  await document.fonts.load('800 230px "Archivo"'); await document.fonts.load('600 40px "Geist"'); await document.fonts.load('500 40px "Geist"');
+  measureWordmark();
+  for (const ch of "Find") makeGlyph(ch, 250, "w");
+  for (const ch of "9:41") makeGlyph(ch, 210, "c");
+}
+async function seekVideo(v, time) {
+  if (Math.abs(v.currentTime - time) < 1e-3) return;
+  await new Promise((r) => { v.addEventListener("seeked", r, { once: true }); v.currentTime = time; });
+}
+function cover(key, x, y, w, h, zoom = 1, fx = 0.5, fy = 0.5) {
+  const im = IMG[key], s = Math.max(w / im.w, h / im.h) * zoom;
+  const iw = im.w * s, ih = im.h * s;
+  return { href: im.src, x: x + (w - iw) * fx, y: y + (h - ih) * fy, w: iw, h: ih };
+}
+const FULL = (key) => cover(key, 0, 0, W, H);
+
+// =====================================================================================
+// Wordmark "Find." — measured once; squeeze = every letter moves toward the dot by the
+// same factor f and its drawn width follows (narrow wdth 125 -> 62, then scale the rest).
+// =====================================================================================
+const WM_SIZE = 250;
+function measureWordmark() {
+  const probe = document.createElement("span");
+  probe.className = "wordmark"; probe.style.cssText = `position:absolute;visibility:hidden;font-size:${WM_SIZE}px;`;
+  document.body.appendChild(probe);
+  const width = (txt, stretch) => { probe.style.fontStretch = stretch + "%"; probe.textContent = txt; return probe.getBoundingClientRect().width; };
+  WM.letters = "Find".split("").map((ch) => ({ ch, w125: width(ch, 125), w62: width(ch, 62) }));
+  WM.dot = WM_SIZE * 0.2;                                     // the period: a square dot on the baseline
+  const total = WM.letters.reduce((a, l) => a + l.w125, 0) + WM.dot * 1.15;
+  WM.x0 = W / 2 - total / 2;
+  WM.baseline = 960 + WM_SIZE * 0.36;
+  WM.dotX = WM.x0 + WM.letters.reduce((a, l) => a + l.w125, 0) + WM.dot * 0.12;   // left of dot
+  WM.dotCx = WM.dotX + WM.dot / 2; WM.dotCy = WM.baseline - WM.dot / 2;
+  probe.remove();
+}
+function wordmark(f, ink = "#0B0B0C") {
+  // f = 1 rest, 0 = fully squeezed into the dot
+  let x = WM.x0, html = "";
+  for (const L of WM.letters) {
+    const xLeft = WM.dotX + (x - WM.dotX) * f;
+    const target = L.w125 * f;
+    const stretch = clamp(lerp(62, 125, (target - L.w62) / (L.w125 - L.w62)), 62, 125);
+    const natural = target >= L.w62 ? target : L.w62;
+    const sx = target > L.w125 ? target / L.w125 : target >= L.w62 ? 1 : Math.max(0, target / L.w62);
+    if (target > 0.5) html += `<div class="abs wordmark" style="left:${xLeft}px;top:${WM.baseline - WM_SIZE * 0.86}px;font-size:${WM_SIZE}px;font-stretch:${stretch}%;transform:scaleX(${sx});transform-origin:0 0;color:${ink}">${L.ch}</div>`;
+    x += L.w125;
+  }
+  return html;
+}
+
+// =====================================================================================
+// Liquid glass. Each glass element holds its own clone of the scene behind it, refracted by
+// an feImage displacement map (rounded-rect distance field) at three scales for chromatic
+// edges, plus a rim light. (backdrop-filter:url() misreads displacement maps in Chromium.)
+// =====================================================================================
+const mapCache = new Map();
+function rrectMap(w, h, r, bezel = 36) {
+  w = Math.max(2, Math.round(w / 4) * 4); h = Math.max(2, Math.round(h / 4) * 4); r = Math.min(Math.round(r), w / 2, h / 2);
+  const key = `${w}x${h}r${r}b${bezel}`;
+  if (mapCache.has(key)) return mapCache.get(key);
+  // render at quarter size then let feImage stretch it (smooth field, 16x cheaper)
+  const sw = Math.max(2, w / 4 | 0), sh = Math.max(2, h / 4 | 0), sr = r / 4, sb = bezel / 4;
+  const c = document.createElement("canvas"); c.width = sw; c.height = sh;
+  const g = c.getContext("2d"), img = g.createImageData(sw, sh);
+  for (let y = 0; y < sh; y++) for (let x = 0; x < sw; x++) {
+    const px = x + 0.5 - sw / 2, py = y + 0.5 - sh / 2;
+    const qx = Math.abs(px) - (sw / 2 - sr), qy = Math.abs(py) - (sh / 2 - sr);
+    const d = Math.hypot(Math.max(qx, 0), Math.max(qy, 0)) + Math.min(Math.max(qx, qy), 0) - sr;
+    let nx = 0, ny = 0;
+    if (qx > 0 && qy > 0) { const L = Math.hypot(qx, qy) || 1; nx = qx / L; ny = qy / L; } else if (qx > qy) nx = 1; else ny = 1;
+    nx *= Math.sign(px); ny *= Math.sign(py);
+    const bend = Math.pow(clamp(1 + d / sb), 2.2);
+    const i = (y * sw + x) * 4;
+    img.data[i] = 128 - nx * bend * 127; img.data[i + 1] = 128 - ny * bend * 127; img.data[i + 2] = 128; img.data[i + 3] = 255;
+  }
+  g.putImageData(img, 0, 0);
+  const url = c.toDataURL();
+  if (mapCache.size > 400) mapCache.clear();
+  mapCache.set(key, url);
+  return url;
+}
+let uid = 0;
+function dispFilter(id, map, w, h, s) {
+  const ch = (n, k, m) => `<feDisplacementMap in="SourceGraphic" in2="map" scale="${s * k}" xChannelSelector="R" yChannelSelector="G" result="d${n}"/><feColorMatrix in="d${n}" type="matrix" values="${m} 0 0 0 1 0" result="${n}"/>`;
+  return `<filter id="${id}" x="0" y="0" width="${w}" height="${h}" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feImage href="${map}" x="0" y="0" width="${w}" height="${h}" preserveAspectRatio="none" result="map"/>
+    ${ch("r", 1, "1 0 0 0 0 0 0 0 0 0 0 0 0 0 0")}${ch("g", 1.07, "0 0 0 0 0 0 1 0 0 0 0 0 0 0 0")}${ch("b", 1.14, "0 0 0 0 0 0 0 0 0 0 0 0 1 0 0")}
+    <feBlend in="r" in2="g" mode="screen" result="rg"/><feBlend in="rg" in2="b" mode="screen"/></filter>`;
+}
+function layerImgs(layers, ox, oy, idp) {
+  return layers.map((L, j) => {
+    const clip = L.clip ? `<clipPath id="${idp}c${j}">${L.clip.r ? `<circle cx="${L.clip.cx - ox}" cy="${L.clip.cy - oy}" r="${L.clip.r}"/>` : `<rect x="${L.clip.x - ox}" y="${L.clip.y - oy}" width="${L.clip.w}" height="${L.clip.h}"/>`}</clipPath>` : "";
+    if (L.fill) return `<rect x="${L.x - ox}" y="${L.y - oy}" width="${L.w}" height="${L.h}" fill="${L.fill}"${L.clip ? ` clip-path="url(#${idp}c${j})"` : ""}/>`;
+    return `${clip}<image href="${L.href}" x="${L.x - ox}" y="${L.y - oy}" width="${L.w}" height="${L.h}" preserveAspectRatio="none"${L.clip ? ` clip-path="url(#${idp}c${j})"` : ""}/>`;
+  }).join("");
+}
+// glass rounded rect at stage rect (gx,gy,w,h) showing `layers` (stage coords) behind it
+function glass(gx, gy, w, h, r, layers, o = {}) {
+  if (w < 2 || h < 2) return "";
+  const id = `g${uid++}`, map = rrectMap(w, h, r, o.bezel || 36), s = o.strength ?? 60, mag = o.mag || 1;
+  const tf = mag !== 1 ? ` transform="translate(${w / 2} ${h / 2}) scale(${mag}) translate(${-w / 2} ${-h / 2})"` : "";
+  return `<div class="glass" style="left:${gx}px;top:${gy}px;width:${w}px;height:${h}px;border-radius:${r}px">
+    <svg width="${w}" height="${h}"><defs>${dispFilter(id, map, w, h, s)}</defs>
+      <g filter="url(#${id})"><g${tf}>${layerImgs(layers, gx, gy, id)}</g></g><rect width="${w}" height="${h}" fill="white" opacity="${o.tint ?? 0.12}"/></svg>
+    <div class="rim"></div>${o.inner || ""}</div>`;
+}
+
+// Glass glyphs: a canvas distance field per glyph gives the displacement map, the mask and the highlights.
+function makeGlyph(ch, size, set) {
+  const c = document.createElement("canvas"), g = c.getContext("2d");
+  g.font = `800 ${size}px Archivo`; g.fontStretch = "expanded";
+  const m = g.measureText(ch), pad = 24;
+  const w = Math.ceil(m.width) + pad * 2, h = Math.ceil(size * 1.0) + pad * 2;
+  c.width = w; c.height = h;
+  g.font = `800 ${size}px Archivo`; g.fontStretch = "expanded"; g.fillStyle = "#fff"; g.textBaseline = "alphabetic";
+  g.fillText(ch, pad, pad + size * 0.82);
+  const a = g.getImageData(0, 0, w, h).data;
+  // two-pass chamfer distance (inside distance to the nearest outside pixel)
+  const INF = 1e6, D = new Float32Array(w * h);
+  for (let i = 0; i < w * h; i++) D[i] = a[i * 4 + 3] > 127 ? INF : 0;
+  const s2 = Math.SQRT2;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = y * w + x; if (!D[i]) continue;
+    let v = D[i]; if (x > 0) v = Math.min(v, D[i - 1] + 1); if (y > 0) v = Math.min(v, D[i - w] + 1);
+    if (x > 0 && y > 0) v = Math.min(v, D[i - w - 1] + s2); if (x < w - 1 && y > 0) v = Math.min(v, D[i - w + 1] + s2); D[i] = v; }
+  for (let y = h - 1; y >= 0; y--) for (let x = w - 1; x >= 0; x--) { const i = y * w + x; if (!D[i]) continue;
+    let v = D[i]; if (x < w - 1) v = Math.min(v, D[i + 1] + 1); if (y < h - 1) v = Math.min(v, D[i + w] + 1);
+    if (x < w - 1 && y < h - 1) v = Math.min(v, D[i + w + 1] + s2); if (x > 0 && y < h - 1) v = Math.min(v, D[i + w - 1] + s2); D[i] = v; }
+  const bezel = size * 0.075;
+  const mc = document.createElement("canvas"); mc.width = w; mc.height = h; const mg = mc.getContext("2d"), mi = mg.createImageData(w, h);
+  const rc = document.createElement("canvas"); rc.width = w; rc.height = h; const rg = rc.getContext("2d"), ri = rg.createImageData(w, h);
+  for (let y = 1; y < h - 1; y++) for (let x = 1; x < w - 1; x++) {
+    const i = y * w + x, d = D[i];
+    let gx = D[i + 1] - D[i - 1], gy = D[i + w] - D[i - w];
+    const L = Math.hypot(gx, gy) || 1; gx /= L; gy /= L;              // points inward
+    const bend = d > 0 ? Math.pow(clamp(1 - d / bezel), 2) : 0;
+    mi.data[i * 4] = 128 + gx * bend * 127; mi.data[i * 4 + 1] = 128 + gy * bend * 127; mi.data[i * 4 + 2] = 128; mi.data[i * 4 + 3] = 255;
+    const light = d > 0 ? clamp(bend * (0.55 + 0.45 * Math.max(0, gy))) : 0;   // top edges catch light
+    ri.data[i * 4] = ri.data[i * 4 + 1] = ri.data[i * 4 + 2] = 255; ri.data[i * 4 + 3] = Math.min(255, light * 320);
+  }
+  mg.putImageData(mi, 0, 0); rg.putImageData(ri, 0, 0);
+  GLYPH[set + ch] = { w, h, pad, mask: c.toDataURL(), map: mc.toDataURL(), rim: rc.toDataURL(), adv: m.width };
+}
+function glassGlyph(key, x, y, scale, layers, strength = 46) {
+  const G = GLYPH[key];
+  if (!G || scale <= 0.01) return "";
+  const id = `q${uid++}`;
+  return `<svg class="abs" style="left:${x}px;top:${y}px;transform:scale(${scale});transform-origin:${G.w / 2}px ${G.h * 0.6}px;overflow:visible;filter:drop-shadow(0 0 1.6px rgba(0,0,0,.55)) drop-shadow(0 12px 20px rgba(0,0,0,.4))" width="${G.w}" height="${G.h}">
+    <defs>${dispFilter(id, G.map, G.w, G.h, strength)}<mask id="${id}m" maskUnits="userSpaceOnUse" x="0" y="0" width="${G.w}" height="${G.h}"><image href="${G.mask}" width="${G.w}" height="${G.h}"/></mask></defs>
+    <g mask="url(#${id}m)"><g filter="url(#${id})">${layerImgs(layers, x, y, id)}</g><rect width="${G.w}" height="${G.h}" fill="white" opacity="0.26"/></g>
+    <image href="${G.rim}" width="${G.w}" height="${G.h}"/></svg>`;
+}
+function glassWord(text, set, cx, baselineTop, t0, t, layers, extra = 0) {
+  const keys = text.split("").map((c) => set + c);
+  const total = keys.reduce((a, k) => a + GLYPH[k].adv, 0) + extra * (keys.length - 1);
+  let x = cx - total / 2, html = "";
+  keys.forEach((k, i) => {
+    const G = GLYPH[k];
+    html += glassGlyph(k, x - G.pad, baselineTop - G.pad, pop(t, t0 + i * 0.07, 3.8, 0.45), layers);
+    x += G.adv + extra;
+  });
+  return html;
+}
+
+// =====================================================================================
+// Primitives
+// =====================================================================================
+function photo(layers, cls = "") {
+  const id = `p${uid++}`;
+  return `<svg class="abs ${cls}" style="left:0;top:0;overflow:visible" width="${W}" height="${H}">${layerImgs(layers, 0, 0, id)}</svg>`;
+}
+function box(r, style) { return `<div class="abs" style="left:${r.x}px;top:${r.y}px;width:${Math.max(0, r.w)}px;height:${Math.max(0, r.h)}px;${style}"></div>`; }
+function rise(x, y, w, h, html, k, style) {
+  return `<div class="mask" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><div class="abs" style="left:0;top:0;width:${w}px;height:${h}px;transform:translateY(${(1 - clamp(k, -0.2, 1.2)) * 105}%);${style}">${html}</div></div>`;
+}
+function cursorSVG(x, y, pressed = 0, ring = 0) {
+  const s = 1.7 * (1 - 0.14 * pressed);
+  const ringEl = ring > 0 ? `<svg class="abs" style="left:${x - 40}px;top:${y - 40}px" width="80" height="80"><circle cx="40" cy="40" r="32" fill="none" stroke="rgba(11,11,12,.18)" stroke-width="8"/><circle cx="40" cy="40" r="32" fill="none" stroke="#0B0B0C" stroke-width="8" stroke-linecap="round" stroke-dasharray="${2 * Math.PI * 32 * ring} 999" transform="rotate(-90 40 40)"/></svg>` : "";
+  return `${ringEl}<svg class="abs" style="left:${x}px;top:${y}px;transform:scale(${s});transform-origin:0 0;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))" width="28" height="36" viewBox="0 0 28 36">
+    <path d="M2 2 L2 28 L9 21 L14 33 L19 31 L14 19 L24 19 Z" fill="#0B0B0C" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>`;
+}
+const GOO = `<svg width="0" height="0" style="position:absolute"><defs><filter id="goo" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="16" result="b"/><feColorMatrix in="b" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 32 -14" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></defs></svg>`;
+
+// Iris: 6 blades around a hexagonal aperture. Each blade = its two aperture vertices, both
+// edge extensions out to the housing circle, and the SHORT arc between those two hits.
+function iris(cx, cy, R, open, rot, ink = "#151517") {
+  const a = R * clamp(open, 0, 1.05);
+  if (a >= R * 1.0) return "";
+  const V = [...Array(6)].map((_, i) => { const t = rot + i * Math.PI / 3; return [cx + a * Math.cos(t), cy + a * Math.sin(t)]; });
+  const hit = (p, d) => {                                   // ray p + s d (s>0) meets circle (cx,cy,R)
+    const fx = p[0] - cx, fy = p[1] - cy, b = fx * d[0] + fy * d[1], c = fx * fx + fy * fy - R * R;
+    const s = -b + Math.sqrt(Math.max(0, b * b - c)); return [p[0] + d[0] * s, p[1] + d[1] * s];
+  };
+  let out = "";
+  for (let i = 0; i < 6; i++) {
+    const A = V[i], B = V[(i + 1) % 6], Pv = V[(i + 5) % 6];
+    const dAB = [B[0] - A[0], B[1] - A[1]], Lab = Math.hypot(...dAB) || 1, e = [dAB[0] / Lab, dAB[1] / Lab];
+    const dPA = [A[0] - Pv[0], A[1] - Pv[1]], Lpa = Math.hypot(...dPA) || 1, ep = [dPA[0] / Lpa, dPA[1] / Lpa];
+    const h1 = hit(B, e), h2 = hit(A, ep);
+    let a1 = Math.atan2(h1[1] - cy, h1[0] - cx), a2 = Math.atan2(h2[1] - cy, h2[0] - cx);
+    let da = a2 - a1; while (da > Math.PI) da -= 2 * Math.PI; while (da < -Math.PI) da += 2 * Math.PI;   // short arc
+    const sweep = da > 0 ? 1 : 0;
+    const shade = 18 + i * 5;
+    out += `<path d="M${A[0]},${A[1]} L${B[0]},${B[1]} L${h1[0]},${h1[1]} A${R},${R} 0 0 ${sweep} ${h2[0]},${h2[1]} Z" fill="rgb(${shade},${shade},${shade + 3})" stroke="#2c2c30" stroke-width="2"/>`;
+  }
+  return `<svg class="abs" style="left:0;top:0" width="${W}" height="${H}"><clipPath id="irc${uid}"><circle cx="${cx}" cy="${cy}" r="${R}"/></clipPath><g clip-path="url(#irc${uid++})">${out}</g></svg>`;
+}
+
+// =====================================================================================
+// Layouts
+// =====================================================================================
+const TILE = 300, GX = W / 2 - TILE / 2, GY = 960 - TILE / 2;
+const GRID = {   // 3x3 paper map, touching
+  carline: { x: GX, y: GY, w: TILE, h: TILE },
+  cobot: { x: GX, y: GY - TILE, w: TILE, h: TILE }, bots: { x: GX, y: GY + TILE, w: TILE, h: TILE },
+  arduino: { x: GX - TILE, y: GY, w: TILE, h: TILE }, servo: { x: GX + TILE, y: GY, w: TILE, h: TILE },
+  pi: { x: GX - TILE, y: GY - TILE, w: TILE, h: TILE }, chip: { x: GX + TILE, y: GY - TILE, w: TILE, h: TILE },
+  hand: { x: GX - TILE, y: GY + TILE, w: TILE, h: TILE }, printer: { x: GX + TILE, y: GY + TILE, w: TILE, h: TILE },
+};
+// how each tile unfolds: [beat, hinge] — hinge = edge of its parent it swings out from
+const UNFOLD = {
+  cobot: [8, "bottom"], bots: [8, "top"], arduino: [8, "right"], servo: [8, "left"],
+  pi: [9, "right"], chip: [9, "left"], hand: [9, "right"], printer: [9, "left"],
+};
+const BENTO = {
+  carline: { x: 40, y: 140, w: 640, h: 520 }, cobot: { x: 698, y: 140, w: 342, h: 520 },
+  arduino: { x: 40, y: 678, w: 342, h: 420 }, bots: { x: 400, y: 678, w: 640, h: 640 },
+  servo: { x: 40, y: 1116, w: 342, h: 502 }, pi: { x: 400, y: 1336, w: 310, h: 282 }, chip: { x: 728, y: 1336, w: 312, h: 282 },
+  hand: { x: 40, y: 1636, w: 500, h: 244 }, printer: { x: 558, y: 1636, w: 482, h: 244 },
+};
+const BAR = { x: 120, y: 1540, w: 840, h: 132, r: 66 };
+const KNOB_A = BAR.x + 90, KNOB_B = BAR.x + BAR.w - 90, KNOB_Y = BAR.y + BAR.h / 2;
+const PHONE = { x: 337, y: 1074, w: 406, h: 722 };          // screen rect (9:16), bezel grows around it
+const WIN = { x: 60, y: 140, w: 960, h: 770 };
+const TAB = { x: 200, y: 156, w: 380, h: 44 };
+const FRAME_R = { x: 240, y: 520, w: 600, h: 840 };
+
+// =====================================================================================
+// Cursor path: [beat, x, y]; clicks: beats where it presses
+// =====================================================================================
+const CUR = [[0, 1180, 2050], [1.6, 1180, 2050], [3.4, 690, 1000], [4.6, 700, 1010], [5.0, 760, 1400], [10.4, 760, 1400], [10.9, 760, 1060],
+  [15.6, 760, 1060], [15.9, 265, 1606], [16.6, 265, 1606], [17.0, KNOB_A + 12, KNOB_Y + 16], [18.8, KNOB_B + 12, KNOB_Y + 16],
+  [19.6, KNOB_B + 40, KNOB_Y + 60], [26.6, 760, 1700], [29.6, 560, 1420], [30.9, 560, 1420], [31.9, TAB.x + 200, TAB.y + 30], [32.3, TAB.x + 200, TAB.y + 30],
+  [33.0, 900, 900], [33.6, 300, 1000], [34.0, 300, 1000], [34.6, 560, 1130], [35.0, 560, 1130], [36.6, 560, 1300], [37.2, 560, 1300],
+  [38.4, 900, 1560], [44.6, 900, 1560], [45.6, 760, 1050], [47.4, 760, 1050], [48.6, 1180, 2050], [54, 1180, 2050]];
+const CLICKS = [4, 11, 16, 34, 35, 37, 46];
+function cursorAt(t) {
+  const b = t / BEAT;
+  let i = 0; while (i < CUR.length - 2 && b > CUR[i + 1][0]) i++;
+  const [b0, x0, y0] = CUR[i], [b1, x1, y1] = CUR[i + 1];
+  const k = easeInOut((b - b0) / Math.max(1e-6, b1 - b0));
+  let pressed = 0;
+  for (const c of CLICKS) pressed = Math.max(pressed, 1 - Math.abs(b - c) / 0.25);
+  if (b >= 17 && b < 19) pressed = 1;                          // dragging the slider
+  if (b >= 30 && b < 32.2) pressed = 1;                        // long-press + drag the wallpaper
+  const ring = b >= 30 && b < 31 ? easeOut(b - 30) : 0;
+  return { x: lerp(x0, x1, k), y: lerp(y0, y1, k), pressed: clamp(pressed), ring };
+}
+
+// =====================================================================================
+// Camera: screen-studio zooms, one spring per change for scale and focus point
+// =====================================================================================
+function camAt(t) {
+  const S = [[bt(29.4), 1.16], [bt(32.2), 1.1], [bt(37.6), 1.0], [bt(44.2), 1.12], [bt(47.6), 1.0]];
+  const X = [[bt(29.4), 560], [bt(32.2), 540], [bt(37.6), 540], [bt(44.2), 540], [bt(47.6), 540]];
+  const Y = [[bt(29.4), 1000], [bt(32.2), 760], [bt(37.6), 960], [bt(44.2), 940], [bt(47.6), 960]];
+  const s = springs(t, 1, S, 1.6, 0.85), fx = springs(t, 540, X, 1.6, 0.85), fy = springs(t, 960, Y, 1.6, 0.85);
+  return { s, x: W / 2 - fx * s, y: H / 2 - fy * s };
+}
+
+// =====================================================================================
+// Scenes
+// =====================================================================================
+function sceneOpen(t, b) {
+  let html = "";
+  // beat 1: squeeze into the period; beat 51: spring back out (handled in sceneReturn)
+  const f = 1 - easeInOut(prog(b, 1, 1.85));
+  const dotGrow = springStep(t - bt(2), 2.4, 0.66);           // dot -> pill
+  const toCircle = easeInOut(prog(b, 4.25, 4.8));              // pill -> iris housing
+  const pillW = lerp(WM.dot, 820, dotGrow), pillH = lerp(WM.dot, 176, dotGrow);
+  const circD = 640;
+  const w = lerp(pillW, circD, toCircle), h = lerp(pillH, circD, toCircle);
+  const cx = lerp(WM.dotCx, W / 2, springStep(t - bt(2), 2.0, 0.8)), cy = lerp(WM.dotCy, 960, springStep(t - bt(2), 2.0, 0.8));
+  const radius = lerp(lerp(WM.dot * 0.14, pillH / 2, dotGrow), circD / 2, toCircle);
+  if (b < 2) html += wordmark(f);
+  // iris phase
+  const close = easeIn(prog(b, 4.8, 5.15));                    // blades close over the label
+  const open = springStep(t - bt(6), 3.4, 0.7);                 // snap open onto the photo
+  const aperture = b < 6 ? 1 - close : open;
+  const photoOn = b >= 6;
+  // circle -> rounded square -> tile (beat 7)
+  const sq = springStep(t - bt(7), 2.8, 0.75);
+  if (b < 7.0 || !photoOn) {
+    html += box({ x: cx - w / 2, y: cy - h / 2, w, h }, `border-radius:${radius}px;background:#0B0B0C`);
+    if (photoOn) {
+      const p = { ...cover("carline", W / 2 - circD / 2, 960 - circD / 2, circD, circD), clip: { cx: W / 2, cy: 960, r: circD / 2 } };
+      html += photo([p]);
+    } else if (b >= 3 && b < 5.2) {
+      html += rise(cx - 360, cy - 44, 720, 88, "niche jobs, found.", springStep(t - bt(3), 3, 0.72), "font:600 64px Geist;color:#F4F1EA;text-align:center;line-height:88px;letter-spacing:-0.01em");
+    }
+    if (b >= 4.8) html += iris(W / 2, 960, circD / 2, aperture, 0.3 + (1 - aperture) * 0.9);
+  }
+  return { html, sq };
+}
+
+function tileRect(name, t, b) {
+  // tile position across grid unfold (8-9), bento reflow (10), zoom into bots (11 -> 12)
+  let r = GRID[name];
+  if (name === "carline") {
+    const sq = springStep(t - bt(7), 2.8, 0.75);
+    r = lerpRect({ x: W / 2 - 320, y: 640, w: 640, h: 640 }, GRID.carline, sq);
+  }
+  const reflow = springStep(t - bt(10), 2.6, 0.72);
+  r = lerpRect(r, BENTO[name], reflow);
+  // zoom: map bots tile to fill the frame (height-match, uniform)
+  const z = easeInOut(prog(t, bt(11.15), bt(12)));
+  if (z > 0) {
+    const B = lerpRect(GRID.bots, BENTO.bots, reflow);
+    const s = lerp(1, H / B.h, z), bcx = B.x + B.w / 2, bcy = B.y + B.h / 2;
+    r = { x: (r.x - bcx) * s + lerp(bcx, W / 2, z), y: (r.y - bcy) * s + lerp(bcy, H / 2, z), w: r.w * s, h: r.h * s };
+  }
+  return r;
+}
+function sceneGrid(t, b) {
+  let html = "";
+  const radius = (n) => {
+    if (n === "carline" && b < 8) return lerp(320, 30, springStep(t - bt(7), 2.8, 0.75));
+    return lerp(0, 26, springStep(t - bt(10), 2.6, 0.72)) * (1 - easeInOut(prog(t, bt(11.15), bt(12))));
+  };
+  for (const name of Object.keys(GRID)) {
+    const r = tileRect(name, t, b);
+    let unfold = 1, hinge = null;
+    if (UNFOLD[name]) {
+      const [ub, hg] = UNFOLD[name];
+      unfold = springStep(t - bt(ub), 3.0, 0.78); hinge = hg;
+      if (unfold <= 0.001) continue;
+    }
+    let fr = { ...r };
+    if (hinge && unfold < 1) {                                 // paper fold: scale out of the shared edge
+      if (hinge === "bottom") { fr.h = r.h * unfold; fr.y = r.y + r.h - fr.h; }
+      if (hinge === "top") { fr.h = r.h * unfold; }
+      if (hinge === "right") { fr.w = r.w * unfold; fr.x = r.x + r.w - fr.w; }
+      if (hinge === "left") { fr.w = r.w * unfold; }
+    }
+    const id = `t${uid++}`;
+    const img = cover(name, r.x, r.y, r.w, r.h);
+    const shade = hinge && unfold < 1 ? (1 - unfold) * 0.45 : 0;  // the fold catches shadow while it opens
+    html += `<svg class="abs" style="left:0;top:0;overflow:visible" width="${W}" height="${H}">
+      <clipPath id="${id}"><rect x="${fr.x}" y="${fr.y}" width="${Math.max(0, fr.w)}" height="${Math.max(0, fr.h)}" rx="${radius(name)}"/></clipPath>
+      <g clip-path="url(#${id})"><image href="${img.href}" x="${img.x}" y="${img.y}" width="${img.w}" height="${img.h}" preserveAspectRatio="none"/>
+      <rect x="${fr.x}" y="${fr.y}" width="${Math.max(0, fr.w)}" height="${Math.max(0, fr.h)}" fill="#000" opacity="${shade}"/></g></svg>`;
+  }
+  return html;
+}
+
+function sceneGlass(t, b) {
+  // full-frame delivery robots; glass word -> droplet -> toolbar -> slider -> orb -> lock screen
+  const day = FULL("bots"), gold = FULL("botsGold");
+  const drag = easeInOut(prog(t, bt(17), bt(18.8)));
+  const knobX = lerp(KNOB_A, KNOB_B, drag);
+  const lit = [day, { ...gold, clip: { x: 0, y: 0, w: W * drag, h: H } }];
+  const scene = b >= 18.8 ? [gold] : lit;
+  let html = photo(scene);
+
+  // 13: glass word pops; 14: melts into a droplet
+  const melt = easeInOut(prog(b, 14, 14.9));
+  const dropC = { x: lerp(540, 540, melt), y: lerp(760, 1180, melt) };
+  if (b >= 13 && b < 14.95) {
+    if (melt <= 0) html += glassWord("Find", "w", 540, 640, bt(13), t, scene, 6);
+    else {
+      // goo: letters slide into the droplet; blur + threshold, glass composited atop so it stays sharp
+      const keys = "Find".split("").map((c) => "w" + c);
+      const total = keys.reduce((a, k) => a + GLYPH[k].adv, 0) + 18;
+      let x = 540 - total / 2, shapes = "";
+      keys.forEach((k) => {
+        const G = GLYPH[k], s = 1 - melt * 0.85;
+        const gx = lerp(x - G.pad, dropC.x - G.w / 2, melt), gy = lerp(640 - G.pad, dropC.y - G.h * 0.55, melt);
+        shapes += `<image href="${G.mask}" x="${gx}" y="${gy}" width="${G.w}" height="${G.h}" transform="translate(${gx + G.w / 2} ${gy + G.h / 2}) scale(${s}) translate(${-gx - G.w / 2} ${-gy - G.h / 2})"/>`;
+        x += G.adv + 6;
+      });
+      const dr = 70 * melt;
+      const id = `goo${uid++}`, gid = `gl${uid}`;
+      html += `<svg class="abs" style="left:0;top:0" width="${W}" height="${H}"><defs>
+        <mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${H}"><g filter="url(#goo)">${shapes}<circle cx="${dropC.x}" cy="${dropC.y}" r="${dr}" fill="#fff"/></g></mask>
+        ${dispFilter(gid, rrectMap(400, 400, 200), W, H, 30)}</defs>
+        <g mask="url(#${id})"><g filter="url(#${gid})">${layerImgs(scene, 0, 0, gid)}</g><rect width="${W}" height="${H}" fill="#fff" opacity=".3"/></g></svg>`;
+    }
+  }
+  // 15: droplet stretches into the toolbar; 16: toolbar -> slider
+  if (b >= 14.95 && b < 19.6) {
+    const st = springStep(t - bt(14.95), 2.4, 0.7);
+    const rect = lerpRect({ x: dropC.x - 70, y: dropC.y - 70, w: 140, h: 140 }, BAR, st);
+    // after release (19) the bar collapses into the knob as the knob lifts away
+    const col = easeInOut(prog(b, 19, 19.55));
+    const bar = { x: lerp(rect.x, KNOB_B - 66, col), y: rect.y, w: lerp(rect.w, 132, col), h: rect.h };
+    html += glass(bar.x, bar.y, bar.w, bar.h, Math.min(bar.h, bar.w) / 2, scene, { strength: 70 });
+    const icons = ["adjust", "crop", "magic", "share"];
+    const iconsOut = easeInOut(prog(b, 16.05, 16.4));
+    if (b < 16.5) icons.forEach((ic, i) => {
+      const k = pop(t, bt(15.35) + i * 0.06) * (1 - iconsOut);
+      if (k > 0.01) html += `<div class="abs" style="left:${BAR.x + 145 + i * 183 - 30}px;top:${KNOB_Y - 30}px;width:60px;height:60px;transform:scale(${k})">${ICON[ic]}</div>`;
+    });
+    // track draws across, knob pops
+    if (b >= 16.2 && col < 1) {
+      const draw = easeOut(prog(b, 16.2, 16.8));
+      const tx0 = BAR.x + 60, tx1 = lerp(tx0, BAR.x + BAR.w - 60, draw);
+      html += `<div class="abs" style="left:${tx0}px;top:${KNOB_Y - 5}px;width:${Math.max(0, Math.min(knobX, tx1) - tx0)}px;height:10px;border-radius:5px;background:linear-gradient(90deg,#ffd27a,#ff9a4d)"></div>`;
+      html += `<div class="abs" style="left:${knobX}px;top:${KNOB_Y - 5}px;width:${Math.max(0, tx1 - knobX)}px;height:10px;border-radius:5px;background:rgba(255,255,255,.6)"></div>`;
+    }
+  }
+  // knob: white dot -> glass lens while held (17.8) -> lifts into an orb (19) -> photo inside (20) -> lock screen (21)
+  if (b >= 16.3 && b < 21.6) {
+    const kp = pop(t, bt(16.5));
+    const held = springStep(t - bt(17.7), 3, 0.55);
+    const lift = springStep(t - bt(19), 2.2, 0.72);
+    const expand = easeInOut(prog(b, 21, 21.55));
+    let r = lerp(lerp(48, 100, held), 300, lift);
+    let cx = lerp(knobX, 540, lift), cy = lerp(KNOB_Y, 860, lift);
+    const rect = lerpRect({ x: cx - r, y: cy - r, w: 2 * r, h: 2 * r }, { x: -6, y: -6, w: W + 12, h: H + 12 }, expand);
+    const rad = lerp(r, 0, expand);
+    if (b < 17.6) html += `<div class="abs" style="left:${knobX - 48 * kp}px;top:${KNOB_Y - 48 * kp}px;width:${96 * kp}px;height:${96 * kp}px;border-radius:50%;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.3)"></div>`;
+    else {
+      const inner = b >= 20 ? [{ ...cover("cobot", rect.x, rect.y, rect.w, rect.h), clip: { cx: rect.x + rect.w / 2, cy: rect.y + rect.h / 2, r: lerp(0, rect.w * 0.75, springStep(t - bt(20), 2.6, 0.8)) + expand * H } }] : [];
+      html += glass(rect.x, rect.y, rect.w, rect.h, rad, [...scene, ...inner], { strength: lerp(90, 40, lift), mag: lerp(1.35, 1, lift), tint: 0.05 });
+    }
+  }
+  if (b >= 21.55) html += lockScreen(t, b);
+  if (b >= 14 && b < 16.2) html += `<div class="abs" style="left:${W / 2 - 230}px;top:1400px;width:460px;height:0"></div>`;
+  if (b >= 17.2 && b < 19) {
+    html += glass(W / 2 - 230, 1380, 460, 104, 52, scene, { strength: 50, inner: `<div class="abs geist" style="inset:0;display:flex;align-items:center;justify-content:center;font:600 46px Geist;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35);transform:scale(${pop(t, bt(17.2))})">Golden hour · ${Math.round(drag * 100)}%</div>` }).replace('class="glass"', `class="glass" data-k="${pop(t, bt(17.2))}"`);
+  }
+  return html;
+}
+
+const ICON = {
+  adjust: `<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><circle cx="9" cy="7" r="2.4" fill="#fff"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="15" cy="17" r="2.4" fill="#fff"/></svg>`,
+  crop: `<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg>`,
+  magic: `<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M19 15l.8 1.7 1.7.8-1.7.8L19 20l-.8-1.7-1.7-.8 1.7-.8z"/></svg>`,
+  share: `<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 3v13"/><path d="M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>`,
+  prev: `<svg width="64" height="64" viewBox="0 0 24 24" fill="#fff"><path d="M11 6v12l-8-6zM20 6v12l-8-6z"/></svg>`,
+  play: `<svg width="80" height="80" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg>`,
+  next: `<svg width="64" height="64" viewBox="0 0 24 24" fill="#fff"><path d="M13 6v12l8-6zM4 6v12l8-6z"/></svg>`,
+};
+
+// Lock screen (frame coords). Drawn inside the phone transform during the pull-back.
+function lockScreen(t, b, island = true) {
+  const wall = FULL("cobot");
+  let html = photo([wall]);
+  html += `<div class="abs" style="left:0;top:0;width:${W}px;height:700px;background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,0))"></div>`;
+  html += rise(0, 190, W, 70, "Thursday, 23 October", springStep(t - bt(23), 3, 0.75), "font:600 52px Geist;color:#fff;text-align:center;line-height:70px");
+  html += glassWord("9:41", "c", 540, 270, bt(22), t, [wall], 4);
+  if (island) html += box({ x: 390, y: 46, w: 300, h: 92 }, "border-radius:46px;background:#000");
+  // home bar -> glass music player (24), controls (25)
+  const st = springStep(t - bt(24), 2.4, 0.72);
+  const bar = lerpRect({ x: 390, y: 1862, w: 300, h: 12 }, { x: 60, y: 1500, w: 960, h: 300 }, st);
+  if (b >= 24) html += glass(bar.x, bar.y, bar.w, bar.h, Math.min(bar.h / 2, 64), [wall], { strength: 60, inner:
+    st > 0.6 ? `<div class="abs" style="left:56px;top:40px;transform:scale(${pop(t, bt(24.4))});transform-origin:0 0;font:800 66px Archivo;font-stretch:125%;color:#fff">Find</div>
+      <div class="abs geist" style="left:56px;top:122px;transform:scale(${pop(t, bt(24.5))});transform-origin:0 0;font:500 34px Geist;color:rgba(255,255,255,.85)">CamouRoles · New Bass 02</div>
+      ${["prev", "play", "next"].map((ic, i) => `<div class="abs" style="left:${560 + i * 130}px;top:${i === 1 ? 108 : 116}px;transform:scale(${pop(t, bt(25) + i * 0.07)})">${ICON[ic]}</div>`).join("")}` : "" });
+  else html += box({ x: 390, y: 1862, w: 300, h: 12 }, "border-radius:6px;background:#fff");
+  return html;
+}
+
+function scenePhone(t, b) {
+  // 26: the lock screen pulls back into the phone; bezel grows out of the screen edge
+  const k = springStep(t - bt(26), 2.0, 0.85);
+  const s = lerp(1, PHONE.w / W, k), ox = lerp(0, PHONE.x, k), oy = lerp(0, PHONE.y, k);
+  const bezel = 16 * springStep(t - bt(26.3), 3, 0.7), rad = lerp(0, 58, k);
+  let html = "";
+  html += box({ x: ox - bezel, y: oy - bezel, w: W * s + 2 * bezel, h: H * s + 2 * bezel }, `border-radius:${rad + bezel}px;background:#0B0B0C;box-shadow:0 30px 70px rgba(0,0,0,${0.25 * k})`);
+  // island leaves the phone (27): drawn in stage space with goo
+  const islandOut = b >= 27;
+  html += `<div class="abs" style="left:${ox}px;top:${oy}px;width:${W * s}px;height:${H * s}px;border-radius:${rad}px;overflow:hidden">
+    <div class="abs" style="left:0;top:0;width:${W}px;height:${H}px;transform:scale(${s});transform-origin:0 0">${lockScreen(t, 30, !islandOut)}</div></div>`;
+  return { html, s, ox, oy };
+}
+
+function sceneStage(t, b) {
+  let html = "";
+  const ph = scenePhone(t, b);
+  // 27-28: Dynamic Island stretches like liquid, pinches off, flies up and grows into the Mac window
+  const isl = { x: ph.ox + 390 * ph.s, y: ph.oy + 46 * ph.s, w: 300 * ph.s, h: 92 * ph.s };
+  const stretch = easeInOut(prog(b, 27, 27.45));
+  const fly = easeInOut(prog(b, 27.45, 28.4));
+  const grow = springStep(t - bt(28.1), 2.4, 0.78);
+  const roll = easeInOut(prog(b, 29, 29.7));                    // window rolls up like a blind
+  // Safari window (under the black blind)
+  if (b >= 28.1) html += safari(t, b, grow, roll);
+  if (b < 29.7) {
+    const blobR = lerp(isl.h / 2, isl.h * 0.8, stretch);
+    const blob = { cx: isl.x + isl.w / 2, cy: lerp(isl.y + isl.h / 2, isl.y - 40, stretch) };
+    const target = { x: lerp(blob.cx - blobR, WIN.x, grow), y: lerp(lerp(blob.cy, 420, fly) - blobR, WIN.y, grow),
+      w: lerp(2 * blobR, WIN.w, grow), h: lerp(2 * blobR, WIN.h, grow) };
+    const blindH = target.h * (1 - roll);
+    const islandBody = `<rect x="${isl.x - stretch * 30}" y="${isl.y}" width="${isl.w + stretch * 60}" height="${isl.h}" rx="${isl.h / 2}" fill="#000"/>`;
+    const blobEl = `<rect x="${target.x}" y="${target.y}" width="${target.w}" height="${blindH}" rx="${lerp(blobR, 26, grow)}" fill="#0B0B0C"/>`;
+    html += `<svg class="abs" style="left:0;top:0" width="${W}" height="${H}"><g ${fly < 0.5 && b < 28.4 ? 'filter="url(#goo)"' : ""}>${islandBody}${blobEl}</g></svg>`;
+    if (roll > 0 && roll < 1) html += box({ x: target.x, y: target.y + blindH - 18, w: target.w, h: 26 }, "border-radius:13px;background:linear-gradient(180deg,#2a2a2e,#0B0B0C)");
+  } else {
+    html += box({ x: isl.x, y: isl.y, w: isl.w, h: isl.h }, `border-radius:${isl.h / 2}px;background:#000`);
+  }
+  html += ph.html.replace("</div></div>", "</div></div>");
+  // move phone html below the window: phone drawn first
+  html = ph.html + html.replace(ph.html, "");
+  // 30-32: long-press the wallpaper, drag it onto the tab, drop -> hero
+  if (b >= 30 && b < 32.6) {
+    const c = cursorAt(t);
+    const lift = easeOut(prog(b, 30.6, 31.0));
+    const land = easeInOut(prog(b, 32.0, 32.55));
+    const thumb = lerpRect({ x: ph.ox, y: ph.oy, w: W * ph.s, h: H * ph.s }, { x: c.x - 110, y: c.y - 195, w: 220, h: 391 }, lift);
+    const r = lerpRect(thumb, HERO(t, b), land);
+    if (b >= 30.6) {
+      const img = cover("cobot", r.x, r.y, r.w, r.h);
+      html += `<div class="abs" style="left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px;border-radius:${lerp(26, 20, land)}px;overflow:hidden;transform:rotate(${-4 * lift * (1 - land)}deg);box-shadow:0 24px 50px rgba(0,0,0,${0.35 * (1 - land)})">
+        <svg width="${r.w}" height="${r.h}"><image href="${img.href}" x="${img.x - r.x}" y="${img.y - r.y}" width="${img.w}" height="${img.h}" preserveAspectRatio="none"/></svg></div>`;
+    }
+  }
+  return html;
+}
+
+function HERO(t, b) { return { x: WIN.x + 40, y: WIN.y + 140, w: WIN.w - 80, h: 420 }; }
+
+function chip(x, y, label, sel, paint) {
+  const w = label.length * 22 + 64;
+  return `<div class="abs geist" style="left:${x}px;top:${y}px;width:${w}px;height:72px;border-radius:36px;border:3px solid #0B0B0C;overflow:hidden;box-sizing:border-box">
+    <div class="abs" style="left:0;top:0;height:100%;width:${paint * 100}%;background:#0B0B0C"></div>
+    <div class="abs" style="left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:600 32px Geist;color:#0B0B0C">${label}</div>
+    <div class="abs" style="left:0;top:0;height:100%;width:${paint * 100}%;overflow:hidden"><div style="width:${w - 6}px;height:66px;display:flex;align-items:center;justify-content:center;font:600 32px Geist;color:#fff">${label}</div></div></div>`;
+}
+function safari(t, b, grow, roll) {
+  const w = WIN;
+  let html = `<div class="abs" style="left:${w.x}px;top:${w.y}px;width:${w.w}px;height:${w.h}px;border-radius:26px;background:#fff;box-shadow:0 30px 70px rgba(0,0,0,.16);overflow:hidden">`;
+  html += `<div class="abs" style="left:0;top:0;width:100%;height:76px;background:#EDEAE4"></div>`;
+  html += ["#FF5F57", "#FEBC2E", "#28C840"].map((c, i) => `<div class="abs" style="left:${26 + i * 32}px;top:29px;width:18px;height:18px;border-radius:9px;background:${c}"></div>`).join("");
+  const hot = b >= 31.6 && b < 32.4;
+  html += `<div class="abs geist" style="left:${TAB.x - w.x}px;top:${TAB.y - w.y}px;width:${TAB.w}px;height:${TAB.h}px;border-radius:12px;background:${hot ? "#0B0B0C" : "#fff"};color:${hot ? "#fff" : "#0B0B0C"};font:600 24px/${TAB.h}px Geist;text-align:center">camouroles.pages.dev</div>`;
+  html += `<div class="abs geist" style="left:${TAB.x - w.x + TAB.w + 16}px;top:${TAB.y - w.y}px;width:200px;height:${TAB.h}px;border-radius:12px;background:rgba(0,0,0,.05);font:500 24px/${TAB.h}px Geist;text-align:center;color:#777">New Tab</div>`;
+  // page push (32): old page slides out left, landing page slides in from the right
+  const push = easeInOut(prog(b, 32.0, 32.5));
+  const scroll = easeInOut(prog(b, 33, 33.7)) * 260;
+  const old = `<div class="abs" style="left:${-push * w.w}px;top:76px;width:${w.w}px;height:${w.h - 76}px">
+      <div class="abs" style="left:40px;top:24px;width:880px;height:${w.h - 150}px;border-radius:22px;border:3px dashed ${hot ? "#0B0B0C" : "#CFCAC0"};box-sizing:border-box"></div>
+      <div class="abs" style="left:80px;top:60px;font:800 64px Archivo;font-stretch:125%;color:#0B0B0C">Find.</div>
+      <div class="abs geist" style="left:80px;top:150px;font:500 30px Geist;color:#777">Drop a wallpaper to make it your hero</div></div>`;
+  html += old;
+  if (b >= 32) {
+    const x0 = (1 - push) * w.w;
+    html += `<div class="abs" style="left:${x0}px;top:${76 - scroll}px;width:${w.w}px;height:2000px">${landing(t, b)}</div>`;
+  }
+  // nav Apply button (stays in the window chrome until it flies, 36)
+  if (b >= 32.3 && b < 36) html += `<div class="abs geist" style="left:${w.w - 170}px;top:${TAB.y - w.y - 2}px;width:140px;height:48px;border-radius:24px;background:#0B0B0C;color:#fff;font:600 24px/48px Geist;text-align:center;transform:scale(${pop(t, bt(32.3))})">Apply</div>`;
+  html += `</div>`;
+  // the black blind covering the window while it unrolls is drawn by sceneStage
+  return html;
+}
+function landing(t, b) {
+  // coordinates inside the page (window x, y+76)
+  const hero = { x: 40, y: 64, w: 880, h: 420 };
+  const card = { x: 40, y: 330, w: 880, h: 330 };
+  const toCard = springStep(t - bt(33), 2.4, 0.8);
+  const ph = lerpRect(hero, { x: card.x + 26, y: card.y + 26, w: 300, h: 278 }, toCard);
+  const border = 26 * toCard;
+  let html = "";
+  // the card's mat/border grows out of the photo's edge
+  if (toCard > 0) html += box({ x: ph.x - border, y: ph.y - border, w: lerp(ph.w + 2 * border, card.w, toCard), h: ph.h + 2 * border }, `border-radius:28px;background:#F4F1EA;box-shadow:inset 0 0 0 2px #E2DDD2`);
+  const img = cover("cobot", ph.x, ph.y, ph.w, ph.h);
+  html += `<div class="abs" style="left:${ph.x}px;top:${ph.y}px;width:${ph.w}px;height:${ph.h}px;border-radius:20px;overflow:hidden"><svg width="${ph.w}" height="${ph.h}"><image href="${img.href}" x="${img.x - ph.x}" y="${img.y - ph.y}" width="${img.w}" height="${img.h}" preserveAspectRatio="none"/></svg></div>`;
+  if (toCard < 0.4) html += rise(40, 510, 880, 90, "Find work that's weird.", springStep(t - bt(32.4), 3, 0.75), "font:800 64px Archivo;font-stretch:125%;color:#0B0B0C;line-height:90px");
+  const tx = card.x + 360;
+  html += rise(tx, card.y + 40, 520, 60, "Embedded Systems Engineer", springStep(t - bt(33.4), 3, 0.75), "font:700 34px Geist;color:#0B0B0C;line-height:60px;white-space:nowrap");
+  html += rise(tx, card.y + 104, 520, 50, "Raspberry Pi team · Pune", springStep(t - bt(33.55), 3, 0.75), "font:500 30px Geist;color:#777;line-height:50px");
+  html += rise(tx, card.y + 196, 520, 70, `<span style="display:inline-block;padding:0 22px;border-radius:30px;background:#DDF3E4;color:#137A3E">94% fit</span>`, springStep(t - bt(33.7), 3, 0.75), "font:700 34px/60px Geist");
+  // chips (34, 35)
+  if (b >= 33.6) {
+    const k = pop(t, bt(33.6));
+    html += `<div class="abs" style="left:40px;top:700px;transform:scale(${k});transform-origin:0 0">${chip(0, 0, "Remote", true, easeOut(prog(b, 34, 34.4)))}${chip(196, 0, "Pune", false, 0)}${chip(352, 0, "Bengaluru", false, 0)}</div>`;
+    html += `<div class="abs" style="left:40px;top:800px;transform:scale(${pop(t, bt(33.75))});transform-origin:0 0">${chip(0, 0, "0–1 yrs", false, 0)}${chip(220, 0, "1–3 yrs", true, easeOut(prog(b, 35, 35.4)))}${chip(440, 0, "3–6 yrs", false, 0)}</div>`;
+  }
+  return html;
+}
+
+// one black shape: Apply (flies in at 36) -> Applied -> Matching % -> Interview (route) -> Offer -> flood
+function sceneApply(t, b) {
+  const fly = easeInOut(prog(b, 36, 36.7));
+  const navBtn = { x: WIN.x + WIN.w - 170, y: TAB.y - 2, w: 140, h: 48 };
+  const big = { x: 180, y: 1210, w: 720, h: 110 };              // "Apply now" under the chips (stage coords)
+  let r = lerpRect(navBtn, big, fly);
+  const s1 = springStep(t - bt(37.6), 2.4, 0.75);
+  r = lerpRect(r, { x: 140, y: 860, w: 800, h: 200 }, s1);
+  const s3 = springStep(t - bt(40), 2.6, 0.78);
+  r = lerpRect(r, { x: 60, y: 780, w: 960, h: 360 }, s3);
+  const s4 = springStep(t - bt(41), 2.6, 0.78);
+  r = lerpRect(r, { x: 540 - 190, y: 960 - 190, w: 380, h: 380 }, s4);
+  let rad = lerp(lerp(lerp(24, 55, fly), 100, s1), 60, s3);
+  rad = lerp(rad, 190, s4);
+  // flood (42): overscale past the corners in ~0.3 s
+  const flood = easeIn(prog(b, 42, 42.6));
+  const fr = Math.hypot(W, H) * 0.62 * 2 * flood;
+  if (flood > 0) {
+    const cx = r.x + r.w / 2, cy = r.y + r.h / 2, d = r.w + fr;
+    r = { x: cx - d / 2, y: cy - d / 2, w: d, h: d }; rad = d / 2;
+  }
+  let html = box(r, `border-radius:${rad}px;background:#0B0B0C`);
+  const label = (txt, a, b2, size = 64) => rise(r.x, r.y + r.h / 2 - 50, r.w, 100, txt, springStep(t - bt(a), 3.2, 0.8) * (1 - easeIn(prog(b, b2 - 0.15, b2 + 0.2))), `font:700 ${size}px Geist;color:#fff;text-align:center;line-height:100px`);
+  if (b < 37.6) html += rise(r.x, r.y + r.h / 2 - 50, r.w, 100, b >= 36.4 ? "Apply now" : "Apply", 1, `font:600 ${lerp(24, 46, fly)}px Geist;color:#fff;text-align:center;line-height:100px`);
+  else if (b < 39) html += label("Applied ✓", 38, 39);
+  else if (b < 40) html += label(`Matching ${Math.round(94 * easeOut(prog(b, 39, 39.8)))}%`, 39.05, 40);
+  else if (b < 41) {
+    const route = easeInOut(prog(b, 40.15, 40.95));
+    const x0 = r.x + 90, x1 = r.x + r.w - 90, y = r.y + r.h * 0.68;
+    html += `<svg class="abs" style="left:0;top:0" width="${W}" height="${H}"><path d="M${x0},${y} C${x0 + 250},${y - 120} ${x1 - 250},${y + 120} ${x1},${y}" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="6" stroke-dasharray="14 14"/>
+      <circle cx="${lerp(x0, x1, route)}" cy="${y + Math.sin(route * Math.PI * 2) * -40}" r="18" fill="#fff"/><circle cx="${x1}" cy="${y}" r="12" fill="none" stroke="#fff" stroke-width="5"/></svg>`;
+    html += rise(r.x, r.y + 40, r.w, 100, "Interview booked", springStep(t - bt(40.1), 3.2, 0.8), "font:700 60px Geist;color:#fff;text-align:center;line-height:100px");
+  } else if (b < 42) html += label("Offer ✓", 41.1, 42.2, 72);
+  return html;
+}
+
+function sceneWall(t, b) {
+  // 44: black contracts into the frame on the wall; 46: iris opens onto the print; 47 closes; 48: flood; 49: contracts to the pill
+  const contract = springStep(t - bt(44), 2.2, 0.85);
+  const flood = easeIn(prog(b, 48, 48.6));
+  let html = `<canvas id="wallc" class="abs" width="${W}" height="${H}" style="left:0;top:0"></canvas>`;
+  const F = FRAME_R;
+  let outer = lerpRect({ x: -40, y: -40, w: W + 80, h: H + 80 }, F, contract);
+  const mol = 26, mat = 54;
+  const matK = springStep(t - bt(44.4), 3, 0.8);
+  const inner = { x: F.x + mol + mat, y: F.y + mol + mat, w: F.w - 2 * (mol + mat), h: 440 };
+  const icx = inner.x + inner.w / 2, icy = inner.y + inner.h / 2, R = Math.hypot(inner.w, inner.h) / 2;
+  if (flood <= 0) {
+    html += box(outer, `background:#141414;box-shadow:inset 0 0 0 3px #2a2a2a, 14px 30px 40px rgba(0,0,0,${0.22 * contract})`);
+    if (matK > 0) {
+      const m = lerpRect({ x: F.x + F.w / 2, y: F.y + F.h / 2, w: 0, h: 0 }, { x: F.x + mol, y: F.y + mol, w: F.w - 2 * mol, h: F.h - 2 * mol }, matK);
+      html += box(m, "background:#FBF9F4;box-shadow:inset 0 2px 6px rgba(0,0,0,.18)");
+      const pic = { ...cover("pi", inner.x, inner.y, inner.w, inner.h), clip: inner };
+      html += photo([pic]);
+      // iris over the print: closed until 46, opens, closes at 47
+      const open = b < 47 ? springStep(t - bt(46), 3.2, 0.72) : 1 - easeIn(prog(b, 47, 47.35));
+      html += `<div class="mask" style="left:${inner.x}px;top:${inner.y}px;width:${inner.w}px;height:${inner.h}px"><div class="abs" style="left:${-inner.x}px;top:${-inner.y}px">${iris(icx, icy, R, open, 0.3 + (1 - open) * 0.9)}</div></div>`;
+      html += rise(inner.x, inner.y + inner.h + 30, inner.w, 70, "Offer ✓", springStep(t - bt(44.8), 3, 0.78), "font:800 56px Archivo;font-stretch:125%;color:#0B0B0C;line-height:70px");
+      html += rise(inner.x, inner.y + inner.h + 104, inner.w, 46, "Embedded Systems Engineer", springStep(t - bt(44.95), 3, 0.78), "font:600 30px Geist;color:#0B0B0C;line-height:46px");
+      html += rise(inner.x, inner.y + inner.h + 150, inner.w, 40, "found on CamouRoles", springStep(t - bt(45.1), 3, 0.78), "font:500 24px Geist;color:#7A746A;line-height:40px");
+    }
+    html += `<canvas id="shadowc" class="abs" width="${W}" height="${H}" style="left:0;top:0;mix-blend-mode:multiply;opacity:.5"></canvas>`;
+  } else {
+    // the (closed, black) print floods the frame, overscaled past the corners
+    const d = lerp(R * 2, Math.hypot(W, H) * 1.3, flood);
+    html += box({ x: icx - d / 2, y: icy - d / 2, w: d, h: d }, "border-radius:50%;background:#0B0B0C");
+  }
+  return html;
+}
+
+function sceneReturn(t, b) {
+  // 49: black contracts into the pill (revealing the canvas); 50: pill -> dot; 51: letters spring out
+  const c = easeInOut(prog(b, 49, 49.6));
+  const toDot = springStep(t - bt(50), 2.6, 0.8);
+  const out = springStep(t - bt(51), 2.4, 0.42);                // springs back with a little overshoot
+  let html = "";
+  if (b < 50) {
+    const r = lerpRect({ x: -400, y: -400, w: W + 800, h: H + 800 }, { x: 130, y: 872, w: 820, h: 176 }, c);
+    html += box(r, `border-radius:${lerp(0, 88, c)}px;background:#0B0B0C`);
+  } else {
+    const w = lerp(820, WM.dot, toDot), h = lerp(176, WM.dot, toDot);
+    const cx = lerp(540, WM.dotCx, toDot), cy = lerp(960, WM.dotCy, toDot);
+    html += box({ x: cx - w / 2, y: cy - h / 2, w, h }, `border-radius:${lerp(88, WM.dot * 0.14, toDot)}px;background:#0B0B0C`);
+    if (b >= 51) html += wordmark(out);
+  }
+  return html;
+}
+
+function wordmarkDot() { return box({ x: WM.dotX, y: WM.dotCy - WM.dot / 2, w: WM.dot, h: WM.dot }, `border-radius:${WM.dot * 0.14}px;background:#0B0B0C`); }
+
+// =====================================================================================
+// Frame
+// =====================================================================================
+async function seek(t) {
+  uid = 0;
+  const b = t / BEAT;
+  const cam = document.getElementById("cam");
+  const c = camAt(t);
+  cam.style.transform = `translate(${c.x}px,${c.y}px) scale(${c.s})`;
+  document.getElementById("frame").style.background = "#F4F1EA";
+  let html = GOO;
+  if (b < 1.85) html += wordmark(1 - easeInOut(prog(b, 1, 1.85))) + wordmarkDot();
+  else if (b < 7.0) html += sceneOpen(t, b).html;
+  else if (b < 12) html += sceneGrid(t, b);
+  else if (b < 26) html += sceneGlass(t, b);
+  else if (b < 36) html += sceneStage(t, b);
+  else if (b < 42.6) html += sceneStage(t, b) + sceneApply(t, b);
+  else if (b < 43.98) html += box({ x: -50, y: -50, w: W + 100, h: H + 100 }, "background:#0B0B0C");
+  else if (b < 49) html += sceneWall(t, b);
+  else html += sceneReturn(t, b);
+  if (b >= 1.6 && b < 2.0) html += "";
+  const cu = cursorAt(t);
+  html += cursorSVG(cu.x, cu.y, cu.pressed, cu.ring);
+  cam.innerHTML = html;
+  if (b >= 43.98 && b < 49) {
+    const vt = clamp(1.2 + (t - bt(44)), 0, WALL.duration - 0.05);
+    await seekVideo(WALL, vt);
+    document.getElementById("wallc")?.getContext("2d").drawImage(WALL, 0, 0, W, H);
+    document.getElementById("shadowc")?.getContext("2d").drawImage(WALL, 0, 0, W, H);
+  }
+  await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+}
+window.seek = seek;
+window.ready = loadAssets();
+</script>
+</body>
+</html>
