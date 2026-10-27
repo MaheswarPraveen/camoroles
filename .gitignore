@@ -42,6 +42,8 @@ Thumbs.db
 # Rendered marketing media (regenerate with the make_*.py scripts)
 marketing/**/*.mp4
 marketing/**/*.wav
+marketing/**/build/
+marketing/**/check/
 
 # Wrangler build/cache output
 .wrangler/
